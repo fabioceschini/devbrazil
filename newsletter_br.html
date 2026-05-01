@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novidades do App - MeuApp</title>
+    <style>
+        :root {
+            --azul-escuro: #2B579A;
+            --azul-medio: #2B579A;
+            --azul-claro: #3949ab;
+            --cinza-claro: #F0F0F0;
+            --cinza-medio: #d6d6d6;
+            --cinza-escuro: #595959;
+            --verde-claro: #e8f5e9;
+            --verde-escuro: #2e7d32;
+            --laranja-claro: #fff3e0;
+            --laranja-escuro: #ef6c00;
+            --branco: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* font-family: 'Calibri', Tahoma, Geneva, Verdana, sans-serif; */
+            font-family: 'Calibri', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--branco);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.0rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitulo {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 1rem;
+            padding: 0 1rem;
+        }
+        
+        .secao {
+            margin-bottom: 3rem;
+        }
+        
+        .secao-titulo {
+            color: var(--azul-escuro);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--azul-claro);
+        }
+        
+        /* Estilos para seção de versões */
+        .versao {
+            margin-bottom: 3rem;
+            border-left: 2px solid var(--cinza-medio);
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .versao::before {
+            margin-top: 0rem;
+            content: '';
+            position: absolute;
+            width: 3px;
+            height: 2px;
+            background-color: var(--cinza-medio);
+            border-radius: 10%;
+            left: 0px;
+            top: 10;
+        }
+
+        .versao::after {
+            margin-top: -0.9rem;
+            content: '';
+            position: absolute;
+            width: 5px;
+            height: 2px;
+            background-color: var(--cinza-medio);
+            border-radius: 10%;
+            left: -2px;
+            top: 1;
+        }  
+        
+        .versao-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .versao-numero {
+            font-size: 1.2rem;
+            color: var(--azul-escuro);
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        
+        .versao-data {
+            background-color: var(--cinza-claro);
+            color: var(--cinza-escuro);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .versao-titulo {
+            font-size: 1.0rem;
+            color: var(--cinza-escuro);
+            margin-bottom: 1rem;
+        }
+        
+        .alteracoes {
+            list-style-type: none;
+        }
+        
+        .alteracao-item {
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .alteracao-item::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--azul-medio);
+            font-weight: bold;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        .tag-novo {
+            background-color: var(--verde-claro);
+            color: var(--verde-escuro);
+        }
+        
+        .tag-correcao {
+            background-color: var(--laranja-claro);
+            color: var(--laranja-escuro);
+        }
+        
+        .tag-melhoria {
+            background-color: #e3f2fd;
+            color: #1565c0;
+        }
+        
+        /* Estilos para seção de vídeos */
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .video-card {
+            background-color: var(--cinza-claro);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-thumbnail {
+            position: relative;
+            height: 180px;
+            background-color: var(--azul-claro);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--branco);
+            font-size: 3rem;
+        }
+        
+        .video-thumbnail::after {
+            content: '▶';
+            position: absolute;
+            font-size: 2rem;
+        }
+        
+        .video-info {
+            padding: 1rem;
+        }
+        
+        .video-titulo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--azul-escuro);
+        }
+        
+        .video-data {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .video-descricao {
+            font-size: 0.9rem;
+            color: #444;
+        }       
+       
+        footer {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!--
+    <header>
+        <h1>Novidades do App</h1>
+        <p class="subtitulo">MeuApp - Fique por dentro das últimas atualizações e conteúdos</p>
+    </header>
+    -->
+    
+    <div class="container">
+        <section class="secao">
+            <h2 class="secao-titulo">Lançamento oficial na Microsoft Store</h2>
+            
+            <div class="versao">
+                <div class="versao-header">
+                    <h3 class="versao-numero">v1.0.0</h3>
+                    <span class="versao-data">1 de Maio de 2026</span>
+                </div>
+                <h4 class="versao-titulo">Bem-vindo à sua nova central financeira</h4>
+                <ul class="alteracoes">
+                    <li class="alteracao-item">É com muito orgulho que anunciamos a primeira versão da melhor ferramenta de engenharia financeira pessoal da Microsoft Store.</li>
+					<li class="alteracao-item">Criamos o dbMoney para ser a ferramenta mais rápida e segura do seu Windows. Explore os gráficos, organize seus fluxos e sinta a diferença de um software feito para quem busca clareza absoluta nos dados.</li>
+					<li class="alteracao-item">Sua jornada para a liberdade financeira começa agora.</li>					
+					
+					<!--
+					<li class="alteracao-item"><span class="tag tag-novo">Novo</span>Implementado sistema de alertas para variações de preço</li>
+                    <li class="alteracao-item"><span class="tag tag-melhoria">Melhoria</span>Aprimorada a visualização de gráficos com novas opções de período</li>
+                    <li class="alteracao-item"><span class="tag tag-correcao">Correção</span>Corrigido problema de atualização de dados em conexões instáveis</li>
+					-->					
+                </ul>
+            </div>
+        </section>
+        
+        <section class="secao">
+            <h2 class="secao-titulo">Novos Vídeos (em breve)</h2>
+            
+            <div class="videos-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail"></div>
+                    <div class="video-info">
+                        <h3 class="video-titulo">Visão geral</h3>
+                        <p class="video-data">Publicado em 1 de Maio de 2026</p>
+                        <p class="video-descricao">Um tour com uma visão rápida e exibição dos principais recursos do dbMoney.</p>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-thumbnail"></div>
+                    <div class="video-info">
+                        <h3 class="video-titulo">Recursos avançados</h3>
+                        <p class="video-data">Publicado em 1 de Maio de 2026</p>
+                        <p class="video-descricao">Aprenda de maneira detalhada a utilizar os principais recursos do dbMoney.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!--
+    <footer>
+        <p>&copy; 2025 DevBrazil. Todos os direitos reservados.</p>
+    </footer>
+    -->
+</body>
+</html>

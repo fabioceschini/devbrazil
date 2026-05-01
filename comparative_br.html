@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparativo de Versões - MeuApp</title>
+    <style>
+        :root {
+            --azul-escuro: #2B579A;
+            --azul-medio: #2B579A;
+            --azul-claro: #e6ebf7;
+            --cinza-claro: #F0F0F0;
+            --cinza-medio: #d6d6d6;
+            --cinza-escuro: #696969;
+            --branco: #ffffff;
+            --verde-claro: #e8f5e9;
+            --verde-escuro: #2e7d32;
+            --laranja-claro: #fff3e0;
+            --laranja-escuro: #ef6c00;
+            --vermelho-claro: #f5e1e1;
+			--vermelho-escuro: #7a1a1a;
+			--amarelo-claro: #fff3e0;
+			--amarelo-escuro: #ad8202;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Calibri', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--branco);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.0rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitulo {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 1rem auto;
+            padding: 0 1rem auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .comparativo {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+        
+        .plano {
+            flex: 1;
+            min-width: 300px;
+            width: calc(50% - 1rem);
+            max-width: calc(50% - 1rem);
+            background-color: var(--branco);
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .plano:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .plano-header {
+            padding: 0.5rem;
+            text-align: center;
+        }
+        
+        .plano-basic .plano-header {
+            background-color: var(--cinza-claro);
+            color: var(--cinza-escuro);
+        }
+        
+        .plano-premium .plano-header {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+        }
+        
+        .plano-titulo {
+            font-size: 1.6rem;
+            margin-top: 0.2rem;
+            margin-bottom: 0rem;
+            font-weight: bold;
+        }
+        
+        .plano-preco {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+        
+        .plano-periodo {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .plano-descricao {
+            font-size: 0.9rem;
+            margin-top: 0.0rem;
+            margin-bottom: 0.5rem;
+            padding: 0 0rem;
+        }
+        
+        .plano-recursos {
+            padding: 1.5rem;
+        }
+        
+        .recursos-titulo {
+            font-size: 1.2rem;
+            color: var(--azul-escuro);
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--cinza-medio);
+        }
+        
+        .recursos-lista {
+            list-style-type: none;
+        }
+        
+        .recurso-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--cinza-claro);
+            display: flex;
+            align-items: center;
+        }
+        
+        .recurso-item:last-child {
+            border-bottom: none;
+        }
+        
+        .recurso-item::before {
+            content: '✓';
+            margin-right: 0.8rem;
+            color: var(--verde-escuro);
+            font-weight: bold;
+        }
+
+        .recurso-atencao::before {
+            content: '✓';
+            color: var(--amarelo-escuro);
+        }
+        
+        .recurso-indisponivel::before {
+            content: '✕';
+            color: var(--vermelho-escuro);
+        }
+        
+        .recurso-destaque {
+            font-weight: bold;
+            color: var(--azul-escuro);
+        }
+        
+        .recurso-limitado {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .recurso-limite {
+            background-color: var(--cinza-claro);
+            color: var(--cinza-escuro);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+
+        .recurso-limite-amarelo {
+            background-color: var(--amarelo-claro);
+            color: var(--amarelo-escuro);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }		
+        
+        .recurso-limite-azul {
+            background-color: var(--azul-claro);
+            color: var(--azul-escuro);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }				
+		
+        .plano-cta {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .btn-basic {
+            background-color: var(--cinza-claro);
+            color: var(--cinza-escuro);
+            border: 2px solid var(--cinza-escuro);
+        }
+        
+        .btn-basic:hover {
+            background-color: var(--cinza-escuro);
+            color: var(--cinza-claro);
+        }
+        
+        .btn-premium {
+            background-color: var(--azul-claro);
+            color: var(--azul-escuro);
+            border: 2px solid var(--azul-escuro);
+        }
+        
+        .btn-premium:hover {
+            background-color: var(--azul-escuro);
+			color: var(--azul-claro);
+        }
+        
+        .tag-popular {
+            background-color: var(--verde-escuro);
+            color: var(--branco);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+        
+        .comparativo-tabela {
+            width: 100%;
+            margin-top: 3rem;
+            border-collapse: collapse;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            table-layout: fixed;
+        }
+        
+        .comparativo-tabela th:first-child {
+            width: 40%;
+            text-align: left;
+        }
+        
+        .comparativo-tabela th:not(:first-child) {
+            width: 30%;
+        }
+        
+        .comparativo-tabela td:first-child {
+            text-align: left;
+        }
+        
+        .comparativo-tabela th,
+        .comparativo-tabela td {
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid var(--cinza-claro);
+        }
+        
+        .comparativo-tabela th {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            font-weight: bold;
+        }
+        
+        .comparativo-tabela tr:nth-child(even) {
+            background-color: var(--cinza-claro);
+        }
+        
+        .comparativo-tabela tr:hover {
+            background-color: rgba(43, 87, 154, 0.05);
+        }
+        
+        .comparativo-tabela .categoria {
+            background-color: var(--cinza-medio);
+            font-weight: bold;
+            text-align: left;
+        }
+        
+        .sim {
+            color: var(--verde-escuro);
+            font-weight: bold;
+        }
+        
+        .nao {
+            color: var(--cinza-escuro);
+        }
+        
+        .limitado {
+            color: var(--laranja-escuro);
+        }
+        
+        footer {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .comparativo {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .plano {
+                width: 100%;
+                max-width: 100%;
+                margin-bottom: 2rem;
+            }
+            
+            .comparativo-tabela {
+                font-size: 0.9rem;
+            }
+            
+            .comparativo-tabela th,
+            .comparativo-tabela td {
+                padding: 0.8rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!--
+    <header>
+        <h1>Comparativo de Versões</h1>
+        <p class="subtitulo">MeuApp - Escolha o plano ideal para suas necessidades</p>
+    </header>
+    -->
+    
+    <div class="container">
+        <div class="comparativo">
+            <div class="plano plano-basic">
+                <div class="plano-header">
+                    <h2 class="plano-titulo">Basic</h2>
+                    <!-- <div class="plano-preco">Grátis</div> -->
+                    <p class="plano-descricao">Acesso com alguns recursos limitados</p>
+                </div>
+                
+                <div class="plano-recursos">
+                    <h3 class="recursos-titulo">Recursos Incluídos</h3>
+                    <ul class="recursos-lista">
+                        <li class="recurso-item recurso-atencao"><div class="recurso-limitado">Contas<span class="recurso-limite-amarelo">2 contas</span></div></li>
+						<li class="recurso-item"><div class="recurso-limitado">Categorias e sub-categorias<span class="recurso-limite-azul">Imilitado</span></div></li>
+						<li class="recurso-item"><div class="recurso-limitado">Contatos<span class="recurso-limite-azul">Imilitado</span></div></li>
+						<li class="recurso-item"><div class="recurso-limitado">Marcadores<span class="recurso-limite-azul">Imilitado</span></div></li>
+						<li class="recurso-item recurso-atencao"><div class="recurso-limitado">Lançamentos manuais<span class="recurso-limite-amarelo">20 / mês</span></div></li>						
+						<li class="recurso-item recurso-atencao"><div class="recurso-limitado">Alteração em lote<span class="recurso-limite-amarelo">3 execuções</span></div></li>
+						<li class="recurso-item recurso-atencao"><div class="recurso-limitado">Múltiplos lançamentos<span class="recurso-limite-amarelo">3 execuções</span></div></li>
+						<li class="recurso-item recurso-atencao"><div class="recurso-limitado">Replicar/copiar lançamentos<span class="recurso-limite-amarelo">3 execuções</span></div></li>
+						<li class="recurso-item recurso-atencao"><div class="recurso-limitado">Unificar/conciliar lançamentos<span class="recurso-limite-amarelo">3 execuções</span></div></li>
+						<li class="recurso-item recurso-atencao"><div class="recurso-limitado">Desmembrar lançamentos<span class="recurso-limite-amarelo">3 execuções</span></div></li>
+						<li class="recurso-item recurso-atencao"><div class="recurso-limitado">Importação de extrato<span class="recurso-limite-amarelo">3 importações</span></div></li>
+						<li class="recurso-item"><div class="recurso-limitado">Dashboards<span class="recurso-limite-azul">Imilitado</span></div></li>
+						<li class="recurso-item recurso-atencao"><div class="recurso-limitado">Exportar para Excel<span class="recurso-limite-amarelo">5 exportações</span></div></li>
+						<li class="recurso-item recurso-atencao"><div class="recurso-limitado">Exportar para HTML<span class="recurso-limite-amarelo">5 exportações</span></div></li>
+						<li class="recurso-item"><div class="recurso-limitado">Personalização das telas<span class="recurso-limite-azul">Imilitado</span></div></li>
+						<li class="recurso-item"><div class="recurso-limitado">Backup automático<span class="recurso-limite-azul">Configurável</span></div></li>
+						<li class="recurso-item">Suporte por e-mail</li>
+                        <li class="recurso-item recurso-indisponivel">Suporte prioritário</li>
+                    </ul>
+                </div>
+                
+                <div class="plano-cta">
+                    <a href="#" class="btn btn-basic">Gratuito</a>
+                </div>
+            </div>
+            
+            <div class="plano plano-premium">
+                <!-- <div class="tag-popular">Popular</div> -->
+                <div class="plano-header">
+                    <h2 class="plano-titulo">Premium</h2>
+                    <!-- <div class="plano-preco">R$ 29,90</div> -->
+                    <p class="plano-descricao">Acesso completo a todos os recursos</p>
+                </div>
+                
+                <div class="plano-recursos">
+                    <h3 class="recursos-titulo">Recursos Incluídos</h3>
+                    <ul class="recursos-lista">
+                        <li class="recurso-item"><div class="recurso-limitado">Contas<span class="recurso-limite-azul">Ilimitado</span></div></li>
+						<li class="recurso-item"><div class="recurso-limitado">Categorias e sub-categorias<span class="recurso-limite-azul">Ilimitado</span></div></li>
+						<li class="recurso-item"><div class="recurso-limitado">Contatos<span class="recurso-limite-azul">Ilimitado</span></div></li>
+						<li class="recurso-item"><div class="recurso-limitado">Marcadores<span class="recurso-limite-azul">Ilimitado</span></div></li>
+						<li class="recurso-item"><div class="recurso-limitado">Lançamentos manuais<span class="recurso-limite-azul">Ilimitado</span></div></li>
+						<li class="recurso-item"><div class="recurso-limitado">Alteração em lote<span class="recurso-limite-azul">Ilimitado</span></div></li>
+						<li class="recurso-item"><div class="recurso-limitado">Múltiplos lançamentos<span class="recurso-limite-azul">Ilimitado</span></div></li>
+						<li class="recurso-item"><div class="recurso-limitado">Replicar/copiar lançamentos<span class="recurso-limite-azul">Ilimitado</span></div></li>
+						<li class="recurso-item"><div class="recurso-limitado">Unificar/conciliar lançamentos<span class="recurso-limite-azul">Ilimitado</span></div></li>
+						<li class="recurso-item"><div class="recurso-limitado">Desmembrar lançamentos<span class="recurso-limite-azul">Ilimitado</span></div></li>
+						<li class="recurso-item"><div class="recurso-limitado">Importação de extrato<span class="recurso-limite-azul">Ilimitado</span></div></li>
+						<li class="recurso-item"><div class="recurso-limitado">Dashboards<span class="recurso-limite-azul">Imilitado</span></div></li>
+						<li class="recurso-item"><div class="recurso-limitado">Exportar para Excel<span class="recurso-limite-azul">Ilimitado</span></div></li>
+						<li class="recurso-item"><div class="recurso-limitado">Exportar para HTML<span class="recurso-limite-azul">Ilimitado</span></div></li>
+						<li class="recurso-item"><div class="recurso-limitado">Personalização das telas<span class="recurso-limite-azul">Imilitado</span></div></li>
+                        <li class="recurso-item"><div class="recurso-limitado">Backup automático<span class="recurso-limite-azul">Configurável</span></div></li>
+						<li class="recurso-item">Suporte por e-mail</li>
+                        <li class="recurso-item">Suporte prioritário</li>
+                    </ul>
+                </div>
+                
+                <div class="plano-cta">
+                    <a href="#" class="btn btn-premium">Consultar</a>
+                </div>
+            </div>
+        </div>    
+    </div>
+    
+    <!--
+    <footer>
+        <p>© 2025 DevBrazil. Todos os direitos reservados.</p>
+    </footer>
+    -->
+</body>
+</html>
