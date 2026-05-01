@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevBrazil</title>
+    <style>
+        :root {
+            --verde-dev: #1b845b;
+            --azul-dbmoney: #004a99;
+            --bg-light: #f4f7f6;
+            --text-dark: #333;
+        }
+
+        body {
+            font-family: 'Bahnschrift', 'Segoe UI', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        header {
+            background: #fff;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .brand-name {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--verde-dev);
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .hero {
+            padding: 80px 5%;
+            text-align: center;
+            background: linear-gradient(135deg, #fff 0%, #e6f2ed 100%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--verde-dev);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: #fff;
+            margin: 50px 5%;
+            padding: 40px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-left: 8px solid var(--azul-dbmoney);
+        }
+
+        .product-info h2 {
+            color: var(--azul-dbmoney);
+            font-size: 2rem;
+            margin-top: 0;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .btn-download {
+            display: inline-block;
+            background: var(--azul-dbmoney);
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 25px;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            background: #003366;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 40px 5%;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .product-card { flex-direction: column; text-align: center; }
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <!-- Substitua pelo caminho da sua imagem Logo3.png -->
+            <img src="Logo3.png" alt="DevBrazil Logo" class="logo-img">
+            <span class="brand-name">DEVBRAZIL</span>
+        </div>
+        <nav>
+            <a href="#empresa">Sobre</a>
+            <a href="#dbmoney">Produtos</a>
+            <a href="mailto:contato@devbrazil.com">Contato</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="empresa">
+        <h1>Engenharia de Software de Alta Performance</h1>
+        <p>Com mais de 23 anos de experiência em sistemas críticos, a DevBrazil combina solidez técnica com inovação para criar soluções desktop que respeitam sua privacidade e produtividade.</p>
+    </section>
+
+    <section class="product-card" id="dbmoney">
+        <div style="flex: 1;">
+            <!-- Substitua pelo caminho da sua imagem OneMoney3...png -->
+            <img src="DevBrazil_titulo.png" alt="dbMoney Icon" style="width: 150px; display: block; margin: 0 auto;">
+        </div>
+        <div class="product-info" style="flex: 2;">
+            <h2>dbMoney</h2>
+            <p><strong>Domine suas finanças com poder nativo.</strong> O dbMoney é um software de gestão financeira pessoal para Windows que prioriza o que realmente importa: velocidade e controle total dos dados.</p>
+            
+            <div class="features">
+                <div class="feature-item">
+                    <strong>🛡️ Privacidade Total</strong><br>
+                    Seus dados permanecem no seu computador. Sem nuvem, sem exposição.
+                </div>
+                <div class="feature-item">
+                    <strong>⚡ Performance Delphi</strong><br>
+                    Processamento instantâneo de milhares de registros com tecnologia VCL.
+                </div>
+                <div class="feature-item">
+                    <strong>📊 Análise Profissional</strong><br>
+                    Gráficos avançados e grids potentes para uma visão clara do seu patrimônio.
+                </div>
+            </div>
+
+            <a href="#" class="btn-download">Disponível na Microsoft Store</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 DevBrazil. Todos os direitos reservados.</p>
+        <!-- <p><small>Sistemas Analíticos | Delphi & SQL Experts</small></p> -->
+    </footer>
+
+</body>
+</html>
