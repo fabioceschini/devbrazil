@@ -178,11 +178,21 @@
 		.icon-red { color: #d32f2f; margin-right: 10px; font-size: 1.8rem; }
 		.icon-purple { color: var(--roxo-dbradio); margin-right: 10px; font-size: 1.8rem; }
 
-		.badge-blue   { background: #E8EDF2; color: var(--azul-dbmoney); margin-left: 5px; margin-bottom: 0px; padding: 8px 12px; border-radius: 10px; font-size: 0.85rem; font-weight: bold; }
-		.badge-red    { background: #FFE4F1; color: #A75052;             margin-left: 5px; margin-bottom: 0px; padding: 8px 12px; border-radius: 10px; font-size: 0.85rem; font-weight: bold; }
-		.badge-yellow { background: #FDF4D1; color: #BC8D00;             margin-left: 5px; margin-bottom: 0px; padding: 8px 12px; border-radius: 10px; font-size: 0.85rem; font-weight: bold; }
-		.badge-purple { background: #f3e5f5; color: var(--roxo-dbradio); margin-left: 5px; margin-bottom: 0px; padding: 8px 12px; border-radius: 10px; font-size: 0.85rem; font-weight: bold; }		
-		.badge-gray   { background: #F0F0F0; color: #8E8E8E;             margin-left: 5px; margin-bottom: 0px; padding: 8px 12px; border-radius: 10px; font-size: 0.85rem; font-weight: bold; }
+		.product-info-footer {
+			display: block;
+			align-items: center;
+			gap: 10px;
+			flex-wrap: wrap; /* Evita que os itens fiquem espremidos na mesma linha */
+			margin-top: 15px;
+			font-size: 0.9rem;
+			color: #666;
+		}
+
+		.badge-blue   { background: #E8EDF2; color: var(--azul-dbmoney); margin-left: 5px; margin-bottom: 0px; padding: 7px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1; }
+		.badge-red    { background: #FFE4F1; color: #A75052;             margin-left: 5px; margin-bottom: 0px; padding: 7px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1; }
+		.badge-yellow { background: #FDF4D1; color: #BC8D00;             margin-left: 5px; margin-bottom: 0px; padding: 7px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1; }
+		.badge-purple { background: #f3e5f5; color: var(--roxo-dbradio); margin-left: 5px; margin-bottom: 0px; padding: 7px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1; }
+		.badge-gray   { background: #F0F0F0; color: #8E8E8E;             margin-left: 5px; margin-bottom: 0px; padding: 7px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1; }
 		
         .dbmoney-intro { display: flex; align-items: center; gap: 30px; margin-bottom: 10px; }
         .dbmoney-intro img { width: 96px; height: auto; }
@@ -403,7 +413,52 @@
         
         .btn-send:hover {
             background-color: #146645;
-        }		
+        }
+		
+/* Container da grade de idiomas */
+.lang-grid-status {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+/* Item de idioma individual */
+.lang-status-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.90rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    background: #f9f9f9;
+    padding: 6px 12px;
+    border-radius: 15px;
+    border: 1px solid #eee;
+}
+
+/* Tamanho padronizado para mini-bandeiras */
+.lang-status-item img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+/* Estilo discreto para idiomas que estão "Em breve" */
+.lang-status-item.coming-soon {
+    background: #f0f0f0;
+    color: #888;
+    border-style: dashed; /* Borda pontilhada para indicar que está por vir */
+}
+
+/* Nova classe para controlar o alinhamento em formato Flex */
+.product-title-flex {
+    display: flex;
+    align-items: center;       /* Centraliza o selo verticalmente em relação ao texto "dbPDF" */
+    justify-content: left;     /* Centraliza todo o bloco (selo + texto) no meio da tela/card */	
+    gap: 10px;                 /* Dá um espaçamento horizontal de 10px entre o selo e o texto */
+}
 
         /* --- MEDIA QUERIES --- */
         @media (max-width: 768px) {
@@ -437,12 +492,21 @@
 			.gallery-title-red    { flex-direction: column; text-align: center; gap: 20px; }
 			.gallery-title-yellow { flex-direction: column; text-align: center; gap: 20px; }
 			.gallery-title-purple { flex-direction: column; text-align: center; gap: 20px; }			
-			
-			.badge-blue   { font-size: 0.70rem; margin-left: 1px; margin-top: 5px; padding: 8px 8px; width: 100%; justify-content: center; }
-			.badge-red    { font-size: 0.70rem; margin-left: 1px; margin-top: 5px; padding: 8px 8px; width: 100%; justify-content: center; }
-			.badge-yellow { font-size: 0.70rem; margin-left: 1px; margin-top: 5px; padding: 8px 8px; width: 100%; justify-content: center; }
-			.badge-purple { font-size: 0.70rem; margin-left: 1px; margin-top: 5px; padding: 8px 8px; width: 100%; justify-content: center; }			
-			.badge-gray   { font-size: 0.70rem; margin-left: 1px; margin-top: 5px; padding: 8px 8px; width: 100%; justify-content: center; }
+
+			.product-info-footer {
+				flex-direction: column; /* Transforma a linha em coluna no celular */
+				align-items: center;    /* Centraliza os itens verticalmente */
+				text-align: center;
+				gap: 8px;               /* Dá um espaçamento saudável entre as linhas */
+			}
+
+			/*
+			.badge-blue   { font-size: 0.70rem; margin-top: 5px; padding: 8px 8px; width: 100%; justify-content: center; }
+			.badge-red    { font-size: 0.70rem; margin-top: 5px; padding: 8px 8px; width: 100%; justify-content: center; }
+			.badge-yellow { font-size: 0.70rem; margin-top: 5px; padding: 8px 8px; width: 100%; justify-content: center; }
+			.badge-purple { font-size: 0.70rem; margin-top: 5px; padding: 8px 8px; width: 100%; justify-content: center; }			
+			.badge-gray   { font-size: 0.70rem; margin-top: 5px; padding: 8px 8px; width: 100%; justify-content: center; }
+			*/
             
             .dbmoney-intro { flex-direction: column; text-align: center; gap: 20px; }			
             .dbmoney-intro img { width: 100px; }
@@ -461,6 +525,19 @@
 				margin-top: 10px;
 			}
 			
+			.lang-grid-status {
+				justify-content: center; /* Centraliza no celular igual aos outros elementos */
+				gap: 10px;
+			}
+			.lang-status-item {
+				font-size: 0.85rem;
+				padding: 5px 10px;
+			}
+			
+			.product-title-flex {
+				flex-direction: column; /* Transforma a linha em coluna, jogando o selo para baixo/cima */
+				gap: 5px;               /* Diminui um pouco o espaço para ficar mais harmônico no celular */
+			}			
         }
     </style>
 </head>
@@ -750,11 +827,24 @@
             </tbody>
         </table>
     </div>
-	<br>
-	<div class="product-info-footer" style="text-align: center; margin-top: 10px;">	
-		<span class="badge-blue"><a data-pt="Português" data-en="Portuguese" data-es="Portugués"></a>&nbsp;&nbsp;<img src="images/check-12.png" alt="Screen 01" align="center"></span>
-		<span class="badge-gray"><a data-pt="Inglês"    data-en="English"    data-es="Inglés"   ></a>&nbsp;&nbsp;<img src="images/load.gif"     alt="Screen 01" align="center" width="12" height="12"></span>
-		<span class="badge-gray"><a data-pt="Espanhol"  data-en="Spanish"    data-es="Español"  ></a>&nbsp;&nbsp;<img src="images/load.gif"     alt="Screen 01" align="center" width="12" height="12"></span>		
+	
+	<h3 class="gallery-title" data-pt="Idiomas disponíveis" data-en="Available languages" data-es="Idiomas disponibles"></h3>
+
+	<div class="lang-grid-status">
+		<div class="lang-status-item">
+			<img src="images/flag_usa_16.png" alt="English">
+			<span data-pt="Inglês" data-en="English" data-es="Inglés">Inglês</span>
+			<img src="images/check-16.png" alt="Screen 01" align="center">
+		</div>
+		<div class="lang-status-item">
+			<img src="images/flag_brazil_16.png" alt="Português">
+			<span data-pt="Português" data-en="Portuguese" data-es="Portugués">Português</span>
+			<img src="images/check-16.png" alt="Screen 01" align="center">
+		</div>
+		<div class="lang-status-item coming-soon">
+			<img src="images/flag_spain_16.png" alt="Español">
+			<span data-pt="Espanhol (em breve)" data-en="Spanish (coming soon)" data-es="Español (próximamente)">Espanhol (em breve)</span>
+		</div>
 	</div>
 
     <a href="https://apps.microsoft.com/detail/9N0PB6XG7ZQT" target="_blank" class="btn-store-dbmoney" data-pt="Disponível na Microsoft Store" data-en="Available on the Microsoft Store" data-es="Disponible en la Microsoft Store"><i class="fab fa-microsoft"></i></a>
@@ -767,7 +857,11 @@
     <div class="dbmoney-intro">
         <img src="images/dbpdf_logo_96.png" alt="dbPDF" class="dbmoney-intro">
         <div class="dbmoney-text">
-            <h2>dbPDF</h2>
+			
+			<h2 class="product-title product-title-flex">				
+				dbPDF
+				<span class="badge-red" data-pt="100% Gratuito" data-en="100% Free" data-es="100% Gratis">Novo</span>
+			</h2>
 			
             <p data-pt="O <strong>dbPDF</strong> é o leitor nativo definitivo para quem não tem tempo a perder. Desenvolvido para quebrar o ciclo de softwares pesados e lentos, ele entrega uma experiência de leitura fluida, elegante e instantânea, abrindo seus arquivos no exato segundo em que você clica neles."
 			   data-en="<strong>dbPDF</strong> is the ultimate native reader for those who value every second. Built to break the cycle of heavy, bloated software, it delivers a fluid, elegant, and instant reading experience—opening your files the exact millisecond you click them."
@@ -793,15 +887,27 @@
 		<img src="images/dbpdf_screen_03.png" alt="Screen 03" onclick="openModal(2, 'gallery-dbpdf')">
 		<img src="images/dbpdf_screen_04.png" alt="Screen 04" onclick="openModal(3, 'gallery-dbpdf')">
     </div>
+	
+	
+	<h3 class="gallery-title-red" data-pt="Idiomas disponíveis" data-en="Available languages" data-es="Idiomas disponibles"></h3>
 
-	<div class="product-info-footer" style="text-align: center; margin-top: 50px;">
-		<span class="badge-red"><a data-pt="100% Gratuito" data-en="100% Free" data-es="100% Gratis"></a>&nbsp;<img src="images/check-12.png" alt="Screen 01" align="center"></span>
-
-		<span class="badge-red" ><a data-pt="Inglês"    data-en="English"    data-es="Inglés"   ></a>&nbsp;&nbsp;<img src="images/check-12.png" alt="Screen 01" align="center"></span>
-		<span class="badge-red" ><a data-pt="Português" data-en="Portuguese" data-es="Portugués"></a>&nbsp;&nbsp;<img src="images/check-12.png" alt="Screen 01" align="center"></span>
-		<span class="badge-gray"><a data-pt="Espanhol"  data-en="Spanish"    data-es="Español"  ></a>&nbsp;&nbsp;<img src="images/load.gif"     alt="Screen 01" align="center" width="12" height="12"></span>
+	<div class="lang-grid-status">
+		<div class="lang-status-item">
+			<img src="images/flag_usa_16.png" alt="English">
+			<span data-pt="Inglês" data-en="English" data-es="Inglés">Inglês</span>
+			<img src="images/check-16.png" alt="Screen 01" align="center">
+		</div>
+		<div class="lang-status-item">
+			<img src="images/flag_brazil_16.png" alt="Português">
+			<span data-pt="Português" data-en="Portuguese" data-es="Portugués">Português</span>
+			<img src="images/check-16.png" alt="Screen 01" align="center">
+		</div>
+		<div class="lang-status-item coming-soon">
+			<img src="images/flag_spain_16.png" alt="Español">
+			<span data-pt="Espanhol (em breve)" data-en="Spanish (coming soon)" data-es="Español (próximamente)">Espanhol (em breve)</span>
+		</div>
 	</div>
-
+	
 	<a href="https://apps.microsoft.com/detail/9N7H3FPQX608" target="_blank" class="btn-store-dbpdf" data-pt="Disponível na Microsoft Store" data-en="Available on the Microsoft Store" data-es="Disponible en la Microsoft Store"><i class="fab fa-microsoft"></i></a>			
 </div>
 
@@ -812,7 +918,11 @@
     <div class="dbmoney-intro">
         <img src="images/dbnotes_logo_96.png" alt="dbNotes" class="dbmoney-intro">
         <div class="dbmoney-text">
-            <h2>dbNotes</h2>
+			<h2 class="product-title product-title-flex">				
+				dbNotes
+				<span class="badge-yellow" data-pt="100% Gratuito" data-en="100% Free" data-es="100% Gratis">Novo</span>
+			</h2>
+			
             <p data-pt="O <strong>dbNotes</strong> é o aplicativo ideal para o mundo acadêmico, criação de manuais técnicos, documentações e escrita estruturada. Desenvolvido nativamente para Windows, ele combina um editor de texto com recursos avançados a um sistema exclusivo de arquivos locais criptografados, garantindo velocidade máxima e privacidade total para as suas informações."
 			   data-en="<strong>dbNotes</strong> is the ultimate application for academia, technical manuals, documentation, and structured writing. Built natively for Windows, it combines an advanced text editor with a secure standalone file system, ensuring unmatched speed and absolute privacy for your data."
 			   data-es="<strong>dbNotes</strong> es la aplicación ideal para el mundo académico, la creación de manuales técnicos, documentaciones y escritura estructurada. Desarrollado de forma nativa para Windows, combina un editor de texto con funciones avanzadas y un exclusivo sistema de archivos locales encriptados, garantizando la máxima velocidad y total privacidad para su información.">
@@ -856,11 +966,23 @@
 		<img src="images/dbnotes_screen_02.png" alt="Screen 02" onclick="openModal(1, 'gallery-dbnotes')">
     </div>	
 	
-	<div class="product-info-footer" style="text-align: center; margin-top: 50px;">
-		<span class="badge-yellow"><a data-pt="100% Gratuito" data-en="100% Free"   data-es="100% Gratis"></a>&nbsp;&nbsp;<img src="images/check-12.png" alt="Screen 01" align="center"></span>
-		<span class="badge-yellow"><a data-pt="Inglês"         data-en="English"    data-es="Inglés"     ></a>&nbsp;&nbsp;<img src="images/check-12.png" alt="Screen 01" align="center"></span>
-		<span class="badge-yellow"><a data-pt="Português"      data-en="Portuguese" data-es="Portugués"  ></a>&nbsp;&nbsp;<img src="images/check-12.png" alt="Screen 01" align="center"></span>
-		<span class="badge-gray"  ><a data-pt="Espanhol"       data-en="Spanish"    data-es="Español"    ></a>&nbsp;&nbsp;<img src="images/load.gif"     alt="Screen 01" align="center" width="12" height="12"></span>
+	<h3 class="gallery-title-yellow" data-pt="Idiomas disponíveis" data-en="Available languages" data-es="Idiomas disponibles"></h3>
+
+	<div class="lang-grid-status">
+		<div class="lang-status-item">
+			<img src="images/flag_usa_16.png" alt="English">
+			<span data-pt="Inglês" data-en="English" data-es="Inglés">Inglês</span>
+			<img src="images/check-16.png" alt="Screen 01" align="center">
+		</div>
+		<div class="lang-status-item">
+			<img src="images/flag_brazil_16.png" alt="Português">
+			<span data-pt="Português" data-en="Portuguese" data-es="Portugués">Português</span>
+			<img src="images/check-16.png" alt="Screen 01" align="center">
+		</div>
+		<div class="lang-status-item coming-soon">
+			<img src="images/flag_spain_16.png" alt="Español">
+			<span data-pt="Espanhol (em breve)" data-en="Spanish (coming soon)" data-es="Español (próximamente)">Espanhol (em breve)</span>
+		</div>
 	</div>
 
 	<a href="#" target="_blank" class="btn-store-dbnotes" data-pt="Em breve na Microsoft Store" data-en="Coming soon to the Microsoft Store" data-es="Próximamente na Microsoft Store"><i class="fab fa-microsoft"></i></a>
@@ -873,7 +995,10 @@
     <div class="dbmoney-intro">
         <img src="images/dbradio_logo_96.png" alt="dbRadio" class="dbmoney-intro">
         <div class="dbmoney-text">
-            <h2>dbRadio (beta)</h2>
+			<h2 class="product-title product-title-flex">				
+				dbRadio (beta)
+				<span class="badge-purple" data-pt="100% Gratuito" data-en="100% Free" data-es="100% Gratis">Novo</span>
+			</h2>			
             <p data-pt="Mais que um player, uma rede global de ouvintes. No <strong>dbRadio</strong>, cada usuário é um curador. Adicione rádios exclusivas e, em breve, descubra o que o mundo está ouvindo através das listas compartilhadas pela nossa comunidade. Experiência nativa, leve e conectada."
 			   data-en="More than just a player, a global network of listeners. On <strong>dbRadio</strong>, every user is a curator. Add exclusive stations and, coming soon, discover what the world is listening to through our community's shared playlists. A native, lightweight, and connected experience."
 			   data-es="Más que un reproductor, una red global de oyentes. En <strong>dbRadio</strong>, cada usuario es un curador. Agregue radios exclusivas y, próximamente, descubra lo que el mundo está escuchando a través de las listas compartidas por nuestra comunidad. Una experiencia nativa, ligera y conectada.">
@@ -903,13 +1028,25 @@
 		<img src="images/dbradio_screen_03.png" alt="Screen 03" onclick="openModal(2, 'gallery-dbradio')">
 		<img src="images/dbradio_screen_04.png" alt="Screen 04" onclick="openModal(3, 'gallery-dbradio')">
 		<img src="images/dbradio_screen_05.png" alt="Screen 05" onclick="openModal(4, 'gallery-dbradio')">
-    </div>	
+    </div>
 	
-	<div class="product-info-footer" style="text-align: center; margin-top: 50px;">
-		<span class="badge-purple"><a data-pt="100% Gratuito" data-en="100% Free"   data-es="100% Gratis"></a>&nbsp;&nbsp;<img src="images/check-12.png" alt="Screen 01" align="center"></span>
-		<span class="badge-purple"><a data-pt="Inglês"         data-en="English"    data-es="Inglés"     ></a>&nbsp;&nbsp;<img src="images/check-12.png" alt="Screen 01" align="center"></span>
-		<span class="badge-purple"><a data-pt="Português"      data-en="Portuguese" data-es="Portugués"  ></a>&nbsp;&nbsp;<img src="images/check-12.png" alt="Screen 01" align="center"></span>
-		<span class="badge-gray"  ><a data-pt="Espanhol"       data-en="Spanish"    data-es="Español"    ></a>&nbsp;&nbsp;<img src="images/load.gif"     alt="Screen 01" align="center" width="12" height="12"></span>		
+	<h3 class="gallery-title-purple" data-pt="Idiomas disponíveis" data-en="Available languages" data-es="Idiomas disponibles"></h3>
+
+	<div class="lang-grid-status">
+		<div class="lang-status-item">
+			<img src="images/flag_usa_16.png" alt="English">
+			<span data-pt="Inglês" data-en="English" data-es="Inglés">Inglês</span>
+			<img src="images/check-16.png" alt="Screen 01" align="center">
+		</div>
+		<div class="lang-status-item">
+			<img src="images/flag_brazil_16.png" alt="Português">
+			<span data-pt="Português" data-en="Portuguese" data-es="Portugués">Português</span>
+			<img src="images/check-16.png" alt="Screen 01" align="center">
+		</div>
+		<div class="lang-status-item coming-soon">
+			<img src="images/flag_spain_16.png" alt="Español">
+			<span data-pt="Espanhol (em breve)" data-en="Spanish (coming soon)" data-es="Español (próximamente)">Espanhol (em breve)</span>
+		</div>
 	</div>
 	
     <a href="https://apps.microsoft.com/detail/9NRWV6JRPT8R" target="_blank" class="btn-store-dbradio" data-pt="Disponível na Microsoft Store" data-en="Available on the Microsoft Store" data-es="Disponible en la Microsoft Store"><i class="fab fa-microsoft"></i></a>
