@@ -94,31 +94,31 @@
         .hero h1 { font-size: 2.5rem; margin-bottom: 15px; color: var(--verde-dev); line-height: 1.1; }
         .hero p { font-size: 1.0rem; color: #666; max-width: 1000px; margin: 0 auto; }
 
-.lang-selector { position: relative; display: inline-block; }
+		.lang-selector { position: relative; display: inline-block; }
 
-.lang-btn {
-    background: none; border: 1px solid #ddd; padding: 5px 10px;
-    border-radius: 5px; cursor: pointer; display: flex;
-    align-items: center; gap: 8px; font-family: inherit;
-}
+		.lang-btn {
+			background: none; border: 1px solid #ddd; padding: 5px 10px;
+			border-radius: 5px; cursor: pointer; display: flex;
+			align-items: center; gap: 8px; font-family: inherit;
+		}
 
-.lang-dropdown {
-    display: none; position: absolute; right: 0; background: #fff;
-    min-width: 150px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-    border-radius: 8px; z-index: 1100; margin-top: 5px;
-}
+		.lang-dropdown {
+			display: none; position: absolute; right: 0; background: #fff;
+			min-width: 150px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+			border-radius: 8px; z-index: 1100; margin-top: 5px;
+		}
 
-/* Classe que o JS vai ativar */
-.lang-selector.active .lang-dropdown { display: block; }
+		/* Classe que o JS vai ativar */
+		.lang-selector.active .lang-dropdown { display: block; }
 
-.lang-dropdown a {
-    color: #333; padding: 10px 15px; text-decoration: none;
-    display: flex; align-items: center; gap: 10px;
-}
+		.lang-dropdown a {
+			color: #333; padding: 10px 15px; text-decoration: none;
+			display: flex; align-items: center; gap: 10px;
+		}
 
-.lang-dropdown a:hover { background-color: #f1f1f1; border-radius: 8px; }
+		.lang-dropdown a:hover { background-color: #f1f1f1; border-radius: 8px; }
 
-.lang-dropdown img, .lang-btn img { width: 18px; height: 18px; }
+		.lang-dropdown img, .lang-btn img { width: 18px; height: 18px; }
 
         /* --- CONTAINER PRODUTO --- */
 		.product-card {
@@ -154,7 +154,7 @@
             position: relative;
             z-index: 10;
         }
-
+		
         .nav-btn-item {
             text-decoration: none;
             padding: 12px 25px;
@@ -177,12 +177,12 @@
 
 		.icon-red { color: #d32f2f; margin-right: 10px; font-size: 1.8rem; }
 		.icon-purple { color: var(--roxo-dbradio); margin-right: 10px; font-size: 1.8rem; }
-		
-		.badge-blue   { background: #E8EDF2; color: var(--azul-dbmoney); margin-left: 5px; margin-bottom: 10px; padding: 8px 12px; border-radius: 10px; font-size: 0.85rem; font-weight: bold; }
-		.badge-red    { background: #FFE4F1; color: #A75052;             margin-left: 5px; margin-bottom: 10px; padding: 8px 12px; border-radius: 10px; font-size: 0.85rem; font-weight: bold; }
-		.badge-yellow { background: #FDF4D1; color: #BC8D00;             margin-left: 5px; margin-bottom: 10px; padding: 8px 12px; border-radius: 10px; font-size: 0.85rem; font-weight: bold; }
-		.badge-purple { background: #f3e5f5; color: var(--roxo-dbradio); margin-left: 5px; margin-bottom: 10px; padding: 8px 12px; border-radius: 10px; font-size: 0.85rem; font-weight: bold; }		
-		.badge-gray   { background: #F0F0F0; color: #8E8E8E;             margin-left: 5px; margin-bottom: 10px; padding: 8px 12px; border-radius: 10px; font-size: 0.85rem; font-weight: bold; }
+
+		.badge-blue   { background: #E8EDF2; color: var(--azul-dbmoney); margin-left: 5px; margin-bottom: 0px; padding: 8px 12px; border-radius: 10px; font-size: 0.85rem; font-weight: bold; }
+		.badge-red    { background: #FFE4F1; color: #A75052;             margin-left: 5px; margin-bottom: 0px; padding: 8px 12px; border-radius: 10px; font-size: 0.85rem; font-weight: bold; }
+		.badge-yellow { background: #FDF4D1; color: #BC8D00;             margin-left: 5px; margin-bottom: 0px; padding: 8px 12px; border-radius: 10px; font-size: 0.85rem; font-weight: bold; }
+		.badge-purple { background: #f3e5f5; color: var(--roxo-dbradio); margin-left: 5px; margin-bottom: 0px; padding: 8px 12px; border-radius: 10px; font-size: 0.85rem; font-weight: bold; }		
+		.badge-gray   { background: #F0F0F0; color: #8E8E8E;             margin-left: 5px; margin-bottom: 0px; padding: 8px 12px; border-radius: 10px; font-size: 0.85rem; font-weight: bold; }
 		
         .dbmoney-intro { display: flex; align-items: center; gap: 30px; margin-bottom: 10px; }
         .dbmoney-intro img { width: 96px; height: auto; }
@@ -751,10 +751,10 @@
         </table>
     </div>
 	<br>
-	<div class="product-info-footer" style="text-align: center; margin-top: 10px;">
-			<span class="badge-gray"><img src="images/flag_usa_14.png" alt="Screen 01" align="center"><a data-pt=" Inglês " data-en=" English " data-es=" Inglés "></a><img src="images/load.gif" alt="Screen 01" align="center" width="12" height="12"></span>
-			<span class="badge-blue"><img src="images/flag_brazil_14.png" alt="Screen 01" align="center"><a data-pt=" Português " data-en=" Portuguese " data-es=" Portugués "></a><img src="images/check-12.png" alt="Screen 01" align="center"></span>
-			<span class="badge-gray"><img src="images/flag_spain_14.png" alt="Screen 01" align="center"><a data-pt=" Espanhol " data-en=" Spanish " data-es=" Español "></a><img src="images/load.gif" alt="Screen 01" align="center" width="12" height="12"></span>
+	<div class="product-info-footer" style="text-align: center; margin-top: 10px;">	
+		<span class="badge-blue"><a data-pt="Português" data-en="Portuguese" data-es="Portugués"></a>&nbsp;&nbsp;<img src="images/check-12.png" alt="Screen 01" align="center"></span>
+		<span class="badge-gray"><a data-pt="Inglês"    data-en="English"    data-es="Inglés"   ></a>&nbsp;&nbsp;<img src="images/load.gif"     alt="Screen 01" align="center" width="12" height="12"></span>
+		<span class="badge-gray"><a data-pt="Espanhol"  data-en="Spanish"    data-es="Español"  ></a>&nbsp;&nbsp;<img src="images/load.gif"     alt="Screen 01" align="center" width="12" height="12"></span>		
 	</div>
 
     <a href="https://apps.microsoft.com/detail/9N0PB6XG7ZQT" target="_blank" class="btn-store-dbmoney" data-pt="Disponível na Microsoft Store" data-en="Available on the Microsoft Store" data-es="Disponible en la Microsoft Store"><i class="fab fa-microsoft"></i></a>
@@ -785,7 +785,8 @@
     </div>
 	
     <h3 class="gallery-title-red"><a data-pt="Capturas de tela" data-en="Screenshots" data-es="Capturas de pantalla"></a></h3>
-    <div class="screenshot-grid" id="gallery-dbpdf">
+    
+	<div class="screenshot-grid" id="gallery-dbpdf">
         <!-- Mantendo sua lógica de imagens original -->
         <img src="images/dbpdf_screen_01.png" alt="Screen 01" onclick="openModal(0, 'gallery-dbpdf')">
         <img src="images/dbpdf_screen_02.png" alt="Screen 02" onclick="openModal(1, 'gallery-dbpdf')">
@@ -793,26 +794,15 @@
 		<img src="images/dbpdf_screen_04.png" alt="Screen 04" onclick="openModal(3, 'gallery-dbpdf')">
     </div>
 
-    <div class="product-info-footer" style="text-align: center; margin-top: 30px;">
-		<br>
-		<!--
-		<div class="about-content" style="color: var(--vermelho-dbpdf)">
-			<a data-pt="Disponível em:"
-			   data-en=""
-			   data-es="">
-			</a>
-		</div>
-		-->
-		
-		<div class="product-info-footer" style="text-align: center; margin-top: 10px;">
-			<span class="badge-red"><a data-pt="100% Gratuito " data-en="100% Free " data-es="100% Gratis "></a><img src="images/check-12.png" alt="Screen 01" align="center"></span>
-			<span class="badge-red"><img src="images/flag_usa_14.png" alt="Screen 01" align="center"><a data-pt=" Inglês " data-en=" English " data-es=" Inglés "></a><img src="images/check-12.png" alt="Screen 01" align="center"></span>
-			<span class="badge-red"><img src="images/flag_brazil_14.png" alt="Screen 01" align="center"><a data-pt=" Português " data-en=" Portuguese " data-es=" Portugués "></a><img src="images/check-12.png" alt="Screen 01" align="center"></span>
-			<span class="badge-gray"><img src="images/flag_spain_14.png" alt="Screen 01" align="center"><a data-pt=" Espanhol " data-en=" Spanish " data-es=" Español "></a><img src="images/load.gif" alt="Screen 01" align="center" width="12" height="12"></span>
-		</div>		
-		
-		<a href="https://apps.microsoft.com/detail/9N7H3FPQX608" target="_blank" class="btn-store-dbpdf" data-pt="Disponível na Microsoft Store" data-en="Available on the Microsoft Store" data-es="Disponible en la Microsoft Store"><i class="fab fa-microsoft"></i></a>			
-    </div>
+	<div class="product-info-footer" style="text-align: center; margin-top: 50px;">
+		<span class="badge-red"><a data-pt="100% Gratuito" data-en="100% Free" data-es="100% Gratis"></a>&nbsp;<img src="images/check-12.png" alt="Screen 01" align="center"></span>
+
+		<span class="badge-red" ><a data-pt="Inglês"    data-en="English"    data-es="Inglés"   ></a>&nbsp;&nbsp;<img src="images/check-12.png" alt="Screen 01" align="center"></span>
+		<span class="badge-red" ><a data-pt="Português" data-en="Portuguese" data-es="Portugués"></a>&nbsp;&nbsp;<img src="images/check-12.png" alt="Screen 01" align="center"></span>
+		<span class="badge-gray"><a data-pt="Espanhol"  data-en="Spanish"    data-es="Español"  ></a>&nbsp;&nbsp;<img src="images/load.gif"     alt="Screen 01" align="center" width="12" height="12"></span>
+	</div>
+
+	<a href="https://apps.microsoft.com/detail/9N7H3FPQX608" target="_blank" class="btn-store-dbpdf" data-pt="Disponível na Microsoft Store" data-en="Available on the Microsoft Store" data-es="Disponible en la Microsoft Store"><i class="fab fa-microsoft"></i></a>			
 </div>
 
 <br>
@@ -866,20 +856,14 @@
 		<img src="images/dbnotes_screen_02.png" alt="Screen 02" onclick="openModal(1, 'gallery-dbnotes')">
     </div>	
 	
-    <div class="product-info-footer" style="text-align: center; margin-top: 30px;">
-		<br>
-	
-		<div class="product-info-footer" style="text-align: center; margin-top: 10px;">
-			<span class="badge-yellow"><a data-pt="100% Gratuito " data-en="100% Free " data-es="100% Gratis "></a><img src="images/check-12.png" alt="Screen 01" align="center"></span>
-			<span class="badge-yellow"><img src="images/flag_usa_14.png" alt="Screen 01" align="center"><a data-pt=" Inglês " data-en=" English " data-es=" Inglés "></a><img src="images/check-12.png" alt="Screen 01" align="center"></span>
-			<span class="badge-yellow"><img src="images/flag_brazil_14.png" alt="Screen 01" align="center"><a data-pt=" Português " data-en=" Portuguese " data-es=" Portugués "></a><img src="images/check-12.png" alt="Screen 01" align="center"></span>
-			<span class="badge-gray"><img src="images/flag_spain_14.png" alt="Screen 01" align="center"><a data-pt=" Espanhol " data-en=" Spanish " data-es=" Español "></a><img src="images/load.gif" alt="Screen 01" align="center" width="12" height="12"></span>
-		</div>		
-		
-        <a href="#" target="_blank" class="btn-store-dbnotes" data-pt="Em breve na Microsoft Store" data-en="Coming soon to the Microsoft Store" data-es="Próximamente na Microsoft Store"><i class="fab fa-microsoft"></i></a>
-		<!-- <button class="btn-store" style="background: #6a1b9a; cursor: not-allowed;" disabled><i class="fas fa-clock"></i>  Em Breve na Microsoft Store</button> -->
-    </div>
+	<div class="product-info-footer" style="text-align: center; margin-top: 50px;">
+		<span class="badge-yellow"><a data-pt="100% Gratuito" data-en="100% Free"   data-es="100% Gratis"></a>&nbsp;&nbsp;<img src="images/check-12.png" alt="Screen 01" align="center"></span>
+		<span class="badge-yellow"><a data-pt="Inglês"         data-en="English"    data-es="Inglés"     ></a>&nbsp;&nbsp;<img src="images/check-12.png" alt="Screen 01" align="center"></span>
+		<span class="badge-yellow"><a data-pt="Português"      data-en="Portuguese" data-es="Portugués"  ></a>&nbsp;&nbsp;<img src="images/check-12.png" alt="Screen 01" align="center"></span>
+		<span class="badge-gray"  ><a data-pt="Espanhol"       data-en="Spanish"    data-es="Español"    ></a>&nbsp;&nbsp;<img src="images/load.gif"     alt="Screen 01" align="center" width="12" height="12"></span>
+	</div>
 
+	<a href="#" target="_blank" class="btn-store-dbnotes" data-pt="Em breve na Microsoft Store" data-en="Coming soon to the Microsoft Store" data-es="Próximamente na Microsoft Store"><i class="fab fa-microsoft"></i></a>
 </div>
 
 <br>
@@ -921,20 +905,14 @@
 		<img src="images/dbradio_screen_05.png" alt="Screen 05" onclick="openModal(4, 'gallery-dbradio')">
     </div>	
 	
-    <div class="product-info-footer" style="text-align: center; margin-top: 30px;">
-		<br>
+	<div class="product-info-footer" style="text-align: center; margin-top: 50px;">
+		<span class="badge-purple"><a data-pt="100% Gratuito" data-en="100% Free"   data-es="100% Gratis"></a>&nbsp;&nbsp;<img src="images/check-12.png" alt="Screen 01" align="center"></span>
+		<span class="badge-purple"><a data-pt="Inglês"         data-en="English"    data-es="Inglés"     ></a>&nbsp;&nbsp;<img src="images/check-12.png" alt="Screen 01" align="center"></span>
+		<span class="badge-purple"><a data-pt="Português"      data-en="Portuguese" data-es="Portugués"  ></a>&nbsp;&nbsp;<img src="images/check-12.png" alt="Screen 01" align="center"></span>
+		<span class="badge-gray"  ><a data-pt="Espanhol"       data-en="Spanish"    data-es="Español"    ></a>&nbsp;&nbsp;<img src="images/load.gif"     alt="Screen 01" align="center" width="12" height="12"></span>		
+	</div>
 	
-		<div class="product-info-footer" style="text-align: center; margin-top: 10px;">
-			<span class="badge-purple"><a data-pt="100% Gratuito " data-en="100% Free " data-es="100% Gratis "></a><img src="images/check-12.png" alt="Screen 01" align="center"></span>
-			<span class="badge-purple"><img src="images/flag_usa_14.png" alt="Screen 01" align="center"><a data-pt=" Inglês " data-en=" English " data-es=" Inglés "></a><img src="images/check-12.png" alt="Screen 01" align="center"></span>
-			<span class="badge-purple"><img src="images/flag_brazil_14.png" alt="Screen 01" align="center"><a data-pt=" Português " data-en=" Portuguese " data-es=" Portugués "></a><img src="images/check-12.png" alt="Screen 01" align="center"></span>
-			<span class="badge-gray"><img src="images/flag_spain_14.png" alt="Screen 01" align="center"><a data-pt=" Espanhol " data-en=" Spanish " data-es=" Español "></a><img src="images/load.gif" alt="Screen 01" align="center" width="12" height="12"></span>
-		</div>		
-		
-        <a href="https://apps.microsoft.com/detail/9NRWV6JRPT8R" target="_blank" class="btn-store-dbradio" data-pt="Disponível na Microsoft Store" data-en="Available on the Microsoft Store" data-es="Disponible en la Microsoft Store"><i class="fab fa-microsoft"></i></a>
-		<!-- <button class="btn-store" style="background: #6a1b9a; cursor: not-allowed;" disabled><i class="fas fa-clock"></i>  Em Breve na Microsoft Store</button> -->
-    </div>	
-	
+    <a href="https://apps.microsoft.com/detail/9NRWV6JRPT8R" target="_blank" class="btn-store-dbradio" data-pt="Disponível na Microsoft Store" data-en="Available on the Microsoft Store" data-es="Disponible en la Microsoft Store"><i class="fab fa-microsoft"></i></a>
 </div>
 
 <div id="contactModal" class="contact-modal">
