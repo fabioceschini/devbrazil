@@ -219,65 +219,6 @@
             background-color: #F9E0E9;
             color: #721C38;
         }
-        
-        /* Estilos para seção de vídeos */
-        .videos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .video-card {
-            background-color: var(--cinza-claro);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .video-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .video-thumbnail {
-            position: relative;
-            height: 180px;
-            background-color: var(--azul-claro);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--branco);
-            font-size: 3rem;
-        }
-        
-        .video-thumbnail::after {
-            content: '▶';
-            position: absolute;
-            font-size: 2rem;
-        }
-        
-        .video-info {
-            padding: 1rem;
-        }
-        
-        .video-titulo {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--azul-escuro);
-        }
-        
-        .video-data {
-            font-size: 0.8rem;
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-        
-        .video-descricao {
-            font-size: 0.9rem;
-            color: #444;
-        }       
        
         footer {
             background-color: var(--azul-escuro);
@@ -296,11 +237,7 @@
                 font-size: 2rem;
             }
 			
-			.screenshot-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
-            
-            .videos-grid {
-                grid-template-columns: 1fr;
-            }
+			.screenshot-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }          
         }
     </style>
 </head>
@@ -314,8 +251,8 @@
     
     <div class="container">
         <section class="secao">
-            <h2 class="secao-titulo"><a data-pt="Bem-vindo à sua central financeira"
-			                            data-en="Welcome to your financial hub"></a></h2>
+			<h2 class="secao-titulo"><a data-pt="Acompanhe a evolução do dbMoney"
+			                            data-en="Follow dbMoney's evolution"></a></h2>
             
             <div class="versao">
                 <div class="versao-header">
@@ -340,7 +277,7 @@
 					                                  data-en="Added custom field support across all grids and screens."></a></li>
 													  
 					<li class="alteracao-item-sub"><a data-pt="Configure a forma como os campos personalizados são exibidos diretamente na tela de Configurações."
-					                                  data-en="Configure how custom fields are displayed right from the Settings screen."></a></li>
+					                                  data-en="Configure how custom fields are displayed right from the Settings screen."></a></li>													  
 																														
                     <li class="alteracao-item-sub"><a data-pt="Novos ícones de instituições bancárias internacionais."
 					                                  data-en="Added new icons for international banking institutions."></a></li>
@@ -387,7 +324,6 @@
                 </ul>
             </div>
 			
-            <!--
 			<div class="versao">
                 <div class="versao-header">
                     <h3 class="versao-numero">v1.0.1</h3>
@@ -404,38 +340,6 @@
 					<li class="alteracao-item"><a data-pt="Sua jornada para a liberdade financeira começa agora."
 					                              data-en="Your journey to financial freedom starts now."></a></li>
                 </ul>
-            </div>
-			-->
-        </section>
-        
-        <section class="secao">
-            <h2 class="secao-titulo"><a data-pt="Novos Vídeos (em breve)"
-			                            data-en="New Videos (coming soon)"></a></h2>
-            
-            <div class="videos-grid">
-                <div class="video-card">
-                    <div class="video-thumbnail"></div>
-                    <div class="video-info">
-                        <h3 class="video-titulo"><a data-pt="Visão geral" 
-						                            data-en="Overview"></a></h3>
-                        <p class="video-data"><a data-pt="Publicado em 1 de Junho de 2026" 
-						                         data-en="Published on Jun 1, 2026"></a></p>
-                        <p class="video-descricao"><a data-pt="Um tour com uma visão rápida e exibição dos principais recursos do dbMoney."
-						                              data-en="A tour providing a quick overview and showcasing the main features of dbMoney."></a></p>
-                    </div>
-                </div>
-                
-                <div class="video-card">
-                    <div class="video-thumbnail"></div>
-                    <div class="video-info">
-                        <h3 class="video-titulo"><a data-pt="Recursos avançados"
-						                            data-en="Advanced features"></a></h3>
-                        <p class="video-data"><a data-pt="Publicado em 1 de Junho de 2026" 
-						                         data-en="Published on Jun 1, 2026"></a></p>
-                        <p class="video-descricao"><a data-pt="Aprenda de maneira detalhada a utilizar os principais recursos do dbMoney."
-						                              data-en="Learn in detail how to use the main features of dbMoney."></a></p>
-                    </div>
-                </div>
             </div>
         </section>
     </div>
