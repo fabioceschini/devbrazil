@@ -154,7 +154,7 @@
             position: relative;
             z-index: 10;
         }
-			
+
         .nav-btn-item {
             text-decoration: none;
             padding: 12px 25px;
@@ -178,11 +178,11 @@
 		.icon-red { color: #d32f2f; margin-right: 10px; font-size: 1.8rem; }
 		.icon-purple { color: var(--roxo-dbradio); margin-right: 10px; font-size: 1.8rem; }
 		
-		.badge-blue   { background: #E8EDF2; color: var(--azul-dbmoney); margin-left: 7px; padding: 9px 12px; border-radius: 15px; font-size: 0.85rem; font-weight: bold; }
-		.badge-red    { background: #FFE4F1; color: #A75052; margin-left: 7px; padding: 9px 12px; border-radius: 15px; font-size: 0.85rem; font-weight: bold; }
-		.badge-yellow { background: #FDF4D1; color: #BC8D00; margin-left: 7px; padding: 9px 12px; border-radius: 15px; font-size: 0.85rem; font-weight: bold; }
-		.badge-purple { background: #f3e5f5; color: var(--roxo-dbradio); margin-left: 7px; padding: 9px 12px; border-radius: 15px; font-size: 0.85rem; font-weight: bold; }		
-		.badge-gray   { background: #F0F0F0; color: #8E8E8E; margin-left: 7px; padding: 9px 12px; border-radius: 15px; font-size: 0.85rem; font-weight: bold; }
+		.badge-blue   { background: #E8EDF2; color: var(--azul-dbmoney); margin-left: 5px; padding: 8px 12px; border-radius: 10px; font-size: 0.85rem; font-weight: bold; }
+		.badge-red    { background: #FFE4F1; color: #A75052;             margin-left: 5px; padding: 8px 12px; border-radius: 10px; font-size: 0.85rem; font-weight: bold; }
+		.badge-yellow { background: #FDF4D1; color: #BC8D00;             margin-left: 5px; padding: 8px 12px; border-radius: 10px; font-size: 0.85rem; font-weight: bold; }
+		.badge-purple { background: #f3e5f5; color: var(--roxo-dbradio); margin-left: 5px; padding: 8px 12px; border-radius: 10px; font-size: 0.85rem; font-weight: bold; }		
+		.badge-gray   { background: #F0F0F0; color: #8E8E8E;             margin-left: 5px; padding: 8px 12px; border-radius: 10px; font-size: 0.85rem; font-weight: bold; }
 		
         .dbmoney-intro { display: flex; align-items: center; gap: 30px; margin-bottom: 10px; }
         .dbmoney-intro img { width: 96px; height: auto; }
@@ -432,10 +432,23 @@
 
             .product-nav { margin-top: 10px; gap: 10px; }
             .nav-btn-item { font-size: 0.85rem; padding: 10px 15px; width: 100%; justify-content: center; }
+			
+			.gallery-title 	      { flex-direction: column; text-align: center; gap: 20px; }
+			.gallery-title-red    { flex-direction: column; text-align: center; gap: 20px; }
+			.gallery-title-yellow { flex-direction: column; text-align: center; gap: 20px; }
+			.gallery-title-purple { flex-direction: column; text-align: center; gap: 20px; }			
+			
+			.badge-blue   { font-size: 0.70rem; margin-left: 1px; padding: 8px 8px; width: 100%; justify-content: center; }
+			.badge-red    { font-size: 0.70rem; margin-left: 1px; padding: 8px 8px; width: 100%; justify-content: center; }
+			.badge-yellow { font-size: 0.70rem; margin-left: 1px; padding: 8px 8px; width: 100%; justify-content: center; }
+			.badge-purple { font-size: 0.70rem; margin-left: 1px; padding: 8px 8px; width: 100%; justify-content: center; }			
+			.badge-gray   { font-size: 0.70rem; margin-left: 1px; padding: 8px 8px; width: 100%; justify-content: center; }
             
-            .dbmoney-intro { flex-direction: column; text-align: center; gap: 20px; }
+            .dbmoney-intro { flex-direction: column; text-align: center; gap: 20px; }			
             .dbmoney-intro img { width: 100px; }
             .dbmoney-text h2 { font-size: 1.5rem; }
+			
+			.about-content { flex-direction: column; text-align: center; gap: 20px; }			
 
             .screenshot-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
             
