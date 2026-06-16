@@ -415,50 +415,50 @@
             background-color: #146645;
         }
 		
-/* Container da grade de idiomas */
-.lang-grid-status {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 15px;
-    margin-bottom: 25px;
-}
+		/* Container da grade de idiomas */
+		.lang-grid-status {
+			display: flex;
+			gap: 10px;
+			flex-wrap: wrap;
+			margin-top: 15px;
+			margin-bottom: 25px;
+		}
 
-/* Item de idioma individual */
-.lang-status-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.90rem;
-    font-weight: 500;
-    color: var(--text-dark);
-    background: #f9f9f9;
-    padding: 6px 12px;
-    border-radius: 15px;
-    border: 1px solid #eee;
-}
+		/* Item de idioma individual */
+		.lang-status-item {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			font-size: 0.90rem;
+			font-weight: 500;
+			color: var(--text-dark);
+			background: #f9f9f9;
+			padding: 6px 12px;
+			border-radius: 15px;
+			border: 1px solid #eee;
+		}
 
-/* Tamanho padronizado para mini-bandeiras */
-.lang-status-item img {
-    width: 16px;
-    height: 16px;
-    object-fit: contain;
-}
+		/* Tamanho padronizado para mini-bandeiras */
+		.lang-status-item img {
+			width: 16px;
+			height: 16px;
+			object-fit: contain;
+		}
 
-/* Estilo discreto para idiomas que estão "Em breve" */
-.lang-status-item.coming-soon {
-    // background: #f0f0f0;
-    color: #888;
-    // border-style: dashed; /* Borda pontilhada para indicar que está por vir */
-}
+		/* Estilo discreto para idiomas que estão "Em breve" */
+		.lang-status-item.coming-soon {
+			// background: #f0f0f0;
+			color: #888;
+			// border-style: dashed; /* Borda pontilhada para indicar que está por vir */
+		}
 
-/* Nova classe para controlar o alinhamento em formato Flex */
-.product-title-flex {
-    display: flex;
-    align-items: center;       /* Centraliza o selo verticalmente em relação ao texto "dbPDF" */
-    justify-content: left;     /* Centraliza todo o bloco (selo + texto) no meio da tela/card */	
-    gap: 10px;                 /* Dá um espaçamento horizontal de 10px entre o selo e o texto */
-}
+		/* Nova classe para controlar o alinhamento em formato Flex */
+		.product-title-flex {
+			display: flex;
+			align-items: center;       /* Centraliza o selo verticalmente em relação ao texto "dbPDF" */
+			justify-content: left;     /* Centraliza todo o bloco (selo + texto) no meio da tela/card */	
+			gap: 10px;                 /* Dá um espaçamento horizontal de 10px entre o selo e o texto */
+		}
 
         /* --- MEDIA QUERIES --- */
         @media (max-width: 768px) {
@@ -955,7 +955,7 @@
     
     <h3 class="gallery-title-red" data-pt="Idiomas disponíveis" data-en="Available languages" data-es="Idiomas disponibles" data-fr="Langues disponibles" data-de="Verfügbare Sprachen"></h3>
 
-    <div class="lang-grid-status">
+	<div class="lang-grid-status">
         <div class="lang-status-item">
             <img src="images/flag_usa_16.png" alt="English">
             <span data-pt="Inglês" data-en="English" data-es="Inglés" data-fr="Anglais" data-de="Englisch">Inglês</span>
@@ -969,9 +969,19 @@
         <div class="lang-status-item">
             <img src="images/flag_spain_16.png" alt="Español">
             <span data-pt="Espanhol" data-en="Spanish" data-es="Español" data-fr="Espagnol" data-de="Spanisch">Espanhol</span>
-            <img src="images/load.gif" alt="Screen 01" align="center">
+            <img src="images/check-16.png" alt="Check" align="center">
         </div>
-    </div>
+        <div class="lang-status-item">
+            <img src="images/flag_france_16.png" alt="Français">
+            <span data-pt="Francês" data-en="French" data-es="Francés" data-fr="Français" data-de="Französisch">Francês</span>
+            <img src="images/check-16.png" alt="Check" align="center">
+        </div>
+        <div class="lang-status-item">
+            <img src="images/flag_germany_16.png" alt="Deutsch">
+            <span data-pt="Alemão" data-en="German" data-es="Alemán" data-fr="Allemand" data-de="Deutsch">Alemão</span>
+            <img src="images/check-16.png" alt="Check" align="center">
+        </div>
+    </div>	
     
     <a href="https://apps.microsoft.com/detail/9N7H3FPQX608" target="_blank" class="btn-store-dbpdf" data-pt="Disponível na Microsoft Store" data-en="Available on the Microsoft Store" data-es="Disponible en Microsoft Store" data-fr="Disponible sur le Microsoft Store" data-de="Im Microsoft Store erhältlich"><i class="fab fa-microsoft"></i></a>           
 </div>
