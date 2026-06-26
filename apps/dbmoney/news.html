@@ -239,6 +239,11 @@
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
+		
+		.video-card:hover .video-thumbnail::after {
+            background: rgba(229, 9, 20, 0.9); /* O play fica vermelho estilo YouTube no hover */
+            transform: scale(1.1);
+        }		
         
         .video-thumbnail {
             position: relative;
@@ -249,12 +254,22 @@
             justify-content: center;
             color: var(--branco);
             font-size: 3rem;
+			overflow: hidden;
         }
         
-        .video-thumbnail::after {
+		.video-thumbnail::after {
             content: '▶';
             position: absolute;
-            font-size: 2rem;
+            font-size: 2.2rem;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.6); /* Cria um círculo escuro sutil atrás do play */
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.2s, transform 0.2s;
         }
         
         .video-info {
@@ -410,15 +425,20 @@
         </section>
         
         <section class="secao">
-            <h2 class="secao-titulo"><a data-pt="Novos Vídeos (em breve)"
-			                            data-en="New Videos (coming soon)"
-										data-es="Nuevos videos (próximamente)"
-										data-fr="Nouvelles vidéos (bientôt disponibles)"
-										data-de="Neue Videos (demnächst verfügbar)"></a></h2>
+            <h2 class="secao-titulo"><a data-pt="Novos Vídeos"
+			                            data-en="New Videos"
+										data-es="Nuevos videos"
+										data-fr="Nouvelles vidéos"
+										data-de="Neue Videos"></a></h2>
             
             <div class="videos-grid">
                 <div class="video-card">
-                    <div class="video-thumbnail"></div>
+					<a href="https://www.youtube.com/watch?v=wLP-gaJQ5b0" target="_blank" rel="noopener noreferrer">
+					
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/wLP-gaJQ5b0/maxresdefault.jpg" alt="Thumbnail" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                    </a>
                     <div class="video-info">
                         <h3 class="video-titulo"><a data-pt="Visão geral" 
 						                            data-en="Overview"
@@ -426,11 +446,11 @@
 													data-fr="Aperçu général"
 													data-de="Übersicht"></a></h3>
 													
-                        <p class="video-data"><a data-pt="Publicado em 1 de Junho de 2026" 
-						                         data-en="Published on Jun 1, 2026"
-												 data-es="Publicado el 1 de junio de 2026"
-												 data-fr="Publié le 1er juin 2026"
-												 data-de=""></a></p>
+                        <p class="video-data"><a data-pt="Publicado em 25 de Junho de 2026" 
+						                         data-en="Published on Jun 25, 2026"
+												 data-es="Publicado el 25 de junio de 2026"
+												 data-fr="Publié le 25er juin 2026"
+												 data-de="Veröffentlicht am 25. Juni 2026"></a></p>
                         <p class="video-descricao"><a data-pt="Um tour com uma visão rápida e exibição dos principais recursos do dbMoney."
 						                              data-en="A tour providing a quick overview and showcasing the main features of dbMoney."
 													  data-es="Un recorrido visual rápido que muestra las funciones principales de dbMoney."
@@ -447,11 +467,11 @@
 													data-es="Funciones avanzadas"
 													data-fr="Fonctionnalités avancées"
 													data-de="Erweiterte Funktionen"></a></h3>
-                        <p class="video-data"><a data-pt="Publicado em 1 de Junho de 2026" 
-						                         data-en="Published on Jun 1, 2026"
-												 data-es="Publicado el 1 de junio de 2026"
-												 data-fr="Publié le 1er juin 2026"
-												 data-de="Veröffentlicht am 1. Juni 2026"></a></p>
+                        <p class="video-data"><a data-pt="Em breve" 
+						                         data-en="Coming soon"
+												 data-es="Próximamente"
+												 data-fr="Bientôt disponibles"
+												 data-de="Demnächst verfügbar"></a></p>
                         <p class="video-descricao"><a data-pt="Aprenda de maneira detalhada a utilizar os principais recursos do dbMoney."
 						                              data-en="Learn in detail how to use the main features of dbMoney."
 													  data-es="Aprenda en detalle cómo utilizar las funciones principales de dbMoney."
