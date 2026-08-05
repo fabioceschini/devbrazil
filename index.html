@@ -534,6 +534,32 @@
 			}			
         }
     </style>
+	
+	<script>
+	  (function(w, d, t, u, o) {
+		w[u] = w[u] || [];
+		o.ts = (new Date).getTime();
+		
+		var n = d.createElement(t);
+		n.src = "https://bat.bing.net/bat.js?ti=" + o.ti + ("uetq" != u ? "&q=" + u : "");
+		n.async = 1;
+		n.onload = n.onreadystatechange = function() {
+		  var s = this.readyState;
+		  if (!s || "loaded" === s || "complete" === s) {
+			o.q = w[u];
+			w[u] = new UET(o);
+			w[u].push("pageLoad");
+			n.onload = n.onreadystatechange = null;
+		  }
+		};
+		
+		var i = d.getElementsByTagName(t)[0];
+		i.parentNode.insertBefore(n, i);
+	  })(window, document, "script", "uetq", {
+		ti: "187265698",
+		enableAutoSpaTracking: true
+	  });
+	</script>
 </head>
 <body>
 
@@ -586,11 +612,11 @@
        data-de="Unser Ziel ist einfach: Lösungen zu entwickeln, die Ihre Zeit respektieren, Ihre Produktivität maximieren und die absolute Privatsphäre Ihrer Daten garantieren. Wir entwickeln schlanke, schnelle und unabhängige Tools für alle, die das Maximum aus ihrer Arbeitsumgebung herausholen wollen.">
     </p>
     <br>
-    <p data-pt="<strong>Junte-se a nós. Nossa tecnologia já impulsiona a produtividade de usuários em mais de 100 mercados e territórios ao redor do mundo.</strong>"
-       data-en="<strong>Join us. Our technology is already driving productivity for users across more than 100 markets and territories worldwide.</strong>"
-       data-es="<strong>Únase a nosotros. Nuestra tecnología ya impulsa la productividad de usuarios en más de 100 mercados y territorios en todo el mundo.</strong>"
-       data-fr="<strong>Rejoignez-nous. Notre technologie stimule déjà la productivité d'utilisateurs dans plus de 100 marchés et territoires à travers le monde.</strong>"
-       data-de="<strong>Schließen Sie sich uns an. Unsere Technologie steigert bereits die Produktivität von Anwendern in mehr als 100 Märkten und Regionen weltweit.</strong>">
+    <p data-pt="<strong>Junte-se a nós. Nossa tecnologia já impulsiona a produtividade de usuários em mais de 120 mercados e territórios ao redor do mundo.</strong>"
+       data-en="<strong>Join us. Our technology is already driving productivity for users across more than 120 markets and territories worldwide.</strong>"
+       data-es="<strong>Únase a nosotros. Nuestra tecnología ya impulsa la productividad de usuarios en más de 120 mercados y territorios en todo el mundo.</strong>"
+       data-fr="<strong>Rejoignez-nous. Notre technologie stimule déjà la productivité d'utilisateurs dans plus de 120 marchés et territoires à travers le monde.</strong>"
+       data-de="<strong>Schließen Sie sich uns an. Unsere Technologie steigert bereits die Produktivität von Anwendern in mehr als 120 Märkten und Regionen weltweit.</strong>">
     </p>
     <br>
 </section>
