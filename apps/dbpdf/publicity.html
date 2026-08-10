@@ -19,7 +19,7 @@
             -- text-align: center;
         }
 		
-		strong { color: #A95153; font-weight: bold; font-size: 1.0rem; }
+		// strong { color: #A95153; font-weight: bold; font-size: 0.9rem; }
 		strong_blue { color: #004a99;   font-weight: bold; font-size: 0.9rem; }
 		strong_purple { color: #7A5B91; font-weight: bold; font-size: 0.9rem; }
 		strong_yellow { color: #BC8D00; font-weight: bold; font-size: 0.9rem; }
@@ -32,7 +32,7 @@
 			margin: 20px auto;         /* Centraliza e adiciona espaçamento */
 		}
 		
-        .dbmoney-intro { display: flex; align-items: center; gap: 15px; margin-top: 5px; margin-left: 5px; margin-bottom: 17px; } -- inline-block
+        .dbmoney-intro { display: flex; align-items: center; gap: 15px; margin-top: 0px; margin-left: 15px; margin-right: 15px; margin-bottom: 17px; } -- inline-block
         .dbmoney-intro img { width: 48px; height: auto; }
         .dbmoney-text h2 { color: #004a99; font-size: 1.5rem; margin-bottom: 15px; }
 		
@@ -43,7 +43,7 @@
 			-- top: -8px;
 		}
 
-        .btn-store-dbpdf {
+        .btn-title-dbpdf {
             display: flex;
             width: 85%;
             max-width: 300px;
@@ -61,11 +61,35 @@
 			justify-content: left;
             transition: background 0.3s;
         }
-		.btn-store-dbpdf.coming-soon {
+		.btn-title-dbpdf.coming-soon {
 			background: #D5EADC;
 			color: #2A583C;
 			border-style: hidden; /* Borda pontilhada para indicar que está por vir */
-		}			
+		}
+		
+        .btn-title-dbmoney {
+            display: flex;
+            width: 85%;
+            max-width: auto;
+            margin: 15px auto 0;
+            background: #004a99;
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+			height: 30px;
+			align-items: center;
+            font-size: 1rem;
+			text-align: left;
+			justify-content: left;
+            transition: background 0.3s;
+        }
+		.btn-title-dbmoney.coming-soon {
+			background: #E0EAF9;
+			color: #004a99;
+			border-style: hidden; /* Borda pontilhada para indicar que está por vir */
+		}		
 		
         .btn-store-dbmoney {
             display: block;
@@ -190,95 +214,107 @@
 </head>
 <body>
     <div class="container">
-
-		<a class="btn-store-dbpdf coming-soon"
-		   data-pt='<img src="../../images/devbrazil_24.png" align="center">&nbsp;&nbsp;Ecossistema DevBrazil'
-		   data-en='<img src="../../images/devbrazil_24.png" align="center">&nbsp;&nbsp;DevBrazil Ecosystem'
-		   data-es='<img src="../../images/devbrazil_24.png" align="center">&nbsp;&nbsp;Ecosistema DevBrazil'
-		   data-fr='<img src="../../images/devbrazil_24.png" align="center">&nbsp;&nbsp;Écosystème DevBrazil'
-		   data-de='<img src="../../images/devbrazil_24.png" align="center">&nbsp;&nbsp;DevBrazil-Ökosystem'>
+		<a class="btn-title-dbmoney coming-soon"
+		   data-pt='<img src="../../images/dbmoney_24.png" align="center">&nbsp;&nbsp;dbMoney Personal'
+		   data-en='<img src="../../images/dbmoney_24.png" align="center">&nbsp;&nbsp;dbMoney Personal'
+		   data-es='<img src="../../images/dbmoney_24.png" align="center">&nbsp;&nbsp;dbMoney Personal'
+		   data-fr='<img src="../../images/dbmoney_24.png" align="center">&nbsp;&nbsp;dbMoney Personal'
+		   data-de='<img src="../../images/dbmoney_24.png" align="center">&nbsp;&nbsp;dbMoney Personal'>
 		</a>
+	</div>
+
+	<br>
 			
-		</a>
+	<div class="dbmoney-intro">
+		<!-- <img src="../../images/dbmoney_48.png" alt="dbMoney" class="dbmoney-intro"> -->
+		<div class="dbmoney-text">
+			<!-- <h2>dbMoney</h2> -->
+			<p data-pt="O <strong>dbMoney Personal</strong> é o software nativo definitivo para quem deseja retomar o controle total da sua vida financeira sem abrir mão da privacidade."
+			   data-en="<strong>dbMoney Personal</strong> is the ultimate native software for anyone looking to regain total control over their financial life without compromising privacy."
+			   data-es="<strong>dbMoney Personal</strong> es el software nativo definitivo para quienes desean recuperar el control total de su vida financiera sin renunciar a la privacidad."
+			   data-fr="<strong>dbMoney Personal</strong> est le logiciel natif ultime pour quiconque souhaite reprendre le contrôle total de sa vie financière sans compromettre sa vie privée."
+			   data-de="<strong>dbMoney Personal</strong> ist die ultimative native Software für alle, die die volle Kontrolle über ihr Finanzleben zurückgewinnen wollen, ohne Kompromisse bei der Privatsphäre einzugehen">
+			</p>
+		</div>			
+	</div>
+		
+	<a href="ms-windows-store://pdp/?productid=9N0PB6XG7ZQT" target="_blank"><img src="images/dbmoney_mini_01.png" style="display: block; margin: 0 auto;"></a>
+	<br>
+	<a href="ms-windows-store://pdp/?productid=9N0PB6XG7ZQT" target="_blank"><img src="images/dbmoney_mini_02.png" style="display: block; margin: 0 auto;"></a>
+
+	<hr class="linha-personalizada">
+
+	<div style="display: flex; justify-content: center; gap: 20px;">
+		<img src="../../images/flag_usa_16.png">
+		<img src="../../images/flag_brazil_16.png">
+		<img src="../../images/flag_spain_16.png">
+		<img src="../../images/flag_france_16.png">
+		<img src="../../images/flag_germany_16.png">    
+	</div>	
+
+	<hr class="linha-personalizada">
+
+	<a href="ms-windows-store://pdp/?productid=9N0PB6XG7ZQT"
+	   target="_blank"
+	   class="btn-store-dbmoney"
+	   data-pt='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Disponível na Microsoft Store'
+	   data-en='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Available on the Microsoft Store'
+	   data-es='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Disponible en Microsoft Store'
+	   data-fr='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Disponible sur le Microsoft Store'
+	   data-de='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Im Microsoft Store erhältlich'>
+	</a>
+
+	<!--
+	<hr class="linha-personalizada">
+	
+	<div class="dbmoney-intro">
+		<img src="../../images/dbnotes_48.png" alt="dbNotes" class="dbmoney-intro">
+		<div class="dbmoney-text">
+			<p data-pt="O <strong_yellow>dbNotes</strong_yellow> é o aplicativo ideal para o mundo acadêmico, criação de manuais técnicos, documentações e escrita estruturada."
+			   data-en="<strong_yellow>dbNotes</strong_yellow> is the ideal application for academia, technical manuals, documentation, and structured writing."
+			   data-es="<strong_yellow>dbNotes</strong_yellow> es la aplicación ideal para el mundo académico, la creación de manuales técnicos, documentaciones y escritura estructurada."
+			   data-fr="<strong_yellow>dbNotes</strong_yellow> est l'application idéale pour le monde académique, la création de manuels techniques, la documentation et l'écriture structurée."
+			   data-de="<strong_yellow>dbNotes</strong_yellow> ist die ideale Anwendung für den akademischen Bereich, die Erstellung technischer Handbücher, Dokumentationen und strukturiertes Schreiben.">
+			</p>
 		</div>
+	</div>
+	
+	<a href="#"
+	   target="_blank"
+	   class="btn-store-dbnotes"
+	   data-pt='<i class="fa fa-spinner"></i>&nbsp;&nbsp;&nbsp;Em breve na Microsoft Store'
+	   data-en='<i class="fa fa-spinner"></i>&nbsp;&nbsp;&nbsp;Coming soon to the Microsoft Store'
+	   data-es='<i class="fa fa-spinner"></i>&nbsp;&nbsp;&nbsp;Próximamente en Microsoft Store'
+	   data-fr='<i class="fa fa-spinner"></i>&nbsp;&nbsp;&nbsp;Bientôt disponible sur le Microsoft Store'
+	   data-de='<i class="fa fa-spinner"></i>&nbsp;&nbsp;&nbsp;Demnächst im Microsoft Store erhältlich'>
+	</a>		
 
-		<br>
-			
-		<div class="dbmoney-intro">
-			<img src="../../images/dbmoney_48.png" alt="dbMoney" class="dbmoney-intro">
-			<div class="dbmoney-text">
-				<!-- <h2>dbMoney</h2> -->
-				<p data-pt="O <strong_blue>dbMoney Personal</strong_blue> é o software nativo definitivo para quem deseja retomar o controle total da sua vida financeira sem abrir mão da privacidade."
-				   data-en="<strong_blue>dbMoney Personal</strong_blue> is the ultimate native software for anyone looking to regain total control over their financial life without compromising privacy."
-				   data-es="<strong_blue>dbMoney Personal</strong_blue> es el software nativo definitivo para quienes desean recuperar el control total de su vida financiera sin renunciar a la privacidad."
-				   data-fr="<strong_blue>dbMoney Personal</strong_blue> est le logiciel natif ultime pour quiconque souhaite reprendre le contrôle total de sa vie financière sans compromettre sa vie privée."
-				   data-de="<strong_blue>dbMoney Personal</strong_blue> ist die ultimative native Software für alle, die die volle Kontrolle über ihr Finanzleben zurückgewinnen wollen, ohne Kompromisse bei der Privatsphäre einzugehen">
-				</p>
-			</div>
-			
+	<hr class="linha-personalizada">
+	
+	<div class="dbmoney-intro">
+		<img src="../../images/dbradio_48.png" alt="dbRadio" class="dbmoney-intro">
+		<div class="dbmoney-text">
+			<p data-pt="O <strong_purple>dbRadio</strong_purple> é mais que um player: uma rede global onde cada usuário se torna um curador colaborativo."
+			   data-en="The <strong_purple>dbRadio</strong_purple> is more than just a player: a global network where every user becomes a collaborative curator."
+			   data-es="El <strong_purple>dbRadio</strong_purple> es más que un reproductor: una red global donde cada usuario se convierte en un curador colaborativo."
+			   data-fr="Le <strong_purple>dbRadio</strong_purple> est plus qu'un simple lecteur : un réseau mondial où chaque utilisateur devient un conservateur collaboratif."
+			   data-de="Das <strong_purple>dbRadio</strong_purple> ist mehr als nur ein Player: ein globales Netzwerk, in dem jeder Nutzer zu einem kollaborativen Kurator wird.">
+			</p>				
 		</div>
-		
-		<a href="ms-windows-store://pdp/?productid=9N0PB6XG7ZQT"
-		   target="_blank"
-		   class="btn-store-dbmoney"
-		   data-pt='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Disponível na Microsoft Store'
-		   data-en='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Available on the Microsoft Store'
-		   data-es='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Disponible en Microsoft Store'
-		   data-fr='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Disponible sur le Microsoft Store'
-		   data-de='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Im Microsoft Store erhältlich'>
-		</a>
+	</div>	
 
-		<hr class="linha-personalizada">
+	<a href="ms-windows-store://pdp/?productid=9NRWV6JRPT8R"
+	   target="_blank"
+	   class="btn-store-dbradio"
+	   data-pt='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Disponível na Microsoft Store'
+	   data-en='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Available on the Microsoft Store'
+	   data-es='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Disponible en Microsoft Store'
+	   data-fr='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Disponible sur le Microsoft Store'
+	   data-de='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Im Microsoft Store erhältlich'>
+	</a>
+	-->
+</div>
 		
-		<div class="dbmoney-intro">
-			<img src="../../images/dbnotes_48.png" alt="dbNotes" class="dbmoney-intro">
-			<div class="dbmoney-text">
-				<!-- <h2>dbMoney Personal</h2> -->
-				<p data-pt="O <strong_yellow>dbNotes</strong_yellow> é o aplicativo ideal para o mundo acadêmico, criação de manuais técnicos, documentações e escrita estruturada."
-				   data-en="<strong_yellow>dbNotes</strong_yellow> is the ideal application for academia, technical manuals, documentation, and structured writing."
-				   data-es="<strong_yellow>dbNotes</strong_yellow> es la aplicación ideal para el mundo académico, la creación de manuales técnicos, documentaciones y escritura estructurada."
-				   data-fr="<strong_yellow>dbNotes</strong_yellow> est l'application idéale pour le monde académique, la création de manuels techniques, la documentation et l'écriture structurée."
-				   data-de="<strong_yellow>dbNotes</strong_yellow> ist die ideale Anwendung für den akademischen Bereich, die Erstellung technischer Handbücher, Dokumentationen und strukturiertes Schreiben.">
-				</p>
-			</div>
-		</div>
-		
-		<a href="#"
-		   target="_blank"
-		   class="btn-store-dbnotes"
-		   data-pt='<i class="fa fa-spinner"></i>&nbsp;&nbsp;&nbsp;Em breve na Microsoft Store'
-		   data-en='<i class="fa fa-spinner"></i>&nbsp;&nbsp;&nbsp;Coming soon to the Microsoft Store'
-		   data-es='<i class="fa fa-spinner"></i>&nbsp;&nbsp;&nbsp;Próximamente en Microsoft Store'
-		   data-fr='<i class="fa fa-spinner"></i>&nbsp;&nbsp;&nbsp;Bientôt disponible sur le Microsoft Store'
-		   data-de='<i class="fa fa-spinner"></i>&nbsp;&nbsp;&nbsp;Demnächst im Microsoft Store erhältlich'>
-		</a>		
-
-		<hr class="linha-personalizada">
-		
-		<div class="dbmoney-intro">
-			<img src="../../images/dbradio_48.png" alt="dbRadio" class="dbmoney-intro">
-			<div class="dbmoney-text">
-				<!-- <h2>dbMoney Personal</h2> -->
-				<p data-pt="O <strong_purple>dbRadio</strong_purple> é mais que um player: uma rede global onde cada usuário se torna um curador colaborativo."
-				   data-en="The <strong_purple>dbRadio</strong_purple> is more than just a player: a global network where every user becomes a collaborative curator."
-				   data-es="El <strong_purple>dbRadio</strong_purple> es más que un reproductor: una red global donde cada usuario se convierte en un curador colaborativo."
-				   data-fr="Le <strong_purple>dbRadio</strong_purple> est plus qu'un simple lecteur : un réseau mondial où chaque utilisateur devient un conservateur collaboratif."
-				   data-de="Das <strong_purple>dbRadio</strong_purple> ist mehr als nur ein Player: ein globales Netzwerk, in dem jeder Nutzer zu einem kollaborativen Kurator wird.">
-				</p>				
-			</div>
-		</div>	
-
-		<a href="ms-windows-store://pdp/?productid=9NRWV6JRPT8R"
-		   target="_blank"
-		   class="btn-store-dbradio"
-		   data-pt='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Disponível na Microsoft Store'
-		   data-en='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Available on the Microsoft Store'
-		   data-es='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Disponible en Microsoft Store'
-		   data-fr='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Disponible sur le Microsoft Store'
-		   data-de='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Im Microsoft Store erhältlich'>
-		</a>
-    </div>
-
 <script>
 	let currentImageIndex = 0;
 	let currentGalleryImages = [];	
