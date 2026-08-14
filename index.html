@@ -273,7 +273,7 @@
             width: 100%;
             max-width: 350px;
             margin: 40px auto 0;
-            background: #D29E00; //var(--amarelo-dbnotes);
+            background: #D29E00;
             color: #fff;
             padding: 15px 20px;
             border-radius: 8px;
@@ -571,7 +571,8 @@
 	<nav>	
 		<a href="javascript:void(0)" onclick="scrollToSection('empresa')" data-pt="Home" data-en="Home" data-es="Home" data-fr="Accueil" data-de="Startseite">Home</a>
 		<a href="javascript:void(0)" onclick="scrollToSection('dbmoney')" data-pt="Produtos" data-en="Products" data-es="Productos" data-fr="Produits" data-de="Produkte">Produtos</a>
-		<a href="javascript:void(0)" onclick="openContactModal()" data-pt="Contato" data-en="Contact" data-es="Contacto" data-fr="Contact" data-de="Kontakt">Contato</a>
+		<!-- <a href="javascript:void(0)" onclick="openContactModal()" data-pt="Contato" data-en="Contact" data-es="Contacto" data-fr="Contact" data-de="Kontakt">Contato</a> -->
+		<a href="mailto:support@devbrazil.com" data-pt="Contato" data-en="Contact" data-es="Contacto" data-fr="Contact" data-de="Kontakt">Contato</a>
 
 		<div class="lang-selector" id="langSelector">
 			<button class="lang-btn" onclick="toggleLangMenu(event)">
@@ -750,16 +751,16 @@
     <h3 class="gallery-title"><a data-pt="Capturas de tela" data-en="Screenshots" data-es="Capturas de pantalla" data-fr="Captures d'écran" data-de="Screenshots"></a></h3>
     <div class="screenshot-grid" id="gallery-dbmoney">
         <!-- Mantendo sua lógica de imagens original -->		
-		<img src="images/dbmoney_screen_01.png" alt="Screen 01" onclick="openModal(00, 'gallery-dbmoney')">
-        <img src="images/dbmoney_screen_02.png" alt="Screen 02" onclick="openModal(01, 'gallery-dbmoney')">
-        <img src="images/dbmoney_screen_03.png" alt="Screen 03" onclick="openModal(02, 'gallery-dbmoney')">
-        <img src="images/dbmoney_screen_04.png" alt="Screen 04" onclick="openModal(03, 'gallery-dbmoney')">
-        <img src="images/dbmoney_screen_05.png" alt="Screen 05" onclick="openModal(04, 'gallery-dbmoney')">
-        <img src="images/dbmoney_screen_06.png" alt="Screen 06" onclick="openModal(05, 'gallery-dbmoney')">
-        <img src="images/dbmoney_screen_07.png" alt="Screen 07" onclick="openModal(06, 'gallery-dbmoney')">
-		<img src="images/dbmoney_screen_08.png" alt="Screen 08" onclick="openModal(07, 'gallery-dbmoney')">
-		<img src="images/dbmoney_screen_09.png" alt="Screen 09" onclick="openModal(08, 'gallery-dbmoney')">
-		<img src="images/dbmoney_screen_10.png" alt="Screen 10" onclick="openModal(09, 'gallery-dbmoney')">
+		<img src="images/dbmoney_screen_01.png" alt="Screen 01" onclick="openModal(0, 'gallery-dbmoney')">
+        <img src="images/dbmoney_screen_02.png" alt="Screen 02" onclick="openModal(1, 'gallery-dbmoney')">
+        <img src="images/dbmoney_screen_03.png" alt="Screen 03" onclick="openModal(2, 'gallery-dbmoney')">
+        <img src="images/dbmoney_screen_04.png" alt="Screen 04" onclick="openModal(3, 'gallery-dbmoney')">
+        <img src="images/dbmoney_screen_05.png" alt="Screen 05" onclick="openModal(4, 'gallery-dbmoney')">
+        <img src="images/dbmoney_screen_06.png" alt="Screen 06" onclick="openModal(5, 'gallery-dbmoney')">
+        <img src="images/dbmoney_screen_07.png" alt="Screen 07" onclick="openModal(6, 'gallery-dbmoney')">
+		<img src="images/dbmoney_screen_08.png" alt="Screen 08" onclick="openModal(7, 'gallery-dbmoney')">
+		<img src="images/dbmoney_screen_09.png" alt="Screen 09" onclick="openModal(8, 'gallery-dbmoney')">
+		<img src="images/dbmoney_screen_10.png" alt="Screen 10" onclick="openModal(9, 'gallery-dbmoney')">
 		<img src="images/dbmoney_screen_11.png" alt="Screen 11" onclick="openModal(10, 'gallery-dbmoney')">
 		<img src="images/dbmoney_screen_12.png" alt="Screen 12" onclick="openModal(11, 'gallery-dbmoney')">
 		<img src="images/dbmoney_screen_13.png" alt="Screen 13" onclick="openModal(12, 'gallery-dbmoney')">
@@ -889,7 +890,7 @@
                 <tr>
                     <td><i class="fas fa-check-circle"></i><a data-pt=" Preço" data-en=" Price" data-es=" Precio" data-fr=" Prix" data-de=" Preis"></a></td>
                     <td><span class="limit-text-blue"><a data-pt=" Gratuito" data-en=" Free" data-es=" Gratis" data-fr=" Gratuit" data-de=" Kostenlos"></a></span></td>
-                    <td><span class="limit-text-blue"><a data-pt=" R$ 99,95 (vitalício)" data-en=" $ 29.99 (lifetime)" data-es=" $ 29.99 (de por vida)" data-fr=" 29,99 $ (à vie)" data-de=" 29,99 $ (lebenslang)"></a></span>
+                    <td><span class="limit-text-blue"><a data-pt=" R$ 99,95 (vitalício)" data-en=" $ 29.99 (lifetime)" data-es=" € 29.99 (de por vida)" data-fr=" 29,99 € (à vie)" data-de=" 29,99 € (lebenslang)"></a></span>
                         <br>
                         <small style="font-size: 0.75rem; color: #777; display: block; margin-top: 4px;" 
                                data-pt="* Oferta por tempo limitado"   
@@ -1229,7 +1230,7 @@
            data-fr="Si vous préférez, contactez-nous par e-mail :"
            data-de="Wenn Sie es vorziehen, kontaktieren Sie uns per E-Mail:"></a>
         <a href="mailto:support@devbrazil.com" style="color: var(--verde-dev)">support@devbrazil.com</a>
-        
+
         <form id="contactForm" action="https://formsubmit.co/support@devbrazil.com" method="POST">
             <input type="text" name="name" 
                    data-placeholder-pt="Seu Nome" 
