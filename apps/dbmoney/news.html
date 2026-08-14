@@ -2,10 +2,11 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">	
     <title>DevBrazil | Software Engineering</title>
 	<link rel="icon" type="image/png" href="favicon.png">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">	
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+	<script src="https://tally.so/widgets/embed.js"></script>
     <style>
         :root {
             --azul-escuro: #2B579A;
@@ -25,7 +26,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            /* font-family: 'Calibri', Tahoma, Geneva, Verdana, sans-serif; */
             font-family: 'Calibri', Tahoma, Geneva, Verdana, sans-serif;
         }
         
@@ -182,8 +182,7 @@
         }
 		
         .alteracao-item-sub-imagem::before {
-            content: '•';	/* ★ */
-			/* content: url("images/image-16.png"); */
+            content: '•';
 			position: absolute;			
 			left: 1.5rem;
 			top: 30%;
@@ -241,7 +240,7 @@
         }
 		
 		.video-card:hover .video-thumbnail::after {
-            background: rgba(229, 9, 20, 0.9); /* O play fica vermelho estilo YouTube no hover */
+            background: rgba(229, 9, 20, 0.9);
             transform: scale(1.1);
         }		
         
@@ -262,7 +261,7 @@
             position: absolute;
             font-size: 2.2rem;
             z-index: 2;
-            background: rgba(0, 0, 0, 0.6); /* Cria um círculo escuro sutil atrás do play */
+            background: rgba(0, 0, 0, 0.6);
             width: 60px;
             height: 60px;
             display: flex;
@@ -317,17 +316,168 @@
                 grid-template-columns: 1fr;
             }
         }
+		
+		/* --- Banner de Promoção Premium --- */
+		.promo-banner {
+			background: linear-gradient(135deg, #EAF0F9 0%, #A6BAD7 100%);
+			color: #ffffff;
+			border-radius: 8px;
+			padding: 1.25rem 1.5rem;
+			margin-bottom: 2rem;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 1.5rem;
+			box-shadow: 0 4px 12px rgba(43, 87, 154, 0.2);
+			border-left: 5px solid #2B579A;
+		}
+
+		.promo-content {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+		}
+
+		.promo-badge {
+			align-self: flex-start;
+			background-color: #2B579A;
+			color: #ffffff;
+			padding: 0.3rem 0.75rem;
+			border-radius: 20px;
+			font-size: 0.78rem;
+			font-weight: bold;
+			display: flex;
+			align-items: center;
+			gap: 0.4rem;
+			letter-spacing: 0.3px;
+		}
+
+		.promo-text h3 {
+			font-size: 1.2rem;
+			font-weight: 700;
+			color: var(--azul-escuro);
+			margin: 0;
+			line-height: 1.3;
+		}
+
+		.promo-text p {
+			font-size: 0.88rem;
+			color: var(--cinza-escuro);
+			line-height: 1.4;
+			margin: 0;
+		}
+
+		.promo-btn {
+			background-color: #2B579A;
+			color: #ffffff;
+			border: none;
+			padding: 0.8rem 1.4rem;
+			border-radius: 6px;
+			font-weight: bold;
+			font-size: 0.92rem;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			gap: 0.6rem;
+			white-space: nowrap;
+			transition: all 0.2s ease;
+			box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+		}
+
+		.promo-btn:hover {
+			background-color: #1F3F70;
+			transform: translateY(-2px);
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+		}
+
+		/* --- REGRAS DO VOUCHER JÁ RESGATADO --- */
+		.promo-claimed-msg {
+			display: none;
+			color: #2B579A;
+			font-weight: bold;
+			font-size: 0.95rem;
+			align-items: center;
+			gap: 0.5rem;
+			background-color: rgba(255, 255, 255, 0.6);
+			padding: 0.6rem 1rem;
+			border-radius: 6px;
+		}
+
+		/* Se o <body> tiver a classe 'voucher-already-claimed', ajusta os elementos */
+		body.voucher-already-claimed .promo-btn {
+			display: none !important;
+		}
+
+		body.voucher-already-claimed .promo-claimed-msg {
+			display: flex !important;
+		}
+
+		@media (max-width: 820px) {
+			.promo-banner {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+			.promo-btn {
+				width: 100%;
+				justify-content: center;
+			}
+		}	
+		
     </style>
 </head>
 <body>
-    <!--
-    <header>
-        <h1>Novidades do App</h1>
-        <p class="subtitulo">MeuApp - Fique por dentro das últimas atualizações e conteúdos</p>
-    </header>
-    -->
     
     <div class="container">
+	
+		<div class="promo-banner">
+			<div class="promo-content">
+				<div class="promo-badge">
+					<i class="fa-solid fa-gift"></i>
+					<a data-pt="Oferta de Lançamento" 
+					   data-en="Launch Offer" 
+					   data-es="Oferta de Lanzamiento" 
+					   data-fr="Offre de Lancement" 
+					   data-de="Einführungsangebot"></a>
+				</div>
+				<div class="promo-text">
+					<h3>
+						<a data-pt="Ganhe uma licença Premium vitalícia do dbMoney!" 
+						   data-en="Get a free lifetime Premium license for dbMoney!" 
+						   data-es="¡Obtén una licencia Premium de por vida para dbMoney!" 
+						   data-fr="Obtenez une licence Premium à vie pour dbMoney !" 
+						   data-de="Holen Sie sich eine lebenslange Premium-Lizenz für dbMoney!"></a>
+					</h3>
+					<p>
+						<a data-pt="Para celebrar nosso lançamento, estamos disponibilizando um lote restrito de licenças gratuitas por tempo determinado. Resgate sua chave, experimente todos os recursos e nos ajude a evoluir compartilhando sua opinião." 
+						   data-en="To celebrate our launch, we are offering a limited batch of free licenses for a short time. Claim your key, explore all features, and help us evolve by sharing your feedback." 
+						   data-es="Para celebrar nuestro lanzamiento, ofrecemos un lote limitado de licencias gratuitas por tiempo determinado. Canjea tu clave, prueba todas las funciones y ayúdanos a mejorar compartiendo tu opinión." 
+						   data-fr="Pour célébrer notre lancement, nous offrons un lot limité de licences gratuites pour une durée limitée. Réclamez votre clé, essayez toutes les fonctionnalités et aidez-nous à évoluer en partageant votre avis." 
+						   data-de="Zur Feier unseres Starts stellen wir für kurze Zeit ein begrenztes Kontingent an kostenlosen Lizenzen bereit. Holen Sie sich Ihren Schlüssel, testen Sie alle Funktionen und helfen Sie uns mit Ihrem Feedback weiter."></a>
+					</p>
+				</div>
+			</div>
+			
+			<!-- Botão Original de Resgate -->
+			<button class="promo-btn" onclick="openFormModal()">
+				<i class="fa-solid fa-key"></i>
+				<a data-pt="Resgatar Licença Grátis" 
+				   data-en="Claim Free License" 
+				   data-es="Canjear Licencia Gratis" 
+				   data-fr="Obtenir la licence gratuite" 
+				   data-de="Kostenlose Lizenz anfordern"></a>
+			</button>
+
+			<!-- Mensagem exibida quando já tiver resgatado -->
+			<div class="promo-claimed-msg">
+				<i class="fa-solid fa-circle-check" style="color: #2e7d32; font-size: 1.2rem;"></i>
+				<a data-pt="Sua licença Premium já foi resgatada!" 
+				   data-en="Your Premium license has already been claimed!" 
+				   data-es="¡Tu licencia Premium ya ha sido canjeada!" 
+				   data-fr="Votre licence Premium a déjà été réclamée !" 
+				   data-de="Ihre Premium-Lizenz wurde bereits angefordert!"></a>
+			</div>
+		</div>	
+	
         <section class="secao">
             <h2 class="secao-titulo"><a data-pt="Bem-vindo à sua central financeira"
 			                            data-en="Welcome to your financial hub"
@@ -337,12 +487,12 @@
             
 			<div class="versao">
 				<div class="versao-header">
-					<h3 class="versao-numero">v1.0.11</h3>
-					<span class="versao-data"><a data-pt="05 de Agosto de 2026"
-												 data-en="August 05, 2026"
-												 data-es="05 de Agosto de 2026"
-												 data-fr="05 Août 2026"
-												 data-de="05. August 2026"></a></span>
+					<h3 class="versao-numero">v1.0.12</h3>
+					<span class="versao-data"><a data-pt="14 de Agosto de 2026"
+												 data-en="August 14, 2026"
+												 data-es="14 de Agosto de 2026"
+												 data-fr="14 Août 2026"
+												 data-de="14. August 2026"></a></span>
 				</div>
 				<h4 class="versao-titulo"><a data-pt="Nova versão disponível"
 											 data-en="New version available"
@@ -351,29 +501,29 @@
 											 data-de="Neue Version verfügbar"></a></h4>			
 				
 				<ul class="alteracoes">
+					<li class="alteracao-item"><span class="tag tag-novo"><a data-pt="<pre>    Novo    </pre>" 
+																			 data-en="<pre>   New   </pre>" 
+																			 data-es="<pre>    Nuevo   </pre>" 
+																			 data-fr="<pre>Nouveau</pre>" 
+																			 data-de="<pre>    Neu    </pre>"></a></span>
+											   <a data-pt="Oferta Especial: Licenças gratuitas de lançamento por tempo limitado!"
+												  data-en="Special Offer: Limited-time free launch licenses!"
+												  data-es="¡Oferta especial: Licencias gratuitas de lanzamiento por tiempo limitado!"
+												  data-fr="Offre spéciale : Licences gratuites de lancement pour une durée limitée !"
+												  data-de="Sonderangebot: Kostenlose Startlizenzen für begrenzte Zeit!"></a></li>
+				</ul>
+				
+				<ul class="alteracoes">
 					<li class="alteracao-item"><span class="tag tag-melhoria"><a data-pt="<pre>Melhoria</pre>" 
-																			     data-en="<pre> Tweak </pre>" 
+																				 data-en="<pre> Tweak </pre>" 
 																				 data-es="<pre>   Mejora   </pre>" 
 																				 data-fr="<pre>Amélior.</pre>" 
 																				 data-de="<pre>Optimier.</pre>"></a></span>
-											   <a data-pt="Ajustes visuais em telas."
-												  data-en="Visual adjustments to screens."
-												  data-es="Ajustes visuales en pantallas."
-												  data-fr="Ajustements visuels sur les écrans."
-												  data-de="Visuelle Anpassungen der Bildschirme."></a></li>
-				</ul>
-				
-				<ul class="alteracoes">				
-					<li class="alteracao-item"><span class="tag tag-correcao"><a data-pt="<pre>Correção</pre>" 
-																					 data-en="<pre>    Fix     </pre>" 
-																					 data-es="<pre>Corrección</pre>" 
-																					 data-fr="<pre>Correct. </pre>" 
-																					 data-de="<pre>Behoben </pre>"></a></span>
-												   <a data-pt="Correção de termos internacionais." 
-													  data-en="Correction of international terms."
-													  data-es="Corrección de términos internacionales."
-													  data-fr="Correction des termes internationaux."
-													  data-de="Korrektur internationaler Begriffe."></a></li>
+											   <a data-pt="Implementada opção de avaliação do app para nos ajudar a melhorar a sua experiência."
+												  data-en="Implemented app rating option to help us improve your experience."
+												  data-es="Implementada la opción de calificación de la aplicación para ayudarnos a mejorar su experiencia."
+												  data-fr="Implémentation de l'option d'évaluation de l'application pour nous aider à améliorer votre expérience."
+												  data-de="Option zur App-Bewertung hinzugefügt, um uns bei der Verbesserung Ihrer Erfahrung zu helfen."></a></li>
 				</ul>
 
 				<ul class="alteracoes">				
@@ -382,33 +532,13 @@
 																					 data-es="<pre>Corrección</pre>" 
 																					 data-fr="<pre>Correct. </pre>" 
 																					 data-de="<pre>Behoben </pre>"></a></span>
-												   <a data-pt="Correção de pequenos bugs." 
-													  data-en="Minor bug fixes."
-													  data-es="Corrección de errores menores."
-													  data-fr="Correction de bugs mineurs."
-													  data-de="Kleinere Fehlerbehebungen."></a></li>
+											   <a data-pt="Solucionada uma falha de inicialização em sistemas sem determinadas bibliotecas da Microsoft pré-instaladas." 
+												  data-en="Fixed a startup issue on systems without certain Microsoft libraries pre-installed."
+												  data-es="Se solucionó un fallo de inicio en sistemas sin ciertas bibliotecas de Microsoft preinstaladas."
+												  data-fr="Résolution d'un problème de démarrage sur les systèmes n'ayant pas certaines bibliothèques Microsoft préinstallées."
+												  data-de="Startproblem auf Systemen ohne vorinstallierte Microsoft-Bibliotheken behoben."></a></li>
 				</ul>
 			</div>
-			
-            <!--
-			<div class="versao">
-                <div class="versao-header">
-                    <h3 class="versao-numero">v1.0.1</h3>
-                    <span class="versao-data"><a data-pt="20 de Maio de 2026"
-					                             data-en="May 20, 2026"></a></span>
-                </div>
-                <h4 class="versao-titulo"><a data-pt="Lançamento oficial na Microsoft Store"
-				                             data-en="Official launch on the Microsoft Store"></a></h4>
-                <ul class="alteracoes">
-                    <li class="alteracao-item"><a data-pt="É com muito orgulho que anunciamos a primeira versão da melhor ferramenta de engenharia financeira pessoal da Microsoft Store."
-					                              data-en="We are very proud to announce the first version of the best personal financial engineering tool on the Microsoft Store."></a></li>
-					<li class="alteracao-item"><a data-pt="Criamos o dbMoney para ser a ferramenta mais rápida e segura do seu Windows. Explore os gráficos, organize seus fluxos e sinta a diferença de um software feito para quem busca clareza absoluta nos dados."
-					                              data-en="We created dbMoney to be the fastest and most secure tool for your Windows system. Explore the charts, organize your flows, and experience the difference of software designed for those seeking absolute clarity in their data."></a></li>
-					<li class="alteracao-item"><a data-pt="Sua jornada para a liberdade financeira começa agora."
-					                              data-en="Your journey to financial freedom starts now."></a></li>
-                </ul>
-            </div>
-			-->
         </section>
         
         <section class="secao">
@@ -421,7 +551,6 @@
             <div class="videos-grid">
                 <div class="video-card">
 					<a href="https://www.youtube.com/watch?v=wLP-gaJQ5b0" target="_blank" rel="noopener noreferrer">
-					
                         <div class="video-thumbnail">
                             <img src="https://img.youtube.com/vi/wLP-gaJQ5b0/maxresdefault.jpg" alt="Thumbnail" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
@@ -469,12 +598,6 @@
             </div>
         </section>
     </div>
-    
-    <!--
-    <footer>
-        <p>&copy; 2025 DevBrazil. Todos os direitos reservados.</p>
-    </footer>
-    -->
 
 	<div id="myModal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); align-items: center; justify-content: center; flex-direction: column;">
 		<span style="position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; user-select: none; z-index: 10000;" onclick="closeModal()">&times;</span>
@@ -483,21 +606,20 @@
 		<div id="caption" style="margin: 15px auto 0; text-align: center; color: #ccc; font-size: 1.1rem; max-width: 80%; font-weight: 300; min-height: 25px;"></div>
 		<span style="position: absolute; right: 20px; color: #f1f1f1; font-size: 50px; font-weight: bold; cursor: pointer; user-select: none; padding: 10px; z-index: 10000;" onclick="changeImage(1); event.stopPropagation();">&#10095;</span>
 	</div>	
-	
+
 <script>
 	let currentImageIndex = 0;
 	let currentGalleryImages = [];	
-	
+	let currentLang = 'en';
+
 	function updateContent() {
 		document.querySelectorAll('[data-pt]').forEach(el => {
 			const texto = el.getAttribute('data-' + currentLang);
 			if (texto) {
-				// USAR innerHTML para que o navegador processe o <strong>
 				el.innerHTML = texto;
 			}
 		});
 		
-		// Atualiza placeholders
 		document.querySelectorAll('[data-placeholder-pt]').forEach(el => {
 			const texto = el.getAttribute('data-placeholder-' + currentLang);
 			if (texto) {
@@ -505,7 +627,6 @@
 			}
 		});		
 		
-		// Atualiza o texto do botão de troca (Se você usar um botão cíclico, pode adaptar aqui)
 		document.querySelectorAll('.lang-text').forEach(span => {
 			if (currentLang === 'pt') span.innerText = 'en';
 			else if (currentLang === 'en') span.innerText = 'es';
@@ -517,44 +638,28 @@
 
 	function changeLanguage(lang) {
 		currentLang = lang;
-		// Atualiza textos
 		updateContent();
 	}
 	
 	window.addEventListener('click', function(event) {
-	
-		// Fecha modal da galeria
 		let galleryModal = document.getElementById("myModal");
-	
 		if (event.target == galleryModal) {
 			closeModal();
 		}
 	});
 	
 	window.onload = function() {
-		// Idioma padrão
 		currentLang = 'en';
 		
-		// Detecta idioma do navegador
 		const browserLang = navigator.language || navigator.userLanguage;
+		if (browserLang.startsWith('en')) currentLang = 'en';
+		else if (browserLang.startsWith('es')) currentLang = 'es';
+		else if (browserLang.startsWith('fr')) currentLang = 'fr';
+		else if (browserLang.startsWith('de')) currentLang = 'de';
+		else if (browserLang.startsWith('pt')) currentLang = 'pt';
 		
-		if (browserLang.startsWith('en')) {
-			currentLang = 'en';
-		} else if (browserLang.startsWith('es')) {
-			currentLang = 'es';
-		} else if (browserLang.startsWith('fr')) {
-			currentLang = 'fr';
-		} else if (browserLang.startsWith('de')) {
-			currentLang = 'de';
-		} else if (browserLang.startsWith('pt')) {
-			currentLang = 'pt';
-		}
-		
-		// Verifica URL (?lang= ou #)
 		checkURLForLanguage();
-		
-		// Atualiza conteúdo
-		changeLanguage(currentLang);		
+		changeLanguage(currentLang);
 	}
 
 	document.addEventListener('keydown', function(e) {
@@ -565,28 +670,13 @@
 		}
 	});
 
-	// Executa assim que o site carregar
     document.addEventListener("DOMContentLoaded", checkURLForLanguage);
 
-	function scrollToSection(id) {
-
-		const element = document.getElementById(id);
-
-		if (element) {
-			element.scrollIntoView({
-				behavior: 'smooth',
-				block: 'start'
-			});
-		}
-	}
-	
-	// Função que lê o idioma da URL
 	function checkURLForLanguage() {	
 		const hash = window.location.hash.replace('#', '');		
 		const urlParams = new URLSearchParams(window.location.search);		
 		const langParam = urlParams.get('lang');
 		
-		// Lista de idiomas válidos atualizada
 		const validLangs = ['en', 'pt', 'es', 'fr', 'de'];
 		
 		if (validLangs.includes(hash)) {		
@@ -596,8 +686,6 @@
 		}		
 	}
 	
-	// Função para abrir o modal atualizada com suporte a legenda bilíngue
-	//
 	function openModal(index, galleryId) {
 		currentGalleryImages = [];
 		var images = document.querySelectorAll("#" + galleryId + " img");
@@ -613,8 +701,6 @@
 		if (modal && modalImg) {
 			modal.style.display = "flex";
 			modalImg.src = currentGalleryImages[currentImageIndex].src;
-			
-			// Atualiza a legenda com base no idioma atual
 			updateCaption();
 		}		
 	}
@@ -623,7 +709,6 @@
 		document.getElementById("myModal").style.display = "none"; 
 	}
 	
-	// Função de navegar imagens pelas setas ou teclado
 	function changeImage(step) {
 		if (currentGalleryImages.length === 0) return;
     
@@ -632,21 +717,83 @@
 		if (currentImageIndex < 0) currentImageIndex = currentGalleryImages.length - 1;
     
 		document.getElementById("img01").src = currentGalleryImages[currentImageIndex].src;
-		
-		// Atualiza a legenda ao mudar de imagem
 		updateCaption();
 	}
 	
-	// Função auxiliar para definir a legenda correta no Modal
 	function updateCaption() {
 		var captionText = document.getElementById("caption");
 		if (captionText && currentGalleryImages[currentImageIndex]) {
 			var currentImg = currentGalleryImages[currentImageIndex];
-			
 			if (typeof currentLang !== 'undefined') {
 				captionText.innerText = currentImg.getAttribute('data-caption-' + currentLang) || currentImg.alt || "";
 			}
 		}
+	}
+	
+	// Função auxiliar para comparar versões no formato "X.Y.Z"
+	function compareVersions(v1, v2) {
+		const parts1 = v1.split('.').map(Number);
+		const parts2 = v2.split('.').map(Number);
+		for (let i = 0; i < Math.max(parts1.length, parts2.length); i++) {
+			const val1 = parts1[i] || 0;
+			const val2 = parts2[i] || 0;
+			if (val1 > val2) return 1;
+			if (val1 < val2) return -1;
+		}
+		return 0;
+	}
+	
+	/* --- ABERTURA DO MODAL DO TALLY & ENVIO AO DELPHI --- */
+	function openFormModal() {
+		const urlParams = new URLSearchParams(window.location.search);
+		const currentAppVersion = urlParams.get('v') || '1.0.0';
+
+		// Impede o resgate se a versão for menor que 1.0.12
+		if (compareVersions(currentAppVersion, '1.0.12') < 0) {
+			
+			// Mensagens multilíngues
+			const messages = {
+				pt: 'Esta promoção é exclusiva para a versão 1.0.12 ou superior do dbMoney Personal. Por favor, atualize o aplicativo para resgatar.',
+				en: 'This promotion is exclusive to version 1.0.12 or higher of dbMoney Personal. Please update the app to claim.',
+				es: 'Esta promoción es exclusiva para la versión 1.0.12 o superior de dbMoney Personal. Por favor, actualice la aplicación para canjear.',
+				fr: 'Cette promotion est exclusive à la version 1.0.12 ou supérieure de dbMoney Personal. Veuillez mettre à jour l\'application pour en profiter.',
+				de: 'Aktion nur gültig ab Version 1.0.12 von dbMoney Personal. Bitte aktualisieren Sie die App, um das Angebot zu nutzen.'
+			};
+
+			// Identifica o idioma (usa a variável global currentLang ou tenta pelo navegador)
+			const lang = (typeof currentLang !== 'undefined' ? currentLang : navigator.language || 'en').substring(0, 2).toLowerCase();
+			
+			// Exibe o alerta no idioma correspondente ou cai de volta para o inglês ('en')
+			const alertMessage = messages[lang] || messages['en'];
+			alert(alertMessage);
+			
+			return;
+		}
+
+		Tally.openPopup('2EdvOe', {
+			layout: 'modal',
+			width: 520,
+			hideTitle: true,
+			overlay: true,
+			hiddenFields: {
+				version: currentAppVersion
+			},
+			onSubmit: (payload) => {
+				// 1. Avisa o EdgeBrowser/Delphi
+				if (window.chrome && window.chrome.webview) {
+					window.chrome.webview.postMessage('VOUCHER_CLAIMED');
+				}
+
+				// 2. Transforma o banner visualmente na hora
+				document.body.classList.add('voucher-already-claimed');
+			},
+			onClose: () => {
+				// 3. Callback disparado quando o usuário clica no "X" ou fora do modal
+				if (window.chrome && window.chrome.webview) {
+					window.chrome.webview.postMessage('TALLY_POPUP_CLOSED');
+				}
+			}
+		});
 	}
 
 </script>
