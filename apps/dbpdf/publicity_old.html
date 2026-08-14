@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">	
     <title>DevBrazil | Software Engineering</title>
 	<link rel="icon" type="image/png" href="favicon.png">	
-    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"> -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <style>
         body {
@@ -16,49 +15,45 @@
             margin: 1;
 			margin-top: 10px;
             padding: 0px;
-            -- text-align: center;
         }
 		
-		// strong { color: #A95153; font-weight: bold; font-size: 0.9rem; }
 		strong_blue { color: #004a99;   font-weight: bold; font-size: 0.9rem; }
 		strong_purple { color: #7A5B91; font-weight: bold; font-size: 0.9rem; }
 		strong_yellow { color: #BC8D00; font-weight: bold; font-size: 0.9rem; }
 
 		.linha-personalizada {
-			border: none;              /* Remove a borda padrão */
-			height: 1px;               /* Espessura/Altura do traço */
-			background-color: #E0E0E0; /* Cor vermelha */
-			width: 90%;                /* Tamanho: ocupa 50% da tela */
-			margin: 20px auto;         /* Centraliza e adiciona espaçamento */
+			border: none;
+			height: 1px;
+			background-color: #E0E0E0;
+			width: 90%;
+			margin: 20px auto;
 		}
 		
-        .dbmoney-intro { display: flex; align-items: center; gap: 15px; margin-top: 0px; margin-left: 15px; margin-right: 15px; margin-bottom: 17px; } -- inline-block
+        .dbmoney-intro { display: flex; align-items: center; gap: 15px; margin-top: 0px; margin-left: 15px; margin-right: 15px; margin-bottom: 17px; }
         .dbmoney-intro img { width: 48px; height: auto; }
         .dbmoney-text h2 { color: #004a99; font-size: 1.5rem; margin-bottom: 15px; }
 		
 		.dbmoney-text p {
-			margin-top: -8px; /* Move o texto um pouquinho para cima */
+			margin-top: -4px;
 			margin-bottom: 0px;
-			-- position: relative;
-			-- top: -8px;
 		}
-		
+
 		/* Badge Promocional de Escassez */
 		.promo-badge {
 			display: block;
 			width: 85%;
 			max-width: 300px;
 			margin: 0 auto 10px auto;
-			background: #004a99;
-			color: #ffffff;
+			background: #F7EEEF;
+			color: #A95153;
 			text-align: center;
 			font-size: 0.72rem;
 			font-weight: bold;
-			padding: 4px 8px;
-			border-radius: 8px;
+			padding: 6px 6px;
+			border-radius: 14px;
 			letter-spacing: 0.5px;
 			text-transform: uppercase;
-			box-shadow: 0 2px 4px rgba(217, 83, 79, 0.25);
+			/* box-shadow: 0 2px 4px rgba(217, 83, 79, 0.25); */
 		}
 
         .btn-title-dbpdf {
@@ -82,7 +77,7 @@
 		.btn-title-dbpdf.coming-soon {
 			background: #D5EADC;
 			color: #2A583C;
-			border-style: hidden; /* Borda pontilhada para indicar que está por vir */
+			border-style: hidden;
 		}
 		
         .btn-title-dbmoney {
@@ -106,9 +101,10 @@
 		.btn-title-dbmoney.coming-soon {
 			background: #E0EAF9;
 			color: #004a99;
-			border-style: hidden; /* Borda pontilhada para indicar que está por vir */
+			border-style: hidden;
 		}		
 		
+		/* Botão Principal direcionando para a Store */
         .btn-store-dbmoney {
             display: block;
             width: 85%;
@@ -116,56 +112,26 @@
             margin: 15px auto 0;
             background: #004a99;
             color: #fff;
-            padding: 7px 10px;
+            padding: 9px 10px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             text-align: center;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+			box-shadow: 0 3px 6px rgba(0,0,0,0.15);
         }
-        .btn-store-dbmoney:hover { background: #003366; }		
+        .btn-store-dbmoney:hover { 
+			background: #003366; 
+			/* transform: translateY(-1px); */
+			box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+		}		
 		
-        .btn-store-dbnotes {
-            display: block;
-            width: 85%;
-            max-width: 300px;
-            margin: 15px auto 0;
-            background: #D29E00; //var(--amarelo-dbnotes);
-            color: #fff;
-            padding: 7px 10px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.7rem;
-            text-align: center;
-            transition: background 0.3s;
-        }
-        .btn-store-dbnotes:hover { background: #BC8D00; }
-
-        .btn-store-dbradio {
-            display: block;
-            width: 85%;
-            max-width: 300px;
-            margin: 15px auto 0;
-            background: #6a1b9a;
-            color: #fff;
-            padding: 7px 10px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.7rem;
-            text-align: center;
-            transition: background 0.3s;
-        }
-        .btn-store-dbradio:hover { background: #503D60; }
-
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0px;
             border-radius: 8px;
-            /* box-shadow: 0 2px 10px rgba(0,0,0,0.05); */
         }
         p {
             font-size: 0.8em;
@@ -181,16 +147,7 @@
             border-top: 1px solid #eee;
             font-size: 0.9em;
         }
-        .bold {
-			color: #A95153;
-			font-style: bold;
-		}		
-        .bold-red {
-            color: #A95153; /* Azul padrão Windows para manter a identidade */
-            font-weight: bold;
-		}
 		
-		/* Container da grade de idiomas */
 		.lang-grid-status {
 			display: flex;
 			justify-content: center;
@@ -200,7 +157,6 @@
 			margin-bottom: 10px;
 		}
 
-		/* Item de idioma individual */
 		.lang-status-item {
 			display: flex;
 			align-items: center;
@@ -214,33 +170,16 @@
 			border: 1px solid #eee;
 		}
 
-		/* Tamanho padronizado para mini-bandeiras */
 		.lang-status-item img {
 			width: 16px;
 			height: 16px;
 			object-fit: contain;
 		}
 
-		/* Estilo discreto para idiomas que estão "Em breve" */
-		.lang-status-item.coming-soon {
-			// background: #f0f0f0;
-			color: #888;
-			// border-style: dashed; /* Borda pontilhada para indicar que está por vir */
-		}
-
     </style>
 </head>
 <body>
     <div class="container">
-		<!-- Selo Promocional com Escassez -->
-		<span class="promo-badge"
-		      data-pt='🔥 Lote Limitado: 500 Licenças'
-		      data-en='🔥 Limited Batch: 500 Licenses'
-		      data-es='🔥 Lote Limitado: 500 Licencias'
-		      data-fr='🔥 Lot Limité : 500 Licences'
-		      data-de='🔥 Limitierte Anzahl: 500 Lizenzen'>
-		</span>	
-	
 		<a class="btn-title-dbmoney coming-soon"
 		   data-pt='<img src="../../images/dbmoney_24.png" align="center">&nbsp;&nbsp;dbMoney Personal'
 		   data-en='<img src="../../images/dbmoney_24.png" align="center">&nbsp;&nbsp;dbMoney Personal'
@@ -249,97 +188,59 @@
 		   data-de='<img src="../../images/dbmoney_24.png" align="center">&nbsp;&nbsp;dbMoney Personal'>
 		</a>
 	</div>
-
+	
 	<br>
 			
 	<div class="dbmoney-intro">
-		<!-- <img src="../../images/dbmoney_48.png" alt="dbMoney" class="dbmoney-intro"> -->
 		<div class="dbmoney-text">
-			<!-- <h2>dbMoney</h2> -->
-			<p data-pt="O <strong>dbMoney Personal</strong> é o software nativo definitivo para quem deseja retomar o controle total da sua vida financeira sem abrir mão da privacidade."
-			   data-en="<strong>dbMoney Personal</strong> is the ultimate native software for anyone looking to regain total control over their financial life without compromising privacy."
-			   data-es="<strong>dbMoney Personal</strong> es el software nativo definitivo para quienes desean recuperar el control total de su vida financiera sin renunciar a la privacidad."
-			   data-fr="<strong>dbMoney Personal</strong> est le logiciel natif ultime pour quiconque souhaite reprendre le contrôle total de sa vie financière sans compromettre sa vie privée."
-			   data-de="<strong>dbMoney Personal</strong> ist die ultimative native Software für alle, die die volle Kontrolle über ihr Finanzleben zurückgewinnen wollen, ohne Kompromisse bei der Privatsphäre einzugehen">
+			<p data-pt="Oferta de Lançamento por tempo limitado! Garanta uma das <strong>500 licenças Premium vitalícias (gratuitamente)</strong> resgatando diretamente dentro do app dbMoney Personal."
+			   data-en="Limited-time Launch Offer! Secure one of <strong>500 lifetime Premium licenses (for free)</strong> by claiming directly inside the dbMoney Personal app."
+			   data-es="¡Oferta de Lanzamiento por tiempo limitado! Consigue una de las <strong>500 licencias Premium vitalicias (gratuitamente)</strong> canjeándola directamente dentro de la app dbMoney Personal."
+			   data-fr="Offre de Lancement pour une durée limitée ! Obtenez l'une des <strong>500 licences Premium à vie (gratuitement)</strong> en la réclamant directement dans l'application dbMoney Personal."
+			   data-de="Befristetes Einführungsangebot! Sichern Sie sich eine von <strong>500 lebenslangen Premium-Lizenzen (kostenlos)</strong> direkt in der dbMoney Personal App.">
 			</p>
 		</div>			
 	</div>
-		
-	<a href="ms-windows-store://pdp/?productid=9N0PB6XG7ZQT" target="_blank"><img src="images/dbmoney_mini_01.png" style="display: block; margin: 0 auto;"></a>
-	<br>
-	<a href="ms-windows-store://pdp/?productid=9N0PB6XG7ZQT" target="_blank"><img src="images/dbmoney_mini_02.png" style="display: block; margin: 0 auto;"></a>
 
+	<div class="container">	
+	<span class="promo-badge"
+		      data-pt='🔥 Lote Limitado: 500 Licenças 🔥'
+		      data-en='🔥 Limited Batch: 500 Licenses 🔥'
+		      data-es='🔥 Lote Limitado: 500 Licencias 🔥'
+		      data-fr='🔥 Lot Limité : 500 Licences 🔥'
+		      data-de='🔥 Limitierte Anzahl: 500 Lizenzen 🔥'>
+		</span>		
+	</div>
+
+	<br>
+	
+	<img src="images/dbmoney_mini_01.png" style="display: block; margin: 0 auto;">
+	<br>
+	<img src="images/dbmoney_mini_02.png" style="display: block; margin: 0 auto;">
+	
 	<hr class="linha-personalizada">
 
+	<!--
 	<div style="display: flex; justify-content: center; gap: 20px;">
 		<img src="../../images/flag_usa_16.png">
 		<img src="../../images/flag_brazil_16.png">
 		<img src="../../images/flag_spain_16.png">
 		<img src="../../images/flag_france_16.png">
 		<img src="../../images/flag_germany_16.png">    
-	</div>	
+	</div>
+	-->	
 
-	<hr class="linha-personalizada">
-
+	<!-- Botão apontando para a Microsoft Store -->
 	<a href="ms-windows-store://pdp/?productid=9N0PB6XG7ZQT"
 	   target="_blank"
 	   class="btn-store-dbmoney"
-	   data-pt='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Disponível na Microsoft Store'
-	   data-en='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Available on the Microsoft Store'
-	   data-es='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Disponible en Microsoft Store'
-	   data-fr='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Disponible sur le Microsoft Store'
-	   data-de='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Im Microsoft Store erhältlich'>
+	   data-pt='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Baixar e Resgatar no App'
+	   data-en='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Download & Claim in App'
+	   data-es='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Descargar y Canjear en App'
+	   data-fr='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Télécharger et Obtenir dans l&#39;App'
+	   data-de='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Herunterladen & in App Sichern'>
 	</a>
 
-	<!--
-	<hr class="linha-personalizada">
-	
-	<div class="dbmoney-intro">
-		<img src="../../images/dbnotes_48.png" alt="dbNotes" class="dbmoney-intro">
-		<div class="dbmoney-text">
-			<p data-pt="O <strong_yellow>dbNotes</strong_yellow> é o aplicativo ideal para o mundo acadêmico, criação de manuais técnicos, documentações e escrita estruturada."
-			   data-en="<strong_yellow>dbNotes</strong_yellow> is the ideal application for academia, technical manuals, documentation, and structured writing."
-			   data-es="<strong_yellow>dbNotes</strong_yellow> es la aplicación ideal para el mundo académico, la creación de manuales técnicos, documentaciones y escritura estructurada."
-			   data-fr="<strong_yellow>dbNotes</strong_yellow> est l'application idéale pour le monde académique, la création de manuels techniques, la documentation et l'écriture structurée."
-			   data-de="<strong_yellow>dbNotes</strong_yellow> ist die ideale Anwendung für den akademischen Bereich, die Erstellung technischer Handbücher, Dokumentationen und strukturiertes Schreiben.">
-			</p>
-		</div>
-	</div>
-	
-	<a href="#"
-	   target="_blank"
-	   class="btn-store-dbnotes"
-	   data-pt='<i class="fa fa-spinner"></i>&nbsp;&nbsp;&nbsp;Em breve na Microsoft Store'
-	   data-en='<i class="fa fa-spinner"></i>&nbsp;&nbsp;&nbsp;Coming soon to the Microsoft Store'
-	   data-es='<i class="fa fa-spinner"></i>&nbsp;&nbsp;&nbsp;Próximamente en Microsoft Store'
-	   data-fr='<i class="fa fa-spinner"></i>&nbsp;&nbsp;&nbsp;Bientôt disponible sur le Microsoft Store'
-	   data-de='<i class="fa fa-spinner"></i>&nbsp;&nbsp;&nbsp;Demnächst im Microsoft Store erhältlich'>
-	</a>		
-
-	<hr class="linha-personalizada">
-	
-	<div class="dbmoney-intro">
-		<img src="../../images/dbradio_48.png" alt="dbRadio" class="dbmoney-intro">
-		<div class="dbmoney-text">
-			<p data-pt="O <strong_purple>dbRadio</strong_purple> é mais que um player: uma rede global onde cada usuário se torna um curador colaborativo."
-			   data-en="The <strong_purple>dbRadio</strong_purple> is more than just a player: a global network where every user becomes a collaborative curator."
-			   data-es="El <strong_purple>dbRadio</strong_purple> es más que un reproductor: una red global donde cada usuario se convierte en un curador colaborativo."
-			   data-fr="Le <strong_purple>dbRadio</strong_purple> est plus qu'un simple lecteur : un réseau mondial où chaque utilisateur devient un conservateur collaboratif."
-			   data-de="Das <strong_purple>dbRadio</strong_purple> ist mehr als nur ein Player: ein globales Netzwerk, in dem jeder Nutzer zu einem kollaborativen Kurator wird.">
-			</p>				
-		</div>
-	</div>	
-
-	<a href="ms-windows-store://pdp/?productid=9NRWV6JRPT8R"
-	   target="_blank"
-	   class="btn-store-dbradio"
-	   data-pt='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Disponível na Microsoft Store'
-	   data-en='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Available on the Microsoft Store'
-	   data-es='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Disponible en Microsoft Store'
-	   data-fr='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Disponible sur le Microsoft Store'
-	   data-de='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Im Microsoft Store erhältlich'>
-	</a>
-	-->
 </div>
 		
 <script>
@@ -350,12 +251,10 @@
 		document.querySelectorAll('[data-pt]').forEach(el => {
 			const texto = el.getAttribute('data-' + currentLang);
 			if (texto) {
-				// USAR innerHTML para que o navegador processe o <strong>
 				el.innerHTML = texto;
 			}
 		});
 		
-		// Atualiza placeholders
 		document.querySelectorAll('[data-placeholder-pt]').forEach(el => {
 			const texto = el.getAttribute('data-placeholder-' + currentLang);
 			if (texto) {
@@ -363,7 +262,6 @@
 			}
 		});		
 		
-		// Atualiza o texto do botão de troca (Se você usar um botão cíclico, pode adaptar aqui)
 		document.querySelectorAll('.lang-text').forEach(span => {
 			if (currentLang === 'pt') span.innerText = 'en';
 			else if (currentLang === 'en') span.innerText = 'es';
@@ -375,25 +273,19 @@
 
 	function changeLanguage(lang) {
 		currentLang = lang;
-		// Atualiza textos
 		updateContent();
 	}
 	
 	window.addEventListener('click', function(event) {
-	
-		// Fecha modal da galeria
 		let galleryModal = document.getElementById("myModal");
-	
 		if (event.target == galleryModal) {
 			closeModal();
 		}
 	});
 	
 	window.onload = function() {
-		// Idioma padrão
 		currentLang = 'en';
 		
-		// Detecta idioma do navegador
 		const browserLang = navigator.language || navigator.userLanguage;
 		
 		if (browserLang.startsWith('en')) {
@@ -408,28 +300,23 @@
 			currentLang = 'pt';
 		}
 		
-		// Verifica URL (?lang= ou #)
 		checkURLForLanguage();
-		
-		// Atualiza conteúdo
 		changeLanguage(currentLang);		
 	}
 
 	document.addEventListener('keydown', function(e) {
-		if (document.getElementById("myModal").style.display === "flex") {
+		let modal = document.getElementById("myModal");
+		if (modal && modal.style.display === "flex") {
 			if (e.key === "ArrowLeft") changeImage(-1);
 			if (e.key === "ArrowRight") changeImage(1);
 			if (e.key === "Escape") closeModal();
 		}
 	});
 
-	// Executa assim que o site carregar
     document.addEventListener("DOMContentLoaded", checkURLForLanguage);
 
 	function scrollToSection(id) {
-
 		const element = document.getElementById(id);
-
 		if (element) {
 			element.scrollIntoView({
 				behavior: 'smooth',
@@ -438,13 +325,11 @@
 		}
 	}
 	
-	// Função que lê o idioma da URL
 	function checkURLForLanguage() {	
 		const hash = window.location.hash.replace('#', '');		
 		const urlParams = new URLSearchParams(window.location.search);		
 		const langParam = urlParams.get('lang');
 		
-		// Lista de idiomas válidos atualizada
 		const validLangs = ['en', 'pt', 'es', 'fr', 'de'];
 		
 		if (validLangs.includes(hash)) {		
@@ -454,8 +339,6 @@
 		}		
 	}
 	
-	// Função para abrir o modal atualizada com suporte a legenda bilíngue
-	//
 	function openModal(index, galleryId) {
 		currentGalleryImages = [];
 		var images = document.querySelectorAll("#" + galleryId + " img");
@@ -472,16 +355,15 @@
 			modal.style.display = "flex";
 			modalImg.src = currentGalleryImages[currentImageIndex].src;
 			
-			// Atualiza a legenda com base no idioma atual
 			updateCaption();
 		}		
 	}
 
 	function closeModal() { 
-		document.getElementById("myModal").style.display = "none"; 
+		let modal = document.getElementById("myModal");
+		if (modal) modal.style.display = "none"; 
 	}
 	
-	// Função de navegar imagens pelas setas ou teclado
 	function changeImage(step) {
 		if (currentGalleryImages.length === 0) return;
     
@@ -490,24 +372,18 @@
 		if (currentImageIndex < 0) currentImageIndex = currentGalleryImages.length - 1;
     
 		document.getElementById("img01").src = currentGalleryImages[currentImageIndex].src;
-		
-		// Atualiza a legenda ao mudar de imagem
 		updateCaption();
 	}
 	
-	// Função auxiliar para definir a legenda correta no Modal
 	function updateCaption() {
 		var captionText = document.getElementById("caption");
 		if (captionText && currentGalleryImages[currentImageIndex]) {
 			var currentImg = currentGalleryImages[currentImageIndex];
-			
 			if (typeof currentLang !== 'undefined') {
 				captionText.innerText = currentImg.getAttribute('data-caption-' + currentLang) || currentImg.alt || "";
 			}
 		}
 	}
-
 </script>	
-	
 </body>
 </html>
