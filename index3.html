@@ -98,6 +98,7 @@
         }
 
         .nav-divider { width: 1px; height: 20px; background: var(--line); flex-shrink: 0; }
+		.nav-divider-hide { width: 1px; height: 20px; background: var(--line); flex-shrink: 0; }
 
         .header-contact {
             color: var(--muted);
@@ -546,7 +547,7 @@
                 font-size: 0.85rem;
             }
 
-            .nav-divider { display: none; }
+            .nav-divider-hide { display: none; }
             /* .header-contact { display: none; }*/
             
             .hero { padding: 40px 5%; }
@@ -653,7 +654,7 @@
 			<a href="#dbradio" style="--prod-color:var(--roxo-dbradio)" onclick="scrollToSection('dbradio'); return false;"><i class="fas fa-music"></i>&nbsp;&nbsp;dbRadio</a>
 		</div>
 
-		<div class="nav-divider"></div>		
+		<div class="nav-divider-hide"></div>
 
 		<div class="lang-selector" id="langSelector">
 			<a href="javascript:void(0)" class="lang-pill" data-lang="en" onclick="changeLanguage('en')">EN</a>
@@ -667,8 +668,7 @@
 		
 		<a href="mailto:support@devbrazil.com" class="header-contact" aria-label="Email" title="support@devbrazil.com">
 			<i class="fas fa-envelope"></i>
-		</a>
-
+		</a>		
 	</nav>
 </header>
 
@@ -973,7 +973,7 @@
                                data-de="* Befristetes Angebot">
                         </small>
                         <small style="font-size: 0.75rem; color: #777; display: block; margin-top: 4px;" 
-                               data-pt="* Preço pode variar por região" 
+                               data-pt="* Preço pode variar por região/país" 
                                data-en="* Price may vary by region/country"
                                data-es="* El precio puede variar según la región o el país"
                                data-fr="* Le prix peut varier selon la région/le pays"
