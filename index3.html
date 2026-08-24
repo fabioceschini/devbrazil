@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#1b845b">
+    <title>DevBrazil | Software Engineering</title>
+	<link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --verde-dev: #1b845b;
+            --verde-dev-dark: #146a48;
+            --azul-dbmoney: #004a99;			
+			--vermelho-dbpdf: #A75052;
+			--roxo-dbradio: #6a1b9a;
+			--amarelo-dbnotes: #AF8300;
+            --bg-light: #f7f6f1;
+            --ink: #1c2321;
+            --text-dark: #333;
+            --muted: #70766f;
+            --line: #e7e4da;
+            --white: #ffffff;
+            --font-body: 'Inter', 'Segoe UI', sans-serif;
+            --font-mono: 'JetBrains Mono', 'Consolas', monospace;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-body); background-color: var(--bg-light); color: var(--ink); line-height: 1.6; overflow-x: hidden; }
+
+        /* --- HEADER --- */
+        header {
+            background: rgba(255,255,255,0.85);
+            padding: 16px 5%;
+            display: flex;
+            justify-content: space-between; /* Mantém Logo na esquerda e Nav na direita */
+            align-items: center;
+            border-bottom: 1px solid var(--line);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+			gap: 20px;
+        }
+		
+        .logo-container { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+        .logo-img { width: 34px; height: 34px; }
+        .brand-name { font-weight: 700; font-size: 1.05rem; color: var(--ink); letter-spacing: 0.2px; }
+        .brand-name .brand-accent { color: var(--verde-dev); }
+		
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .product-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+        }
+
+        .product-nav-links a {
+            position: relative;
+            text-decoration: none;
+            color: var(--muted);
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 4px 0;
+            transition: color 0.2s ease;
+            --prod-color: var(--verde-dev);
+        }
+
+        .product-nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0%;
+            height: 2px;
+            background: var(--prod-color);
+            transition: width 0.2s ease;
+            border-radius: 2px;
+        }
+
+        .product-nav-links a:hover,
+        .product-nav-links a.active {
+            color: var(--prod-color);
+        }
+
+        .product-nav-links a:hover::after,
+        .product-nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-divider { width: 1px; height: 20px; background: var(--line); flex-shrink: 0; }
+
+        .header-contact {
+            color: var(--muted);
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+        .header-contact:hover { background: rgba(27,132,91,0.08); color: var(--verde-dev); }
+
+        /* --- HERO --- */
+        .hero { padding: 70px 5% 60px; text-align: center; background: linear-gradient(180deg, #fff 0%, var(--bg-light) 100%); }
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            color: var(--verde-dev-dark);
+            background: rgba(27,132,91,0.1);
+            padding: 7px 14px;
+            border-radius: 20px;
+            margin-bottom: 22px;
+        }
+        .hero h1 { font-size: 2.6rem; font-weight: 800; margin-bottom: 18px; color: var(--ink); line-height: 1.15; letter-spacing: -0.01em; }
+        .hero p { font-size: 1.02rem; color: var(--muted); max-width: 1000px; margin: 0 auto; }
+
+        /* Eyebrow / badge mono, usado no topo de cada card de produto */
+        .product-eyebrow {			
+            display: inline-block;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            /* text-transform: uppercase;*/
+            padding: 8px 12px;
+            border-radius: 10px;            
+			margin-left: 5px;
+			line-height: 1;
+			
+			/*
+			background: #f3e5f5; color: var(--roxo-dbradio); margin-left: 5px; margin-bottom: 0px; padding: 8px 12px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1;
+			*/
+        }
+        .eyebrow-blue   { color: var(--azul-dbmoney); background: rgba(0,74,153,0.08); }
+        .eyebrow-red    { color: var(--vermelho-dbpdf); background: rgba(167,80,82,0.1); }
+        .eyebrow-yellow { color: #8a6800; background: rgba(188,141,0,0.12); }
+        .eyebrow-purple { color: var(--roxo-dbradio); background: rgba(106,27,154,0.08); }
+		.eyebrow-green  { color: var(--verde-dev-dark); background: rgba(27,132,91,0.1); }
+
+		.lang-selector { position: relative; display: inline-flex; align-items: center; gap: 2px; flex-shrink: 0; }
+
+		.lang-pill {
+			font-family: var(--font-mono);
+			font-size: 0.78rem;
+			font-weight: 600;
+			letter-spacing: 0.03em;
+			color: var(--muted);
+			text-decoration: none;
+			padding: 6px 10px;
+			border-radius: 6px;
+			transition: all 0.15s ease;
+		}
+
+		.lang-pill:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
+
+		.lang-pill.active {
+			background: var(--bg-light);
+			border: 1px solid var(--line);
+			color: var(--ink);
+		}
+
+        /* --- CONTAINER PRODUTO --- */
+		.product-card {
+            background: #fff;
+            max-width: 1200px;
+            margin: -30px auto 50px;
+            padding: 40px 5%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-left: 8px solid var(--azul-dbmoney);
+        }
+		
+        /* Variações dos Product Cards */
+        .card-dbpdf { border-left-color: #A75052 !important; }
+		.card-dbpdf h2 { color: #d32f2f !important; }
+		
+        .card-dbnotes { border-left-color: #BC8D00 !important; }
+		.card-dbnotes h2 { color: #AF8300 !important; }		
+		
+        .card-dbradio { border-left-color: #7A5B91 !important; }
+		.card-dbradio h2 { color: #6a1b9a !important; }
+		
+        .card-devbrazil { border-left-color: #1B845B !important; }
+		.card-devbrazil h2 { color: #1B845B !important; }
+			
+		.product-header { display: flex; gap: 40px; align-items: center; margin-bottom: 40px; }
+        .product-info h2 { color: var(--dbmoney-blue); font-size: 2.5rem; margin-bottom: 10px; }
+		
+        .product-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: -25px auto 40px;
+            padding: 0 5%;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 10;
+        }
+		
+        .nav-btn-item {
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .nav-btn-item:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+
+        /* Cores dos Botões e Cards */
+        .btn-blue { background-color: var(--azul-dbmoney); }
+        .btn-red { background-color: #A75052; }
+		.btn-yellow { background-color: #BC8D00; }
+        .btn-purple { background-color: #7A5B91; }
+
+		.icon-red { color: #d32f2f; margin-right: 10px; font-size: 1.8rem; }
+		.icon-purple { color: var(--roxo-dbradio); margin-right: 10px; font-size: 1.8rem; }
+
+		.product-info-footer {
+			display: block;
+			align-items: center;
+			gap: 10px;
+			flex-wrap: wrap; /* Evita que os itens fiquem espremidos na mesma linha */
+			margin-top: 15px;
+			font-size: 0.9rem;
+			color: #666;
+		}
+
+		.badge-blue   { background: #E8EDF2; color: var(--azul-dbmoney); margin-left: 5px; margin-bottom: 0px; padding: 7px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1; }
+		.badge-red    { background: #FFE4F1; color: #A75052;             margin-left: 5px; margin-bottom: 0px; padding: 7px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1; }
+		.badge-yellow { background: #FDF4D1; color: #BC8D00;             margin-left: 5px; margin-bottom: 0px; padding: 7px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1; }
+		.badge-purple { background: #f3e5f5; color: var(--roxo-dbradio); margin-left: 5px; margin-bottom: 0px; padding: 7px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1; }
+		.badge-gray   { background: #F0F0F0; color: #8E8E8E;             margin-left: 5px; margin-bottom: 0px; padding: 7px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1; }
+		.badge-green  { background: #E8F2EE; color: var(--verde-dev-dark); margin-left: 5px; margin-bottom: 0px; padding: 7px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1; }
+		
+        .dbmoney-intro { display: flex; align-items: center; gap: 30px; margin-bottom: 10px; }
+        .dbmoney-intro img { width: 96px; height: auto; }
+        .dbmoney-text h2 { color: var(--azul-dbmoney); font-size: 1.8rem; margin-bottom: 15px; }
+		
+		h10 { color: var(--azul-dbmoney); font-size: 2.0rem; margin-top: 30px; margin-bottom: 0px; }
+		
+        /* --- CONTEÚDO --- */
+        .about-content { margin-bottom: 20px; }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .feature-item { padding: 20px; background: #f9f9f9; border-radius: 10px; border-bottom: 3px solid #eee; }
+        .feature-item strong { color: var(--azul-dbmoney); display: block; margin-bottom: 5px; }
+		
+		strong_black { color: var(--ink); }
+		strong_dbmoney { color: var(--azul-dbmoney); font-size: 1.0rem; font-weight: bold; }
+
+        /* --- GALERIA --- */
+        .gallery-title { color: var(--azul-dbmoney); margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem; }
+		.gallery-title-red { color: #A75052; margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem; }
+		.gallery-title-yellow { color: #BC8D00; margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem; }
+		.gallery-title-purple { color: var(--roxo-dbradio); margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem; }
+        .screenshot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+        .screenshot-grid img { 
+            width: 100%; border-radius: 8px; cursor: pointer; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.2s;
+        }
+        .screenshot-grid img:hover { transform: scale(1.05); }
+
+        /* --- TABELA COMPARATIVA --- */
+        .pricing-table-container { margin-top: 10px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; min-width: 500px; }
+        th, td { padding: 12px 10px; text-align: left; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+        th { background-color: #f8f9fa; color: var(--azul-dbmoney); }
+        .check-yes { color: #28a745; }
+        .check-no { color: #dc3545; }
+        .limit-text { font-size: 0.75rem; color: #856404; background: #fff3cd; padding: 2px 6px; border-radius: 4px; display: inline-block; }
+		.limit-text-blue { font-weight: bold; color: var(--azul-dbmoney); }
+
+        .btn-store-dbmoney {
+            display: block;
+            width: 100%;
+            max-width: 350px;
+            margin: 40px auto 0;
+            background: var(--azul-dbmoney);
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            text-align: center;
+            transition: background 0.3s;
+        }
+        .btn-store-dbmoney:hover { background: #003366; }
+
+        .btn-store-dbpdf {
+            display: block;
+            width: 100%;
+            max-width: 350px;
+            margin: 40px auto 0;
+            background: var(--vermelho-dbpdf);
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            text-align: center;
+            transition: background 0.3s;
+        }
+        .btn-store-dbpdf:hover { background: #823E40; }
+
+        .btn-store-dbnotes {
+            display: block;
+            width: 100%;
+            max-width: 350px;
+            margin: 40px auto 0;
+            background: #D29E00;
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            text-align: center;
+            transition: background 0.3s;
+        }
+        .btn-store-dbnotes:hover { background: #BC8D00; }
+
+        .btn-store-gray {
+            display: block;
+            width: 100%;
+            max-width: 350px;
+            margin: 40px auto 0;
+            background: #E0E0E0;
+            color: #898989;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            text-align: center;
+            transition: background 0.3s;
+        }
+        .btn-store-gray:hover { background: #CECECE; }
+		
+        .btn-store-dbradio {
+            display: block;
+            width: 100%;
+            max-width: 350px;
+            margin: 40px auto 0;
+            background: var(--roxo-dbradio);
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            text-align: center;
+            transition: background 0.3s;
+        }
+        .btn-store-dbradio:hover { background: #59436B; }
+
+        /* --- MODAL GALERIA --- */
+        .modal {
+            display: none; position: fixed; z-index: 2000;
+            left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95);
+            justify-content: center; align-items: center;
+        }
+        .modal-content { max-width: 100%; max-height: 90%; border-radius: 5px; object-fit: contain; }
+        .close { position: absolute; top: 15px; right: 25px; color: #fff; font-size: 35px; font-weight: bold; cursor: pointer; z-index: 2001; }
+        
+        .nav-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            color: white; font-size: 30px; cursor: pointer; padding: 15px;
+            user-select: none; transition: 0.3s; z-index: 2001;
+        }
+        .nav-btn:hover { color: var(--verde-dev); }
+        .prev-btn { left: 5px; }
+        .next-btn { right: 5px; }
+
+        footer { background: #333; color: #fff; text-align: center; padding: 30px 5%; margin-top: 50px; font-size: 0.9rem; }
+		
+	
+        /* --- MODAL DE CONTATO --- */
+        .contact-modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .contact-modal-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .close-contact {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #999;
+        }
+        
+        .contact-modal h2 {
+            color: var(--verde-dev);
+            margin-bottom: 10px;
+        }
+        
+        #contactForm {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        #contactForm input, #contactForm textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        #contactForm input:focus, #contactForm textarea:focus {
+            outline: none;
+            border-color: var(--verde-dev);
+            box-shadow: 0 0 5px rgba(27, 132, 91, 0.2);
+        }
+        
+        .btn-send {
+            background-color: var(--verde-dev);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .btn-send:hover {
+            background-color: #146645;
+        }
+		
+		/* Container da grade de idiomas */
+		.lang-grid-status {
+			display: flex;
+			gap: 10px;
+			flex-wrap: wrap;
+			margin-top: 15px;
+			margin-bottom: 25px;
+		}
+
+		/* Item de idioma individual */
+		.lang-status-item {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			font-size: 0.90rem;
+			font-weight: 500;
+			color: var(--text-dark);
+			background: #f9f9f9;
+			padding: 6px 12px;
+			border-radius: 15px;
+			border: 1px solid #eee;
+		}
+
+		/* Tamanho padronizado para mini-bandeiras */
+		.lang-status-item img {
+			width: 16px;
+			height: 16px;
+			object-fit: contain;
+		}
+
+		/* Estilo discreto para idiomas que estão "Em breve" */
+		.lang-status-item.coming-soon {
+			// background: #f0f0f0;
+			color: #888;
+			// border-style: dashed; /* Borda pontilhada para indicar que está por vir */
+		}
+
+		/* Nova classe para controlar o alinhamento em formato Flex */
+		.product-title-flex {
+			display: flex;
+			align-items: center;       /* Centraliza o selo verticalmente em relação ao texto "dbPDF" */
+			justify-content: left;     /* Centraliza todo o bloco (selo + texto) no meio da tela/card */	
+			gap: 10px;                 /* Dá um espaçamento horizontal de 10px entre o selo e o texto */
+		}
+
+        /* --- MEDIA QUERIES --- */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 12px; padding: 14px 15px; }
+			nav {
+                display: flex;
+                flex-direction: row; /* Mantém na mesma linha */
+                flex-wrap: wrap;     /* Permite quebrar linha se o celular for muito pequeno */
+                justify-content: center;
+                align-items: center;
+                gap: 14px;           /* Espaçamento entre os itens */
+                width: 100%;
+            }
+
+            .product-nav-links { gap: 16px; flex-wrap: wrap; justify-content: center; }
+
+            .product-nav-links a {
+                font-size: 0.85rem;
+            }
+
+            .nav-divider { display: none; }
+            /* .header-contact { display: none; }*/
+            
+            .hero { padding: 40px 5%; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero p { font-size: 1rem; }
+
+            .card-dbmoney { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid var(--azul-dbmoney); }
+			.card-dbpdf   { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid #A75052; }
+			.card-dbradio { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid #7A5B91; }
+			.card-dbnotes { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid #BC8D00; }
+			.card-devbrazil { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid #1B845B; }
+
+            .product-nav { margin-top: 10px; gap: 10px; }
+            .nav-btn-item { font-size: 0.85rem; padding: 10px 15px; width: 100%; justify-content: center; }
+			
+			.gallery-title 	      { flex-direction: column; text-align: center; gap: 20px; }
+			.gallery-title-red    { flex-direction: column; text-align: center; gap: 20px; }
+			.gallery-title-yellow { flex-direction: column; text-align: center; gap: 20px; }
+			.gallery-title-purple { flex-direction: column; text-align: center; gap: 20px; }			
+
+			.product-info-footer {
+				flex-direction: column; /* Transforma a linha em coluna no celular */
+				align-items: center;    /* Centraliza os itens verticalmente */
+				text-align: center;
+				gap: 8px;               /* Dá um espaçamento saudável entre as linhas */
+			}
+           
+            .dbmoney-intro { flex-direction: column; text-align: center; gap: 20px; }			
+            .dbmoney-intro img { width: 100px; }
+            .dbmoney-text h2 { font-size: 1.5rem; }
+			
+			.about-content { flex-direction: column; text-align: center; gap: 20px; }			
+
+            .screenshot-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
+            
+            .nav-btn { font-size: 24px; padding: 10px; }
+
+			/* Garante que o botão de idioma apareça no menu mobile */
+			.mobile-nav .lang-btn {
+				display: flex;
+				align-self: center;
+				margin-top: 10px;
+			}
+			
+			.lang-grid-status {
+				justify-content: center; /* Centraliza no celular igual aos outros elementos */
+				gap: 10px;
+			}
+			.lang-status-item {
+				font-size: 0.85rem;
+				padding: 5px 10px;
+			}
+			
+			.product-title-flex {
+				flex-direction: column; /* Transforma a linha em coluna, jogando o selo para baixo/cima */
+				gap: 5px;               /* Diminui um pouco o espaço para ficar mais harmônico no celular */
+			}			
+        }
+    </style>
+	
+	<script>
+	  (function(w, d, t, u, o) {
+		w[u] = w[u] || [];
+		o.ts = (new Date).getTime();
+		
+		var n = d.createElement(t);
+		n.src = "https://bat.bing.net/bat.js?ti=" + o.ti + ("uetq" != u ? "&q=" + u : "");
+		n.async = 1;
+		n.onload = n.onreadystatechange = function() {
+		  var s = this.readyState;
+		  if (!s || "loaded" === s || "complete" === s) {
+			o.q = w[u];
+			w[u] = new UET(o);
+			w[u].push("pageLoad");
+			n.onload = n.onreadystatechange = null;
+		  }
+		};
+		
+		var i = d.getElementsByTagName(t)[0];
+		i.parentNode.insertBefore(n, i);
+	  })(window, document, "script", "uetq", {
+		ti: "187265698",
+		enableAutoSpaTracking: true
+	  });
+	</script>
+</head>
+<body>
+
+<header>
+    <div class="logo-container">
+        <img src="images/devbrazil_logo_256.png" alt="DevBrazil Logo" class="logo-img">
+		<div class="product-nav-links">        
+			<a href="#dbmoney" style="--prod-color:var(--verde-dev)" onclick="scrollToSection('devbrazil'); return false;"><span class="brand-name">Dev<span class="brand-accent">Brazil</span></span></a>
+		</div>
+    </div>
+	<nav>
+		<div class="product-nav-links">
+			<a href="#dbmoney" style="--prod-color:var(--azul-dbmoney)" onclick="scrollToSection('dbmoney'); return false;"><i class="fas fa-wallet"></i>&nbsp;&nbsp;dbMoney</a>
+			<div class="nav-divider"></div>
+			<a href="#dbpdf" style="--prod-color:var(--vermelho-dbpdf)" onclick="scrollToSection('dbpdf'); return false;"><i class="fas fa-file-pdf"></i>&nbsp;&nbsp;dbPDF</a>
+			<div class="nav-divider"></div>
+			<a href="#dbnotes" style="--prod-color:var(--amarelo-dbnotes)" onclick="scrollToSection('dbnotes'); return false;"><i class="fas fa-file-text"></i>&nbsp;&nbsp;dbNotes</a>
+			<div class="nav-divider"></div>
+			<a href="#dbradio" style="--prod-color:var(--roxo-dbradio)" onclick="scrollToSection('dbradio'); return false;"><i class="fas fa-music"></i>&nbsp;&nbsp;dbRadio</a>
+		</div>
+
+		<div class="nav-divider"></div>		
+
+		<div class="lang-selector" id="langSelector">
+			<a href="javascript:void(0)" class="lang-pill" data-lang="en" onclick="changeLanguage('en')">EN</a>
+			<a href="javascript:void(0)" class="lang-pill" data-lang="pt" onclick="changeLanguage('pt')">PT</a>
+			<a href="javascript:void(0)" class="lang-pill" data-lang="es" onclick="changeLanguage('es')">ES</a>
+			<a href="javascript:void(0)" class="lang-pill" data-lang="fr" onclick="changeLanguage('fr')">FR</a>
+			<a href="javascript:void(0)" class="lang-pill" data-lang="de" onclick="changeLanguage('de')">DE</a>
+		</div>
+		
+		<div class="nav-divider"></div>
+		
+		<a href="mailto:support@devbrazil.com" class="header-contact" aria-label="Email" title="support@devbrazil.com">
+			<i class="fas fa-envelope"></i>
+		</a>
+
+	</nav>
+</header>
+
+<!--
+<section class="hero" id="empresa">
+    <span class="hero-eyebrow" data-pt="4 PRODUTOS · 100% OFFLINE · WINDOWS" data-en="4 PRODUCTS · 100% OFFLINE · WINDOWS" data-es="4 PRODUCTOS · 100% SIN CONEXIÓN · WINDOWS" data-fr="4 PRODUITS · 100% HORS LIGNE · WINDOWS" data-de="4 PRODUKTE · 100% OFFLINE · WINDOWS">4 PRODUTOS · 100% OFFLINE · WINDOWS</span>
+    <h1 data-pt="Engenharia de Software de Alta Performance" 
+        data-en="High Performance Software Engineering"
+        data-es="Ingeniería de software de alto rendimiento"
+        data-fr="Ingénierie logicielle haute performance"
+        data-de="High-Performance-Software-Engineering">
+        Engenharia de Software de Alta Performance
+    </h1>
+    <br>
+    <p data-pt="Nascida da paixão pela eficiência e com mais de 25 anos de experiência no desenvolvimento de sistemas críticos, a DevBrazil combina solidez técnica com inovação para criar softwares nativos de alta performance."
+       data-en="Born from a passion for efficiency and backed by over 25 years of experience in mission-critical systems, DevBrazil combines technical expertise with innovation to build high-performance native software."
+       data-es="Nacida de la pasión por la eficiencia y respaldada por más de 25 años de experiencia en el desarrollo de sistemas críticos, DevBrazil combina solidez técnica con innovación para crear software nativo de alto rendimiento."
+       data-fr="Née d'une passion pour l'efficacité et forte de plus de 25 ans d'expérience dans les systèmes critiques, DevBrazil allie expertise technique et innovation pour créer des logiciels natifs de haute performance."
+       data-de="Aus der Leidenschaft für Effizienz entstanden und gestützt auf mehr von 25 Jahren Erfahrung mit geschäftskritischen Systemen, verbindet DevBrazil technische Kompetenz mit Innovation, um native High-Performance-Software zu entwickeln.">
+    </p>
+    <br>
+    <p data-pt="Nosso propósito é simples: desenvolver soluções que respeitam o seu tempo, potencializam sua produtividade e garantem a privacidade absoluta dos seus dados. Criamos ferramentas leves, rápidas e independentes para quem exige o máximo do seu ecossistema de trabalho."
+       data-en="Our mission is clear: to create solutions that honor your time, amplify your productivity, and protect your absolute data privacy. We build lightweight, fast, and standalone tools for individuals and professionals who demand excellence from their workflow."
+       data-es="Nuestro propósito es simple: desarrollar soluciones que respeten su tiempo, potencien su productividad y garanticen la privacidad absoluta de sus datos. Creamos herramientas ligeras, rápidas e independientes para quienes exigen el máximo de su ecosistema de trabajo."
+       data-fr="Notre mission é simple : concevoir des solutions qui respectent votre temps, maximisent votre productivité et garantissent la confidentialité absolue de vos données. Nous créons des outils légers, rapides et indépendants pour ceux qui exigent le maximum de leur écosystème de travail."
+       data-de="Unser Ziel ist einfach: Lösungen zu entwickeln, die Ihre Zeit respektieren, Ihre Produktivität maximieren und die absolute Privatsphäre Ihrer Daten garantieren. Wir entwickeln schlanke, schnelle und unabhängige Tools für alle, die das Maximum aus ihrer Arbeitsumgebung herausholen wollen.">
+    </p>
+    <br>
+    <p data-pt="<strong>Junte-se a nós. Nossa tecnologia já impulsiona a produtividade de usuários em mais de 120 mercados e territórios ao redor do mundo.</strong>"
+       data-en="<strong>Join us. Our technology is already driving productivity for users across more than 120 markets and territories worldwide.</strong>"
+       data-es="<strong>Únase a nosotros. Nuestra tecnología ya impulsa la productividad de usuarios en más de 120 mercados y territorios en todo el mundo.</strong>"
+       data-fr="<strong>Rejoignez-nous. Notre technologie stimule déjà la productivité d'utilisateurs dans plus de 120 marchés et territoires à travers le monde.</strong>"
+       data-de="<strong>Schließen Sie sich uns an. Unsere Technologie steigert bereits die Produktivität von Anwendern in mehr als 120 Märkten und Regionen weltweit.</strong>">
+    </p>
+    <br>
+</section>
+
+<div class="product-nav">
+    <a href="javascript:void(0)" onclick="scrollToSection('dbmoney')" class="nav-btn-item btn-blue"><i class="fas fa-wallet"></i> dbMoney</a>
+    <a href="javascript:void(0)" onclick="scrollToSection('dbpdf')" class="nav-btn-item btn-red"><i class="fas fa-file-pdf"></i> dbPDF</a>
+	<a href="javascript:void(0)" onclick="scrollToSection('dbnotes')" class="nav-btn-item btn-yellow"><i class="fas fa-file-text"></i> dbNotes</a>
+    <a href="javascript:void(0)" onclick="scrollToSection('dbradio')" class="nav-btn-item btn-purple"><i class="fas fa-music"></i> dbRadio</a>
+</div>
+-->
+
+<br>
+<br>
+<br>
+
+<div class="product-card card-dbmoney" id="dbmoney">
+    <div class="dbmoney-intro">
+        <img src="images/dbmoney_logo_96.png" alt="dbMoney" class="dbmoney-intro">
+        <div class="dbmoney-text">
+            <h2 class="product-title product-title-flex">
+                dbMoney Personal
+				<span class="product-eyebrow eyebrow-blue" data-pt='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuito' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
+				<span class="product-eyebrow eyebrow-blue" data-pt='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (vitalício)' data-en='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (lifetime)' data-es='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (de por vida)' data-fr='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (à vie)' data-de='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (lebenslang)'></span>
+			</h2>
+
+			<p data-pt="O <strong>dbMoney Personal</strong> é o software nativo definitivo para quem deseja retomar o controle total da sua vida financeira sem abrir mão da privacidade. Projetado sob medida para o Windows, ele combina a robustez de engenharia dos sistemas bancários com a agilidade de uma interface moderna, limpa e extremamente intuitiva."
+			   data-en="<strong>dbMoney Personal</strong> is the ultimate native software for anyone looking to regain total control over their financial life without compromising privacy. Tailored specifically for Windows, it combines the engineering robustness of banking systems with the agility of a modern, clean, and highly intuitive interface."
+			   data-es="<strong>dbMoney Personal</strong> es el software nativo definitivo para quienes desean recuperar el control total de su vida financiera sin renunciar a la privacidad. Diseñado a la medida para Windows, combina la robustez de ingeniería de los sistemas bancarios con la agilidad de una interfaz moderna, limpia y altamente intuitiva."
+			   data-fr="<strong>dbMoney Personal</strong> est le logiciel natif ultime pour quiconque souhaite reprendre le contrôle total de sa vie financière sans compromettre sa vie privée. Conçu sur mesure pour Windows, il combine la robustesse technique des systèmes bancaires avec l'agilité d'une interface moderne, épurée et hautement intuitive."
+			   data-de="<strong>dbMoney Personal</strong> ist die ultimative native Software für alle, die die volle Kontrolle über ihr Finanzleben zurückgewinnen wollen, ohne Kompromisse bei der Privatsphäre einzugehen. Maßgeschneidert für Windows, verbindet sie die technische Robustheit von Banksystemen mit der Flexibilität einer modernen, übersichtlichen und extrem intuitiven Benutzeroberfläche.">
+			</p>
+        </div>
+    </div>
+	<br>
+
+    <div class="about-content">
+		<p data-pt="<strong>Seus dados pertencem a você, e a mais ninguém.</strong>" 
+		   data-en="<strong>Your data belongs to you, and no one else.</strong>" 
+		   data-es="<strong>Sus datos le pertenecen a usted, y a nadie más.</strong>"
+		   data-fr="<strong>Vos données vous appartiennent, et à personne d'autre.</strong>"
+		   data-de="<strong>Ihre Daten gehören Ihnen und niemandem sonst.</strong>">
+		</p>
+		<p data-pt="Ao contrário de plataformas web que expõem suas informações em servidores de terceiros, o dbMoney prioriza a segurança máxima. Seus dados permanecem criptografados e armazenados localmente no seu computador, funcionando <strong_dbmoney>100% offline</strong_dbmoney>." 
+		   data-en="Unlike web platforms that expose your information to third-party servers, dbMoney prioritizes maximum security. Your data remains encrypted and stored locally on your computer, operating <strong_dbmoney>100% offline</strong_dbmoney>." 
+		   data-es="A diferencia de las plataformas web que exponen su información en servidores de terceros, dbMoney prioriza la máxima seguridad. Sus datos permanecen encriptados y almacenados localmente en su computadora, funcionando <strong_dbmoney>100% offline</strong_dbmoney>."
+		   data-fr="Contrairement aux plateformes web qui exposent vos informations sur des serveurs tiers, dbMoney donne la priorité à une sécurité maximale. Vos données restent cryptées et stockées locallement sur votre ordinateur, fonctionnant à <strong_dbmoney>100% hors ligne</strong_dbmoney>."
+		   data-de="Im Gegensatz zu Webplattformen, die Ihre Informationen auf fremden Servern offenlegen, priorisiert dbMoney maximale Sicherheit. Ihre Daten bleiben verschlüsselt und lokal auf Ihrem Computer gespeichert – und funktionieren zu <strong_dbmoney>100 % offline</strong_dbmoney>.">
+		</p>
+		<br>
+		<p data-pt="<strong>Quer mobilidade?</strong>" 
+		   data-en="<strong>Need mobility?</strong>" 
+		   data-es="<strong>¿Busca movilidad?</strong>"
+		   data-fr="<strong>Besoin de mobilité ?</strong>"
+		   data-de="<strong>Möchten Sie Flexibilität?</strong>">
+		</p>
+		<p data-pt="Você tem total liberdade para sincronizar seus arquivos criptografados através do seu próprio <strong_dbmoney>OneDrive</strong_dbmoney> ou <strong_dbmoney>Google Drive</strong_dbmoney> para acessá-los em outros computadores de forma instantânea." 
+		   data-en="You have the complete freedom to sync your encrypted files using your own <strong_dbmoney>OneDrive</strong_dbmoney> or <strong_dbmoney>Google Drive</strong_dbmoney> to access them on other computers instantly." 
+		   data-es="Tiene total libertad para sincronizar sus archivos encriptados a través de su propio <strong_dbmoney>OneDrive</strong_dbmoney> o <strong_dbmoney>Google Drive</strong_dbmoney> para acceder a ellos en otras computadoras de forma instantánea."
+		   data-fr="Vous avez la liberté totale de synchroniser vos fichiers cryptés via votre propre <strong_dbmoney>OneDrive</strong_dbmoney> ou <strong_dbmoney>Google Drive</strong_dbmoney> pour y accéder instantanément sur d'autres ordinateurs."
+		   data-de="Sie haben a die absolute Freiheit, Ihre verschlüsselten Dateien über Ihr eigenes <strong_dbmoney>OneDrive</strong_dbmoney> oder <strong_dbmoney>Google Drive</strong_dbmoney> zu synchronisieren, um sofort von anderen Computern darauf zuzugreifen.">
+		</p>
+
+		<h3 class="gallery-title" data-pt="Por que escolher o dbMoney?" 
+		                          data-en="Why choose dbMoney?" 
+								  data-es="¿Por qué elegir dbMoney?" 
+								  data-fr="Pourquoi choisir dbMoney ?" 
+								  data-de="Warum dbMoney wählen?"></h3>
+
+		<div class="about-content">
+			<strong><i class="fas fa-check"></i><a data-pt=" Liberdade Financeira Sem Mensalidades:" 
+			                                       data-en=" Financial Freedom Without Monthly Fees:" 
+												   data-es=" Libertad Financiera Sin Mensualidades:" 
+												   data-fr=" Liberté financière sans abonnement :" 
+												   data-de=" Finanzielle Freiheit ohne Monatsgebühren:"></a></strong>
+			<a data-pt="Diga adeus às assinaturas intermináveis. Uma única compra garante uso vitalício e atualizações, colocando o seu planejamento financeiro no azul desde o primeiro dia." 
+			   data-en="Say goodbye to endless subscriptions. A single purchase guarantees lifetime use and updates, putting your financial planning in the green from day one." 
+			   data-es="Diga adiós a las suscripciones interminables. Una única compra garantiza el uso de por vida y actualizaciones, poniendo su planificación financiera en verde desde el primer día."
+			   data-fr="Dites adieu aux abonnements interminables. Un achat unique garantit une utilisation et des mises à jour à vie, équilibrant vos finances dès le premier jour."
+			   data-de="Verabschieden Sie sich von endlosen Abonnements. Ein einziger Kauf garantiert lebenslange Nutzung und Updates, sodass Ihre Finanzplanung von Tag eins an im grünen Bereich ist."></a>
+		</div>
+
+		<div class="about-content">
+			<strong><i class="fas fa-bolt"></i><a data-pt=" Performance Nativa Incomparável:" 
+			                                      data-en=" Unmatched Native Performance:" 
+												  data-es=" Rendimiento Nativo Incomparable:" 
+												  data-fr=" Performance native inégalée :" 
+												  data-de=" Unübertroffene native Performance:"></a></strong>
+			<a data-pt="Desenvolvido para responder na velocidade do seu pensamento. Sinta a fluidez de um sistema que carrega relatórios e gráficos instantaneamente, mesmo com milhares de registros acumulados ao longo dos anos." 
+			   data-en="Built to respond at the speed of your thought. Experience the fluidity of a system that loads reports and charts instantly, even with thousands of records accumulated over the years." 
+			   data-es="Desarrollado para responder a la velocidad de su pensamiento. Sienta la fluidez de un sistema que carga informes y gráficos al instante, incluso con miles de registros acumulados a lo largo de los años."
+			   data-fr="Conçu pour répondre à la vitesse de votre pensée. Découvrez la fluidité d'un système qui charge instantanément les rapports et les graphiques, mesmo avec des milliers d'enregistrements accumulés au fil des ans."
+			   data-de="Entwickelt, um in der Geschwindigkeit Ihrer Gedanken zu reagieren. Erleben Sie die Agilität eines Systems, das Berichte und Diagramme sofort lädt, selbst bei Tausenden von Datensätzen, die sich über die Jahre angesammelt haben."></a>
+		</div>
+
+		<div class="about-content">
+			<strong><i class="fas fa-magic"></i><a data-pt=" Inteligência e Automação:" 
+			                                       data-en=" Intelligence and Automation:" 
+												   data-es=" Inteligencia y Automatización:" 
+												   data-fr=" Intelligence et automatisation :" 
+												   data-de=" Intelligenz und Automatisierung:"></a></strong>
+			<a data-pt="Esqueça a digitação manual exaustiva. Importe seus extratos bancários (OFX) e deixe que as regras inteligentes do dbMoney categorizem suas transações de forma automática e precisa." 
+			   data-en="Forget exhaustive manual typing. Import your bank statements (OFX) and let dbMoney's smart rules categorize your transactions automatically and precisely." 
+			   data-es="Olvídese de la exhaustiva digitación manual. Importe sus extractos bancarios (OFX) e deje que las reglas inteligentes de dbMoney categoricen sus transacciones de forma automática y precisa."
+			   data-fr="Oubliez la saisie manuelle fastidieuse. Importez vos relevés bancaires (OFX) et laissez os regras inteligentes de dbMoney catégoriser vos transactions de manière automatique et précise."
+			   data-de="Vergessen Sie mühsame manuelle Eingaben. Importieren Sie Ihre Bankauszüge (OFX) und lassen Sie die intelligenten Regeln von dbMoney Ihre Transaktionen automatisch und präzise kategorisieren."></a>
+		</div>
+
+		<div class="about-content">
+			<strong><i class="fas fa-cog"></i><a data-pt=" Engenharia de Dados Flexível:" 
+			                                     data-en=" Flexible Data Engineering:" 
+												 data-es=" Ingeniería de Datos Flexible:" 
+												 data-fr=" Ingénierie des données flexible :" 
+												 data-de=" Flexible Datentechnik:"></a></strong>
+			<a data-pt="Molde o sistema ao seu estilo de vida. Crie estruturas de categorias e tags totalmente independentes para analisar seu fluxo de caixa sob qualquer perspectiva." 
+			   data-en="Shape the system to your lifestyle. Create completely independent category and tag structures to analyze your cash flow from any perspective." 
+			   data-es="Moldee el sistema a su estilo de vida. Cree estructuras de categorías y etiquetas totalmente independientes para analizar su flujo de caja bajo cualquier perspectiva."
+			   data-fr="Adaptez le système à votre style de vie. Créez des structures de catégories et de tags entièrement indépendantes pour analyser votre flux de trésorerie sous perspective."
+			   data-de="Passen Sie das System an Ihren Lebensstil an. Erstellen Sie völlig unabhängige Kategorie- und Tag-Strukturen, um Ihren Cashflow aus jeder Perspektive zu analysieren."></a>
+		</div>
+	
+		<!--
+        <div class="feature-grid">
+            <div class="feature-item">
+                <strong><i class="fas fa-microchip"></i><a data-pt=" Performance Nativa" data-en=" Native Performance" data-es=" Rendimiento nativo"></a></strong>
+                <a data-pt="Respostas instantâneas mesmo com milhares de registros." data-en="Instant responses even with thousands of records." data-es="Respuestas instantáneas incluso con miles de registros."></a>
+            </div>
+            <div class="feature-item">
+                <strong><i class="fas fa-cog"></i><a data-pt=" Engenharia de Dados" data-en=" Data Engineering" data-es=" Ingeniería de Datos"></a></strong>
+				<a data-pt="Categorização flexível independente do fluxo financeiro." data-en="Flexible categorization independent of financial flow." data-es="Categorización flexible independiente del flujo de caja."></a>
+            </div>			
+            <div class="feature-item">
+                <strong><i class="fas fa-file-import"></i><a data-pt=" Automação" data-en=" Automation" data-es=" Automatización"></a></strong>
+				<a data-pt="Importe extratos OFX e categorize automaticamente com regras inteligentes." data-en="Import OFX statements and categorize automatically with smart rules." data-es="Importa declaraciones OFX y clasifícalas automáticamente con reglas inteligentes."></a>
+            </div>
+        </div>
+		-->
+    </div>
+
+    <h3 class="gallery-title"><a data-pt="Capturas de tela" data-en="Screenshots" data-es="Capturas de pantalla" data-fr="Captures d'écran" data-de="Screenshots"></a></h3>
+    <div class="screenshot-grid" id="gallery-dbmoney">
+        <!-- Mantendo sua lógica de imagens original -->		
+		<img src="images/dbmoney_screen_01.png" alt="Screen 01" onclick="openModal(0, 'gallery-dbmoney')">
+        <img src="images/dbmoney_screen_02.png" alt="Screen 02" onclick="openModal(1, 'gallery-dbmoney')">
+        <img src="images/dbmoney_screen_03.png" alt="Screen 03" onclick="openModal(2, 'gallery-dbmoney')">
+        <img src="images/dbmoney_screen_04.png" alt="Screen 04" onclick="openModal(3, 'gallery-dbmoney')">
+        <img src="images/dbmoney_screen_05.png" alt="Screen 05" onclick="openModal(4, 'gallery-dbmoney')">
+        <img src="images/dbmoney_screen_06.png" alt="Screen 06" onclick="openModal(5, 'gallery-dbmoney')">
+        <img src="images/dbmoney_screen_07.png" alt="Screen 07" onclick="openModal(6, 'gallery-dbmoney')">
+		<img src="images/dbmoney_screen_08.png" alt="Screen 08" onclick="openModal(7, 'gallery-dbmoney')">
+		<img src="images/dbmoney_screen_09.png" alt="Screen 09" onclick="openModal(8, 'gallery-dbmoney')">
+		<img src="images/dbmoney_screen_10.png" alt="Screen 10" onclick="openModal(9, 'gallery-dbmoney')">
+		<img src="images/dbmoney_screen_11.png" alt="Screen 11" onclick="openModal(10, 'gallery-dbmoney')">
+		<img src="images/dbmoney_screen_12.png" alt="Screen 12" onclick="openModal(11, 'gallery-dbmoney')">
+		<img src="images/dbmoney_screen_13.png" alt="Screen 13" onclick="openModal(12, 'gallery-dbmoney')">
+		<img src="images/dbmoney_screen_14.png" alt="Screen 14" onclick="openModal(13, 'gallery-dbmoney')">
+		<img src="images/dbmoney_screen_15.png" alt="Screen 15" onclick="openModal(14, 'gallery-dbmoney')">
+		<img src="images/dbmoney_screen_16.png" alt="Screen 16" onclick="openModal(15, 'gallery-dbmoney')">
+		<img src="images/dbmoney_screen_17.png" alt="Screen 17" onclick="openModal(16, 'gallery-dbmoney')">
+    </div>
+	
+	<h3 class="gallery-title"><a data-pt="Vídeos" data-en="Videos" data-es="Videos" data-fr="Vidéos" data-de="Videos"></a></h3>	
+	<div class="screenshot-grid" id="gallery-dbmoney-youtube">
+		<a href="https://www.youtube.com/watch?v=wLP-gaJQ5b0" target="_blank"><img src="images/dbmoney_youtube.png"></a>
+	</div>
+
+	<h3 class="gallery-title"><a data-pt="Planos e Versões" data-en="Plans & Versions" data-es="Planes y versiones" data-fr="Plans & Versions" data-de="Pläne & Versionen"></a></h3>
+	
+    <div class="pricing-table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th><a data-pt="Funcionalidade" data-en="Feature" data-es="Funcionalidad" data-fr="Fonctionnalité" data-de="Funktion"></a></th>
+                    <th><a data-pt="Versão Basic" data-en="Basic Version" data-es="Versión Basic" data-fr="Version Basic" data-de="Basic-Version"></a></th>
+                    <th><a data-pt="Versão Premium" data-en="Premium Version" data-es="Versión Premium" data-fr="Version Premium" data-de="Premium-Version"></a></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><i class="fas fa-wallet"></i><a data-pt=" Contas / Carteiras" data-en=" Accounts / Wallets" data-es=" Cuentas / Carteras" data-fr=" Comptes / Portefeuilles" data-de=" Konten / Wallets"></a></td>
+                    <td><span class="limit-text"><a data-pt="2 contas" data-en="2 accounts" data-es="2 cuentas" data-fr="2 comptes" data-de="2 Konten"></a></span></td>
+                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-tags"></i><a data-pt=" Categorias, contatos e marcadores" data-en=" Categories, contacts, and tags" data-es=" Categorías, contactos y marcadores" data-fr=" Catégories, contacts et étiquettes" data-de=" Kategorien, Kontakte und Tags"></a></td>
+                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-pie-chart"></i><a data-pt=" Dashboards de alta resolução" data-en=" High-resolution Dashboards" data-es=" Dashboards de alta resolución" data-fr=" Tableaux de bord haute résolution" data-de=" Hochauflösende Dashboards"></a></td>
+                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+                </tr>               
+                <tr>
+                    <td><i class="fas fa-users"></i><a data-pt=" Gestão Multicarteiras / Multiperfil" data-en=" Multi-Wallet / Multi-Profile Management" data-es=" Gestión multicarteras / multiperfiles" data-fr=" Gestion multi-portefeuilles / multi-profils" data-de=" Multi-Wallet- / Multi-Profil-Verwaltung"></a></td>
+                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-columns"></i><a data-pt=" Campos customizáveis" data-en=" Custom Fields" data-es=" Campos personalizables" data-fr=" Champs personnalisables" data-de=" Benutzerdefinierte Felder"></a></td>
+                    <td><span class="limit-text"><a data-pt="3 campos" data-en="3 fields" data-es="3 campos" data-fr="3 champs" data-de="3 Felder"></a></span></td>
+                    <td><span class="limit-text"><a data-pt="3 campos" data-en="3 fields" data-es="3 campos" data-fr="3 champs" data-de="3 Felder"></a></span></td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-edit"></i><a data-pt=" Lançamentos Manuais" data-en=" Manual Transactions" data-es=" Transacciones manuales" data-fr=" Transactions manuelles" data-de=" Manuelle Buchungen"></a></td>
+                    <td><span class="limit-text"><a data-pt="20 por mês" data-en="20 per month" data-es="20 al mes" data-fr="20 par mois" data-de="20 pro Monat"></a></span></td>
+                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-list-alt"></i><a data-pt=" Alteração em lote" data-en=" Batch Editing" data-es=" Edición por lotes" data-fr=" Modification em masse" data-de=" Stapelverarbeitung (Massenbearbeitung)"></a></td>
+                    <td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
+                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-plus-square"></i><a data-pt=" Múltiplos lançamentos" data-en=" Multiple Transactions" data-es=" Múltiples transacciones" data-fr=" Transactions multiples" data-de=" Mehrfache Buchungen"></a></td>
+                    <td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
+                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-clone"></i><a data-pt=" Replicar/copiar lançamentos" data-en=" Replicate/Copy Transactions" data-es=" Replicar/copiar transacciones" data-fr=" Dupliquer/copier des transactions" data-de=" Buchungen duplizieren/kopieren"></a></td>
+                    <td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
+                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-compress"></i><a data-pt=" Unificar/conciliar lançamentos" data-en=" Merge/Reconcile Transactions" data-es=" Fusionar/conciliar transacciones" data-fr=" Fusionner/réconcilier des transactions" data-de=" Buchungen zusammenführen/abgleichen"></a></td>
+                    <td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
+                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-arrows"></i><a data-pt=" Desmembrar lançamentos" data-en=" Split transactions" data-es=" Dividir transacciones" data-fr=" Diviser des transactions" data-de=" Buchungen aufteilen"></a></td>
+                    <td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
+                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-file-import"></i><a data-pt=" Importação de extratos (OFX)" data-en=" Statement Import (OFX)" data-es=" Importación de extractos (OFX)" data-fr=" Importation de relevés (OFX)" data-de=" Kontoauszugsimport (OFX)"></a></td>
+                    <td><span class="limit-text"><a data-pt="3 importações" data-en="3 imports" data-es="3 importaciones" data-fr="3 importations" data-de="3 Importe"></a></span></td>
+                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+                </tr>               
+                <tr>
+                    <td><i class="fas fa-file-excel"></i><a data-pt=" Exportar para Excel e HTML" data-en=" Export to Excel and HTML" data-es=" Exportar a Excel y HTML" data-fr=" Exporter vers Excel et HTML" data-de=" Nach Excel und HTML exportieren"></a></td>
+                    <td><span class="limit-text"><a data-pt="5 exportações" data-en="5 exports" data-es="5 exportaciones" data-fr="5 exportations" data-de="5 Exporte"></a></span></td>
+                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-file-pdf"></i><a data-pt=" Exportar para PDF" data-en=" Export to PDF" data-es=" Exportar a PDF" data-fr=" Exporter vers PDF" data-de=" Nach PDF exportieren"></a></td>
+                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-history"></i><a data-pt=" Backup automático (configurável)" data-en=" Automatic Backup (Configurable)" data-es=" Respaldo automático (configurable)" data-fr=" Sauvegarde automatique (configurable)" data-de=" Automatische Sicherung (konfigurierbar)"></a></td>
+                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
+                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-envelope"></i><a data-pt=" Suporte por e-mail" data-en=" Email Support" data-es=" Soporte por correo electrónico" data-fr=" Support par e-mail" data-de=" E-Mail-Support"></a></td>
+                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
+                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-check-circle"></i><a data-pt=" Preço" data-en=" Price" data-es=" Precio" data-fr=" Prix" data-de=" Preis"></a></td>
+                    <td><span class="limit-text-blue"><a data-pt=" Gratuito" data-en=" Free" data-es=" Gratis" data-fr=" Gratuit" data-de=" Kostenlos"></a></span></td>
+                    <td><span class="limit-text-blue"><a data-pt=" $ 29.99 (vitalício)" data-en=" $ 29.99 (lifetime)" data-es=" $ 29.99 (de por vida)" data-fr=" $ 29.99 (à vie)" data-de=" $ 29.99 (lebenslang)"></a></span>
+                        <br>
+                        <small style="font-size: 0.75rem; color: #777; display: block; margin-top: 4px;" 
+                               data-pt="* Oferta por tempo limitado"   
+                               data-en="* Limited time offer"
+                               data-es="* Oferta por tiempo limitado"
+                               data-fr="* Offre à durée limitée"
+                               data-de="* Befristetes Angebot">
+                        </small>
+                        <small style="font-size: 0.75rem; color: #777; display: block; margin-top: 4px;" 
+                               data-pt="* Preço pode variar por região" 
+                               data-en="* Price may vary by region/country"
+                               data-es="* El precio puede variar según la región o el país"
+                               data-fr="* Le prix peut varier selon la région/le pays"
+                               data-de="* Der Preis kann je nach Region/Land variieren">
+                        </small>                      
+                    </td>
+                </tr>       
+            </tbody>
+        </table>
+    </div>
+	
+	<h3 class="gallery-title" data-pt="Idiomas disponíveis" data-en="Available languages" data-es="Idiomas disponibles" data-fr="Langues disponibles" data-de="Verfügbare Sprachen"></h3>
+
+	<div class="lang-grid-status">
+        <div class="lang-status-item">
+            <img src="images/flag_usa_16.png" alt="English">
+            <span data-pt="Inglês" data-en="English" data-es="Inglés" data-fr="Anglais" data-de="Englisch">Inglês</span>
+            <img src="images/check-16.png" alt="Check" align="center">
+        </div>
+        <div class="lang-status-item">
+            <img src="images/flag_brazil_16.png" alt="Português">
+            <span data-pt="Português" data-en="Portuguese" data-es="Portugués" data-fr="Portugais" data-de="Portugiesisch">Português</span>
+            <img src="images/check-16.png" alt="Check" align="center">
+        </div>
+        <div class="lang-status-item">
+            <img src="images/flag_spain_16.png" alt="Español">
+            <span data-pt="Espanhol" data-en="Spanish" data-es="Español" data-fr="Espagnol" data-de="Spanisch">Espanhol</span>
+            <img src="images/check-16.png" alt="Check" align="center">
+        </div>
+        <div class="lang-status-item">
+            <img src="images/flag_france_16.png" alt="Français">
+            <span data-pt="Francês" data-en="French" data-es="Francés" data-fr="Français" data-de="Französisch">Francês</span>
+            <img src="images/check-16.png" alt="Check" align="center">
+        </div>
+        <div class="lang-status-item">
+            <img src="images/flag_germany_16.png" alt="Deutsch">
+            <span data-pt="Alemão" data-en="German" data-es="Alemán" data-fr="Allemand" data-de="Deutsch">Alemão</span>
+            <img src="images/check-16.png" alt="Check" align="center">
+        </div>
+    </div>	
+
+    <a href="https://apps.microsoft.com/detail/9N0PB6XG7ZQT" 
+	   target="_blank" 
+	   class="btn-store-dbmoney" 
+	   data-pt='<i class="fab fa-windows"></i>&nbsp;&nbsp;Disponível na Microsoft Store' 
+	   data-en='<i class="fab fa-windows"></i>&nbsp;&nbsp;Available on the Microsoft Store' 
+	   data-es='<i class="fab fa-windows"></i>&nbsp;&nbsp;Disponible en Microsoft Store' 
+	   data-fr='<i class="fab fa-windows"></i>&nbsp;&nbsp;Disponible sur le Microsoft Store' 
+	   data-de='<i class="fab fa-windows"></i>&nbsp;&nbsp;Im Microsoft Store erhältlich'>
+	</a>
+</div>
+
+<br>
+
+<!-- Produto: dbPDF -->
+<div class="product-card card-dbpdf" id="dbpdf">
+    <div class="dbmoney-intro">
+        <img src="images/dbpdf_logo_96.png" alt="dbPDF" class="dbmoney-intro">
+        <div class="dbmoney-text">
+            <h2 class="product-title product-title-flex">
+                dbPDF
+                <span class="product-eyebrow eyebrow-red" data-pt='<i class="fa fa-gift"></i>&nbsp;100% Gratuito' data-en='<i class="fa fa-gift"></i>&nbsp;100% Free' data-es='<i class="fa fa-gift"></i>&nbsp;100% Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;100% Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;100% Kostenlos'><i class="fa fa-gift"></i>&nbsp;100% Gratuito</span>
+            </h2>
+            
+            <p data-pt="O <strong>dbPDF</strong> é o leitor nativo definitivo para quem não tem tempo a perder. Desenvolvido para quebrar o ciclo de softwares pesados e lentos, ele entrega uma experiência de leitura fluida, elegante e instantânea, abrindo seus arquivos no exato segundo em que você clica neles."
+               data-en="<strong>dbPDF</strong> is the ultimate native reader for those who value every second. Built to break the cycle of heavy, bloated software, it delivers a fluid, elegant, and instant reading experience—opening your files the exact millisecond you click them."
+               data-es="<strong>dbPDF</strong> es el lector nativo definitivo para quienes no tienen tiempo que perder. Desarrollado para romper el ciclo de software pesado y lento, ofrece una experiencia de lectura fluida, elegante e instantánea, abriendo sus archivos en el segundo exacto en que hace clic en ellos."
+               data-fr="<strong>dbPDF</strong> est le lecteur natif ultime pour ceux qui n'ont pas de temps à perdre. Développé pour briser le cycle des logiciels lourds et lents, il offre une expérience de lecture fluide, élégante et instantanée, ouvrant vos fichiers à la seconde exacte où vous cliquez dessus."
+               data-de="<strong>dbPDF</strong> ist der ultimative native Reader für alle, die keine Zeit zu verlieren haben. Entwickelt, um den Teufelskreis schwerfälliger und langsamer Software zu durchbrechen, bietet er ein flüssiges, elegantes und sofortiges Leseerlebnis – und öffnet Ihre Dateien in genau der Sekunde, in der Sie darauf klicken.">
+            </p>
+        </div>
+    </div>
+    
+    <br>
+    <div class="about-content">
+        <p data-pt="Sem ferramentas desnecessárias que poluem a tela, o dbPDF foca no que realmente importa: a sua produtividade e a privacidade absoluta dos seus documentos. Sinta a diferença de um software feito sob medida para quem busca eficiência máxima no Windows."
+           data-en="By stripping away unnecessary features that clutter the screen, dbPDF focuses entirely on what matters most: your productivity and the absolute privacy of your documents. Experience the true power of software tailored for those who demand maximum efficiency on Windows."
+           data-es="Sin herramientas innecesarias que saturen la pantalla, dbPDF se enfoca en lo que realmente importa: su productividad y la privacidad absoluta de sus documentos. Sienta la diferencia de un software hecho a la medida para quienes buscan la máxima eficiencia en Windows."
+           data-fr="Sans outils superflus qui encombrent l'écran, dbPDF se concentre sur ce qui compte vraiment : votre productivité et la confidentialité absolue de vos documents. Ressentez la différence d'un logiciel conçu sur mesure pour ceux qui recherchent une efficacité maximale sur Windows."
+           data-de="Ohne unnötige Tools, die den Bildschirm überladen, konzentriert sich dbPDF auf das, was wirklich zählt: Ihre Produktivität und die absolute Privatsphäre Ihrer Dokumente. Spüren Sie den Unterschied einer Software, die maßgeschneidert für alle ist, die maximale Effizienz unter Windows suchen.">
+        </p>
+    </div>
+    
+    <h3 class="gallery-title-red"><a data-pt="Capturas de tela" data-en="Screenshots" data-es="Capturas de pantalla" data-fr="Captures d'écran" data-de="Screenshots"></a></h3>
+    
+    <div class="screenshot-grid" id="gallery-dbpdf">
+        <img src="images/dbpdf_screen_01.png" alt="Screen 01" onclick="openModal(0, 'gallery-dbpdf')">
+        <img src="images/dbpdf_screen_02.png" alt="Screen 02" onclick="openModal(1, 'gallery-dbpdf')">
+        <img src="images/dbpdf_screen_03.png" alt="Screen 03" onclick="openModal(2, 'gallery-dbpdf')">
+        <img src="images/dbpdf_screen_04.png" alt="Screen 04" onclick="openModal(3, 'gallery-dbpdf')">
+    </div>
+    
+    <h3 class="gallery-title-red" data-pt="Idiomas disponíveis" data-en="Available languages" data-es="Idiomas disponibles" data-fr="Langues disponibles" data-de="Verfügbare Sprachen"></h3>
+
+	<div class="lang-grid-status">
+        <div class="lang-status-item">
+            <img src="images/flag_usa_16.png" alt="English">
+            <span data-pt="Inglês" data-en="English" data-es="Inglés" data-fr="Anglais" data-de="Englisch">Inglês</span>
+            <img src="images/check-16.png" alt="Check" align="center">
+        </div>
+        <div class="lang-status-item">
+            <img src="images/flag_brazil_16.png" alt="Português">
+            <span data-pt="Português" data-en="Portuguese" data-es="Portugués" data-fr="Portugais" data-de="Portugiesisch">Português</span>
+            <img src="images/check-16.png" alt="Check" align="center">
+        </div>
+        <div class="lang-status-item">
+            <img src="images/flag_spain_16.png" alt="Español">
+            <span data-pt="Espanhol" data-en="Spanish" data-es="Español" data-fr="Espagnol" data-de="Spanisch">Espanhol</span>
+            <img src="images/check-16.png" alt="Check" align="center">
+        </div>
+        <div class="lang-status-item">
+            <img src="images/flag_france_16.png" alt="Français">
+            <span data-pt="Francês" data-en="French" data-es="Francés" data-fr="Français" data-de="Französisch">Francês</span>
+            <img src="images/check-16.png" alt="Check" align="center">
+        </div>
+        <div class="lang-status-item">
+            <img src="images/flag_germany_16.png" alt="Deutsch">
+            <span data-pt="Alemão" data-en="German" data-es="Alemán" data-fr="Allemand" data-de="Deutsch">Alemão</span>
+            <img src="images/check-16.png" alt="Check" align="center">
+        </div>
+    </div>	
+    
+    <a href="https://apps.microsoft.com/detail/9N7H3FPQX608" 
+	   target="_blank" 
+	   class="btn-store-dbpdf" 
+	   data-pt='<i class="fab fa-windows"></i>&nbsp;&nbsp;Disponível na Microsoft Store' 
+	   data-en='<i class="fab fa-windows"></i>&nbsp;&nbsp;Available on the Microsoft Store' 
+	   data-es='<i class="fab fa-windows"></i>&nbsp;&nbsp;Disponible en Microsoft Store' 
+	   data-fr='<i class="fab fa-windows"></i>&nbsp;&nbsp;Disponible sur le Microsoft Store' 
+	   data-de='<i class="fab fa-windows"></i>&nbsp;&nbsp;Im Microsoft Store erhältlich'>
+	</a>           
+</div>
+
+<br>
+
+<!-- Produto: dbNotes (Em Breve) -->
+<div class="product-card card-dbnotes" id="dbnotes">
+    <div class="dbmoney-intro">
+        <img src="images/dbnotes_logo_96.png" alt="dbNotes" class="dbmoney-intro">
+        <div class="dbmoney-text">
+            <h2 class="product-title product-title-flex">                
+				dbNotes
+				<!-- <span class="product-eyebrow eyebrow-yellow" data-pt='<i class="fab fa-windows"></i>&nbsp;ANOTAÇÕES' data-en='<i class="fab fa-windows"></i>&nbsp;NOTES' data-es='<i class="fab fa-windows"></i>&nbsp;NOTAS' data-fr='<i class="fab fa-windows"></i>&nbsp;NOTES' data-de='<i class="fab fa-windows"></i>NOTIZEN'><i class="fab fa-windows"></i>&nbsp;ANOTAÇÕES</span> -->
+				<span class="product-eyebrow eyebrow-yellow" data-pt='<i class="fa fa-gift"></i>&nbsp;100% Gratuito' data-en='<i class="fa fa-gift"></i>&nbsp;100% Free' data-es='<i class="fa fa-gift"></i>&nbsp;100% Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;100% Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;100% Kostenlos'><i class="fa fa-gift"></i>&nbsp;100% Gratuito</span>
+                <span class="product-eyebrow eyebrow-yellow" data-pt='<i class="fa fa-spinner"></i>&nbsp;Em Desenvolvimento' data-en='<i class="fa fa-spinner"></i>&nbsp;In Development' data-es='<i class="fa fa-spinner"></i>&nbsp;En Desarrollo' data-fr='<i class="fa fa-spinner"></i>&nbsp;En Développement' data-de='<i class="fa fa-spinner"></i>&nbsp;In Entwicklung'><i class="fa fa-spinner"></i>&nbsp;Em Desenvolvimento</span>
+            </h2>
+            
+            <p data-pt="O <strong>dbNotes</strong> é o aplicativo ideal para o mundo acadêmico, criação de manuais técnicos, documentações e escrita estruturada. Desenvolvido nativamente para Windows, ele combina um editor de texto com recursos avançados a um sistema exclusivo de arquivos locais criptografados, garantindo velocidade máxima e privacidade total para as suas informações."
+               data-en="<strong>dbNotes</strong> is the ultimate application for academia, technical manuals, documentation, and structured writing. Built natively for Windows, it combines an advanced text editor with a secure standalone file system, ensuring unmatched speed and absolute privacy for your data."
+               data-es="<strong>dbNotes</strong> es la aplicación ideal para el mundo académico, la creación de manuales técnicos, documentaciones y escritura estructurada. Desarrollado de forma nativa para Windows, combina un editor de texto con funciones avanzadas y un exclusivo sistema de archivos locales encriptados, garantizando la máxima velocidad y total privacidad para su información."
+               data-fr="<strong>dbNotes</strong> est l'application idéale pour le monde académique, la création de manuels techniques, la documentation et l'écriture structurée. Développé nativement pour Windows, il combine un éditeur de texte aux fonctionnalités avancées avec un système exclusif de fichiers locaux chiffrés, garantissant une vitesse maximale et une confidentialité totale de vos informations."
+               data-de="<strong>dbNotes</strong> ist die ideale Anwendung für den akademischen Bereich, die Erstellung technischer Handbücher, Dokumentationen und strukturiertes Schreiben. Es wurde nativ für Windows entwickelt und kombiniert einen fortschrittlichen Texteditor mit einem exklusiven verschlüsselten lokalen Dateisystem, um maximale Geschwindigkeit und absolute Privatsphäre für Ihre Informationen zu gewährleisten.">
+            </p>
+        </div>
+    </div>
+
+    <div class="about-content"> 
+        <h3 class="gallery-title-yellow"
+            data-pt="O que faz o dbNotes ser único:"
+            data-en="What makes dbNotes unique:"
+            data-es="Lo que hace que dbNotes sea único:"
+            data-fr="Ce qui rend dbNotes unique :"
+            data-de="Was dbNotes einzigartig macht:">
+        </h3>
+
+        <div class="about-content">
+            <strong><i class="fas fa-sort-amount-desc"></i><a data-pt=" Árvore Dinâmica de Documentos:" data-en=" Dynamic Document Tree:" data-es=" Árbol dinámico de documentos:" data-fr=" Arborescence dynamique de documents :" data-de=" Dynamische Dokumentenstruktur:"></a></strong>
+            <a data-pt="Organize seus projetos, capítulos de livros, teses ou manuais em uma estrutura de árvore com nós e subnós totalmente customizável." 
+               data-en="Organize your research, book chapters, theses, or manuals into a fully customizable tree structure with nodes and sub-nodes."
+               data-es="Organice sus proyectos, capítulos de libros, tesis o manuales en una estructura de árbol con nodos y subnodos totalmente personalizable."
+               data-fr="Organisez vos projets, chapitres de livres, thèses ou manuels dans une structure arborescente entièrement personnalisable avec des nœuds et des sous-nœuds."
+               data-de="Organisieren Sie Ihre Projekte, Buchkapitel, Abschlussarbeiten oder Handbücher in einer vollständig anpassbaren Baumstruktur mit Knoten und Unterknoten."></a>
+        </div>
+
+        <div class="about-content">
+            <strong><i class="fas fa-paperclip"></i><a data-pt=" Anexos por Nó:" data-en=" Node-Specific Attachments:" data-es=" Archivos adjuntos por nodo:" data-fr=" Pièces jointes par nœud :" data-de=" Anhänge pro Knoten:"></a></strong>
+            <a data-pt="Cada página ou documento da sua árvore possui sua própria área de anexos. Guarde PDFs, planilhas, imagens ou códigos diretamente vinculados à nota correspondente." 
+               data-en="Every single page or document within your tree has its own dedicated attachment area. Keep PDFs, spreadsheets, images, or source code directly linked to the relevant note." 
+               data-es="Cada página o documento de su árbol tiene su propia área de archivos adjuntos. Guarde PDFs, hojas de cálculo, imágenes o códigos directamente vinculados a la nota correspondiente."
+               data-fr="Chaque page ou document de votre arborescence possède sa propre zone de pièces jointes. Enregistrez des fichiers PDF, des feuilles de calcul, des images ou du code source directement liés à la note correspondante."
+               data-de="Jede Seite oder jedes Dokument in Ihrer Struktur verfügt über einen eigenen Anhangsbereich. Speichern Sie PDFs, Tabellenkalkulationen, Bilder oder Quellcode direkt verknüpft mit der entsprechenden Notiz."></a>
+        </div>
+        
+        <div class="about-content">
+            <strong><i class="fas fa-lock"></i><a data-pt=" Segurança e Praticidade do dbMoney:" data-en=" Secure & Lightweight (Like dbMoney):" data-es=" Seguridad y practicidad de dbMoney:" data-fr=" Sécurité et simplicité de dbMoney :" data-de=" Sicherheit und Komfort von dbMoney:"></a></strong>
+            <a data-pt="Seus dados ficam salvos e criptografados no seu computador. Para sincronizar entre vários PCs (casa, faculdade ou trabalho), basta salvar o arquivo na pasta do seu serviço de nuvem (OneDrive, Google Drive ou Dropbox)." 
+               data-en="Your data is stored and encrypted locally on your PC. To work across multiple computers (home, school, or work), simply store the file inside your preferred cloud folder (OneDrive, Google Drive, or Dropbox)." 
+               data-es="Sus datos se guardan de forma encriptada en su computadora. Para sincronizar entre varias PCs (casa, universidad o trabajo), simplemente guarde el archivo en la carpeta de su servicio en la nube (OneDrive, Google Drive o Dropbox)."
+               data-fr="Vos données sont enregistrées et chiffrées localement sur votre ordinateur. Pour synchroniser plusieurs PC (maison, université ou travail), il suffit de sauvegarder o fichier dans le dossier de votre service cloud (OneDrive, Google Drive ou Dropbox)."
+               data-de="Ihre Daten werden verschlüsselt auf Ihrem Computer gespeichert. Um zwischen mehreren PCs (Zuhause, Universität oder Arbeit) zu synchronisieren, speichern Sie die Datei einfach im Ordner Ihres Cloud-Dienstes (OneDrive, Google Drive oder Dropbox)."></a>
+        </div>      
+    </div>
+    
+    <h3 class="gallery-title-yellow"><a data-pt="Capturas de tela" data-en="Screenshots" data-es="Capturas de pantalla" data-fr="Captures d'écran" data-de="Screenshots"></a></h3>
+    <div class="screenshot-grid" id="gallery-dbnotes">
+        <img src="images/dbnotes_screen_01.png" alt="Screen 01" onclick="openModal(0, 'gallery-dbnotes')">
+        <img src="images/dbnotes_screen_02.png" alt="Screen 02" onclick="openModal(1, 'gallery-dbnotes')">
+    </div>  
+    
+    <a 
+	   target="_blank"
+	   class="btn-store-gray"
+	   data-pt='<i class="fa fa-spinner"></i>&nbsp;&nbsp;Em breve na Microsoft Store'
+	   data-en='<i class="fa fa-spinner"></i>&nbsp;&nbsp;Coming soon to the Microsoft Store'
+	   data-es='<i class="fa fa-spinner"></i>&nbsp;&nbsp;Próximamente en Microsoft Store'
+	   data-fr='<i class="fa fa-spinner"></i>&nbsp;&nbsp;Bientôt disponible sur le Microsoft Store'
+	   data-de='<i class="fa fa-spinner"></i>&nbsp;&nbsp;Demnächst im Microsoft Store erhältlich'>
+	</a>
+</div>
+
+<br>
+
+<!-- Produto: dbRadio (beta) -->
+<div class="product-card card-dbradio" id="dbradio">
+    <div class="dbmoney-intro">
+        <img src="images/dbradio_logo_96.png" alt="dbRadio" class="dbmoney-intro">
+        <div class="dbmoney-text">
+            
+			<h2 class="product-title product-title-flex">              
+                dbRadio (beta)
+				<!-- <span class="product-eyebrow eyebrow-purple" data-pt='<i class="fab fa-windows"></i>&nbsp;RÁDIO ONLINE' data-en='<i class="fab fa-windows"></i>&nbsp;ONLINE RADIO' data-es='<i class="fab fa-windows"></i>&nbsp;RADIO ONLINE' data-fr='<i class="fab fa-windows"></i>&nbsp;RADIO EN LIGNE' data-de='<i class="fab fa-windows"></i>&nbsp;ONLINE-RADIO'><i class="fab fa-windows"></i>&nbsp;RÁDIO ONLINE · WINDOWS</span> -->
+				<span class="product-eyebrow eyebrow-purple" data-pt='<i class="fa fa-gift"></i>&nbsp;100% Gratuito' data-en='<i class="fa fa-gift"></i>&nbsp;100% Free' data-es='<i class="fa fa-gift"></i>&nbsp;100% Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;100% Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;100% Kostenlos'><i class="fa fa-gift"></i>&nbsp;100% Gratuito</span>				
+            </h2>           
+            <p data-pt="Mais que um player, uma rede global de ouvintes. No <strong>dbRadio</strong>, cada usuário é um curador. Adicione rádios exclusivas e, em breve, descubra o que o mundo está ouvindo através das listas compartilhadas pela nossa comunidade. Experiência nativa, leve e conectada."
+               data-en="More than just a player, a global network of listeners. On <strong>dbRadio</strong>, every user is a curator. Add exclusive stations and, coming soon, discover what the world is listening to through our community's shared playlists. A native, lightweight, and connected experience."
+               data-es="Más que un reproductor, una red global de oyentes. En <strong>dbRadio</strong>, cada usuario es un curador. Agregue estaciones exclusivas y, próximamente, descubra lo que el mundo está escuchando a través de las listas compartidas por nuestra comunidad. Una experiencia nativa, ligera y conectada."
+               data-fr="Plus qu'un simple lecteur, un réseau mondial d'auditeurs. Sur <strong>dbRadio</strong>, chaque utilisateur est un conservateur. Ajoutez des stations exclusives et, bientôt, découvrez ce que le monde écoute grâce aux listes de lecture partagées de notre communauté. Une expérience native, légère et connectée."
+               data-de="Mehr als nur ein Player, ein globales Netzwerk von Hörern. Auf <strong>dbRadio</strong> ist jeder Nutzer ein Kurator. Fügen Sie exklusive Sender hinzu und entdecken Sie demnächst, was die Welt hört, über die von unserer Community geteilten Playlists. Ein natives, leichtgewichtiges und vernetztes Erlebnis.">
+            </p>
+        </div>
+    </div>
+    <br>
+    <div class="about-content">
+        <p data-pt="Participe da construção do maior banco de dados comunitário de streaming da internet. Cadastre emissoras, compartilhe logos e ajude outros usuários a encontrarem rádios independentes que não estão nos apps comerciais."
+           data-en="Participate in building the largest community-based streaming database on the internet. Register stations, share logos, and help other users find independent radio stations that are not available on commercial apps."
+           data-es="Participe en la construcción de la mayor base de datos comunitaria de streaming en internet. Registre emisoras, comparta logotipos y ayude a otros usuarios a encontrar radios independientes que no están en las aplicaciones comerciales."
+           data-fr="Participez à la construction de la plus grande base de données communautaire de streaming sur Internet. Enregistrez des stations, partagez des logos et aidez d'autres utilisateurs à trouver des radios indépendantes qui ne sont pas disponibles sur les applications commerciales."
+           data-de="Beteiligen Sie sich am Aufbau der größten communitybasierten Streaming-Datenbank im Internet. Registrieren Sie Sender, teilen Sie Logos und helfen Sie anderen Nutzern, unabhängige Radiosender zu finden, die nicht in kommerziellen Apps verfügbar sind.">
+        </p>
+    </div>
+    
+    <div class="about-content" style="color: var(--roxo-dbradio)">
+        <a data-pt="Este aplicativo foi desenvolvido para entusiastas de webrádios ao redor do mundo."
+           data-en="This app was developed for web radio enthusiasts around the world."
+           data-es="Esta aplicación fue desarrollada para entusiastas de las web radios en todo el mundo."
+           data-fr="Cette application a été développée pour les passionnés de web-radios du monde entier."
+           data-de="Diese App wurde für Web-Radio-Enthusiasten auf der ganzen Welt entwickelt.">
+        </a>
+    </div>
+
+    <h3 class="gallery-title-purple"><a data-pt="Capturas de tela" data-en="Screenshots" data-es="Capturas de pantalla" data-fr="Captures d'écran" data-de="Screenshots"></a></h3>
+    <div class="screenshot-grid" id="gallery-dbradio">
+        <img src="images/dbradio_screen_01.png" alt="Screen 01" onclick="openModal(0, 'gallery-dbradio')">
+        <img src="images/dbradio_screen_02.png" alt="Screen 02" onclick="openModal(1, 'gallery-dbradio')">
+        <img src="images/dbradio_screen_03.png" alt="Screen 03" onclick="openModal(2, 'gallery-dbradio')">
+        <img src="images/dbradio_screen_04.png" alt="Screen 04" onclick="openModal(3, 'gallery-dbradio')">
+        <img src="images/dbradio_screen_05.png" alt="Screen 05" onclick="openModal(4, 'gallery-dbradio')">
+    </div>
+    
+    <h3 class="gallery-title-purple" data-pt="Idiomas disponíveis" data-en="Available languages" data-es="Idiomas disponibles" data-fr="Langues disponibles" data-de="Verfügbare Sprachen"></h3>
+
+    <div class="lang-grid-status">
+        <div class="lang-status-item">
+            <img src="images/flag_usa_16.png" alt="English">
+            <span data-pt="Inglês" data-en="English" data-es="Inglés" data-fr="Anglais" data-de="Englisch">Inglês</span>
+            <img src="images/check-16.png" alt="Check" align="center">
+        </div>
+        <div class="lang-status-item">
+            <img src="images/flag_brazil_16.png" alt="Português">
+            <span data-pt="Português" data-en="Portuguese" data-es="Portugués" data-fr="Portugais" data-de="Portugiesisch">Português</span>
+            <img src="images/check-16.png" alt="Check" align="center">
+        </div>
+        <div class="lang-status-item">
+            <img src="images/flag_spain_16.png" alt="Español">
+            <span data-pt="Espanhol" data-en="Spanish" data-es="Español" data-fr="Espagnol" data-de="Spanisch">Espanhol</span>
+            <img src="images/load.gif" alt="Screen 01" align="center">
+        </div>
+    </div>
+    
+    <a href="https://apps.microsoft.com/detail/9NRWV6JRPT8R" 
+	   target="_blank" 
+	   class="btn-store-dbradio" 
+	   data-pt='<i class="fab fa-windows"></i>&nbsp;&nbsp;Disponível na Microsoft Store' 
+	   data-en='<i class="fab fa-windows"></i>&nbsp;&nbsp;Available on the Microsoft Store' 
+	   data-es='<i class="fab fa-windows"></i>&nbsp;&nbsp;Disponible en Microsoft Store' 
+	   data-fr='<i class="fab fa-windows"></i>&nbsp;&nbsp;Disponible sur le Microsoft Store' 
+	   data-de='<i class="fab fa-windows"></i>&nbsp;&nbsp;Im Microsoft Store erhältlich'>
+	</a>
+</div>
+
+<br>
+
+<!-- About: DevBrazil -->
+<div class="product-card card-devbrazil" id="devbrazil">
+    <div class="dbmoney-intro">
+        <img src="images/devbrazil_logo_96.png" alt="devbrazil" class="dbmoney-intro">
+        <div class="dbmoney-text">
+            <!--
+			<span class="product-eyebrow eyebrow-green" data-pt="100% OFFLINE · WINDOWS" data-en="100% OFFLINE · WINDOWS" data-es="100% SIN CONEXIÓN · WINDOWS" data-fr="100% HORS LIGNE · WINDOWS" data-de="100% OFFLINE · WINDOWS">4 PRODUTOS · 100% OFFLINE · WINDOWS</span>
+			-->
+            <h2 class="product-title product-title-flex">              
+                DevBrazil
+            </h2>           
+			<p data-pt="Nascida da paixão pela eficiência e com mais de 25 anos de experiência no desenvolvimento de sistemas críticos, a DevBrazil combina solidez técnica com inovação para criar softwares nativos de alta performance."
+			   data-en="Born from a passion for efficiency and backed by over 25 years of experience in mission-critical systems, DevBrazil combines technical expertise with innovation to build high-performance native software."
+			   data-es="Nacida de la pasión por la eficiencia y respaldada por más de 25 años de experiencia en el desarrollo de sistemas críticos, DevBrazil combina solidez técnica con innovación para crear software nativo de alto rendimiento."
+			   data-fr="Née d'une passion pour l'efficacité et forte de plus de 25 ans d'expérience dans les systèmes critiques, DevBrazil allie expertise technique et innovation pour créer des logiciels natifs de haute performance."
+			   data-de="Aus der Leidenschaft für Effizienz entstanden und gestützt auf mehr von 25 Jahren Erfahrung mit geschäftskritischen Systemen, verbindet DevBrazil technische Kompetenz mit Innovation, um native High-Performance-Software zu entwickeln.">
+			</p>
+        </div>
+    </div>
+	<br>    
+    <div class="about-content">
+		<p data-pt="Nosso propósito é simples: desenvolver soluções que respeitam o seu tempo, potencializam sua produtividade e garantem a privacidade absoluta dos seus dados. Criamos ferramentas leves, rápidas e independentes para quem exige o máximo do seu ecossistema de trabalho."
+		   data-en="Our mission is clear: to create solutions that honor your time, amplify your productivity, and protect your absolute data privacy. We build lightweight, fast, and standalone tools for individuals and professionals who demand excellence from their workflow."
+		   data-es="Nuestro propósito es simple: desarrollar soluciones que respeten su tiempo, potencien su productividad y garanticen la privacidad absoluta de sus datos. Creamos herramientas ligeras, rápidas e independientes para quienes exigen el máximo de su ecosistema de trabajo."
+		   data-fr="Notre mission é simple : concevoir des solutions qui respectent votre temps, maximisent votre productivité et garantissent la confidentialité absolue de vos données. Nous créons des outils légers, rapides et indépendants pour ceux qui exigent le maximum de leur écosystème de travail."
+		   data-de="Unser Ziel ist einfach: Lösungen zu entwickeln, die Ihre Zeit respektieren, Ihre Produktivität maximieren und die absolute Privatsphäre Ihrer Daten garantieren. Wir entwickeln schlanke, schnelle und unabhängige Tools für alle, die das Maximum aus ihrer Arbeitsumgebung herausholen wollen.">
+		</p>
+    </div>
+	
+    
+    <p data-pt="<strong>Junte-se a nós. Nossa tecnologia já impulsiona a produtividade de usuários em mais de 120 mercados e territórios ao redor do mundo.</strong>"
+       data-en="<strong>Join us. Our technology is already driving productivity for users across more than 120 markets and territories worldwide.</strong>"
+       data-es="<strong>Únase a nosotros. Nuestra tecnología ya impulsa la productividad de usuarios en más de 120 mercados y territorios en todo el mundo.</strong>"
+       data-fr="<strong>Rejoignez-nous. Notre technologie stimule déjà la productivité d'utilisateurs dans plus de 120 marchés et territoires à travers le monde.</strong>"
+       data-de="<strong>Schließen Sie sich uns an. Unsere Technologie steigert bereits die Produktivität von Anwendern in mehr als 120 Märkten und Regionen weltweit.</strong>">
+    </p>
+    <br>	
+</div>
+
+<div id="contactModal" class="contact-modal">
+    <div class="contact-modal-content">
+        <span class="close-contact" onclick="closeContactModal()">&times;</span>
+        <h2 data-pt="Enviar Mensagem" 
+            data-en="Send Message"
+            data-es="Enviar mensaje" 
+            data-fr="Envoyer um message" 
+            data-de="Nachricht senden">Enviar Mensagem</h2>      
+                
+        <p data-pt="Preencha os campos abaixo e entraremos em contato em breve."
+           data-en="Fill in the fields below and we will contact you soon."
+           data-es="Complete los campos a continuación y nos pondremos en contacto con usted a la brevedad."
+           data-fr="Remplissez les champs ci-dessous et nous vous contacterons bientôt."
+           data-de="Füllen Sie die folgenden Felder aus und wir werden uns Kürze mit Ihnen in Verbindung setzen.">
+        </p>
+        <br>
+        <a data-pt="Caso prefira, entre em contato através do e-mail:" 
+           data-en="If you prefer, contact us via email:"
+           data-es="Si lo prefiere, contáctenos por correo electrónico:"
+           data-fr="Si vous préférez, contactez-nous par e-mail :"
+           data-de="Wenn Sie es vorziehen, kontaktieren Sie uns per E-Mail:"></a>
+        <a href="mailto:support@devbrazil.com" style="color: var(--verde-dev)">support@devbrazil.com</a>
+
+        <form id="contactForm" action="https://formsubmit.co/support@devbrazil.com" method="POST">
+            <input type="text" name="name" 
+                   data-placeholder-pt="Seu Nome" 
+                   data-placeholder-en="Your Name" 
+                   data-placeholder-es="Su nombre" 
+                   data-placeholder-fr="Votre nom" 
+                   data-placeholder-de="Ihr Name" 
+                   placeholder="Seu Nome" required>
+            
+            <input type="email" name="email" 
+                   data-placeholder-pt="Seu E-mail" 
+                   data-placeholder-en="Your Email" 
+                   data-placeholder-es="Su correo electrónico" 
+                   data-placeholder-fr="Votre e-mail" 
+                   data-placeholder-de="Ihre E-Mail-Adresse" 
+                   placeholder="Seu E-mail" required>
+            
+            <input type="text" name="_subject" 
+                   data-placeholder-pt="Assunto" 
+                   data-placeholder-en="Subject" 
+                   data-placeholder-es="Asunto" 
+                   data-placeholder-fr="Sujet" 
+                   data-placeholder-de="Betreff" 
+                   placeholder="Assunto">
+            
+            <textarea name="message" rows="5" 
+                      data-placeholder-pt="Como podemos ajudar?" 
+                      data-placeholder-en="How can we help?" 
+                      data-placeholder-es="¿Cómo podemos ayudarle?" 
+                      data-placeholder-fr="Comment pouvons-nous vous aider ?" 
+                      data-placeholder-de="Wie können wir Ihnen helfen?" 
+                      placeholder="Como podemos ajudar?" required></textarea>          
+            
+            <input type="text" name="_honey" style="display:none">
+            
+            <button type="submit" class="btn-send"><a data-pt="Enviar" data-en="Send" data-es="Enviar" data-fr="Envoyer" data-de="Senden"></a></button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <p data-pt="&copy; 2026 DevBrazil. Todos os direitos reservados."
+       data-en="&copy; 2026 DevBrazil. All rights reserved."
+       data-es="&copy; 2026 DevBrazil. Todos los derechos reservados."
+       data-fr="&copy; 2026 DevBrazil. Tous droits réservés."
+       data-de="&copy; 2026 DevBrazil. Alle Rechte vorbehalten.">
+    </p>
+</footer>
+
+<div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <span class="nav-btn prev-btn" onclick="changeImage(-1)">&#10094;</span>
+    <img class="modal-content" id="img01">
+    <span class="nav-btn next-btn" onclick="changeImage(1)">&#10095;</span>
+</div>
+
+<script>
+	let currentImageIndex = 0;
+	let currentGalleryImages = [];
+	// let currentLang = 'pt';
+	
+	function updateContent() {
+		document.querySelectorAll('[data-pt]').forEach(el => {
+			const texto = el.getAttribute('data-' + currentLang);
+			if (texto) {
+				// USAR innerHTML para que o navegador processe as tags HTML como <strong>
+				el.innerHTML = texto;
+			}
+		});
+		
+		// Atualiza placeholders
+		document.querySelectorAll('[data-placeholder-pt]').forEach(el => {
+			const texto = el.getAttribute('data-placeholder-' + currentLang);
+			if (texto) {
+				el.placeholder = texto;
+			}
+		});		
+		
+		// Atualiza as imagens/prints da galeria com base no novo escopo de idiomas
+		if (typeof updateImagesByLanguage === 'function') {
+			updateImagesByLanguage(currentLang);
+		}
+	}
+
+	function changeLanguage(lang) {	
+		currentLang = lang;
+		updateContent();
+
+		// Marca o pill do idioma ativo no seletor
+		document.querySelectorAll('.lang-pill').forEach(pill => {
+			pill.classList.toggle('active', pill.getAttribute('data-lang') === lang);
+		});
+	}
+
+	/*
+	function updateImagesByLanguage(lang) {
+		const sufixos = { 'pt': '_pt', 'es': '_en', 'en': '_en' };
+		const sufixo = sufixos[lang] || '_en';
+
+		document.querySelectorAll('.screenshot-grid img').forEach(img => {		
+			img.src = img.src
+				.replace('_pt', sufixo )
+				.replace('_en', sufixo );
+		});
+	}
+	*/
+	
+	function updateImagesByLanguage(lang) {
+		// Estratégia de Fallback: Se você tiver prints específicos para 'es', usa 'es'.
+		// Para francês ('fr') e alemão ('de'), caso não queira inflar o pacote com novos prints,
+		// o sistema utiliza a interface internacional em inglês ('en') por padrão.
+		let targetSuffix = 'en';
+		
+		if (lang === 'pt') {
+			targetSuffix = 'pt';
+		} else if (lang === 'es') {
+			targetSuffix = 'es';
+		}
+
+		document.querySelectorAll('.screenshot-grid img').forEach(img => {
+			// A expressão regular captura os sufixos antigos e substitui com precisão cirúrgica
+			img.src = img.src.replace(/_(pt|en|es|fr|de)(\.(png|jpg|jpeg|webp))/i, `_${targetSuffix}$2`);
+		});
+	}
+
+	window.addEventListener('click', function(event) {
+
+		// Fecha modal da galeria
+		let galleryModal = document.getElementById("myModal");
+	
+		if (event.target == galleryModal) {
+			closeModal();
+		}
+	
+		// Fecha modal de contato
+		let contactModal = document.getElementById("contactModal");
+	
+		if (event.target == contactModal) {
+			closeContactModal();
+		}
+	});
+
+	window.onload = function() {	
+		// Idioma padrão
+		currentLang = 'pt';
+		
+		// Detecta idioma do navegador
+		const browserLang = navigator.language || navigator.userLanguage;
+		
+		if (browserLang.startsWith('en')) {
+			currentLang = 'en';
+		}
+		
+		// Verifica URL (?lang=en ou #en)
+		checkURLForLanguage();
+		
+		// Atualiza conteúdo
+		changeLanguage(currentLang);		
+	}
+
+	// Função para abrir o modal baseada na galeria específica
+	function openModal(index, galleryId) {
+		// Captura apenas as imagens do card onde o usuário clicou
+		currentGalleryImages = Array.from(document.querySelectorAll(`#${galleryId} img`));
+		currentImageIndex = index;
+    
+		const modal = document.getElementById("myModal");
+		const modalImg = document.getElementById("img01");
+    
+		modal.style.display = "flex";
+		modalImg.src = currentGalleryImages[currentImageIndex].src;
+	}
+
+	function closeModal() { 
+		document.getElementById("myModal").style.display = "none"; 
+	}
+
+	function changeImage(step) {
+		if (currentGalleryImages.length === 0) return;
+    
+		currentImageIndex += step;
+		if (currentImageIndex >= currentGalleryImages.length) currentImageIndex = 0;
+		if (currentImageIndex < 0) currentImageIndex = currentGalleryImages.length - 1;
+    
+		document.getElementById("img01").src = currentGalleryImages[currentImageIndex].src;
+	}
+
+	// Fechamento e navegação via teclado
+	document.addEventListener('keydown', function(e) {
+		if (document.getElementById("myModal").style.display === "flex") {
+			if (e.key === "ArrowLeft") changeImage(-1);
+			if (e.key === "ArrowRight") changeImage(1);
+			if (e.key === "Escape") closeModal();
+		}
+	});
+	
+	// Executa assim que o site carregar
+    document.addEventListener("DOMContentLoaded", checkURLForLanguage);
+
+	function openContactModal() {
+	    document.getElementById("contactModal").style.display = "flex";
+	}
+	
+	function closeContactModal() {
+	    document.getElementById("contactModal").style.display = "none";
+	}
+
+	function scrollToSection(id) {
+
+		const element = document.getElementById(id);
+
+		if (element) {
+			element.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start'
+			});
+		}
+	}
+	
+	// Função que lê o idioma da URL
+    function checkURLForLanguage() {	
+		const hash = window.location.hash.replace('#', '');		
+		const urlParams = new URLSearchParams(window.location.search);		
+		const langParam = urlParams.get('lang');
+		
+		// Lista com todos os 5 idiomas suportados oficialmente pelo ecossistema
+		const validLangs = ['en', 'pt', 'es', 'fr', 'de'];
+		
+		if (validLangs.includes(hash)) {		
+			currentLang = hash;		
+		} else if (validLangs.includes(langParam)) {		
+			currentLang = langParam;
+		}
+    }
+	
+</script>
+
+</body>
+</html>
