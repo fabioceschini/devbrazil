@@ -71,7 +71,8 @@
             font-weight: 600;
             font-size: 0.9rem;
             padding: 4px 0;
-            transition: color 0.2s ease;
+            /* transition: color 0.2s ease; */
+			transition: all 0.2s ease;
             --prod-color: var(--verde-dev);
         }
 
@@ -88,8 +89,11 @@
         }
 
         .product-nav-links a:hover,
-        .product-nav-links a.active {
-            color: var(--prod-color);
+        .product-nav-links a.active {		
+			font-weight: 700;
+			color: var(--prod-color);
+			-- background: rgba(0, 0, 0, 0.04);
+			-- border-radius: 6px;	
         }
 
         .product-nav-links a:hover::after,
@@ -585,6 +589,7 @@
             .nav-btn-item { font-size: 0.85rem; padding: 10px 15px; width: 100%; justify-content: center; }
 			
 			.gallery-title 	      { flex-direction: column; text-align: center; gap: 20px; }
+			.gallery-title-faq 	      { flex-direction: column; text-align: center; gap: 20px; }
 			.gallery-title-red    { flex-direction: column; text-align: center; gap: 20px; }
 			.gallery-title-yellow { flex-direction: column; text-align: center; gap: 20px; }
 			.gallery-title-purple { flex-direction: column; text-align: center; gap: 20px; }			
@@ -661,7 +666,7 @@
     <div class="logo-container">
         <img src="images/devbrazil_logo_256.png" alt="DevBrazil Logo" class="logo-img">
 		<div class="product-nav-links">        
-			<a href="#dbmoney" style="--prod-color:var(--verde-dev)" onclick="scrollToSection('devbrazil'); return false;"><span class="brand-name">Dev<span class="brand-accent">Brazil</span></span></a>
+			<a href="#devbrazil" style="--prod-color:var(--verde-dev)" onclick="scrollToSection('devbrazil'); return false;"><span class="brand-name">Dev<span class="brand-accent">Brazil</span></span></a>
 		</div>
     </div>
 	<nav>
@@ -1018,7 +1023,11 @@
 	<h3 class="gallery-title-faq" data-pt="Perguntas frequentes" data-en="Available languages" data-es="Idiomas disponibles" data-fr="Langues disponibles" data-de="Verfügbare Sprachen"></h3>
 	<div class="faq">
 		<details>
-			<summary>Como funciona o preço?</summary>
+			<summary
+				data-pt="Como funciona o preço?"
+				data-en="Whats porra is this?">
+			</summary>	
+			
 			<p>A instalação é gratuita. O Premium é uma compra única dentro do aplicativo, sem assinatura.</p>
 		</details>
 		<details>
@@ -1559,7 +1568,9 @@
 		checkURLForLanguage();
 		
 		// Atualiza conteúdo
-		changeLanguage(currentLang);		
+		changeLanguage(currentLang);
+		
+		updateActiveMenu();
 	}
 
 	// Função para abrir o modal baseada na galeria específica
@@ -1600,7 +1611,7 @@
 	
 	// Executa assim que o site carregar
     document.addEventListener("DOMContentLoaded", checkURLForLanguage);
-
+	
 	function openContactModal() {
 	    document.getElementById("contactModal").style.display = "flex";
 	}
@@ -1636,6 +1647,61 @@
 			currentLang = langParam;
 		}
     }
+	
+	function updateActiveMenu() {
+
+		const sections = [
+			'devbrazil',
+			'dbmoney',
+			'dbpdf',
+			'dbradio',
+			'dbnotes'
+		];
+
+		const menuLinks = document.querySelectorAll(
+			'.product-nav-links a[href^="#"]'
+		);
+
+		const observer = new IntersectionObserver(
+			function(entries) {
+
+				entries.forEach(function(entry) {
+
+					if (entry.isIntersecting) {
+
+						const currentId = entry.target.id;
+
+						menuLinks.forEach(function(link) {
+
+							link.classList.toggle(
+								'active',
+								link.getAttribute('href') === '#' + currentId
+							);
+
+						});
+
+					}
+
+				});
+
+			},
+			{
+				root: null,
+				rootMargin: '-20% 0px -60% 0px',
+				threshold: 0
+			}
+		);
+
+		sections.forEach(function(id) {
+
+			const section = document.getElementById(id);
+
+			if (section) {
+				observer.observe(section);
+			}
+
+		});
+	}
 	
 </script>
 
