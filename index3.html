@@ -162,7 +162,8 @@
         .eyebrow-yellow { color: #8a6800; background: rgba(188,141,0,0.12); }
         .eyebrow-purple { color: var(--roxo-dbradio); background: rgba(106,27,154,0.08); }
 		.eyebrow-green  { color: var(--verde-dev-dark); background: rgba(27,132,91,0.1); }
-
+		.eyebrow-gray   { margin-left: 0px; margin-right: 5px; margin-top: 7px; margin-bottom: 7px; color: #686868; background: #F2F2F2; }
+		
 		.lang-selector { position: relative; display: inline-flex; align-items: center; gap: 2px; flex-shrink: 0; }
 
 		.lang-pill {
@@ -256,11 +257,11 @@
 			color: #666;
 		}
 
-		.badge-blue   { background: #E8EDF2; color: var(--azul-dbmoney); margin-left: 5px; margin-bottom: 0px; padding: 7px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1; }
-		.badge-red    { background: #FFE4F1; color: #A75052;             margin-left: 5px; margin-bottom: 0px; padding: 7px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1; }
-		.badge-yellow { background: #FDF4D1; color: #BC8D00;             margin-left: 5px; margin-bottom: 0px; padding: 7px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1; }
-		.badge-purple { background: #f3e5f5; color: var(--roxo-dbradio); margin-left: 5px; margin-bottom: 0px; padding: 7px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1; }
-		.badge-gray   { background: #F0F0F0; color: #8E8E8E;             margin-left: 5px; margin-bottom: 0px; padding: 7px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1; }
+		.badge-blue   { background: #E8EDF2; color: var(--azul-dbmoney);   margin-left: 5px; margin-bottom: 0px; padding: 7px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1; }
+		.badge-red    { background: #FFE4F1; color: #A75052;               margin-left: 5px; margin-bottom: 0px; padding: 7px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1; }
+		.badge-yellow { background: #FDF4D1; color: #BC8D00;               margin-left: 5px; margin-bottom: 0px; padding: 7px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1; }
+		.badge-purple { background: #f3e5f5; color: var(--roxo-dbradio);   margin-left: 5px; margin-bottom: 0px; padding: 7px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1; }
+		.badge-gray   { background: #F0F0F0; color: #8E8E8E;               margin-left: 0px; margin-bottom: 0px; padding: 7px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1; }
 		.badge-green  { background: #E8F2EE; color: var(--verde-dev-dark); margin-left: 5px; margin-bottom: 0px; padding: 7px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1; }
 		
         .dbmoney-intro { display: flex; align-items: center; gap: 30px; margin-bottom: 10px; }
@@ -285,16 +286,76 @@
 
         /* --- GALERIA --- */
         .gallery-title { color: var(--azul-dbmoney); margin: 40px 0 20px; border-bottom: 2px solid #E0E0E0; padding-bottom: 10px; font-size: 1.4rem; }
+		.gallery-title-lin { color: var(--azul-dbmoney); margin: 0x 0 0px; border-bottom: 2px solid #E0E0E0; padding-bottom: 0px; font-size: 1.4rem; }
 		.gallery-title-faq { color: var(--azul-dbmoney); margin: 40px 0 10px; border-bottom: 2px solid #E0E0E0; padding-bottom: 10px; font-size: 1.4rem; }
 		.gallery-title-red { color: #A75052; margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem; }
 		.gallery-title-yellow { color: #BC8D00; margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem; }
 		.gallery-title-purple { color: var(--roxo-dbradio); margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem; }
         .screenshot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
         .screenshot-grid img { 
-            width: 100%; border-radius: 8px; cursor: pointer; 
+            width: 100%; border-radius: 8px; cursor: pointer;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.2s;
         }
         .screenshot-grid img:hover { transform: scale(1.05); }
+		
+		#gallery-dbmoney {
+			display: grid;
+			flex-direction: row;
+			align-items: center;
+			gap: 20px;
+		}
+		
+		.gallery-more {
+			position: relative;
+			cursor: pointer;
+			overflow: hidden;
+			width: 100%; 
+			border-radius: 8px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+			transition: transform 0.2s;			
+		}
+
+		.gallery-more img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;			
+		}
+
+		.gallery-more-overlay {
+			position: absolute;
+			inset: 0;
+
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+
+			background: rgba(0, 10, 0, 0.60);
+			color: white;
+
+			transition: background 0.2s ease;			
+		}
+
+		.gallery-more-overlay span {
+			font-size: 32px;
+			font-weight: 700;
+		}
+
+		.gallery-more-overlay small {
+			margin-top: 5px;
+			font-size: 14px;			
+		}
+
+		.gallery-more:hover .gallery-more-overlay {
+			background: rgba(0, 0, 0, 0.75);					
+		}
+
+		.gallery-hidden {
+			display: none !important;			
+			
+		}
+		
 
         /* --- TABELA COMPARATIVA --- */
         .pricing-table-container { margin-top: 10px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -322,6 +383,25 @@
             transition: background 0.3s;
         }
         .btn-store-dbmoney:hover { background: #003366; }
+		
+        .btn-store-dbmoney-mini {
+			display: inline-flex;       /* Altera de block para inline-flex para o botão não ocupar a tela inteira */
+			align-items: center;        /* Alinha o ícone e o texto verticalmente no centro do botão */
+			justify-content: flex-start;/* Alinha o conteúdo interno (ícone e texto) à esquerda */
+			width: auto;                /* Remove os 100% para o botão ter apenas o tamanho do texto */
+			max-width: 350px;
+			margin: 15px 0 0 0;         /* Trocou o 'auto' por '0' na esquerda e direita para colar na borda */
+			background: var(--azul-dbmoney);
+			color: #fff;
+			padding: 10px 15px;         /* Aumentei um pouco o padding lateral para dar acabamento */
+			border-radius: 12px;
+			text-decoration: none;
+			font-family: var(--font-mono);			
+			font-size: 0.7rem;
+			text-align: left;           /* Garante que o texto fique alinhado à esquerda */
+			transition: background 0.3s;
+        }
+        .btn-store-dbmoney-mini:hover { background: #003366; }		
 
         .btn-store-dbpdf {
             display: block;
@@ -533,18 +613,6 @@
 			gap: 10px;                 /* Dá um espaçamento horizontal de 10px entre o selo e o texto */
 		}
 
-		.faq-dbmoney-title { color: var(--azul-dbmoney); font-size: 1.4rem; }
-		/* .faq-dbmoney-linha { color: var(--azul-dbmoney); margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem; } */
-		.faq-dbmoney-linha { color: var(--azul-dbmoney); border-bottom: 2px solid #eee; padding-bottom: 18px;}
-
-		.faq-dbmoney {border-bottom:2px solid #eee}
-		.faq-dbmoney details{border-bottom:0px solid #eee;padding:18px 0}
-		.faq-dbmoney summary{cursor:pointer;font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:16px}
-		.faq-dbmoney summary::-webkit-details-marker{display:none}
-		.faq-dbmoney summary::after{content:"+";color:var(--azul-dbmoney);font-family:ui-monospace,"Cascadia Code","SFMono-Regular",Consolas,monospace}
-		.faq-dbmoney details[open] summary::after{content:"\2212"}
-		.faq-dbmoney details p{margin:12px 0 0;color:var(--ink-2);font-size:.96rem;max-width:66ch}
-
 		.faq{border-top:0px solid #eee}
 		.faq details{border-bottom:1px solid #eee;padding:15px 0}
 		.faq summary{cursor:pointer;font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:16px}
@@ -579,10 +647,10 @@
             .hero h1 { font-size: 1.8rem; }
             .hero p { font-size: 1rem; }
 
-            .card-dbmoney { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid var(--azul-dbmoney); }
-			.card-dbpdf   { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid #A75052; }
-			.card-dbradio { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid #7A5B91; }
-			.card-dbnotes { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid #BC8D00; }
+            .card-dbmoney   { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid var(--azul-dbmoney); }
+			.card-dbpdf     { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid #A75052; }
+			.card-dbradio   { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid #7A5B91; }
+			.card-dbnotes   { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid #BC8D00; }
 			.card-devbrazil { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid #1B845B; }
 
             .product-nav { margin-top: 10px; gap: 10px; }
@@ -711,55 +779,17 @@
 	</nav>
 </header>
 
-<!--
-<section class="hero" id="empresa">
-    <span class="hero-eyebrow" data-pt="4 PRODUTOS · 100% OFFLINE · WINDOWS" data-en="4 PRODUCTS · 100% OFFLINE · WINDOWS" data-es="4 PRODUCTOS · 100% SIN CONEXIÓN · WINDOWS" data-fr="4 PRODUITS · 100% HORS LIGNE · WINDOWS" data-de="4 PRODUKTE · 100% OFFLINE · WINDOWS">4 PRODUTOS · 100% OFFLINE · WINDOWS</span>
-    <h1 data-pt="Engenharia de Software de Alta Performance" 
-        data-en="High Performance Software Engineering"
-        data-es="Ingeniería de software de alto rendimiento"
-        data-fr="Ingénierie logicielle haute performance"
-        data-de="High-Performance-Software-Engineering">
-        Engenharia de Software de Alta Performance
-    </h1>
-    <br>
-    <p data-pt="Nascida da paixão pela eficiência e com mais de 25 anos de experiência no desenvolvimento de sistemas críticos, a DevBrazil combina solidez técnica com inovação para criar softwares nativos de alta performance."
-       data-en="Born from a passion for efficiency and backed by over 25 years of experience in mission-critical systems, DevBrazil combines technical expertise with innovation to build high-performance native software."
-       data-es="Nacida de la pasión por la eficiencia y respaldada por más de 25 años de experiencia en el desarrollo de sistemas críticos, DevBrazil combina solidez técnica con innovación para crear software nativo de alto rendimiento."
-       data-fr="Née d'une passion pour l'efficacité et forte de plus de 25 ans d'expérience dans les systèmes critiques, DevBrazil allie expertise technique et innovation pour créer des logiciels natifs de haute performance."
-       data-de="Aus der Leidenschaft für Effizienz entstanden und gestützt auf mehr von 25 Jahren Erfahrung mit geschäftskritischen Systemen, verbindet DevBrazil technische Kompetenz mit Innovation, um native High-Performance-Software zu entwickeln.">
-    </p>
-    <br>
-    <p data-pt="Nosso propósito é simples: desenvolver soluções que respeitam o seu tempo, potencializam sua produtividade e garantem a privacidade absoluta dos seus dados. Criamos ferramentas leves, rápidas e independentes para quem exige o máximo do seu ecossistema de trabalho."
-       data-en="Our mission is clear: to create solutions that honor your time, amplify your productivity, and protect your absolute data privacy. We build lightweight, fast, and standalone tools for individuals and professionals who demand excellence from their workflow."
-       data-es="Nuestro propósito es simple: desarrollar soluciones que respeten su tiempo, potencien su productividad y garanticen la privacidad absoluta de sus datos. Creamos herramientas ligeras, rápidas e independientes para quienes exigen el máximo de su ecosistema de trabajo."
-       data-fr="Notre mission é simple : concevoir des solutions qui respectent votre temps, maximisent votre productivité et garantissent la confidentialité absolue de vos données. Nous créons des outils légers, rapides et indépendants pour ceux qui exigent le maximum de leur écosystème de travail."
-       data-de="Unser Ziel ist einfach: Lösungen zu entwickeln, die Ihre Zeit respektieren, Ihre Produktivität maximieren und die absolute Privatsphäre Ihrer Daten garantieren. Wir entwickeln schlanke, schnelle und unabhängige Tools für alle, die das Maximum aus ihrer Arbeitsumgebung herausholen wollen.">
-    </p>
-    <br>
-    <p data-pt="<strong>Junte-se a nós. Nossa tecnologia já impulsiona a produtividade de usuários em mais de 120 mercados e territórios ao redor do mundo.</strong>"
-       data-en="<strong>Join us. Our technology is already driving productivity for users across more than 120 markets and territories worldwide.</strong>"
-       data-es="<strong>Únase a nosotros. Nuestra tecnología ya impulsa la productividad de usuarios en más de 120 mercados y territorios en todo el mundo.</strong>"
-       data-fr="<strong>Rejoignez-nous. Notre technologie stimule déjà la productivité d'utilisateurs dans plus de 120 marchés et territoires à travers le monde.</strong>"
-       data-de="<strong>Schließen Sie sich uns an. Unsere Technologie steigert bereits die Produktivität von Anwendern in mehr als 120 Märkten und Regionen weltweit.</strong>">
-    </p>
-    <br>
-</section>
-
-<div class="product-nav">
-    <a href="javascript:void(0)" onclick="scrollToSection('dbmoney')" class="nav-btn-item btn-blue"><i class="fas fa-wallet"></i> dbMoney</a>
-    <a href="javascript:void(0)" onclick="scrollToSection('dbpdf')" class="nav-btn-item btn-red"><i class="fas fa-file-pdf"></i> dbPDF</a>
-	<a href="javascript:void(0)" onclick="scrollToSection('dbnotes')" class="nav-btn-item btn-yellow"><i class="fas fa-file-text"></i> dbNotes</a>
-    <a href="javascript:void(0)" onclick="scrollToSection('dbradio')" class="nav-btn-item btn-purple"><i class="fas fa-music"></i> dbRadio</a>
-</div>
--->
-
 <br>
 <br>
 <br>
 
 <div class="product-card card-dbmoney" id="dbmoney">
-    <div class="dbmoney-intro">
-        <img src="images/dbmoney_logo_96.png" alt="dbMoney" class="dbmoney-intro">
+    <div class="dbmoney-intro">        
+	
+		<div class="dbmoney-text" style="display: flex; flex-direction: column; align-items: center; gap: 0px;">
+			<img src="images/dbmoney_logo_96.png" alt="dbMoney" class="dbmoney-intro" style="display: block; margin: 0 0 -5px 0; padding: 0;">
+		</div>
+
         <div class="dbmoney-text">
             <h2 class="product-title product-title-flex">
                 dbMoney Personal
@@ -767,14 +797,18 @@
 				<span class="product-eyebrow eyebrow-blue" data-pt='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (vitalício)' data-en='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (lifetime)' data-es='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (de por vida)' data-fr='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (à vie)' data-de='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (lebenslang)'></span>
 			</h2>
 
-			<p data-pt="O <strong>dbMoney Personal</strong> é o software nativo definitivo para quem deseja retomar o controle total da sua vida financeira sem abrir mão da privacidade. Projetado sob medida para o Windows, ele combina a robustez de engenharia dos sistemas bancários com a agilidade de uma interface moderna, limpa e extremamente intuitiva."
+			<p data-pt="O <strong>dbMoney Personal</strong> é um poderoso software de finanças pessoais desenvolvido para quem deseja retomar o controle total da sua vida financeira sem abrir mão da privacidade."
 			   data-en="<strong>dbMoney Personal</strong> is the ultimate native software for anyone looking to regain total control over their financial life without compromising privacy. Tailored specifically for Windows, it combines the engineering robustness of banking systems with the agility of a modern, clean, and highly intuitive interface."
 			   data-es="<strong>dbMoney Personal</strong> es el software nativo definitivo para quienes desean recuperar el control total de su vida financiera sin renunciar a la privacidad. Diseñado a la medida para Windows, combina la robustez de ingeniería de los sistemas bancarios con la agilidad de una interfaz moderna, limpia y altamente intuitiva."
 			   data-fr="<strong>dbMoney Personal</strong> est le logiciel natif ultime pour quiconque souhaite reprendre le contrôle total de sa vie financière sans compromettre sa vie privée. Conçu sur mesure pour Windows, il combine la robustesse technique des systèmes bancaires avec l'agilité d'une interface moderne, épurée et hautement intuitive."
 			   data-de="<strong>dbMoney Personal</strong> ist die ultimative native Software für alle, die die volle Kontrolle über ihr Finanzleben zurückgewinnen wollen, ohne Kompromisse bei der Privatsphäre einzugehen. Maßgeschneidert für Windows, verbindet sie die technische Robustheit von Banksystemen mit der Flexibilität einer modernen, übersichtlichen und extrem intuitiven Benutzeroberfläche.">
-			</p>
+			</p>			
         </div>
+
+
+
     </div>
+	
 	<br>
 
     <div class="about-content">
@@ -784,7 +818,7 @@
 		   data-fr="<strong>Vos données vous appartiennent, et à personne d'autre.</strong>"
 		   data-de="<strong>Ihre Daten gehören Ihnen und niemandem sonst.</strong>">
 		</p>
-		<p data-pt="Ao contrário de plataformas web que expõem suas informações em servidores de terceiros, o dbMoney prioriza a segurança máxima. Seus dados permanecem criptografados e armazenados localmente no seu computador, funcionando <strong_dbmoney>100% offline</strong_dbmoney>." 
+		<p data-pt="Ao contrário de plataformas web que expõem suas informações em servidores de terceiros, o dbMoney prioriza a <strong>segurança máxima</strong>. Seus dados permanecem criptografados e armazenados localmente no seu computador, funcionando <strong_dbmoney>100% offline</strong_dbmoney>." 
 		   data-en="Unlike web platforms that expose your information to third-party servers, dbMoney prioritizes maximum security. Your data remains encrypted and stored locally on your computer, operating <strong_dbmoney>100% offline</strong_dbmoney>." 
 		   data-es="A diferencia de las plataformas web que exponen su información en servidores de terceros, dbMoney prioriza la máxima seguridad. Sus datos permanecen encriptados y almacenados localmente en su computadora, funcionando <strong_dbmoney>100% offline</strong_dbmoney>."
 		   data-fr="Contrairement aux plateformes web qui exposent vos informations sur des serveurs tiers, dbMoney donne la priorité à une sécurité maximale. Vos données restent cryptées et stockées locallement sur votre ordinateur, fonctionnant à <strong_dbmoney>100% hors ligne</strong_dbmoney>."
@@ -797,116 +831,71 @@
 		   data-fr="<strong>Besoin de mobilité ?</strong>"
 		   data-de="<strong>Möchten Sie Flexibilität?</strong>">
 		</p>
-		<p data-pt="Você tem total liberdade para sincronizar seus arquivos criptografados através do seu próprio <strong_dbmoney>OneDrive</strong_dbmoney> ou <strong_dbmoney>Google Drive</strong_dbmoney> para acessá-los em outros computadores de forma instantânea." 
+		<p data-pt="Sincronize seus arquivos através do seu <strong_dbmoney>OneDrive</strong_dbmoney> ou <strong_dbmoney>Google Drive</strong_dbmoney> para acessá-los em outros computadores."
 		   data-en="You have the complete freedom to sync your encrypted files using your own <strong_dbmoney>OneDrive</strong_dbmoney> or <strong_dbmoney>Google Drive</strong_dbmoney> to access them on other computers instantly." 
 		   data-es="Tiene total libertad para sincronizar sus archivos encriptados a través de su propio <strong_dbmoney>OneDrive</strong_dbmoney> o <strong_dbmoney>Google Drive</strong_dbmoney> para acceder a ellos en otras computadoras de forma instantánea."
 		   data-fr="Vous avez la liberté totale de synchroniser vos fichiers cryptés via votre propre <strong_dbmoney>OneDrive</strong_dbmoney> ou <strong_dbmoney>Google Drive</strong_dbmoney> pour y accéder instantanément sur d'autres ordinateurs."
 		   data-de="Sie haben a die absolute Freiheit, Ihre verschlüsselten Dateien über Ihr eigenes <strong_dbmoney>OneDrive</strong_dbmoney> oder <strong_dbmoney>Google Drive</strong_dbmoney> zu synchronisieren, um sofort von anderen Computern darauf zuzugreifen.">
 		</p>
+		
+		<br>
 
-		<h3 class="gallery-title" data-pt="Por que escolher o dbMoney?" 
-		                          data-en="Why choose dbMoney?" 
-								  data-es="¿Por qué elegir dbMoney?" 
-								  data-fr="Pourquoi choisir dbMoney ?" 
-								  data-de="Warum dbMoney wählen?"></h3>
-
-		<div class="about-content">
-			<strong><i class="fas fa-check"></i><a data-pt=" Liberdade Financeira Sem Mensalidades:" 
-			                                       data-en=" Financial Freedom Without Monthly Fees:" 
-												   data-es=" Libertad Financiera Sin Mensualidades:" 
-												   data-fr=" Liberté financière sans abonnement :" 
-												   data-de=" Finanzielle Freiheit ohne Monatsgebühren:"></a></strong>
-			<a data-pt="Diga adeus às assinaturas intermináveis. Uma única compra garante uso vitalício e atualizações, colocando o seu planejamento financeiro no azul desde o primeiro dia." 
-			   data-en="Say goodbye to endless subscriptions. A single purchase guarantees lifetime use and updates, putting your financial planning in the green from day one." 
-			   data-es="Diga adiós a las suscripciones interminables. Una única compra garantiza el uso de por vida y actualizaciones, poniendo su planificación financiera en verde desde el primer día."
-			   data-fr="Dites adieu aux abonnements interminables. Un achat unique garantit une utilisation et des mises à jour à vie, équilibrant vos finances dès le premier jour."
-			   data-de="Verabschieden Sie sich von endlosen Abonnements. Ein einziger Kauf garantiert lebenslange Nutzung und Updates, sodass Ihre Finanzplanung von Tag eins an im grünen Bereich ist."></a>
-		</div>
-
-		<div class="about-content">
-			<strong><i class="fas fa-bolt"></i><a data-pt=" Performance Nativa Incomparável:" 
-			                                      data-en=" Unmatched Native Performance:" 
-												  data-es=" Rendimiento Nativo Incomparable:" 
-												  data-fr=" Performance native inégalée :" 
-												  data-de=" Unübertroffene native Performance:"></a></strong>
-			<a data-pt="Desenvolvido para responder na velocidade do seu pensamento. Sinta a fluidez de um sistema que carrega relatórios e gráficos instantaneamente, mesmo com milhares de registros acumulados ao longo dos anos." 
-			   data-en="Built to respond at the speed of your thought. Experience the fluidity of a system that loads reports and charts instantly, even with thousands of records accumulated over the years." 
-			   data-es="Desarrollado para responder a la velocidad de su pensamiento. Sienta la fluidez de un sistema que carga informes y gráficos al instante, incluso con miles de registros acumulados a lo largo de los años."
-			   data-fr="Conçu pour répondre à la vitesse de votre pensée. Découvrez la fluidité d'un système qui charge instantanément les rapports et les graphiques, mesmo avec des milliers d'enregistrements accumulés au fil des ans."
-			   data-de="Entwickelt, um in der Geschwindigkeit Ihrer Gedanken zu reagieren. Erleben Sie die Agilität eines Systems, das Berichte und Diagramme sofort lädt, selbst bei Tausenden von Datensätzen, die sich über die Jahre angesammelt haben."></a>
-		</div>
-
-		<div class="about-content">
-			<strong><i class="fas fa-magic"></i><a data-pt=" Inteligência e Automação:" 
-			                                       data-en=" Intelligence and Automation:" 
-												   data-es=" Inteligencia y Automatización:" 
-												   data-fr=" Intelligence et automatisation :" 
-												   data-de=" Intelligenz und Automatisierung:"></a></strong>
-			<a data-pt="Esqueça a digitação manual exaustiva. Importe seus extratos bancários (OFX) e deixe que as regras inteligentes do dbMoney categorizem suas transações de forma automática e precisa." 
-			   data-en="Forget exhaustive manual typing. Import your bank statements (OFX) and let dbMoney's smart rules categorize your transactions automatically and precisely." 
-			   data-es="Olvídese de la exhaustiva digitación manual. Importe sus extractos bancarios (OFX) e deje que las reglas inteligentes de dbMoney categoricen sus transacciones de forma automática y precisa."
-			   data-fr="Oubliez la saisie manuelle fastidieuse. Importez vos relevés bancaires (OFX) et laissez os regras inteligentes de dbMoney catégoriser vos transactions de manière automatique et précise."
-			   data-de="Vergessen Sie mühsame manuelle Eingaben. Importieren Sie Ihre Bankauszüge (OFX) und lassen Sie die intelligenten Regeln von dbMoney Ihre Transaktionen automatisch und präzise kategorisieren."></a>
-		</div>
-
-		<div class="about-content">
-			<strong><i class="fas fa-cog"></i><a data-pt=" Engenharia de Dados Flexível:" 
-			                                     data-en=" Flexible Data Engineering:" 
-												 data-es=" Ingeniería de Datos Flexible:" 
-												 data-fr=" Ingénierie des données flexible :" 
-												 data-de=" Flexible Datentechnik:"></a></strong>
-			<a data-pt="Molde o sistema ao seu estilo de vida. Crie estruturas de categorias e tags totalmente independentes para analisar seu fluxo de caixa sob qualquer perspectiva." 
-			   data-en="Shape the system to your lifestyle. Create completely independent category and tag structures to analyze your cash flow from any perspective." 
-			   data-es="Moldee el sistema a su estilo de vida. Cree estructuras de categorías y etiquetas totalmente independientes para analizar su flujo de caja bajo cualquier perspectiva."
-			   data-fr="Adaptez le système à votre style de vie. Créez des structures de catégories et de tags entièrement indépendantes pour analyser votre flux de trésorerie sous perspective."
-			   data-de="Passen Sie das System an Ihren Lebensstil an. Erstellen Sie völlig unabhängige Kategorie- und Tag-Strukturen, um Ihren Cashflow aus jeder Perspektive zu analysieren."></a>
-		</div>
-	
-		<!--
-        <div class="feature-grid">
-            <div class="feature-item">
-                <strong><i class="fas fa-microchip"></i><a data-pt=" Performance Nativa" data-en=" Native Performance" data-es=" Rendimiento nativo"></a></strong>
-                <a data-pt="Respostas instantâneas mesmo com milhares de registros." data-en="Instant responses even with thousands of records." data-es="Respuestas instantáneas incluso con miles de registros."></a>
-            </div>
-            <div class="feature-item">
-                <strong><i class="fas fa-cog"></i><a data-pt=" Engenharia de Dados" data-en=" Data Engineering" data-es=" Ingeniería de Datos"></a></strong>
-				<a data-pt="Categorização flexível independente do fluxo financeiro." data-en="Flexible categorization independent of financial flow." data-es="Categorización flexible independiente del flujo de caja."></a>
-            </div>			
-            <div class="feature-item">
-                <strong><i class="fas fa-file-import"></i><a data-pt=" Automação" data-en=" Automation" data-es=" Automatización"></a></strong>
-				<a data-pt="Importe extratos OFX e categorize automaticamente com regras inteligentes." data-en="Import OFX statements and categorize automatically with smart rules." data-es="Importa declaraciones OFX y clasifícalas automáticamente con reglas inteligentes."></a>
-            </div>
-        </div>
-		-->
+		<p data-pt="<strong>Por que escolher o dbMoney?</strong>" 
+		   data-en="<strong>Why choose dbMoney?</strong>" 
+		   data-es="<strong>¿Por qué elegir dbMoney?</strong>" 
+		   data-fr="<strong>Pourquoi choisir dbMoney ?</strong>" 
+		   data-de="<strong>Warum dbMoney wählen?"</strong>>
+		</p>
+		
+		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fas fa-check"></i>&nbsp;100% Offline' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
+		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa-usd"></i>&nbsp;Sem Mensalidades' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
+		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fas fa-bolt"></i>&nbsp;Performance Nativa' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
+		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fas fa-file-import"></i>&nbsp;Importação de Extratos (OFX)' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
+		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fas fa-tags"></i>&nbsp;Categorização flexível' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
     </div>
 
     <h3 class="gallery-title"><a data-pt="Capturas de tela" data-en="Screenshots" data-es="Capturas de pantalla" data-fr="Captures d'écran" data-de="Screenshots"></a></h3>
-    <div class="screenshot-grid" id="gallery-dbmoney">
-        <!-- Mantendo sua lógica de imagens original -->		
+	<div class="screenshot-grid" id="gallery-dbmoney">
+		<!-- Imagens visíveis -->
 		<img src="images/dbmoney_screen_01.png" alt="Screen 01" onclick="openModal(0, 'gallery-dbmoney')">
-        <img src="images/dbmoney_screen_02.png" alt="Screen 02" onclick="openModal(1, 'gallery-dbmoney')">
-        <img src="images/dbmoney_screen_03.png" alt="Screen 03" onclick="openModal(2, 'gallery-dbmoney')">
-        <img src="images/dbmoney_screen_04.png" alt="Screen 04" onclick="openModal(3, 'gallery-dbmoney')">
-        <img src="images/dbmoney_screen_05.png" alt="Screen 05" onclick="openModal(4, 'gallery-dbmoney')">
-        <img src="images/dbmoney_screen_06.png" alt="Screen 06" onclick="openModal(5, 'gallery-dbmoney')">
-        <img src="images/dbmoney_screen_07.png" alt="Screen 07" onclick="openModal(6, 'gallery-dbmoney')">
-		<img src="images/dbmoney_screen_08.png" alt="Screen 08" onclick="openModal(7, 'gallery-dbmoney')">
-		<img src="images/dbmoney_screen_09.png" alt="Screen 09" onclick="openModal(8, 'gallery-dbmoney')">
-		<img src="images/dbmoney_screen_10.png" alt="Screen 10" onclick="openModal(9, 'gallery-dbmoney')">
-		<img src="images/dbmoney_screen_11.png" alt="Screen 11" onclick="openModal(10, 'gallery-dbmoney')">
-		<img src="images/dbmoney_screen_12.png" alt="Screen 12" onclick="openModal(11, 'gallery-dbmoney')">
-		<img src="images/dbmoney_screen_13.png" alt="Screen 13" onclick="openModal(12, 'gallery-dbmoney')">
-		<img src="images/dbmoney_screen_14.png" alt="Screen 14" onclick="openModal(13, 'gallery-dbmoney')">
-		<img src="images/dbmoney_screen_15.png" alt="Screen 15" onclick="openModal(14, 'gallery-dbmoney')">
-		<img src="images/dbmoney_screen_16.png" alt="Screen 16" onclick="openModal(15, 'gallery-dbmoney')">
-		<img src="images/dbmoney_screen_17.png" alt="Screen 17" onclick="openModal(16, 'gallery-dbmoney')">		
-    </div>
-	
-	<h3 class="gallery-title"><a data-pt="Vídeos" data-en="Videos" data-es="Videos" data-fr="Vidéos" data-de="Videos"></a></h3>	
-	<div class="screenshot-grid" id="gallery-dbmoney-youtube">
-		<a href="https://www.youtube.com/watch?v=wLP-gaJQ5b0" target="_blank"><img src="images/dbmoney_youtube.png"></a>
-	</div>
+		<img src="images/dbmoney_screen_02.png" alt="Screen 02" onclick="openModal(1, 'gallery-dbmoney')">
+		<img src="images/dbmoney_screen_03.png" alt="Screen 03" onclick="openModal(2, 'gallery-dbmoney')">
+		<!-- Acesso às demais imagens -->
+		<div class="gallery-more" onclick="openModal(3, 'gallery-dbmoney')">
+			<img src="images/dbmoney_screen_04.png" alt="More screenshots">
+			<div class="gallery-more-overlay">
+				<span class="gallery-more-count">+14</span>
+				<small data-pt="Mais capturas"
+					   data-en="More screenshots"
+					   data-es="Más capturas"
+					   data-fr="Plus de captures"
+					   data-de="Weitere Screenshots">
+				</small>				
+			</div>
+		</div>
 
+		<!-- Imagens restantes: continuam disponíveis para o modal -->
+		<div class="gallery-hidden">
+			<img src="images/dbmoney_screen_05.png" alt="Screen 05" onclick="openModal(4, 'gallery-dbmoney')">
+			<img src="images/dbmoney_screen_06.png" alt="Screen 06" onclick="openModal(5, 'gallery-dbmoney')">
+			<img src="images/dbmoney_screen_07.png" alt="Screen 07" onclick="openModal(6, 'gallery-dbmoney')">
+			<img src="images/dbmoney_screen_08.png" alt="Screen 08" onclick="openModal(7, 'gallery-dbmoney')">
+			<img src="images/dbmoney_screen_09.png" alt="Screen 09" onclick="openModal(8, 'gallery-dbmoney')">
+			<img src="images/dbmoney_screen_10.png" alt="Screen 10" onclick="openModal(9, 'gallery-dbmoney')">
+			<img src="images/dbmoney_screen_11.png" alt="Screen 11" onclick="openModal(10, 'gallery-dbmoney')">
+			<img src="images/dbmoney_screen_12.png" alt="Screen 12" onclick="openModal(11, 'gallery-dbmoney')">
+			<img src="images/dbmoney_screen_13.png" alt="Screen 13" onclick="openModal(12, 'gallery-dbmoney')">
+			<img src="images/dbmoney_screen_14.png" alt="Screen 14" onclick="openModal(13, 'gallery-dbmoney')">
+			<img src="images/dbmoney_screen_15.png" alt="Screen 15" onclick="openModal(14, 'gallery-dbmoney')">
+			<img src="images/dbmoney_screen_16.png" alt="Screen 16" onclick="openModal(15, 'gallery-dbmoney')">
+			<img src="images/dbmoney_screen_17.png" alt="Screen 17" onclick="openModal(16, 'gallery-dbmoney')">
+		</div>
+		
+		<div class="gallery-more" id="gallery-dbmoney-youtube">
+			<a href="https://www.youtube.com/watch?v=wLP-gaJQ5b0" target="_blank"><img src="images/dbmoney_youtube.png" width="300px"></a>
+		</div>
+	</div>
+	
     <h3 class="gallery-title-faq"><a data-pt="Planos e Versões" data-en="Plans & Versions" data-es="Planes y versiones" data-fr="Plans & Versions" data-de="Pläne & Versionen"></a></h3>				
 	<div class="pricing-table-container">
 		<table>
@@ -1353,7 +1342,7 @@
 <!-- About: DevBrazil -->
 <div class="product-card card-devbrazil" id="devbrazil">
     <div class="dbmoney-intro">
-        <img src="images/devbrazil_logo_96.png" alt="devbrazil" class="dbmoney-intro">
+        <img src="images/devbrazil_logo_96.png" alt="DevBrazil" class="dbmoney-intro">
         <div class="dbmoney-text">
             <!--
 			<span class="product-eyebrow eyebrow-green" data-pt="100% OFFLINE · WINDOWS" data-en="100% OFFLINE · WINDOWS" data-es="100% SIN CONEXIÓN · WINDOWS" data-fr="100% HORS LIGNE · WINDOWS" data-de="100% OFFLINE · WINDOWS">4 PRODUTOS · 100% OFFLINE · WINDOWS</span>
@@ -1579,9 +1568,9 @@
 	// Função para abrir o modal baseada na galeria específica
 	function openModal(index, galleryId) {
 		// Captura apenas as imagens do card onde o usuário clicou
-		currentGalleryImages = Array.from(document.querySelectorAll(`#${galleryId} img`));
-		currentImageIndex = index;
-    
+		currentGalleryImages = Array.from(document.querySelectorAll(`#${galleryId} img:not(#gallery-dbmoney-youtube img)`));
+		currentImageIndex = index;		
+
 		const modal = document.getElementById("myModal");
 		const modalImg = document.getElementById("img01");
     
