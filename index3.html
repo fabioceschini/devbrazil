@@ -51,7 +51,7 @@
 			border: 0;
 			height: 1px;
 			background-color: #eee; /* Cor verde usando código Hexadecimal */
-		}		
+		}
 		
         .logo-container { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
         .logo-img { width: 34px; height: 34px; }
@@ -158,6 +158,7 @@
             border-radius: 10px;            
 			margin-left: 5px;
 			line-height: 1;
+			text-decoration: none; 
 			
 			/*
 			background: #f3e5f5; color: var(--roxo-dbradio); margin-left: 5px; margin-bottom: 0px; padding: 8px 12px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1;
@@ -167,7 +168,7 @@
         .eyebrow-red    { color: var(--vermelho-dbpdf); background: rgba(167,80,82,0.1); }
         .eyebrow-yellow { color: #8a6800; background: rgba(188,141,0,0.12); }
         .eyebrow-purple { color: var(--roxo-dbradio); background: rgba(106,27,154,0.08); }
-		.eyebrow-green  { color: var(--verde-dev-dark); background: rgba(27,132,91,0.1); }
+		.eyebrow-green  { margin-left: 0px; margin-right: 5px; margin-top: 7px; margin-bottom: 7px; color: var(--verde-dev-dark); background: rgba(27,132,91,0.1); }
 		.eyebrow-gray   { margin-left: 0px; margin-right: 5px; margin-top: 7px; margin-bottom: 7px; color: #686868; background: #F2F2F2; }
 		
 		.lang-selector { position: relative; display: inline-flex; align-items: center; gap: 2px; flex-shrink: 0; }
@@ -287,8 +288,10 @@
         .feature-item { padding: 20px; background: #f9f9f9; border-radius: 10px; border-bottom: 3px solid #eee; }
         .feature-item strong { color: var(--azul-dbmoney); display: block; margin-bottom: 5px; }
 		
+		strong { color: #515151 }
 		strong_black { color: var(--ink); }
 		strong_dbmoney { color: var(--azul-dbmoney); font-size: 1.0rem; font-weight: bold; }
+		strong_devbrazil { color: var(--verde-dev-dark); font-size: 1.2rem; font-weight: bold; display: inline-block; margin-bottom: 10px; }
 
         /* --- GALERIA --- */
         .gallery-title { color: var(--azul-dbmoney); margin: 40px 0 20px; border-bottom: 2px solid #E0E0E0; padding-bottom: 10px; font-size: 1.4rem; }
@@ -297,6 +300,7 @@
 		.gallery-title-red { color: #A75052; margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem; }
 		.gallery-title-yellow { color: #BC8D00; margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem; }
 		.gallery-title-purple { color: var(--roxo-dbradio); margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem; }
+		.gallery-title-green { color: var(--verde-dev); margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.6rem; }
         .screenshot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
         .screenshot-grid img { 
             width: 100%; border-radius: 8px; cursor: pointer;
@@ -1382,13 +1386,13 @@
 <!-- About: DevBrazil -->
 <div class="product-card card-devbrazil" id="devbrazil">
     <div class="dbmoney-intro">
-        <img src="images/devbrazil_logo_96.png" alt="DevBrazil" class="dbmoney-intro">
+        <img src="images/devbrazil_logo_96.png" alt="DevBrazil" class="dbmoney-intro">		
         <div class="dbmoney-text">
             <!--
 			<span class="product-eyebrow eyebrow-green" data-pt="100% OFFLINE · WINDOWS" data-en="100% OFFLINE · WINDOWS" data-es="100% SIN CONEXIÓN · WINDOWS" data-fr="100% HORS LIGNE · WINDOWS" data-de="100% OFFLINE · WINDOWS">4 PRODUTOS · 100% OFFLINE · WINDOWS</span>
 			-->
             <h2>
-				<strong_black>Dev</strong_black>Brazil
+				<strong_black>Dev</strong_black>Brazil				
             </h2>           
 			<p data-pt="Nascida da paixão pela eficiência e com mais de 25 anos de experiência no desenvolvimento de sistemas críticos, a DevBrazil combina solidez técnica com inovação para criar softwares nativos de alta performance."
 			   data-en="Born from a passion for efficiency and backed by over 25 years of experience in mission-critical systems, DevBrazil combines technical expertise with innovation to build high-performance native software."
@@ -1413,11 +1417,145 @@
            data-fr="<strong>Rejoignez-nous. Notre technologie stimule déjà la productivité d'utilisateurs dans plus de 120 marchés et territoires à travers le monde.</strong>"
            data-de="<strong>Schließen Sie sich uns an. Unsere Technologie steigert bereits die Produktivität von Anwendern in mehr als 120 Märkten und Regionen weltweit.</strong>">
         </p>
+		<br>
+		
+		<a href="mailto:support@devbrazil.com" 
+		   class="product-eyebrow eyebrow-green" 
+		   title="support@devbrazil.com">
+		   <i class="fas fa-envelope"></i> E-mail
+		</a>			
+		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa fa-map-marker"></i> Lençóis Paulista, SP - Brasil' data-en="" data-es="" data-fr="" data-de=""></span>
     </div>
 	
-    
-    
-    
+	<div class="about-content">
+		<h3 class="gallery-title-green"><a data-pt="A História por Trás" data-en="" data-es="" data-fr="" data-de=""></a></h3>
+		<div class="dbmoney-intro">
+			<img src="images/history-96.png" alt="DevBrazil" class="dbmoney-intro">
+			<a data-pt="A <strong>DevBrazil</strong> não nasceu em uma sala de reuniões corporativa, mas da busca constante por soluções eficientes para problemas do dia a dia." 
+			   data-en=""
+			   data-es=""
+			   data-fr=""
+			   data-de="">
+			</a>
+		</div>
+		<p data-pt='Com mais de duas décadas de atuação na área de tecnologia e sistemas, acreditamos que o melhor software é aquele que resolve um incômodo real com precisão, estabilidade e total controle por parte do usuário.' 
+		   data-en=""
+		   data-es=""
+		   data-fr=""
+		   data-de="">
+		</p>
+		<br>
+		<p data-pt='Essa filosofia guia a criação de cada produto da DevBrazil: <strong>todas as nossas soluções nascem de uma necessidade pessoal prática que, refinada ao extremo, se transforma em um produto completo para o mercado.</strong>' 
+		   data-en=""
+		   data-es=""
+		   data-fr=""
+		   data-de="">
+		</p>		
+	</div>
+	
+	<div class="about-content">
+		<h3 class="gallery-title-green"><a data-pt="A Evolução do dbMoney Personal" data-en="" data-es="" data-fr="" data-de=""></a></h3>
+		<div class="dbmoney-intro">
+			<img src="images/graph-96.png" alt="DevBrazil" class="dbmoney-intro">
+			<a data-pt="O maior exemplo dessa trajetória é o <strong>dbMoney Personal</strong>. O que hoje é uma solução robusta de gestão financeira desktop começou há mais de 15 anos como um projeto pessoal." 
+			   data-en=""
+			   data-es=""
+			   data-fr=""
+			   data-de="">
+			</a>
+		</div>
+		<p data-pt="Na época, a busca por uma ferramenta confiável para organização financeira esbarrava sempre nos mesmos obstáculos: sistemas complexos demais, dependência excessiva da nuvem ou falta de privacidade para dados sensíveis. A solução foi construir uma ferramenta própria, focada na experiência do usuário, no desempenho e na segurança de manter as informações sob seu domínio." 
+		   data-en=""
+		   data-es=""
+		   data-fr=""
+		   data-de="">
+		</p>
+		<br>
+		<p data-pt="Ao longo de mais de uma década e meia de evolução contínua, testes diários e aprimoramento técnico, essa ferramenta pessoal amadureceu, ganhou novos recursos — como dashboards intuitivos, importação de OFX com regras inteligentes, alto poder de manipulação e extração de dados, além de diversas customizações — e se tornou o <strong>dbMoney Personal</strong>." 
+		   data-en=""
+		   data-es=""
+		   data-fr=""
+		   data-de="">
+		</p>
+	</div>
+	
+	<div class="about-content">
+		<h3 class="gallery-title-green"><a data-pt="Sobre o fundador" data-en="" data-es="" data-fr="" data-de=""></a></h3>
+		<div class="dbmoney-intro">
+			<img src="images/founder.png" alt="Founder" class="dbmoney-intro">
+			<p data-pt="Olá, sou <strong>Fabio Ceschini</strong>, brasileiro, 43 anos, pai de 2 filhos, fundador e arquiteto na <strong>DevBrazil</strong>. Entusiasta de tecnologia, curioso, inimigo do status quo, apaixonado por criar soluções simples, rápidas e que realmente facilitem a vida das pessoas."
+			   data-en=""
+			   data-es=""
+			   data-fr=""
+			   data-de="">
+			</p>
+		</div>	
+	</div>
+	
+	<div class="about-content">
+		<p data-pt="Minha trajetória com desenvolvimento de software começou aos 15 anos de idade. Me formei em Sistemas de Informação. Trabalhei durante muitos anos em grandes empresas nos setores como industrias, comércios, bancos, financeiras e e-commerces." 
+		   data-en=""
+		   data-es=""
+		   data-fr=""
+		   data-de="">
+		</p>
+		<br>
+		<p data-pt="Ao longo desses anos, desenvolvi uma filosofia muito clara: tecnologia boa é aquela que resolve um problema de forma prática, sem complicação e sem invadir a privacidade do usuário."
+		   data-en=""
+		   data-es=""
+		   data-fr=""
+		   data-de="">
+		</p>		
+	</div>	
+	
+	<hr>
+	<br>
+	
+	<div class="about-content">
+		<p data-pt="<strong>Meus hobbies:</strong>" 
+		   data-en="<strong></strong>" 
+		   data-es="<strong></strong>" 
+		   data-fr="<strong></strong>" 
+		   data-de="<strong></strong>">
+		</p>
+		
+		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa-solid fa-futbol"></i> Futebol' data-en="" data-es="" data-fr="" data-de=""></span>
+		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa-solid fa-bicycle"></i> Ciclismo' data-en="" data-es="" data-fr="" data-de=""></span>
+		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa-solid fa-person-running"></i> Corrida' data-en="" data-es="" data-fr="" data-de=""></span>
+		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa-solid fa-utensils"></i> Culinária' data-en="" data-es="" data-fr="" data-de=""></span>
+		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa-solid fa-hammer"></i> Carpintaria' data-en="" data-es="" data-fr="" data-de=""></span>
+		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa-solid fa-landmark"></i> Arquitetura' data-en="" data-es="" data-fr="" data-de=""></span>
+		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa-solid fa-robot"></i> Automação' data-en="" data-es="" data-fr="" data-de=""></span>		
+	</div>
+	
+	<hr>
+	<br>
+	
+	<div class="about-content">
+		<a data-pt="Se você tiver alguma sugestão, solicitação, crítica ou melhoria, entre em contato, eu adoraria receber uma mensagem sua. Ahh, e se quiser, me adicione no Linkedin!"
+		   data-en=""
+		   data-es=""
+		   data-fr=""
+		   data-de=""></a>
+	</div>	
+
+	<a href="https://www.linkedin.com/in/fabioceschini/" 
+	   target="_blank" 
+	   class="product-eyebrow eyebrow-green" 
+	   data-pt='<i class="fa-brands fa-linkedin"></i> Linkedin' 
+	   data-en='<i class="fa-brands fa-linkedin"></i> Linkedin' 
+	   data-es='<i class="fa-brands fa-linkedin"></i> Linkedin' 
+	   data-fr='<i class="fa-brands fa-linkedin"></i> Linkedin' 
+	   data-de='<i class="fa-brands fa-linkedin"></i> Linkedin'>
+	</a>
+	
+	<a href="mailto:support@devbrazil.com" 
+	   class="product-eyebrow eyebrow-green" 
+	   title="support@devbrazil.com">
+	   <i class="fas fa-envelope"></i> E-mail
+	</a>		
+	
+	<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa fa-map-marker"></i> Lençóis Paulista, SP - Brasil' data-en="" data-es="" data-fr="" data-de=""></span>
 </div>
 
 <div id="contactModal" class="contact-modal">
