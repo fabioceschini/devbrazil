@@ -47,6 +47,12 @@
 			gap: 20px;
         }
 		
+		hr {
+			border: 0;
+			height: 1px;
+			background-color: #eee; /* Cor verde usando código Hexadecimal */
+		}		
+		
         .logo-container { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
         .logo-img { width: 34px; height: 34px; }
         .brand-name { font-weight: 700; font-size: 1.05rem; color: var(--ink); letter-spacing: 0.2px; }
@@ -157,7 +163,7 @@
 			background: #f3e5f5; color: var(--roxo-dbradio); margin-left: 5px; margin-bottom: 0px; padding: 8px 12px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1;
 			*/
         }
-        .eyebrow-blue   { color: var(--azul-dbmoney); background: rgba(0,74,153,0.08); }
+        .eyebrow-blue   { margin-left: 5px; margin-right: 0px; margin-top: 7px; margin-bottom: 7px; color: var(--azul-dbmoney); background: rgba(0,74,153,0.08); }
         .eyebrow-red    { color: var(--vermelho-dbpdf); background: rgba(167,80,82,0.1); }
         .eyebrow-yellow { color: #8a6800; background: rgba(188,141,0,0.12); }
         .eyebrow-purple { color: var(--roxo-dbradio); background: rgba(106,27,154,0.08); }
@@ -374,7 +380,7 @@
             margin: 40px auto 0;
             background: var(--azul-dbmoney);
             color: #fff;
-            padding: 15px 20px;
+            padding: 10px 20px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
@@ -385,20 +391,20 @@
         .btn-store-dbmoney:hover { background: #003366; }
 		
         .btn-store-dbmoney-mini {
-			display: inline-flex;       /* Altera de block para inline-flex para o botão não ocupar a tela inteira */
+			display: flex;       /* Altera de block para inline-flex para o botão não ocupar a tela inteira */
 			align-items: center;        /* Alinha o ícone e o texto verticalmente no centro do botão */
 			justify-content: flex-start;/* Alinha o conteúdo interno (ícone e texto) à esquerda */
 			width: auto;                /* Remove os 100% para o botão ter apenas o tamanho do texto */
 			max-width: 350px;
-			margin: 15px 0 0 0;         /* Trocou o 'auto' por '0' na esquerda e direita para colar na borda */
+			-- margin: 15px 0 0 0;         /* Trocou o 'auto' por '0' na esquerda e direita para colar na borda */
 			background: var(--azul-dbmoney);
 			color: #fff;
-			padding: 10px 15px;         /* Aumentei um pouco o padding lateral para dar acabamento */
-			border-radius: 12px;
+			padding: 6px 12px;         /* Aumentei um pouco o padding lateral para dar acabamento */
+			border-radius: 10px;
 			text-decoration: none;
 			font-family: var(--font-mono);			
-			font-size: 0.7rem;
-			text-align: left;           /* Garante que o texto fique alinhado à esquerda */
+			font-size: 0.8rem;
+			text-align: center;           /* Garante que o texto fique alinhado à esquerda */
 			transition: background 0.3s;
         }
         .btn-store-dbmoney-mini:hover { background: #003366; }		
@@ -410,7 +416,7 @@
             margin: 40px auto 0;
             background: var(--vermelho-dbpdf);
             color: #fff;
-            padding: 15px 20px;
+            padding: 10px 20px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
@@ -427,7 +433,7 @@
             margin: 40px auto 0;
             background: #D29E00;
             color: #fff;
-            padding: 15px 20px;
+            padding: 10px 20px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
@@ -444,7 +450,7 @@
             margin: 40px auto 0;
             background: #E0E0E0;
             color: #898989;
-            padding: 15px 20px;
+            padding: 10px 20px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
@@ -461,7 +467,7 @@
             margin: 40px auto 0;
             background: var(--roxo-dbradio);
             color: #fff;
-            padding: 15px 20px;
+            padding: 10px 20px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
@@ -657,7 +663,7 @@
             .nav-btn-item { font-size: 0.85rem; padding: 10px 15px; width: 100%; justify-content: center; }
 			
 			.gallery-title 	      { flex-direction: column; text-align: center; gap: 20px; }
-			.gallery-title-faq 	      { flex-direction: column; text-align: center; gap: 20px; }
+			.gallery-title-faq 	  { flex-direction: column; text-align: center; gap: 20px; }
 			.gallery-title-red    { flex-direction: column; text-align: center; gap: 20px; }
 			.gallery-title-yellow { flex-direction: column; text-align: center; gap: 20px; }
 			.gallery-title-purple { flex-direction: column; text-align: center; gap: 20px; }			
@@ -793,8 +799,10 @@
         <div class="dbmoney-text">
             <h2 class="product-title product-title-flex">
                 dbMoney Personal
+
 				<span class="product-eyebrow eyebrow-blue" data-pt='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuito' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
 				<span class="product-eyebrow eyebrow-blue" data-pt='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (vitalício)' data-en='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (lifetime)' data-es='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (de por vida)' data-fr='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (à vie)' data-de='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (lebenslang)'></span>
+				
 			</h2>
 
 			<p data-pt="O <strong>dbMoney Personal</strong> é um poderoso software de finanças pessoais desenvolvido para quem deseja retomar o controle total da sua vida financeira sem abrir mão da privacidade."
@@ -804,9 +812,18 @@
 			   data-de="<strong>dbMoney Personal</strong> ist die ultimative native Software für alle, die die volle Kontrolle über ihr Finanzleben zurückgewinnen wollen, ohne Kompromisse bei der Privatsphäre einzugehen. Maßgeschneidert für Windows, verbindet sie die technische Robustheit von Banksystemen mit der Flexibilität einer modernen, übersichtlichen und extrem intuitiven Benutzeroberfläche.">
 			</p>			
         </div>
-
-
-
+		
+		<div class="dbmoney-text" style="display: flex; flex-direction: column; align-items: center; gap: 0px;">
+			<a href="https://apps.microsoft.com/detail/9N0PB6XG7ZQT" 
+			   target="_blank" 
+			   class="btn-store-dbmoney-mini" 
+			   data-pt='<i class="fab fa-windows"></i>&nbsp;&nbsp;Baixar na Microsoft Store'
+			   data-en='<i class="fab fa-windows"></i>&nbsp;&nbsp;Available on the Microsoft Store' 
+			   data-es='<i class="fab fa-windows"></i>&nbsp;&nbsp;Disponible en Microsoft Store' 
+			   data-fr='<i class="fab fa-windows"></i>&nbsp;&nbsp;Disponible sur le Microsoft Store' 
+			   data-de='<i class="fab fa-windows"></i>&nbsp;&nbsp;Im Microsoft Store erhältlich'>
+			</a>			
+		</div>
     </div>
 	
 	<br>
@@ -818,7 +835,7 @@
 		   data-fr="<strong>Vos données vous appartiennent, et à personne d'autre.</strong>"
 		   data-de="<strong>Ihre Daten gehören Ihnen und niemandem sonst.</strong>">
 		</p>
-		<p data-pt="Ao contrário de plataformas web que expõem suas informações em servidores de terceiros, o dbMoney prioriza a <strong>segurança máxima</strong>. Seus dados permanecem criptografados e armazenados localmente no seu computador, funcionando <strong_dbmoney>100% offline</strong_dbmoney>." 
+		<p data-pt="Ao contrário de plataformas web que expõem suas informações em servidores de terceiros, o dbMoney prioriza a segurança máxima. Seus dados permanecem criptografados e armazenados localmente no seu computador, funcionando 100% offline." 
 		   data-en="Unlike web platforms that expose your information to third-party servers, dbMoney prioritizes maximum security. Your data remains encrypted and stored locally on your computer, operating <strong_dbmoney>100% offline</strong_dbmoney>." 
 		   data-es="A diferencia de las plataformas web que exponen su información en servidores de terceros, dbMoney prioriza la máxima seguridad. Sus datos permanecen encriptados y almacenados localmente en su computadora, funcionando <strong_dbmoney>100% offline</strong_dbmoney>."
 		   data-fr="Contrairement aux plateformes web qui exposent vos informations sur des serveurs tiers, dbMoney donne la priorité à une sécurité maximale. Vos données restent cryptées et stockées locallement sur votre ordinateur, fonctionnant à <strong_dbmoney>100% hors ligne</strong_dbmoney>."
@@ -839,12 +856,14 @@
 		</p>
 		
 		<br>
-
+		<hr>
+		<br>
+		
 		<p data-pt="<strong>Por que escolher o dbMoney?</strong>" 
 		   data-en="<strong>Why choose dbMoney?</strong>" 
 		   data-es="<strong>¿Por qué elegir dbMoney?</strong>" 
 		   data-fr="<strong>Pourquoi choisir dbMoney ?</strong>" 
-		   data-de="<strong>Warum dbMoney wählen?"</strong>>
+		   data-de="<strong>Warum dbMoney wählen?</strong>">
 		</p>
 		
 		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fas fa-check"></i>&nbsp;100% Offline' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
@@ -852,19 +871,45 @@
 		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fas fa-bolt"></i>&nbsp;Performance Nativa' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
 		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fas fa-file-import"></i>&nbsp;Importação de Extratos (OFX)' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
 		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fas fa-tags"></i>&nbsp;Categorização flexível' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
+		
+		<br>
+		
+		<!--
+		<p data-pt="<strong>Preços:</strong>" 
+		   data-en="<strong></strong>" 
+		   data-es="<strong></strong>" 
+		   data-fr="<strong></strong>" 
+		   data-de="<strong></strong>">
+		</p>
+		
+		<span class="product-eyebrow eyebrow-blue" data-pt='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuito' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
+		<span class="product-eyebrow eyebrow-blue" data-pt='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (vitalício)' data-en='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (lifetime)' data-es='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (de por vida)' data-fr='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (à vie)' data-de='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (lebenslang)'></span>
+		<small style="font-size: 0.75rem; color: #777; display: block; margin-top: 4px;" 
+			   data-pt="* Preço pode variar por região/país" 
+			   data-en="* Price may vary by region/country"
+			   data-es="* El precio puede variar según la región o el país"
+			   data-fr="* Le prix peut varier selon la région/le pays"
+			   data-de="* Der Preis kann je nach Region/Land variieren">
+		</small>
+		-->
     </div>
 
     <h3 class="gallery-title"><a data-pt="Capturas de tela" data-en="Screenshots" data-es="Capturas de pantalla" data-fr="Captures d'écran" data-de="Screenshots"></a></h3>
 	<div class="screenshot-grid" id="gallery-dbmoney">
+		<div class="gallery-more" id="gallery-dbmoney-youtube">
+			<a href="https://www.youtube.com/watch?v=wLP-gaJQ5b0" target="_blank"><img src="images/dbmoney_youtube.png" width="300px"></a>
+		</div>
+		
 		<!-- Imagens visíveis -->
 		<img src="images/dbmoney_screen_01.png" alt="Screen 01" onclick="openModal(0, 'gallery-dbmoney')">
 		<img src="images/dbmoney_screen_02.png" alt="Screen 02" onclick="openModal(1, 'gallery-dbmoney')">
 		<img src="images/dbmoney_screen_03.png" alt="Screen 03" onclick="openModal(2, 'gallery-dbmoney')">
+		<img src="images/dbmoney_screen_05.png" alt="Screen 04" onclick="openModal(3, 'gallery-dbmoney')">
 		<!-- Acesso às demais imagens -->
-		<div class="gallery-more" onclick="openModal(3, 'gallery-dbmoney')">
+		<div class="gallery-more" onclick="openModal(4, 'gallery-dbmoney')">
 			<img src="images/dbmoney_screen_04.png" alt="More screenshots">
 			<div class="gallery-more-overlay">
-				<span class="gallery-more-count">+14</span>
+				<span class="gallery-more-count">+13</span>
 				<small data-pt="Mais capturas"
 					   data-en="More screenshots"
 					   data-es="Más capturas"
@@ -875,8 +920,7 @@
 		</div>
 
 		<!-- Imagens restantes: continuam disponíveis para o modal -->
-		<div class="gallery-hidden">
-			<img src="images/dbmoney_screen_05.png" alt="Screen 05" onclick="openModal(4, 'gallery-dbmoney')">
+		<div class="gallery-hidden">			
 			<img src="images/dbmoney_screen_06.png" alt="Screen 06" onclick="openModal(5, 'gallery-dbmoney')">
 			<img src="images/dbmoney_screen_07.png" alt="Screen 07" onclick="openModal(6, 'gallery-dbmoney')">
 			<img src="images/dbmoney_screen_08.png" alt="Screen 08" onclick="openModal(7, 'gallery-dbmoney')">
@@ -889,10 +933,6 @@
 			<img src="images/dbmoney_screen_15.png" alt="Screen 15" onclick="openModal(14, 'gallery-dbmoney')">
 			<img src="images/dbmoney_screen_16.png" alt="Screen 16" onclick="openModal(15, 'gallery-dbmoney')">
 			<img src="images/dbmoney_screen_17.png" alt="Screen 17" onclick="openModal(16, 'gallery-dbmoney')">
-		</div>
-		
-		<div class="gallery-more" id="gallery-dbmoney-youtube">
-			<a href="https://www.youtube.com/watch?v=wLP-gaJQ5b0" target="_blank"><img src="images/dbmoney_youtube.png" width="300px"></a>
 		</div>
 	</div>
 	
