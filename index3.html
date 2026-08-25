@@ -98,7 +98,7 @@
         }
 
         .nav-divider { width: 1px; height: 20px; background: var(--line); flex-shrink: 0; }
-		.nav-divider-hide { width: 1px; height: 20px; background: var(--line); flex-shrink: 0; }
+		.nav-divider-media-hide { width: 1px; height: 20px; background: var(--line); flex-shrink: 0; }
 
         .header-contact {
             color: var(--muted);
@@ -280,7 +280,8 @@
 		strong_dbmoney { color: var(--azul-dbmoney); font-size: 1.0rem; font-weight: bold; }
 
         /* --- GALERIA --- */
-        .gallery-title { color: var(--azul-dbmoney); margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem; }
+        .gallery-title { color: var(--azul-dbmoney); margin: 40px 0 20px; border-bottom: 2px solid #E0E0E0; padding-bottom: 10px; font-size: 1.4rem; }
+		.gallery-title-faq { color: var(--azul-dbmoney); margin: 40px 0 10px; border-bottom: 2px solid #E0E0E0; padding-bottom: 10px; font-size: 1.4rem; }
 		.gallery-title-red { color: #A75052; margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem; }
 		.gallery-title-yellow { color: #BC8D00; margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem; }
 		.gallery-title-purple { color: var(--roxo-dbradio); margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem; }
@@ -293,7 +294,7 @@
 
         /* --- TABELA COMPARATIVA --- */
         .pricing-table-container { margin-top: 10px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; min-width: 500px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 0px; min-width: 500px; }
         th, td { padding: 12px 10px; text-align: left; border-bottom: 1px solid #eee; font-size: 0.9rem; }
         th { background-color: #f8f9fa; color: var(--azul-dbmoney); }
         .check-yes { color: #28a745; }
@@ -528,6 +529,26 @@
 			gap: 10px;                 /* Dá um espaçamento horizontal de 10px entre o selo e o texto */
 		}
 
+		.faq-dbmoney-title { color: var(--azul-dbmoney); font-size: 1.4rem; }
+		/* .faq-dbmoney-linha { color: var(--azul-dbmoney); margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem; } */
+		.faq-dbmoney-linha { color: var(--azul-dbmoney); border-bottom: 2px solid #eee; padding-bottom: 18px;}
+
+		.faq-dbmoney {border-bottom:2px solid #eee}
+		.faq-dbmoney details{border-bottom:0px solid #eee;padding:18px 0}
+		.faq-dbmoney summary{cursor:pointer;font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:16px}
+		.faq-dbmoney summary::-webkit-details-marker{display:none}
+		.faq-dbmoney summary::after{content:"+";color:var(--azul-dbmoney);font-family:ui-monospace,"Cascadia Code","SFMono-Regular",Consolas,monospace}
+		.faq-dbmoney details[open] summary::after{content:"\2212"}
+		.faq-dbmoney details p{margin:12px 0 0;color:var(--ink-2);font-size:.96rem;max-width:66ch}
+
+		.faq{border-top:0px solid #eee}
+		.faq details{border-bottom:1px solid #eee;padding:15px 0}
+		.faq summary{cursor:pointer;font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:16px}
+		.faq summary::-webkit-details-marker{display:none}
+		.faq summary::after{content:"+";color:var(--azul-dbmoney);font-family:ui-monospace,"Cascadia Code","SFMono-Regular",Consolas,monospace}
+		.faq details[open] summary::after{content:"\2212"}
+		.faq details p{margin:12px 0 0;color:var(--ink-2);font-size:.96rem;max-width:66ch}
+		
         /* --- MEDIA QUERIES --- */
         @media (max-width: 768px) {
             header { flex-direction: column; gap: 12px; padding: 14px 15px; }
@@ -547,8 +568,8 @@
                 font-size: 0.85rem;
             }
 
-            .nav-divider-hide { display: none; }
-            /* .header-contact { display: none; }*/
+            .nav-divider-media-hide { display: none; }
+            .header-contact { display: none; }
             
             .hero { padding: 40px 5%; }
             .hero h1 { font-size: 1.8rem; }
@@ -664,7 +685,7 @@
 			<a href="#dbnotes" style="--prod-color:var(--amarelo-dbnotes)" onclick="scrollToSection('dbnotes'); return false;">dbNotes</a>
 		</div>
 
-		<div class="nav-divider-hide"></div>
+		<div class="nav-divider-media-hide"></div>
 
 		<div class="lang-selector" id="langSelector">
 			<a href="javascript:void(0)" class="lang-pill" data-lang="en" onclick="changeLanguage('en')">EN</a>
@@ -674,7 +695,7 @@
 			<a href="javascript:void(0)" class="lang-pill" data-lang="de" onclick="changeLanguage('de')">DE</a>
 		</div>
 		
-		<div class="nav-divider"></div>
+		<div class="nav-divider-media-hide"></div>
 		
 		<a href="mailto:support@devbrazil.com" class="header-contact" aria-label="Email" title="support@devbrazil.com">
 			<i class="fas fa-envelope"></i>
@@ -870,7 +891,7 @@
 		<img src="images/dbmoney_screen_14.png" alt="Screen 14" onclick="openModal(13, 'gallery-dbmoney')">
 		<img src="images/dbmoney_screen_15.png" alt="Screen 15" onclick="openModal(14, 'gallery-dbmoney')">
 		<img src="images/dbmoney_screen_16.png" alt="Screen 16" onclick="openModal(15, 'gallery-dbmoney')">
-		<img src="images/dbmoney_screen_17.png" alt="Screen 17" onclick="openModal(16, 'gallery-dbmoney')">
+		<img src="images/dbmoney_screen_17.png" alt="Screen 17" onclick="openModal(16, 'gallery-dbmoney')">		
     </div>
 	
 	<h3 class="gallery-title"><a data-pt="Vídeos" data-en="Videos" data-es="Videos" data-fr="Vidéos" data-de="Videos"></a></h3>	
@@ -878,152 +899,174 @@
 		<a href="https://www.youtube.com/watch?v=wLP-gaJQ5b0" target="_blank"><img src="images/dbmoney_youtube.png"></a>
 	</div>
 
-	<h3 class="gallery-title"><a data-pt="Planos e Versões" data-en="Plans & Versions" data-es="Planes y versiones" data-fr="Plans & Versions" data-de="Pläne & Versionen"></a></h3>
+    <h3 class="gallery-title-faq"><a data-pt="Planos e Versões" data-en="Plans & Versions" data-es="Planes y versiones" data-fr="Plans & Versions" data-de="Pläne & Versionen"></a></h3>				
+	<div class="pricing-table-container">
+		<table>
+			<thead>
+				<tr>
+					<th><a data-pt="Funcionalidade" data-en="Feature" data-es="Funcionalidad" data-fr="Fonctionnalité" data-de="Funktion"></a></th>
+					<th><a data-pt="Versão Basic" data-en="Basic Version" data-es="Versión Basic" data-fr="Version Basic" data-de="Basic-Version"></a></th>
+					<th><a data-pt="Versão Premium" data-en="Premium Version" data-es="Versión Premium" data-fr="Version Premium" data-de="Premium-Version"></a></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><i class="fas fa-wallet"></i><a data-pt=" Contas / Carteiras" data-en=" Accounts / Wallets" data-es=" Cuentas / Carteras" data-fr=" Comptes / Portefeuilles" data-de=" Konten / Wallets"></a></td>
+					<td><span class="limit-text"><a data-pt="2 contas" data-en="2 accounts" data-es="2 cuentas" data-fr="2 comptes" data-de="2 Konten"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-tags"></i><a data-pt=" Categorias, contatos e marcadores" data-en=" Categories, contacts, and tags" data-es=" Categorías, contactos y marcadores" data-fr=" Catégories, contacts et étiquettes" data-de=" Kategorien, Kontakte und Tags"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-pie-chart"></i><a data-pt=" Dashboards de alta resolução" data-en=" High-resolution Dashboards" data-es=" Dashboards de alta resolución" data-fr=" Tableaux de bord haute résolution" data-de=" Hochauflösende Dashboards"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>               
+				<tr>
+					<td><i class="fas fa-users"></i><a data-pt=" Gestão Multicarteiras / Multiperfil" data-en=" Multi-Wallet / Multi-Profile Management" data-es=" Gestión multicarteras / multiperfiles" data-fr=" Gestion multi-portefeuilles / multi-profils" data-de=" Multi-Wallet- / Multi-Profil-Verwaltung"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-columns"></i><a data-pt=" Campos customizáveis" data-en=" Custom Fields" data-es=" Campos personalizables" data-fr=" Champs personnalisables" data-de=" Benutzerdefinierte Felder"></a></td>
+					<td><span class="limit-text"><a data-pt="3 campos" data-en="3 fields" data-es="3 campos" data-fr="3 champs" data-de="3 Felder"></a></span></td>
+					<td><span class="limit-text"><a data-pt="3 campos" data-en="3 fields" data-es="3 campos" data-fr="3 champs" data-de="3 Felder"></a></span></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-edit"></i><a data-pt=" Lançamentos Manuais" data-en=" Manual Transactions" data-es=" Transacciones manuales" data-fr=" Transactions manuelles" data-de=" Manuelle Buchungen"></a></td>
+					<td><span class="limit-text"><a data-pt="20 por mês" data-en="20 per month" data-es="20 al mes" data-fr="20 par mois" data-de="20 pro Monat"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-list-alt"></i><a data-pt=" Alteração em lote" data-en=" Batch Editing" data-es=" Edición por lotes" data-fr=" Modification em masse" data-de=" Stapelverarbeitung (Massenbearbeitung)"></a></td>
+					<td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-plus-square"></i><a data-pt=" Múltiplos lançamentos" data-en=" Multiple Transactions" data-es=" Múltiples transacciones" data-fr=" Transactions multiples" data-de=" Mehrfache Buchungen"></a></td>
+					<td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-clone"></i><a data-pt=" Replicar/copiar lançamentos" data-en=" Replicate/Copy Transactions" data-es=" Replicar/copiar transacciones" data-fr=" Dupliquer/copier des transactions" data-de=" Buchungen duplizieren/kopieren"></a></td>
+					<td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-compress"></i><a data-pt=" Unificar/conciliar lançamentos" data-en=" Merge/Reconcile Transactions" data-es=" Fusionar/conciliar transacciones" data-fr=" Fusionner/réconcilier des transactions" data-de=" Buchungen zusammenführen/abgleichen"></a></td>
+					<td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-arrows"></i><a data-pt=" Desmembrar lançamentos" data-en=" Split transactions" data-es=" Dividir transacciones" data-fr=" Diviser des transactions" data-de=" Buchungen aufteilen"></a></td>
+					<td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-file-import"></i><a data-pt=" Importação de extratos (OFX)" data-en=" Statement Import (OFX)" data-es=" Importación de extractos (OFX)" data-fr=" Importation de relevés (OFX)" data-de=" Kontoauszugsimport (OFX)"></a></td>
+					<td><span class="limit-text"><a data-pt="3 importações" data-en="3 imports" data-es="3 importaciones" data-fr="3 importations" data-de="3 Importe"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>               
+				<tr>
+					<td><i class="fas fa-file-excel"></i><a data-pt=" Exportar para Excel e HTML" data-en=" Export to Excel and HTML" data-es=" Exportar a Excel y HTML" data-fr=" Exporter vers Excel et HTML" data-de=" Nach Excel und HTML exportieren"></a></td>
+					<td><span class="limit-text"><a data-pt="5 exportações" data-en="5 exports" data-es="5 exportaciones" data-fr="5 exportations" data-de="5 Exporte"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-file-pdf"></i><a data-pt=" Exportar para PDF" data-en=" Export to PDF" data-es=" Exportar a PDF" data-fr=" Exporter vers PDF" data-de=" Nach PDF exportieren"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-history"></i><a data-pt=" Backup automático (configurável)" data-en=" Automatic Backup (Configurable)" data-es=" Respaldo automático (configurable)" data-fr=" Sauvegarde automatique (configurable)" data-de=" Automatische Sicherung (konfigurierbar)"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-envelope"></i><a data-pt=" Suporte por e-mail" data-en=" Email Support" data-es=" Soporte por correo electrónico" data-fr=" Support par e-mail" data-de=" E-Mail-Support"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-check-circle"></i><a data-pt=" Preço" data-en=" Price" data-es=" Precio" data-fr=" Prix" data-de=" Preis"></a></td>
+					<td><span class="limit-text-blue"><a data-pt=" Gratuito" data-en=" Free" data-es=" Gratis" data-fr=" Gratuit" data-de=" Kostenlos"></a></span></td>
+					<td><span class="limit-text-blue"><a data-pt=" $ 29.99 (vitalício)" data-en=" $ 29.99 (lifetime)" data-es=" $ 29.99 (de por vida)" data-fr=" $ 29.99 (à vie)" data-de=" $ 29.99 (lebenslang)"></a></span>
+						<br>
+						<small style="font-size: 0.75rem; color: #777; display: block; margin-top: 4px;" 
+							   data-pt="* Oferta por tempo limitado"   
+							   data-en="* Limited time offer"
+							   data-es="* Oferta por tiempo limitado"
+							   data-fr="* Offre à durée limitée"
+							   data-de="* Befristetes Angebot">
+						</small>
+						<small style="font-size: 0.75rem; color: #777; display: block; margin-top: 4px;" 
+							   data-pt="* Preço pode variar por região/país" 
+							   data-en="* Price may vary by region/country"
+							   data-es="* El precio puede variar según la región o el país"
+							   data-fr="* Le prix peut varier selon la région/le pays"
+							   data-de="* Der Preis kann je nach Region/Land variieren">
+						</small>                      
+					</td>
+				</tr>       
+			</tbody>
+		</table>
+	</div>
 	
-    <div class="pricing-table-container">
-        <table>
-            <thead>
-                <tr>
-                    <th><a data-pt="Funcionalidade" data-en="Feature" data-es="Funcionalidad" data-fr="Fonctionnalité" data-de="Funktion"></a></th>
-                    <th><a data-pt="Versão Basic" data-en="Basic Version" data-es="Versión Basic" data-fr="Version Basic" data-de="Basic-Version"></a></th>
-                    <th><a data-pt="Versão Premium" data-en="Premium Version" data-es="Versión Premium" data-fr="Version Premium" data-de="Premium-Version"></a></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><i class="fas fa-wallet"></i><a data-pt=" Contas / Carteiras" data-en=" Accounts / Wallets" data-es=" Cuentas / Carteras" data-fr=" Comptes / Portefeuilles" data-de=" Konten / Wallets"></a></td>
-                    <td><span class="limit-text"><a data-pt="2 contas" data-en="2 accounts" data-es="2 cuentas" data-fr="2 comptes" data-de="2 Konten"></a></span></td>
-                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-                </tr>
-                <tr>
-                    <td><i class="fas fa-tags"></i><a data-pt=" Categorias, contatos e marcadores" data-en=" Categories, contacts, and tags" data-es=" Categorías, contactos y marcadores" data-fr=" Catégories, contacts et étiquettes" data-de=" Kategorien, Kontakte und Tags"></a></td>
-                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-                </tr>
-                <tr>
-                    <td><i class="fas fa-pie-chart"></i><a data-pt=" Dashboards de alta resolução" data-en=" High-resolution Dashboards" data-es=" Dashboards de alta resolución" data-fr=" Tableaux de bord haute résolution" data-de=" Hochauflösende Dashboards"></a></td>
-                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-                </tr>               
-                <tr>
-                    <td><i class="fas fa-users"></i><a data-pt=" Gestão Multicarteiras / Multiperfil" data-en=" Multi-Wallet / Multi-Profile Management" data-es=" Gestión multicarteras / multiperfiles" data-fr=" Gestion multi-portefeuilles / multi-profils" data-de=" Multi-Wallet- / Multi-Profil-Verwaltung"></a></td>
-                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-                </tr>
-                <tr>
-                    <td><i class="fas fa-columns"></i><a data-pt=" Campos customizáveis" data-en=" Custom Fields" data-es=" Campos personalizables" data-fr=" Champs personnalisables" data-de=" Benutzerdefinierte Felder"></a></td>
-                    <td><span class="limit-text"><a data-pt="3 campos" data-en="3 fields" data-es="3 campos" data-fr="3 champs" data-de="3 Felder"></a></span></td>
-                    <td><span class="limit-text"><a data-pt="3 campos" data-en="3 fields" data-es="3 campos" data-fr="3 champs" data-de="3 Felder"></a></span></td>
-                </tr>
-                <tr>
-                    <td><i class="fas fa-edit"></i><a data-pt=" Lançamentos Manuais" data-en=" Manual Transactions" data-es=" Transacciones manuales" data-fr=" Transactions manuelles" data-de=" Manuelle Buchungen"></a></td>
-                    <td><span class="limit-text"><a data-pt="20 por mês" data-en="20 per month" data-es="20 al mes" data-fr="20 par mois" data-de="20 pro Monat"></a></span></td>
-                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-                </tr>
-                <tr>
-                    <td><i class="fas fa-list-alt"></i><a data-pt=" Alteração em lote" data-en=" Batch Editing" data-es=" Edición por lotes" data-fr=" Modification em masse" data-de=" Stapelverarbeitung (Massenbearbeitung)"></a></td>
-                    <td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
-                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-                </tr>
-                <tr>
-                    <td><i class="fas fa-plus-square"></i><a data-pt=" Múltiplos lançamentos" data-en=" Multiple Transactions" data-es=" Múltiples transacciones" data-fr=" Transactions multiples" data-de=" Mehrfache Buchungen"></a></td>
-                    <td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
-                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-                </tr>
-                <tr>
-                    <td><i class="fas fa-clone"></i><a data-pt=" Replicar/copiar lançamentos" data-en=" Replicate/Copy Transactions" data-es=" Replicar/copiar transacciones" data-fr=" Dupliquer/copier des transactions" data-de=" Buchungen duplizieren/kopieren"></a></td>
-                    <td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
-                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-                </tr>
-                <tr>
-                    <td><i class="fas fa-compress"></i><a data-pt=" Unificar/conciliar lançamentos" data-en=" Merge/Reconcile Transactions" data-es=" Fusionar/conciliar transacciones" data-fr=" Fusionner/réconcilier des transactions" data-de=" Buchungen zusammenführen/abgleichen"></a></td>
-                    <td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
-                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-                </tr>
-                <tr>
-                    <td><i class="fas fa-arrows"></i><a data-pt=" Desmembrar lançamentos" data-en=" Split transactions" data-es=" Dividir transacciones" data-fr=" Diviser des transactions" data-de=" Buchungen aufteilen"></a></td>
-                    <td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
-                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-                </tr>
-                <tr>
-                    <td><i class="fas fa-file-import"></i><a data-pt=" Importação de extratos (OFX)" data-en=" Statement Import (OFX)" data-es=" Importación de extractos (OFX)" data-fr=" Importation de relevés (OFX)" data-de=" Kontoauszugsimport (OFX)"></a></td>
-                    <td><span class="limit-text"><a data-pt="3 importações" data-en="3 imports" data-es="3 importaciones" data-fr="3 importations" data-de="3 Importe"></a></span></td>
-                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-                </tr>               
-                <tr>
-                    <td><i class="fas fa-file-excel"></i><a data-pt=" Exportar para Excel e HTML" data-en=" Export to Excel and HTML" data-es=" Exportar a Excel y HTML" data-fr=" Exporter vers Excel et HTML" data-de=" Nach Excel und HTML exportieren"></a></td>
-                    <td><span class="limit-text"><a data-pt="5 exportações" data-en="5 exports" data-es="5 exportaciones" data-fr="5 exportations" data-de="5 Exporte"></a></span></td>
-                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-                </tr>
-                <tr>
-                    <td><i class="fas fa-file-pdf"></i><a data-pt=" Exportar para PDF" data-en=" Export to PDF" data-es=" Exportar a PDF" data-fr=" Exporter vers PDF" data-de=" Nach PDF exportieren"></a></td>
-                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-                </tr>
-                <tr>
-                    <td><i class="fas fa-history"></i><a data-pt=" Backup automático (configurável)" data-en=" Automatic Backup (Configurable)" data-es=" Respaldo automático (configurable)" data-fr=" Sauvegarde automatique (configurable)" data-de=" Automatische Sicherung (konfigurierbar)"></a></td>
-                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
-                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
-                </tr>
-                <tr>
-                    <td><i class="fas fa-envelope"></i><a data-pt=" Suporte por e-mail" data-en=" Email Support" data-es=" Soporte por correo electrónico" data-fr=" Support par e-mail" data-de=" E-Mail-Support"></a></td>
-                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
-                    <td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
-                </tr>
-                <tr>
-                    <td><i class="fas fa-check-circle"></i><a data-pt=" Preço" data-en=" Price" data-es=" Precio" data-fr=" Prix" data-de=" Preis"></a></td>
-                    <td><span class="limit-text-blue"><a data-pt=" Gratuito" data-en=" Free" data-es=" Gratis" data-fr=" Gratuit" data-de=" Kostenlos"></a></span></td>
-                    <td><span class="limit-text-blue"><a data-pt=" $ 29.99 (vitalício)" data-en=" $ 29.99 (lifetime)" data-es=" $ 29.99 (de por vida)" data-fr=" $ 29.99 (à vie)" data-de=" $ 29.99 (lebenslang)"></a></span>
-                        <br>
-                        <small style="font-size: 0.75rem; color: #777; display: block; margin-top: 4px;" 
-                               data-pt="* Oferta por tempo limitado"   
-                               data-en="* Limited time offer"
-                               data-es="* Oferta por tiempo limitado"
-                               data-fr="* Offre à durée limitée"
-                               data-de="* Befristetes Angebot">
-                        </small>
-                        <small style="font-size: 0.75rem; color: #777; display: block; margin-top: 4px;" 
-                               data-pt="* Preço pode variar por região/país" 
-                               data-en="* Price may vary by region/country"
-                               data-es="* El precio puede variar según la región o el país"
-                               data-fr="* Le prix peut varier selon la région/le pays"
-                               data-de="* Der Preis kann je nach Region/Land variieren">
-                        </small>                      
-                    </td>
-                </tr>       
-            </tbody>
-        </table>
-    </div>
+	<h3 class="gallery-title-faq" data-pt="Perguntas frequentes" data-en="Available languages" data-es="Idiomas disponibles" data-fr="Langues disponibles" data-de="Verfügbare Sprachen"></h3>
+	<div class="faq">
+		<details>
+			<summary>Como funciona o preço?</summary>
+			<p>A instalação é gratuita. O Premium é uma compra única dentro do aplicativo, sem assinatura.</p>
+		</details>
+		<details>
+			<summary>Onde ficam os dados?</summary>
+			<p>A base fica na própria máquina. O fabricante declarou que ela é criptografada.</p>
+		</details>
+		<details>
+			<summary>Precisa de internet para usar?</summary>
+			<p>Depois de instalado e licenciado, pode ser usado sem internet. Quando há conexão, o programa pode consultar informações de novas versões.</p>
+		</details>
+		<details>
+			<summary>Quais versões do Windows são suportadas?</summary>
+			<p>Windows 10 e Windows 11.</p>
+		</details>
+		<details>
+			<summary>Existe backup?</summary>
+			<p>Sim. Backup e restauração podem ser configurados dentro do aplicativo.</p>
+		</details>
+	</div>
 	
 	<h3 class="gallery-title" data-pt="Idiomas disponíveis" data-en="Available languages" data-es="Idiomas disponibles" data-fr="Langues disponibles" data-de="Verfügbare Sprachen"></h3>
-
 	<div class="lang-grid-status">
-        <div class="lang-status-item">
-            <img src="images/flag_usa_16.png" alt="English">
-            <span data-pt="Inglês" data-en="English" data-es="Inglés" data-fr="Anglais" data-de="Englisch">Inglês</span>
-            <img src="images/check-16.png" alt="Check" align="center">
-        </div>
-        <div class="lang-status-item">
-            <img src="images/flag_brazil_16.png" alt="Português">
-            <span data-pt="Português" data-en="Portuguese" data-es="Portugués" data-fr="Portugais" data-de="Portugiesisch">Português</span>
-            <img src="images/check-16.png" alt="Check" align="center">
-        </div>
-        <div class="lang-status-item">
-            <img src="images/flag_spain_16.png" alt="Español">
-            <span data-pt="Espanhol" data-en="Spanish" data-es="Español" data-fr="Espagnol" data-de="Spanisch">Espanhol</span>
-            <img src="images/check-16.png" alt="Check" align="center">
-        </div>
-        <div class="lang-status-item">
-            <img src="images/flag_france_16.png" alt="Français">
-            <span data-pt="Francês" data-en="French" data-es="Francés" data-fr="Français" data-de="Französisch">Francês</span>
-            <img src="images/check-16.png" alt="Check" align="center">
-        </div>
-        <div class="lang-status-item">
-            <img src="images/flag_germany_16.png" alt="Deutsch">
-            <span data-pt="Alemão" data-en="German" data-es="Alemán" data-fr="Allemand" data-de="Deutsch">Alemão</span>
-            <img src="images/check-16.png" alt="Check" align="center">
-        </div>
-    </div>	
+		<div class="lang-status-item">
+			<img src="images/flag_usa_16.png" alt="English">
+			<span data-pt="Inglês" data-en="English" data-es="Inglés" data-fr="Anglais" data-de="Englisch">Inglês</span>
+			<img src="images/check-16.png" alt="Check" align="center">
+		</div>
+		<div class="lang-status-item">
+			<img src="images/flag_brazil_16.png" alt="Português">
+			<span data-pt="Português" data-en="Portuguese" data-es="Portugués" data-fr="Portugais" data-de="Portugiesisch">Português</span>
+			<img src="images/check-16.png" alt="Check" align="center">
+		</div>
+		<div class="lang-status-item">
+			<img src="images/flag_spain_16.png" alt="Español">
+			<span data-pt="Espanhol" data-en="Spanish" data-es="Español" data-fr="Espagnol" data-de="Spanisch">Espanhol</span>
+			<img src="images/check-16.png" alt="Check" align="center">
+		</div>
+		<div class="lang-status-item">
+			<img src="images/flag_france_16.png" alt="Français">
+			<span data-pt="Francês" data-en="French" data-es="Francés" data-fr="Français" data-de="Französisch">Francês</span>
+			<img src="images/check-16.png" alt="Check" align="center">
+		</div>
+		<div class="lang-status-item">
+			<img src="images/flag_germany_16.png" alt="Deutsch">
+			<span data-pt="Alemão" data-en="German" data-es="Alemán" data-fr="Allemand" data-de="Deutsch">Alemão</span>
+			<img src="images/check-16.png" alt="Check" align="center">
+		</div>
+	</div>	
 
     <a href="https://apps.microsoft.com/detail/9N0PB6XG7ZQT" 
 	   target="_blank" 
@@ -1261,7 +1304,26 @@
     <div class="screenshot-grid" id="gallery-dbnotes">
         <img src="images/dbnotes_screen_01.png" alt="Screen 01" onclick="openModal(0, 'gallery-dbnotes')">
         <img src="images/dbnotes_screen_02.png" alt="Screen 02" onclick="openModal(1, 'gallery-dbnotes')">
-    </div>  
+    </div>
+
+	<h3 class="gallery-title-yellow" data-pt="Idiomas disponíveis" data-en="Available languages" data-es="Idiomas disponibles" data-fr="Langues disponibles" data-de="Verfügbare Sprachen"></h3>
+    <div class="lang-grid-status">
+        <div class="lang-status-item">
+            <img src="images/flag_usa_16.png" alt="English">
+            <span data-pt="Inglês" data-en="English" data-es="Inglés" data-fr="Anglais" data-de="Englisch">Inglês</span>
+            <img src="images/load.gif" alt="Check" align="center">
+        </div>
+        <div class="lang-status-item">
+            <img src="images/flag_brazil_16.png" alt="Português">
+            <span data-pt="Português" data-en="Portuguese" data-es="Portugués" data-fr="Portugais" data-de="Portugiesisch">Português</span>
+            <img src="images/load.gif" alt="Check" align="center">
+        </div>
+        <div class="lang-status-item">
+            <img src="images/flag_spain_16.png" alt="Español">
+            <span data-pt="Espanhol" data-en="Spanish" data-es="Español" data-fr="Espagnol" data-de="Spanisch">Espanhol</span>
+            <img src="images/load.gif" alt="Screen 01" align="center">
+        </div>
+    </div>
     
     <a 
 	   target="_blank"
@@ -1284,8 +1346,8 @@
             <!--
 			<span class="product-eyebrow eyebrow-green" data-pt="100% OFFLINE · WINDOWS" data-en="100% OFFLINE · WINDOWS" data-es="100% SIN CONEXIÓN · WINDOWS" data-fr="100% HORS LIGNE · WINDOWS" data-de="100% OFFLINE · WINDOWS">4 PRODUTOS · 100% OFFLINE · WINDOWS</span>
 			-->
-            <h2 class="product-title product-title-flex">              
-                DevBrazil
+            <h2>
+				<strong_black>Dev</strong_black>Brazil
             </h2>           
 			<p data-pt="Nascida da paixão pela eficiência e com mais de 25 anos de experiência no desenvolvimento de sistemas críticos, a DevBrazil combina solidez técnica com inovação para criar softwares nativos de alta performance."
 			   data-en="Born from a passion for efficiency and backed by over 25 years of experience in mission-critical systems, DevBrazil combines technical expertise with innovation to build high-performance native software."
@@ -1303,16 +1365,18 @@
 		   data-fr="Notre mission é simple : concevoir des solutions qui respectent votre temps, maximisent votre productivité et garantissent la confidentialité absolue de vos données. Nous créons des outils légers, rapides et indépendants pour ceux qui exigent le maximum de leur écosystème de travail."
 		   data-de="Unser Ziel ist einfach: Lösungen zu entwickeln, die Ihre Zeit respektieren, Ihre Produktivität maximieren und die absolute Privatsphäre Ihrer Daten garantieren. Wir entwickeln schlanke, schnelle und unabhängige Tools für alle, die das Maximum aus ihrer Arbeitsumgebung herausholen wollen.">
 		</p>
+		<br>
+		<p data-pt="<strong>Junte-se a nós. Nossa tecnologia já impulsiona a produtividade de usuários em mais de 120 mercados e territórios ao redor do mundo.</strong>"
+		   data-en="<strong>Join us. Our technology is already driving productivity for users across more than 120 markets and territories worldwide.</strong>"
+           data-es="<strong>Únase a nosotros. Nuestra tecnología ya impulsa la productividad de usuarios en más de 120 mercados y territorios en todo el mundo.</strong>"
+           data-fr="<strong>Rejoignez-nous. Notre technologie stimule déjà la productivité d'utilisateurs dans plus de 120 marchés et territoires à travers le monde.</strong>"
+           data-de="<strong>Schließen Sie sich uns an. Unsere Technologie steigert bereits die Produktivität von Anwendern in mehr als 120 Märkten und Regionen weltweit.</strong>">
+        </p>
     </div>
 	
     
-    <p data-pt="<strong>Junte-se a nós. Nossa tecnologia já impulsiona a produtividade de usuários em mais de 120 mercados e territórios ao redor do mundo.</strong>"
-       data-en="<strong>Join us. Our technology is already driving productivity for users across more than 120 markets and territories worldwide.</strong>"
-       data-es="<strong>Únase a nosotros. Nuestra tecnología ya impulsa la productividad de usuarios en más de 120 mercados y territorios en todo el mundo.</strong>"
-       data-fr="<strong>Rejoignez-nous. Notre technologie stimule déjà la productivité d'utilisateurs dans plus de 120 marchés et territoires à travers le monde.</strong>"
-       data-de="<strong>Schließen Sie sich uns an. Unsere Technologie steigert bereits die Produktivität von Anwendern in mehr als 120 Märkten und Regionen weltweit.</strong>">
-    </p>
-    <br>	
+    
+    
 </div>
 
 <div id="contactModal" class="contact-modal">
