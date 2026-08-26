@@ -165,11 +165,11 @@
 			*/
         }
         .eyebrow-blue   { margin-left: 0px; margin-right: 5px; margin-top: 7px; margin-bottom: 7px; color: var(--azul-dbmoney); background: rgba(0,74,153,0.08); }
-        .eyebrow-red    { color: var(--vermelho-dbpdf); background: rgba(167,80,82,0.1); }
-        .eyebrow-yellow { color: #8a6800; background: rgba(188,141,0,0.12); }
-        .eyebrow-purple { color: var(--roxo-dbradio); background: rgba(106,27,154,0.08); }
+        .eyebrow-red    { margin-top: 7px; margin-bottom: 7px; color: var(--vermelho-dbpdf); background: rgba(167,80,82,0.1); }
+        .eyebrow-yellow { margin-top: 7px; margin-bottom: 7px; color: #8a6800; background: rgba(188,141,0,0.12); }
+        .eyebrow-purple { margin-top: 7px; margin-bottom: 7px; color: var(--roxo-dbradio); background: rgba(106,27,154,0.08); }
 		.eyebrow-green  { margin-left: 0px; margin-right: 5px; margin-top: 7px; margin-bottom: 7px; color: var(--verde-dev-dark); background: rgba(27,132,91,0.1); }
-		.eyebrow-gray   { margin-left: 0px; margin-right: 5px; margin-top: 7px; margin-bottom: 7px; color: #686868; background: #F2F2F2; }
+		.eyebrow-gray   { margin-left: 0px; margin-right: 5px; margin-top: 7px; margin-bottom: 7px; color: #686868; background: #F2F2F2; border: 1px solid #eee; }
 		
 		.lang-selector { position: relative; display: inline-flex; align-items: center; gap: 2px; flex-shrink: 0; }
 
@@ -409,31 +409,42 @@
             padding: 10px 20px;
             border-radius: 8px;
             text-decoration: none;
+			font-family: var(--font-mono);
+			font-size: 0.9rem;
             font-weight: bold;
-            font-size: 0.9rem;
             text-align: center;
             transition: background 0.3s;
         }
         .btn-store-dbmoney:hover { background: #003366; }
 		
-        .btn-store-dbmoney-mini {
-			display: flex;       /* Altera de block para inline-flex para o botão não ocupar a tela inteira */
-			align-items: center;        /* Alinha o ícone e o texto verticalmente no centro do botão */
-			justify-content: flex-start;/* Alinha o conteúdo interno (ícone e texto) à esquerda */
-			width: auto;                /* Remove os 100% para o botão ter apenas o tamanho do texto */
+		.btn-store-dbmoney-mini {
+			display: inline-flex;       /* inline-flex impede que o botão ocupe toda a largura da tela */
+			flex-direction: column;     /* Padrão: Alinha os itens em coluna (ícone no TOPO, texto abaixo) */
+			align-items: center;        /* Centraliza o ícone e o texto horizontalmente na visão de coluna */
+			justify-content: center;    /* Centraliza o conteúdo verticalmente */
+			width: auto;                
 			max-width: 350px;
-			/* margin: 15px 0 0 0; */       /* Trocou o 'auto' por '0' na esquerda e direita para colar na borda */
 			background: var(--azul-dbmoney);
 			color: #fff;
-			padding: 6px 12px;         /* Aumentei um pouco o padding lateral para dar acabamento */
+			padding: 10px 16px;         /* Ajustado o padding para acomodar melhor o formato vertical */
 			border-radius: 10px;
 			text-decoration: none;
-			font-family: var(--font-mono);			
+			font-family: var(--font-mono);
 			font-size: 0.8rem;
-			text-align: center;           /* Garante que o texto fique alinhado à esquerda */
+			font-weight: bold;
+			text-align: center;
 			transition: background 0.3s;
-        }
-        .btn-store-dbmoney-mini:hover { background: #003366; }		
+			gap: 6px;                   /* Cria um espaçamento controlado entre o ícone e o texto */
+		}
+
+		/* Força o ícone gerado pelo JS a quebrar linha quando estiver em modo coluna */
+		.btn-store-dbmoney-mini i {
+			display: block;
+		}
+
+		.btn-store-dbmoney-mini:hover { 
+			background: #003366; 
+		}
 
         .btn-store-dbpdf {
             display: block;
@@ -644,9 +655,9 @@
             letter-spacing: 0.08em;
 
 			color: var(--text-dark);
-			background: #f9f9f9;
+			background: #F2F2F2;
 			padding: 6px 12px;
-			border-radius: 12px;
+			border-radius: 10px;
 			border: 1px solid #eee;
 		}
 
@@ -774,7 +785,18 @@
 			.product-title-flex {
 				flex-direction: column; /* Transforma a linha em coluna, jogando o selo para baixo/cima */
 				gap: 5px;               /* Diminui um pouco o espaço para ficar mais harmônico no celular */
-			}			
+			}
+
+			.btn-store-dbmoney-mini {
+				flex-direction: row;    /* Muda para linha (ícone na ESQUERDA, texto na direita) */
+				justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+				text-align: left;
+			}
+			
+			/* Remove a obrigatoriedade de bloco do ícone para fluir melhor em linha */
+			.btn-store-dbmoney-mini i {
+				display: inline-block;
+			}
         }
     </style>
 	
@@ -873,25 +895,37 @@
      		</h2>
 
 			<p data-pt="O <strong>dbMoney Personal</strong> é um poderoso software de finanças pessoais desenvolvido para quem deseja retomar o controle total da sua vida financeira sem abrir mão da privacidade."
-			   data-en="<strong>dbMoney Personal</strong> is the ultimate native software for anyone looking to regain total control over their financial life without compromising privacy. Tailored specifically for Windows, it combines the engineering robustness of banking systems with the agility of a modern, clean, and highly intuitive interface."
-			   data-es="<strong>dbMoney Personal</strong> es el software nativo definitivo para quienes desean recuperar el control total de su vida financiera sin renunciar a la privacidad. Diseñado a la medida para Windows, combina la robustez de ingeniería de los sistemas bancarios con la agilidad de una interfaz moderna, limpia y altamente intuitiva."
-			   data-fr="<strong>dbMoney Personal</strong> est le logiciel natif ultime pour quiconque souhaite reprendre le contrôle total de sa vie financière sans compromettre sa vie privée. Conçu sur mesure pour Windows, il combine la robustesse technique des systèmes bancaires avec l'agilité d'une interface moderne, épurée et hautement intuitive."
-			   data-de="<strong>dbMoney Personal</strong> ist die ultimative native Software für alle, die die volle Kontrolle über ihr Finanzleben zurückgewinnen wollen, ohne Kompromisse bei der Privatsphäre einzugehen. Maßgeschneidert für Windows, verbindet sie die technische Robustheit von Banksystemen mit der Flexibilität einer modernen, übersichtlichen und extrem intuitiven Benutzeroberfläche.">
+			   data-en="<strong>dbMoney Personal</strong> is a powerful personal finance software designed for those who want to take full control of their financial life without sacrificing privacy."
+			   data-es="<strong>dbMoney Personal</strong> es un potente software de finanzas personales diseñado para quienes desean retomar el control total de su vida financiera sin renunciar a la privacidad."
+			   data-fr="<strong>dbMoney Personal</strong> est un puissant logiciel de finances personnelles conçu pour ceux qui souhaitent reprendre le contrôle total de leur vie financière sans compromettre leur confidentialité."
+			   data-de="<strong>dbMoney Personal</strong> ist eine leistungsstarke Software für persönliche Finanzen, die für alle entwickelt wurde, die die volle Kontrolle über ihr Finanzleben zurückgewinnen möchten, ohne auf Privatsphäre zu verzichten.">
 			</p>
 			<br>
-			<span class="product-eyebrow eyebrow-green" data-pt='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuito' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
-			<span class="product-eyebrow eyebrow-purple" data-pt='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (vitalício)' data-en='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (lifetime)' data-es='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (de por vida)' data-fr='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (à vie)' data-de='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (lebenslang)'></span>						
+			<span class="product-eyebrow eyebrow-green" 
+				data-pt='<i class="fa fa-gift"></i>&nbsp;Versão Basic: Gratuito'
+				data-en='<i class="fa fa-gift"></i>&nbsp;Basic Version: Free'
+				data-es='<i class="fa fa-gift"></i>&nbsp;Versión Basic: Gratis'
+				data-fr='<i class="fa fa-gift"></i>&nbsp;Version Basic: Gratuit'
+				data-de='<i class="fa fa-gift"></i>&nbsp;Basic-Version: Kostenlos'>
+			</span>
+			<span class="product-eyebrow eyebrow-purple" 
+				data-pt='<i class="fa fa-star"></i>&nbsp;Versão Premium: $ 29.99 (vitalício) <i class="fa-solid fa-circle-question" title="* Preço pode variar por região/país" style="cursor: help"></i>' 
+				data-en='<i class="fa fa-star"></i>&nbsp;Premium Version: $ 29.99 (lifetime) <i class="fa-solid fa-circle-question" title="* Price may vary by region/country" style="cursor: help"></i>'  
+				data-es='<i class="fa fa-star"></i>&nbsp;Versión Premium: $ 29.99 (de por vida) <i class="fa-solid fa-circle-question" title="* El precio puede variar según la región o el país" style="cursor: help"></i>' 
+				data-fr='<i class="fa fa-star"></i>&nbsp;Version Premium: $ 29.99 (à vie) <i class="fa-solid fa-circle-question" title="* Le prix peut varier selon la région/le pays" style="cursor: help"></i>' 
+				data-de='<i class="fa fa-star"></i>&nbsp;Premium-Version: $ 29.99 (lebenslang) <i class="fa-solid fa-circle-question" title="* Der Preis kann je nach Region/Land variieren" style="cursor: help"></i>' 
+			</span>
         </div>
-		
+
 		<div class="dbmoney-text" style="display: flex; flex-direction: column; align-items: center; gap: 0px;">
 			<a href="https://apps.microsoft.com/detail/9N0PB6XG7ZQT" 
 			   target="_blank" 
 			   class="btn-store-dbmoney-mini" 
-			   data-pt='<i class="fab fa-windows"></i>&nbsp;&nbsp;Baixar na Microsoft Store'
-			   data-en='<i class="fab fa-windows"></i>&nbsp;&nbsp;Available on the Microsoft Store' 
-			   data-es='<i class="fab fa-windows"></i>&nbsp;&nbsp;Disponible en Microsoft Store' 
-			   data-fr='<i class="fab fa-windows"></i>&nbsp;&nbsp;Disponible sur le Microsoft Store' 
-			   data-de='<i class="fab fa-windows"></i>&nbsp;&nbsp;Im Microsoft Store erhältlich'>
+			   data-pt='<i class="fab fa-windows"></i>&nbsp;Baixar na Microsoft Store'
+			   data-en='<i class="fab fa-windows"></i>&nbsp;Get it from Microsoft Store' 
+			   data-es='<i class="fab fa-windows"></i>&nbsp;Obtener de Microsoft Store' 
+			   data-fr='<i class="fab fa-windows"></i>&nbsp;Télécharger sur Microsoft Store' 
+			   data-de='<i class="fab fa-windows"></i>&nbsp;Aus dem Microsoft Store herunterladen'>
 			</a>			
 		</div>
     </div>
@@ -899,30 +933,30 @@
 	<br>
 
     <div class="about-content">
-		<p data-pt="<strong>Seus dados pertencem a você, e a mais ninguém.</strong>" 
-		   data-en="<strong>Your data belongs to you, and no one else.</strong>" 
-		   data-es="<strong>Sus datos le pertenecen a usted, y a nadie más.</strong>"
-		   data-fr="<strong>Vos données vous appartiennent, et à personne d'autre.</strong>"
-		   data-de="<strong>Ihre Daten gehören Ihnen und niemandem sonst.</strong>">
+		<p data-pt="<strong_dbmoney>Seus dados pertencem a você, e a mais ninguém.</strong_dbmoney>" 
+		   data-en="<strong_dbmoney>Your data belongs to you, and no one else.</strong_dbmoney>" 
+		   data-es="<strong_dbmoney>Sus datos le pertenecen a usted, y a nadie más.</strong_dbmoney>"
+		   data-fr="<strong_dbmoney>Vos données vous appartiennent, et à personne d'autre.</strong_dbmoney>"
+		   data-de="<strong_dbmoney>Ihre Daten gehören Ihnen und niemandem sonst.</strong_dbmoney>">
 		</p>
-		<p data-pt="Ao contrário de plataformas web que expõem suas informações em servidores de terceiros, o dbMoney prioriza a segurança máxima. Seus dados permanecem criptografados e armazenados localmente no seu computador, funcionando 100% offline." 
-		   data-en="Unlike web platforms that expose your information to third-party servers, dbMoney prioritizes maximum security. Your data remains encrypted and stored locally on your computer, operating <strong_dbmoney>100% offline</strong_dbmoney>." 
-		   data-es="A diferencia de las plataformas web que exponen su información en servidores de terceros, dbMoney prioriza la máxima seguridad. Sus datos permanecen encriptados y almacenados localmente en su computadora, funcionando <strong_dbmoney>100% offline</strong_dbmoney>."
-		   data-fr="Contrairement aux plateformes web qui exposent vos informations sur des serveurs tiers, dbMoney donne la priorité à une sécurité maximale. Vos données restent cryptées et stockées locallement sur votre ordinateur, fonctionnant à <strong_dbmoney>100% hors ligne</strong_dbmoney>."
-		   data-de="Im Gegensatz zu Webplattformen, die Ihre Informationen auf fremden Servern offenlegen, priorisiert dbMoney maximale Sicherheit. Ihre Daten bleiben verschlüsselt und lokal auf Ihrem Computer gespeichert – und funktionieren zu <strong_dbmoney>100 % offline</strong_dbmoney>.">
+		<p data-pt="Ao contrário de plataformas web que expõem suas informações em servidores de terceiros, o dbMoney prioriza a segurança máxima. Seus dados permanecem criptografados e armazenados localmente no seu computador, funcionando <strong>100% offline</strong>." 
+		   data-en="Unlike web platforms that expose your information to third-party servers, dbMoney prioritizes maximum security. Your data remains encrypted and stored locally on your computer, operating <strong>100% offline</strong>." 
+		   data-es="A diferencia de las plataformas web que exponen su información en servidores de terceros, dbMoney prioriza la máxima seguridad. Sus datos permanecen encriptados y almacenados localmente en su computadora, funcionando <strong>100% offline</strong>."
+		   data-fr="Contrairement aux plateformes web qui exposent vos informations sur des serveurs tiers, dbMoney donne la priorité à une sécurité maximale. Vos données restent cryptées et stockées locallement sur votre ordinateur, fonctionnant à <strong>100% hors ligne</strong>."
+		   data-de="Im Gegensatz zu Webplattformen, die Ihre Informationen auf fremden Servern offenlegen, priorisiert dbMoney maximale Sicherheit. Ihre Daten bleiben verschlüsselt und lokal auf Ihrem Computer gespeichert – und funktionieren zu <strong>100 % offline</strong>.">
 		</p>
 		<br>
-		<p data-pt="<strong>Quer mobilidade?</strong>" 
-		   data-en="<strong>Need mobility?</strong>" 
-		   data-es="<strong>¿Busca movilidad?</strong>"
-		   data-fr="<strong>Besoin de mobilité ?</strong>"
-		   data-de="<strong>Möchten Sie Flexibilität?</strong>">
+		<p data-pt="<strong_dbmoney>Quer mobilidade?</strong_dbmoney>" 
+		   data-en="<strong_dbmoney>Need mobility?</strong_dbmoney>" 
+		   data-es="<strong_dbmoney>¿Busca movilidad?</strong_dbmoney>"
+		   data-fr="<strong_dbmoney>Besoin de mobilité ?</strong_dbmoney>"
+		   data-de="<strong_dbmoney>Möchten Sie Flexibilität?</strong_dbmoney>">
 		</p>
-		<p data-pt="Sincronize seus arquivos através do seu <strong_dbmoney>OneDrive</strong_dbmoney> ou <strong_dbmoney>Google Drive</strong_dbmoney> para acessá-los em outros computadores."
-		   data-en="You have the complete freedom to sync your encrypted files using your own <strong_dbmoney>OneDrive</strong_dbmoney> or <strong_dbmoney>Google Drive</strong_dbmoney> to access them on other computers instantly." 
-		   data-es="Tiene total libertad para sincronizar sus archivos encriptados a través de su propio <strong_dbmoney>OneDrive</strong_dbmoney> o <strong_dbmoney>Google Drive</strong_dbmoney> para acceder a ellos en otras computadoras de forma instantánea."
-		   data-fr="Vous avez la liberté totale de synchroniser vos fichiers cryptés via votre propre <strong_dbmoney>OneDrive</strong_dbmoney> ou <strong_dbmoney>Google Drive</strong_dbmoney> pour y accéder instantanément sur d'autres ordinateurs."
-		   data-de="Sie haben a die absolute Freiheit, Ihre verschlüsselten Dateien über Ihr eigenes <strong_dbmoney>OneDrive</strong_dbmoney> oder <strong_dbmoney>Google Drive</strong_dbmoney> zu synchronisieren, um sofort von anderen Computern darauf zuzugreifen.">
+		<p data-pt="Sincronize seus arquivos através do seu <strong>OneDrive</strong> ou <strong>Google Drive</strong> para acessá-los em outros computadores."
+		   data-en="Sync your files using your <strong>OneDrive</strong> or <strong>Google Drive</strong> to access them on other computers." 
+		   data-es="Sincroniza tus archivos a través de tu <strong>OneDrive</strong> o <strong>Google Drive</strong> para acceder a ellos en otros ordenadores."
+		   data-fr="Synchronisez vos fichiers via votre <strong>OneDrive</strong> ou <strong>Google Drive</strong> pour y accéder sur d'autres ordinateurs."
+		   data-de="Synchronisieren Sie Ihre Dateien über Ihr <strong>OneDrive</strong> oder <strong>Google Drive</strong>, um von anderen Computern darauf zuzugreifen.">
 		</p>
 		
 		<br>
@@ -938,11 +972,36 @@
 		</p>
 		-->
 		
-		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa-solid fa-plane-slash"></i>&nbsp;100% Offline' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
-		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa-solid fa-calendar-xmark"></i>&nbsp;Sem Mensalidades' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
-		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fas fa-bolt"></i>&nbsp;Performance Nativa' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
-		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa-solid fa-download"></i>&nbsp;Importação de Extratos (OFX)' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
-		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa-solid fa-tag"></i>&nbsp;Categorização flexível' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
+		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa-solid fa-plane-slash"></i>&nbsp;100% Offline' data-en='<i class="fa-solid fa-plane-slash"></i>&nbsp;100% Offline' data-es='<i class="fa-solid fa-plane-slash"></i>&nbsp;100% Offline' data-fr='<i class="fa-solid fa-plane-slash"></i>&nbsp;100 % Hors Ligne' data-de='<i class="fa-solid fa-plane-slash"></i>&nbsp;100% Offline'></span>
+		
+		<span class="product-eyebrow eyebrow-gray"
+			data-pt='<i class="fa-solid fa-calendar-xmark"></i>&nbsp;Sem Mensalidades'
+			data-en='<i class="fa-solid fa-calendar-xmark"></i>&nbsp;No Subscription Fees'
+			data-es='<i class="fa-solid fa-calendar-xmark"></i>&nbsp;Sin Mensualidades'
+			data-fr='<i class="fa-solid fa-calendar-xmark"></i>&nbsp;Sans Abonnement'
+			data-de='<i class="fa-solid fa-calendar-xmark"></i>&nbsp;Keine Monatsgebühren'>
+		</span>
+		<span class="product-eyebrow eyebrow-gray" 
+			data-pt='<i class="fas fa-bolt"></i>&nbsp;Performance Nativa'
+			data-en='<i class="fas fa-bolt"></i>&nbsp;Native Performance'
+			data-es='<i class="fas fa-bolt"></i>&nbsp;Rendimiento Nativo'
+			data-fr='<i class="fas fa-bolt"></i>&nbsp;Performance Native'
+			data-de='<i class="fas fa-bolt"></i>&nbsp;Native Performance'>
+		</span>
+		<span class="product-eyebrow eyebrow-gray" 
+			data-pt='<i class="fa-solid fa-download"></i>&nbsp;Importação de Extratos (OFX)'
+			data-en='<i class="fa-solid fa-download"></i>&nbsp;Bank Statement Import (OFX)'
+			data-es='<i class="fa-solid fa-download"></i>&nbsp;Importación de Extractos (OFX)'
+			data-fr='<i class="fa-solid fa-download"></i>&nbsp;Importation de Relevés (OFX)'
+			data-de='<i class="fa-solid fa-download"></i>&nbsp;Kontoauszugsimport (OFX)'
+		</span>
+		<span class="product-eyebrow eyebrow-gray" 
+			data-pt='<i class="fa-solid fa-tag"></i>&nbsp;Categorização flexível'
+			data-en='<i class="fa-solid fa-tag"></i>&nbsp;Flexible Categorization'
+			data-es='<i class="fa-solid fa-tag"></i>&nbsp;Categorización Flexible'
+			data-fr='<i class="fa-solid fa-tag"></i>&nbsp;Catégorisation Flexible'
+			data-de='<i class="fa-solid fa-tag"></i>&nbsp;Flexible Kategorisierung'
+		</span>
 		
 		<!--
 		<p data-pt="<strong>Preços:</strong>" 
@@ -1033,7 +1092,7 @@
 		</div>		
 	</div>
 	
-    <h3 class="gallery-title-faq"><a data-pt="Planos e Versões" data-en="Plans & Versions" data-es="Planes y versiones" data-fr="Plans & Versions" data-de="Pläne & Versionen"></a></h3>				
+    <h3 class="gallery-title-faq"><a data-pt="Planos e Versões" data-en="Plans & Versions" data-es="Planes y versiones" data-fr="Plans & Versions" data-de="Pläne & Versionen"></a></h3>
 	<div class="pricing-table-container">
 		<table>
 			<thead>
@@ -1178,6 +1237,7 @@
 	</div>
 	
 	<h3 class="gallery-title" data-pt="Idiomas disponíveis" data-en="Available languages" data-es="Idiomas disponibles" data-fr="Langues disponibles" data-de="Verfügbare Sprachen"></h3>
+
 	<div class="lang-grid-status">
 		<div class="lang-status-item">
 			<img src="images/flag_usa_16.png" alt="English">
@@ -1201,14 +1261,14 @@
 		</div>
 	</div>
 
-    <a href="https://apps.microsoft.com/detail/9N0PB6XG7ZQT" 
-	   target="_blank" 
-	   class="btn-store-dbmoney" 
-	   data-pt='<i class="fab fa-windows"></i>&nbsp;&nbsp;Disponível na Microsoft Store' 
-	   data-en='<i class="fab fa-windows"></i>&nbsp;&nbsp;Available on the Microsoft Store' 
-	   data-es='<i class="fab fa-windows"></i>&nbsp;&nbsp;Disponible en Microsoft Store' 
-	   data-fr='<i class="fab fa-windows"></i>&nbsp;&nbsp;Disponible sur le Microsoft Store' 
-	   data-de='<i class="fab fa-windows"></i>&nbsp;&nbsp;Im Microsoft Store erhältlich'>
+	<a href="https://apps.microsoft.com/detail/9N0PB6XG7ZQT" 
+		target="_blank" 
+		class="btn-store-dbmoney" 
+		data-pt='<i class="fab fa-windows"></i>&nbsp;Baixar na Microsoft Store'
+		data-en='<i class="fab fa-windows"></i>&nbsp;Get it from Microsoft Store' 
+		data-es='<i class="fab fa-windows"></i>&nbsp;Obtener de Microsoft Store' 
+		data-fr='<i class="fab fa-windows"></i>&nbsp;Télécharger sur Microsoft Store' 
+		data-de='<i class="fab fa-windows"></i>&nbsp;Aus dem Microsoft Store herunterladen'>
 	</a>
 </div>
 
@@ -1509,7 +1569,7 @@
 		   <i class="fas fa-envelope"></i> Contato
 		</a>			
 		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa fa-map-marker"></i> Lençóis Paulista, SP - Brasil' data-en="" data-es="" data-fr="" data-de=""></span>
-		<span class="product-eyebrow eyebrow-red" data-pt='<i class="fa-solid fa-heart"></i> Made in Brazil' data-en="" data-es="" data-fr="" data-de=""></span>
+		<span class="product-eyebrow eyebrow-green" data-pt='<i class="fa-solid fa-heart"></i> Made in Brazil' data-en="" data-es="" data-fr="" data-de=""></span>
     </div>
 	
 	<div class="about-content">
@@ -1627,7 +1687,7 @@
 	<div class="about-content">
 		<a href="https://www.linkedin.com/in/fabioceschini/" 
 		target="_blank" 
-		class="product-eyebrow eyebrow-green" 
+		class="product-eyebrow eyebrow-blue" 
 		data-pt='<i class="fa-brands fa-linkedin"></i> Linkedin' 
 		data-en='<i class="fa-brands fa-linkedin"></i> Linkedin' 
 		data-es='<i class="fa-brands fa-linkedin"></i> Linkedin' 
