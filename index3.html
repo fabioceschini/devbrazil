@@ -98,8 +98,8 @@
         .product-nav-links a.active {		
 			font-weight: 700;
 			color: var(--prod-color);
-			-- background: rgba(0, 0, 0, 0.04);
-			-- border-radius: 6px;	
+			/* background: rgba(0, 0, 0, 0.04); */
+			/* border-radius: 6px;	 */
         }
 
         .product-nav-links a:hover::after,
@@ -164,7 +164,7 @@
 			background: #f3e5f5; color: var(--roxo-dbradio); margin-left: 5px; margin-bottom: 0px; padding: 8px 12px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; line-height: 1;
 			*/
         }
-        .eyebrow-blue   { margin-left: 5px; margin-right: 0px; margin-top: 7px; margin-bottom: 7px; color: var(--azul-dbmoney); background: rgba(0,74,153,0.08); }
+        .eyebrow-blue   { margin-left: 0px; margin-right: 5px; margin-top: 7px; margin-bottom: 7px; color: var(--azul-dbmoney); background: rgba(0,74,153,0.08); }
         .eyebrow-red    { color: var(--vermelho-dbpdf); background: rgba(167,80,82,0.1); }
         .eyebrow-yellow { color: #8a6800; background: rgba(188,141,0,0.12); }
         .eyebrow-purple { color: var(--roxo-dbradio); background: rgba(106,27,154,0.08); }
@@ -310,10 +310,32 @@
 		
 		#gallery-dbmoney {
 			display: grid;
-			flex-direction: row;
-			align-items: center;
+			grid-template-columns: repeat(4, minmax(0, 1fr)) 300px;
 			gap: 20px;
+			align-items: center;
 		}
+
+		#gallery-dbmoney-youtube {
+			grid-column: 5;
+			grid-row: 1;
+
+			width: 185px;
+			padding-left: 25px;
+			margin-left: 5px;
+
+			border-left: 1px solid rgba(128, 128, 128, 0.25);
+			box-sizing: border-box;
+		}
+
+		#gallery-dbmoney-youtube a {
+			display: block;		
+		}
+
+		#gallery-dbmoney-youtube img {
+			display: block;
+			width: 100%;
+			height: auto;
+		}		
 		
 		.gallery-more {
 			position: relative;
@@ -388,7 +410,7 @@
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 0.9rem;
             text-align: center;
             transition: background 0.3s;
         }
@@ -400,7 +422,7 @@
 			justify-content: flex-start;/* Alinha o conteúdo interno (ícone e texto) à esquerda */
 			width: auto;                /* Remove os 100% para o botão ter apenas o tamanho do texto */
 			max-width: 350px;
-			-- margin: 15px 0 0 0;         /* Trocou o 'auto' por '0' na esquerda e direita para colar na borda */
+			/* margin: 15px 0 0 0; */       /* Trocou o 'auto' por '0' na esquerda e direita para colar na borda */
 			background: var(--azul-dbmoney);
 			color: #fff;
 			padding: 6px 12px;         /* Aumentei um pouco o padding lateral para dar acabamento */
@@ -424,7 +446,7 @@
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 0.9rem;
             text-align: center;
             transition: background 0.3s;
         }
@@ -441,7 +463,7 @@
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 0.9rem;
             text-align: center;
             transition: background 0.3s;
         }
@@ -458,7 +480,7 @@
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 0.9rem;
             text-align: center;
             transition: background 0.3s;
         }
@@ -475,7 +497,7 @@
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 0.9rem;
             text-align: center;
             transition: background 0.3s;
         }
@@ -484,11 +506,31 @@
         /* --- MODAL GALERIA --- */
         .modal {
             display: none; position: fixed; z-index: 2000;
-            left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95);
+            left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9);;
             justify-content: center; align-items: center;
         }
-        .modal-content { max-width: 100%; max-height: 90%; border-radius: 5px; object-fit: contain; }
+        .modal-content { max-width: 85%; max-height: 85vh; border-radius: 5px; object-fit: contain; }
         .close { position: absolute; top: 15px; right: 25px; color: #fff; font-size: 35px; font-weight: bold; cursor: pointer; z-index: 2001; }
+
+		.modal-caption {
+			position: absolute;
+			bottom: 15px;
+			left: 50%;
+			transform: translateX(-50%);
+
+			width: 70%;
+			max-width: 900px;
+
+			color: white;
+			text-align: center;
+			font-size: 16px;
+			line-height: 1.5;
+
+			padding: 10px 20px;
+			border-radius: 8px;
+
+			/* background: rgba(0, 0, 0, 0.9); */
+		}		
         
         .nav-btn {
             position: absolute; top: 50%; transform: translateY(-50%);
@@ -592,12 +634,19 @@
 			display: flex;
 			align-items: center;
 			gap: 8px;
+			/*
 			font-size: 0.90rem;
 			font-weight: 500;
+			*/            
+			font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+
 			color: var(--text-dark);
 			background: #f9f9f9;
 			padding: 6px 12px;
-			border-radius: 15px;
+			border-radius: 12px;
 			border: 1px solid #eee;
 		}
 
@@ -610,9 +659,9 @@
 
 		/* Estilo discreto para idiomas que estão "Em breve" */
 		.lang-status-item.coming-soon {
-			// background: #f0f0f0;
+			/* background: #f0f0f0; */
 			color: #888;
-			// border-style: dashed; /* Borda pontilhada para indicar que está por vir */
+			/* border-style: dashed; */ /* Borda pontilhada para indicar que está por vir */
 		}
 
 		/* Nova classe para controlar o alinhamento em formato Flex */
@@ -630,7 +679,7 @@
 		.faq summary::after{content:"+";color:var(--azul-dbmoney);font-family:ui-monospace,"Cascadia Code","SFMono-Regular",Consolas,monospace}
 		.faq details[open] summary::after{content:"\2212"}
 		.faq details p{margin:12px 0 0;color:var(--ink-2);font-size:.96rem;max-width:66ch}
-		
+
         /* --- MEDIA QUERIES --- */
         @media (max-width: 768px) {
             header { flex-direction: column; gap: 12px; padding: 14px 15px; }
@@ -642,7 +691,7 @@
                 align-items: center;
                 gap: 14px;           /* Espaçamento entre os itens */
                 width: 100%;
-            }
+            }			
 
             .product-nav-links { gap: 16px; flex-wrap: wrap; justify-content: center; }
 
@@ -653,6 +702,23 @@
             .nav-divider-media-hide { display: none; }
             .header-contact { display: none; }
             
+			#gallery-dbmoney {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			#gallery-dbmoney-youtube {
+				grid-column: 1 / -1;
+				grid-row: auto;
+
+				width: 200px;
+				margin: 10px auto 0;
+				padding-left: 0;
+				padding-top: 20px;
+
+				border-left: none;
+				border-top: 1px solid rgba(128, 128, 128, 0.25);
+			}
+
             .hero { padding: 40px 5%; }
             .hero h1 { font-size: 1.8rem; }
             .hero p { font-size: 1rem; }
@@ -701,7 +767,7 @@
 				gap: 10px;
 			}
 			.lang-status-item {
-				font-size: 0.85rem;
+				/* font-size: 0.85rem; */
 				padding: 5px 10px;
 			}
 			
@@ -802,19 +868,19 @@
 
         <div class="dbmoney-text">
             <h2 class="product-title product-title-flex">
-                dbMoney Personal
-
-				<span class="product-eyebrow eyebrow-blue" data-pt='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuito' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
-				<span class="product-eyebrow eyebrow-blue" data-pt='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (vitalício)' data-en='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (lifetime)' data-es='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (de por vida)' data-fr='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (à vie)' data-de='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (lebenslang)'></span>
-				
-			</h2>
+                dbMoney Personal&nbsp;
+				<span class="product-eyebrow eyebrow-blue" data-pt='<i class="fa-brands fa-windows"></i>&nbsp;Windows' data-en='<i class="fa fa-gift"></i>&nbsp;Windows' data-es='<i class="fa fa-gift"></i>&nbsp;Windows' data-fr='<i class="fa fa-gift"></i>&nbsp;Windows' data-de='<i class="fa fa-gift"></i>&nbsp;Windows'></span>
+     		</h2>
 
 			<p data-pt="O <strong>dbMoney Personal</strong> é um poderoso software de finanças pessoais desenvolvido para quem deseja retomar o controle total da sua vida financeira sem abrir mão da privacidade."
 			   data-en="<strong>dbMoney Personal</strong> is the ultimate native software for anyone looking to regain total control over their financial life without compromising privacy. Tailored specifically for Windows, it combines the engineering robustness of banking systems with the agility of a modern, clean, and highly intuitive interface."
 			   data-es="<strong>dbMoney Personal</strong> es el software nativo definitivo para quienes desean recuperar el control total de su vida financiera sin renunciar a la privacidad. Diseñado a la medida para Windows, combina la robustez de ingeniería de los sistemas bancarios con la agilidad de una interfaz moderna, limpia y altamente intuitiva."
 			   data-fr="<strong>dbMoney Personal</strong> est le logiciel natif ultime pour quiconque souhaite reprendre le contrôle total de sa vie financière sans compromettre sa vie privée. Conçu sur mesure pour Windows, il combine la robustesse technique des systèmes bancaires avec l'agilité d'une interface moderne, épurée et hautement intuitive."
 			   data-de="<strong>dbMoney Personal</strong> ist die ultimative native Software für alle, die die volle Kontrolle über ihr Finanzleben zurückgewinnen wollen, ohne Kompromisse bei der Privatsphäre einzugehen. Maßgeschneidert für Windows, verbindet sie die technische Robustheit von Banksystemen mit der Flexibilität einer modernen, übersichtlichen und extrem intuitiven Benutzeroberfläche.">
-			</p>			
+			</p>
+			<br>
+			<span class="product-eyebrow eyebrow-green" data-pt='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuito' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
+			<span class="product-eyebrow eyebrow-purple" data-pt='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (vitalício)' data-en='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (lifetime)' data-es='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (de por vida)' data-fr='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (à vie)' data-de='<i class="fa fa-star"></i>&nbsp;PREMIUM: $ 29.99 (lebenslang)'></span>						
         </div>
 		
 		<div class="dbmoney-text" style="display: flex; flex-direction: column; align-items: center; gap: 0px;">
@@ -863,20 +929,20 @@
 		<hr>
 		<br>
 		
+		<!--		
 		<p data-pt="<strong>Por que escolher o dbMoney?</strong>" 
 		   data-en="<strong>Why choose dbMoney?</strong>" 
 		   data-es="<strong>¿Por qué elegir dbMoney?</strong>" 
 		   data-fr="<strong>Pourquoi choisir dbMoney ?</strong>" 
 		   data-de="<strong>Warum dbMoney wählen?</strong>">
 		</p>
+		-->
 		
-		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fas fa-check"></i>&nbsp;100% Offline' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
-		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa-usd"></i>&nbsp;Sem Mensalidades' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
+		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa-solid fa-plane-slash"></i>&nbsp;100% Offline' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
+		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa-solid fa-calendar-xmark"></i>&nbsp;Sem Mensalidades' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
 		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fas fa-bolt"></i>&nbsp;Performance Nativa' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
-		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fas fa-file-import"></i>&nbsp;Importação de Extratos (OFX)' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
-		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fas fa-tags"></i>&nbsp;Categorização flexível' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
-		
-		<br>
+		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa-solid fa-download"></i>&nbsp;Importação de Extratos (OFX)' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
+		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa-solid fa-tag"></i>&nbsp;Categorização flexível' data-en='<i class="fa fa-gift"></i>&nbsp;BASIC: Free' data-es='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;BASIC: Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;BASIC: Kostenlos'></span>
 		
 		<!--
 		<p data-pt="<strong>Preços:</strong>" 
@@ -898,20 +964,40 @@
 		-->
     </div>
 
-    <h3 class="gallery-title"><a data-pt="Capturas de tela" data-en="Screenshots" data-es="Capturas de pantalla" data-fr="Captures d'écran" data-de="Screenshots"></a></h3>
+    <h3 class="gallery-title">
+		<a data-pt="Capturas de tela" 
+		   data-en="Screenshots" 
+		   data-es="Capturas de pantalla" 
+		   data-fr="Captures d'écran" 
+		   data-de="Screenshots"></a>
+	</h3>
 	<div class="screenshot-grid" id="gallery-dbmoney">
-		<div class="gallery-more" id="gallery-dbmoney-youtube">
-			<a href="https://www.youtube.com/watch?v=wLP-gaJQ5b0" target="_blank"><img src="images/dbmoney_youtube.png" width="300px"></a>
-		</div>
+		<!--
+
+		-->
 		
 		<!-- Imagens visíveis -->
-		<img src="images/dbmoney_screen_01.png" alt="Screen 01" onclick="openModal(0, 'gallery-dbmoney')">
+		<img src="images/dbmoney_screen_01.png" 
+				alt="Added comprehensive English translation" 
+				data-caption-pt="Adicionada nova tradução para o inglês"
+				data-caption-en="Added comprehensive English translation"
+				data-caption-es="Añadida nueva traducción al inglés"
+				data-caption-fr="Ajout d'une nouvelle traduction en anglais"
+				data-caption-de="Neue umfassende englische Übersetzung hinzugefügt"
+				onclick="openModal(0, 'gallery-dbmoney')">
+
+		<!-- <img src="images/dbmoney_screen_01.png" alt="Screen 01" onclick="openModal(0, 'gallery-dbmoney')"> -->
 		<img src="images/dbmoney_screen_02.png" alt="Screen 02" onclick="openModal(1, 'gallery-dbmoney')">
 		<img src="images/dbmoney_screen_03.png" alt="Screen 03" onclick="openModal(2, 'gallery-dbmoney')">
-		<img src="images/dbmoney_screen_05.png" alt="Screen 04" onclick="openModal(3, 'gallery-dbmoney')">
 		<!-- Acesso às demais imagens -->
-		<div class="gallery-more" onclick="openModal(4, 'gallery-dbmoney')">
-			<img src="images/dbmoney_screen_04.png" alt="More screenshots">
+		<div class="gallery-more" onclick="openModal(3, 'gallery-dbmoney')">
+			<img src="images/dbmoney_screen_04.png" 
+			     alt="More screenshots"
+				 data-caption-pt="Adicionada nova tradução para o inglês"
+				 data-caption-en="Added comprehensive English translation"
+				 data-caption-es="Añadida nueva traducción al inglés"
+				 data-caption-fr="Ajout d'une nouvelle traduction en anglais"
+				 data-caption-de="Neue umfassende englische Übersetzung hinzugefügt">
 			<div class="gallery-more-overlay">
 				<span class="gallery-more-count">+13</span>
 				<small data-pt="Mais capturas"
@@ -925,6 +1011,7 @@
 
 		<!-- Imagens restantes: continuam disponíveis para o modal -->
 		<div class="gallery-hidden">			
+			<img src="images/dbmoney_screen_05.png" alt="Screen 05" onclick="openModal(4, 'gallery-dbmoney')">
 			<img src="images/dbmoney_screen_06.png" alt="Screen 06" onclick="openModal(5, 'gallery-dbmoney')">
 			<img src="images/dbmoney_screen_07.png" alt="Screen 07" onclick="openModal(6, 'gallery-dbmoney')">
 			<img src="images/dbmoney_screen_08.png" alt="Screen 08" onclick="openModal(7, 'gallery-dbmoney')">
@@ -938,6 +1025,12 @@
 			<img src="images/dbmoney_screen_16.png" alt="Screen 16" onclick="openModal(15, 'gallery-dbmoney')">
 			<img src="images/dbmoney_screen_17.png" alt="Screen 17" onclick="openModal(16, 'gallery-dbmoney')">
 		</div>
+
+		<div id="gallery-dbmoney-youtube">
+			<a href="https://www.youtube.com/watch?v=wLP-gaJQ5b0" target="_blank">
+				<img src="images/dbmoney_youtube.png" alt="dbMoney on YouTube">
+			</a>
+		</div>		
 	</div>
 	
     <h3 class="gallery-title-faq"><a data-pt="Planos e Versões" data-en="Plans & Versions" data-es="Planes y versiones" data-fr="Plans & Versions" data-de="Pläne & Versionen"></a></h3>				
@@ -957,7 +1050,7 @@
 					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
 				</tr>
 				<tr>
-					<td><i class="fas fa-tags"></i><a data-pt=" Categorias, contatos e marcadores" data-en=" Categories, contacts, and tags" data-es=" Categorías, contactos y marcadores" data-fr=" Catégories, contacts et étiquettes" data-de=" Kategorien, Kontakte und Tags"></a></td>
+					<td><i class="fa-solid fa-tag"></i><a data-pt=" Categorias, contatos e marcadores" data-en=" Categories, contacts, and tags" data-es=" Categorías, contactos y marcadores" data-fr=" Catégories, contacts et étiquettes" data-de=" Kategorien, Kontakte und Tags"></a></td>
 					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
 					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
 				</tr>
@@ -1032,7 +1125,7 @@
 					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
 				</tr>
 				<tr>
-					<td><i class="fas fa-check-circle"></i><a data-pt=" Preço" data-en=" Price" data-es=" Precio" data-fr=" Prix" data-de=" Preis"></a></td>
+					<td><i class="fa-solid fa-dollar-sign"></i><a data-pt=" Preço" data-en=" Price" data-es=" Precio" data-fr=" Prix" data-de=" Preis"></a></td>
 					<td><span class="limit-text-blue"><a data-pt=" Gratuito" data-en=" Free" data-es=" Gratis" data-fr=" Gratuit" data-de=" Kostenlos"></a></span></td>
 					<td><span class="limit-text-blue"><a data-pt=" $ 29.99 (vitalício)" data-en=" $ 29.99 (lifetime)" data-es=" $ 29.99 (de por vida)" data-fr=" $ 29.99 (à vie)" data-de=" $ 29.99 (lebenslang)"></a></span>
 						<br>
@@ -1089,29 +1182,24 @@
 		<div class="lang-status-item">
 			<img src="images/flag_usa_16.png" alt="English">
 			<span data-pt="Inglês" data-en="English" data-es="Inglés" data-fr="Anglais" data-de="Englisch">Inglês</span>
-			<img src="images/check-16.png" alt="Check" align="center">
 		</div>
 		<div class="lang-status-item">
 			<img src="images/flag_brazil_16.png" alt="Português">
-			<span data-pt="Português" data-en="Portuguese" data-es="Portugués" data-fr="Portugais" data-de="Portugiesisch">Português</span>
-			<img src="images/check-16.png" alt="Check" align="center">
+			<span data-pt="Português" data-en="Portuguese" data-es="Portugués" data-fr="Portugais" data-de="Portugiesisch">Português</span>		
 		</div>
 		<div class="lang-status-item">
 			<img src="images/flag_spain_16.png" alt="Español">
-			<span data-pt="Espanhol" data-en="Spanish" data-es="Español" data-fr="Espagnol" data-de="Spanisch">Espanhol</span>
-			<img src="images/check-16.png" alt="Check" align="center">
+			<span data-pt="Espanhol" data-en="Spanish" data-es="Español" data-fr="Espagnol" data-de="Spanisch">Espanhol</span>			
 		</div>
 		<div class="lang-status-item">
 			<img src="images/flag_france_16.png" alt="Français">
-			<span data-pt="Francês" data-en="French" data-es="Francés" data-fr="Français" data-de="Französisch">Francês</span>
-			<img src="images/check-16.png" alt="Check" align="center">
+			<span data-pt="Francês" data-en="French" data-es="Francés" data-fr="Français" data-de="Französisch">Francês</span>			
 		</div>
 		<div class="lang-status-item">
 			<img src="images/flag_germany_16.png" alt="Deutsch">
-			<span data-pt="Alemão" data-en="German" data-es="Alemán" data-fr="Allemand" data-de="Deutsch">Alemão</span>
-			<img src="images/check-16.png" alt="Check" align="center">
+			<span data-pt="Alemão" data-en="German" data-es="Alemán" data-fr="Allemand" data-de="Deutsch">Alemão</span>			
 		</div>
-	</div>	
+	</div>
 
     <a href="https://apps.microsoft.com/detail/9N0PB6XG7ZQT" 
 	   target="_blank" 
@@ -1133,7 +1221,8 @@
         <div class="dbmoney-text">
             <h2 class="product-title product-title-flex">
                 dbPDF
-                <span class="product-eyebrow eyebrow-red" data-pt='<i class="fa fa-gift"></i>&nbsp;100% Gratuito' data-en='<i class="fa fa-gift"></i>&nbsp;100% Free' data-es='<i class="fa fa-gift"></i>&nbsp;100% Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;100% Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;100% Kostenlos'><i class="fa fa-gift"></i>&nbsp;100% Gratuito</span>
+                <span class="product-eyebrow eyebrow-red" data-pt='<i class="fa-brands fa-windows"></i>&nbsp;Windows' data-en='<i class="fa fa-gift"></i>&nbsp;Windows' data-es='<i class="fa fa-gift"></i>&nbsp;Windows' data-fr='<i class="fa fa-gift"></i>&nbsp;Windows' data-de='<i class="fa fa-gift"></i>&nbsp;Windows'></span>
+				<span class="product-eyebrow eyebrow-red" data-pt='<i class="fa fa-gift"></i>&nbsp;100% Gratuito' data-en='<i class="fa fa-gift"></i>&nbsp;100% Free' data-es='<i class="fa fa-gift"></i>&nbsp;100% Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;100% Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;100% Kostenlos'><i class="fa fa-gift"></i>&nbsp;100% Gratuito</span>
             </h2>
             
             <p data-pt="O <strong>dbPDF</strong> é o leitor nativo definitivo para quem não tem tempo a perder. Desenvolvido para quebrar o ciclo de softwares pesados e lentos, ele entrega uma experiência de leitura fluida, elegante e instantânea, abrindo seus arquivos no exato segundo em que você clica neles."
@@ -1167,31 +1256,26 @@
     <h3 class="gallery-title-red" data-pt="Idiomas disponíveis" data-en="Available languages" data-es="Idiomas disponibles" data-fr="Langues disponibles" data-de="Verfügbare Sprachen"></h3>
 
 	<div class="lang-grid-status">
-        <div class="lang-status-item">
-            <img src="images/flag_usa_16.png" alt="English">
-            <span data-pt="Inglês" data-en="English" data-es="Inglés" data-fr="Anglais" data-de="Englisch">Inglês</span>
-            <img src="images/check-16.png" alt="Check" align="center">
-        </div>
-        <div class="lang-status-item">
-            <img src="images/flag_brazil_16.png" alt="Português">
-            <span data-pt="Português" data-en="Portuguese" data-es="Portugués" data-fr="Portugais" data-de="Portugiesisch">Português</span>
-            <img src="images/check-16.png" alt="Check" align="center">
-        </div>
-        <div class="lang-status-item">
-            <img src="images/flag_spain_16.png" alt="Español">
-            <span data-pt="Espanhol" data-en="Spanish" data-es="Español" data-fr="Espagnol" data-de="Spanisch">Espanhol</span>
-            <img src="images/check-16.png" alt="Check" align="center">
-        </div>
-        <div class="lang-status-item">
-            <img src="images/flag_france_16.png" alt="Français">
-            <span data-pt="Francês" data-en="French" data-es="Francés" data-fr="Français" data-de="Französisch">Francês</span>
-            <img src="images/check-16.png" alt="Check" align="center">
-        </div>
-        <div class="lang-status-item">
-            <img src="images/flag_germany_16.png" alt="Deutsch">
-            <span data-pt="Alemão" data-en="German" data-es="Alemán" data-fr="Allemand" data-de="Deutsch">Alemão</span>
-            <img src="images/check-16.png" alt="Check" align="center">
-        </div>
+		<div class="lang-status-item">
+			<img src="images/flag_usa_16.png" alt="English">
+			<span data-pt="Inglês" data-en="English" data-es="Inglés" data-fr="Anglais" data-de="Englisch">Inglês</span>
+		</div>
+		<div class="lang-status-item">
+			<img src="images/flag_brazil_16.png" alt="Português">
+			<span data-pt="Português" data-en="Portuguese" data-es="Portugués" data-fr="Portugais" data-de="Portugiesisch">Português</span>		
+		</div>
+		<div class="lang-status-item">
+			<img src="images/flag_spain_16.png" alt="Español">
+			<span data-pt="Espanhol" data-en="Spanish" data-es="Español" data-fr="Espagnol" data-de="Spanisch">Espanhol</span>			
+		</div>
+		<div class="lang-status-item">
+			<img src="images/flag_france_16.png" alt="Français">
+			<span data-pt="Francês" data-en="French" data-es="Francés" data-fr="Français" data-de="Französisch">Francês</span>			
+		</div>
+		<div class="lang-status-item">
+			<img src="images/flag_germany_16.png" alt="Deutsch">
+			<span data-pt="Alemão" data-en="German" data-es="Alemán" data-fr="Allemand" data-de="Deutsch">Alemão</span>			
+		</div>
     </div>	
     
     <a href="https://apps.microsoft.com/detail/9N7H3FPQX608" 
@@ -1216,6 +1300,7 @@
 			<h2 class="product-title product-title-flex">              
                 dbRadio (beta)
 				<!-- <span class="product-eyebrow eyebrow-purple" data-pt='<i class="fab fa-windows"></i>&nbsp;RÁDIO ONLINE' data-en='<i class="fab fa-windows"></i>&nbsp;ONLINE RADIO' data-es='<i class="fab fa-windows"></i>&nbsp;RADIO ONLINE' data-fr='<i class="fab fa-windows"></i>&nbsp;RADIO EN LIGNE' data-de='<i class="fab fa-windows"></i>&nbsp;ONLINE-RADIO'><i class="fab fa-windows"></i>&nbsp;RÁDIO ONLINE · WINDOWS</span> -->
+				<span class="product-eyebrow eyebrow-purple" data-pt='<i class="fa-brands fa-windows"></i>&nbsp;Windows' data-en='<i class="fa fa-gift"></i>&nbsp;Windows' data-es='<i class="fa fa-gift"></i>&nbsp;Windows' data-fr='<i class="fa fa-gift"></i>&nbsp;Windows' data-de='<i class="fa fa-gift"></i>&nbsp;Windows'></span>
 				<span class="product-eyebrow eyebrow-purple" data-pt='<i class="fa fa-gift"></i>&nbsp;100% Gratuito' data-en='<i class="fa fa-gift"></i>&nbsp;100% Free' data-es='<i class="fa fa-gift"></i>&nbsp;100% Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;100% Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;100% Kostenlos'><i class="fa fa-gift"></i>&nbsp;100% Gratuito</span>				
             </h2>           
             <p data-pt="Mais que um player, uma rede global de ouvintes. No <strong>dbRadio</strong>, cada usuário é um curador. Adicione rádios exclusivas e, em breve, descubra o que o mundo está ouvindo através das listas compartilhadas pela nossa comunidade. Experiência nativa, leve e conectada."
@@ -1257,21 +1342,14 @@
     <h3 class="gallery-title-purple" data-pt="Idiomas disponíveis" data-en="Available languages" data-es="Idiomas disponibles" data-fr="Langues disponibles" data-de="Verfügbare Sprachen"></h3>
 
     <div class="lang-grid-status">
-        <div class="lang-status-item">
-            <img src="images/flag_usa_16.png" alt="English">
-            <span data-pt="Inglês" data-en="English" data-es="Inglés" data-fr="Anglais" data-de="Englisch">Inglês</span>
-            <img src="images/check-16.png" alt="Check" align="center">
-        </div>
-        <div class="lang-status-item">
-            <img src="images/flag_brazil_16.png" alt="Português">
-            <span data-pt="Português" data-en="Portuguese" data-es="Portugués" data-fr="Portugais" data-de="Portugiesisch">Português</span>
-            <img src="images/check-16.png" alt="Check" align="center">
-        </div>
-        <div class="lang-status-item">
-            <img src="images/flag_spain_16.png" alt="Español">
-            <span data-pt="Espanhol" data-en="Spanish" data-es="Español" data-fr="Espagnol" data-de="Spanisch">Espanhol</span>
-            <img src="images/load.gif" alt="Screen 01" align="center">
-        </div>
+		<div class="lang-status-item">
+			<img src="images/flag_usa_16.png" alt="English">
+			<span data-pt="Inglês" data-en="English" data-es="Inglés" data-fr="Anglais" data-de="Englisch">Inglês</span>
+		</div>
+		<div class="lang-status-item">
+			<img src="images/flag_brazil_16.png" alt="Português">
+			<span data-pt="Português" data-en="Portuguese" data-es="Portugués" data-fr="Portugais" data-de="Portugiesisch">Português</span>		
+		</div>
     </div>
     
     <a href="https://apps.microsoft.com/detail/9NRWV6JRPT8R" 
@@ -1295,6 +1373,7 @@
             <h2 class="product-title product-title-flex">                
 				dbNotes
 				<!-- <span class="product-eyebrow eyebrow-yellow" data-pt='<i class="fab fa-windows"></i>&nbsp;ANOTAÇÕES' data-en='<i class="fab fa-windows"></i>&nbsp;NOTES' data-es='<i class="fab fa-windows"></i>&nbsp;NOTAS' data-fr='<i class="fab fa-windows"></i>&nbsp;NOTES' data-de='<i class="fab fa-windows"></i>NOTIZEN'><i class="fab fa-windows"></i>&nbsp;ANOTAÇÕES</span> -->
+				<span class="product-eyebrow eyebrow-yellow" data-pt='<i class="fa-brands fa-windows"></i>&nbsp;Windows' data-en='<i class="fa fa-gift"></i>&nbsp;Windows' data-es='<i class="fa fa-gift"></i>&nbsp;Windows' data-fr='<i class="fa fa-gift"></i>&nbsp;Windows' data-de='<i class="fa fa-gift"></i>&nbsp;Windows'></span>
 				<span class="product-eyebrow eyebrow-yellow" data-pt='<i class="fa fa-gift"></i>&nbsp;100% Gratuito' data-en='<i class="fa fa-gift"></i>&nbsp;100% Free' data-es='<i class="fa fa-gift"></i>&nbsp;100% Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;100% Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;100% Kostenlos'><i class="fa fa-gift"></i>&nbsp;100% Gratuito</span>
                 <span class="product-eyebrow eyebrow-yellow" data-pt='<i class="fa fa-spinner"></i>&nbsp;Em Desenvolvimento' data-en='<i class="fa fa-spinner"></i>&nbsp;In Development' data-es='<i class="fa fa-spinner"></i>&nbsp;En Desarrollo' data-fr='<i class="fa fa-spinner"></i>&nbsp;En Développement' data-de='<i class="fa fa-spinner"></i>&nbsp;In Entwicklung'><i class="fa fa-spinner"></i>&nbsp;Em Desenvolvimento</span>
             </h2>
@@ -1353,21 +1432,26 @@
 
 	<h3 class="gallery-title-yellow" data-pt="Idiomas disponíveis" data-en="Available languages" data-es="Idiomas disponibles" data-fr="Langues disponibles" data-de="Verfügbare Sprachen"></h3>
     <div class="lang-grid-status">
-        <div class="lang-status-item">
-            <img src="images/flag_usa_16.png" alt="English">
-            <span data-pt="Inglês" data-en="English" data-es="Inglés" data-fr="Anglais" data-de="Englisch">Inglês</span>
-            <img src="images/load.gif" alt="Check" align="center">
-        </div>
-        <div class="lang-status-item">
-            <img src="images/flag_brazil_16.png" alt="Português">
-            <span data-pt="Português" data-en="Portuguese" data-es="Portugués" data-fr="Portugais" data-de="Portugiesisch">Português</span>
-            <img src="images/load.gif" alt="Check" align="center">
-        </div>
-        <div class="lang-status-item">
-            <img src="images/flag_spain_16.png" alt="Español">
-            <span data-pt="Espanhol" data-en="Spanish" data-es="Español" data-fr="Espagnol" data-de="Spanisch">Espanhol</span>
-            <img src="images/load.gif" alt="Screen 01" align="center">
-        </div>
+		<div class="lang-status-item">
+			<img src="images/flag_usa_16.png" alt="English">
+			<span data-pt="Inglês" data-en="English" data-es="Inglés" data-fr="Anglais" data-de="Englisch">Inglês</span>
+		</div>
+		<div class="lang-status-item">
+			<img src="images/flag_brazil_16.png" alt="Português">
+			<span data-pt="Português" data-en="Portuguese" data-es="Portugués" data-fr="Portugais" data-de="Portugiesisch">Português</span>		
+		</div>
+		<div class="lang-status-item">
+			<img src="images/flag_spain_16.png" alt="Español">
+			<span data-pt="Espanhol" data-en="Spanish" data-es="Español" data-fr="Espagnol" data-de="Spanisch">Espanhol</span>			
+		</div>
+		<div class="lang-status-item">
+			<img src="images/flag_france_16.png" alt="Français">
+			<span data-pt="Francês" data-en="French" data-es="Francés" data-fr="Français" data-de="Französisch">Francês</span>			
+		</div>
+		<div class="lang-status-item">
+			<img src="images/flag_germany_16.png" alt="Deutsch">
+			<span data-pt="Alemão" data-en="German" data-es="Alemán" data-fr="Allemand" data-de="Deutsch">Alemão</span>			
+		</div>
     </div>
     
     <a 
@@ -1422,9 +1506,10 @@
 		<a href="mailto:support@devbrazil.com" 
 		   class="product-eyebrow eyebrow-green" 
 		   title="support@devbrazil.com">
-		   <i class="fas fa-envelope"></i> E-mail
+		   <i class="fas fa-envelope"></i> Contato
 		</a>			
 		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa fa-map-marker"></i> Lençóis Paulista, SP - Brasil' data-en="" data-es="" data-fr="" data-de=""></span>
+		<span class="product-eyebrow eyebrow-red" data-pt='<i class="fa-solid fa-heart"></i> Made in Brazil' data-en="" data-es="" data-fr="" data-de=""></span>
     </div>
 	
 	<div class="about-content">
@@ -1539,23 +1624,25 @@
 		   data-de=""></a>
 	</div>	
 
-	<a href="https://www.linkedin.com/in/fabioceschini/" 
-	   target="_blank" 
-	   class="product-eyebrow eyebrow-green" 
-	   data-pt='<i class="fa-brands fa-linkedin"></i> Linkedin' 
-	   data-en='<i class="fa-brands fa-linkedin"></i> Linkedin' 
-	   data-es='<i class="fa-brands fa-linkedin"></i> Linkedin' 
-	   data-fr='<i class="fa-brands fa-linkedin"></i> Linkedin' 
-	   data-de='<i class="fa-brands fa-linkedin"></i> Linkedin'>
-	</a>
-	
-	<a href="mailto:support@devbrazil.com" 
-	   class="product-eyebrow eyebrow-green" 
-	   title="support@devbrazil.com">
-	   <i class="fas fa-envelope"></i> E-mail
-	</a>		
-	
-	<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa fa-map-marker"></i> Lençóis Paulista, SP - Brasil' data-en="" data-es="" data-fr="" data-de=""></span>
+	<div class="about-content">
+		<a href="https://www.linkedin.com/in/fabioceschini/" 
+		target="_blank" 
+		class="product-eyebrow eyebrow-green" 
+		data-pt='<i class="fa-brands fa-linkedin"></i> Linkedin' 
+		data-en='<i class="fa-brands fa-linkedin"></i> Linkedin' 
+		data-es='<i class="fa-brands fa-linkedin"></i> Linkedin' 
+		data-fr='<i class="fa-brands fa-linkedin"></i> Linkedin' 
+		data-de='<i class="fa-brands fa-linkedin"></i> Linkedin'>
+		</a>
+		
+		<a href="mailto:support@devbrazil.com" 
+		class="product-eyebrow eyebrow-green" 
+		title="support@devbrazil.com">
+		<i class="fas fa-envelope"></i> E-mail
+		</a>		
+		
+		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa fa-map-marker"></i> Lençóis Paulista, SP - Brasil' data-en="" data-es="" data-fr="" data-de=""></span>
+	</div>
 </div>
 
 <div id="contactModal" class="contact-modal">
@@ -1635,6 +1722,7 @@
     <span class="nav-btn prev-btn" onclick="changeImage(-1)">&#10094;</span>
     <img class="modal-content" id="img01">
     <span class="nav-btn next-btn" onclick="changeImage(1)">&#10095;</span>
+	<div id="caption" class="modal-caption"></div>
 </div>
 
 <script>
@@ -1745,15 +1833,39 @@
 
 	// Função para abrir o modal baseada na galeria específica
 	function openModal(index, galleryId) {
+		/*
 		// Captura apenas as imagens do card onde o usuário clicou
 		currentGalleryImages = Array.from(document.querySelectorAll(`#${galleryId} img:not(#gallery-dbmoney-youtube img)`));
 		currentImageIndex = index;		
 
 		const modal = document.getElementById("myModal");
 		const modalImg = document.getElementById("img01");
-    
+
 		modal.style.display = "flex";
 		modalImg.src = currentGalleryImages[currentImageIndex].src;
+
+		// Atualiza a legenda com base no idioma atual
+		updateCaption();
+		*/
+
+		currentGalleryImages = [];
+		var images = document.querySelectorAll(`#${galleryId} img:not(#gallery-dbmoney-youtube img)`)
+		for (var i = 0; i < images.length; i++) {
+			currentGalleryImages.push(images[i]);
+		}
+    
+		currentImageIndex = index;
+
+		var modal = document.getElementById("myModal");
+		var modalImg = document.getElementById("img01");
+		
+		if (modal && modalImg) {
+			modal.style.display = "flex";
+			modalImg.src = currentGalleryImages[currentImageIndex].src;
+			
+			// Atualiza a legenda com base no idioma atual
+			updateCaption();
+		}
 	}
 
 	function closeModal() { 
@@ -1768,7 +1880,22 @@
 		if (currentImageIndex < 0) currentImageIndex = currentGalleryImages.length - 1;
     
 		document.getElementById("img01").src = currentGalleryImages[currentImageIndex].src;
+
+		// Atualiza a legenda ao mudar de imagem
+		updateCaption();
 	}
+
+	// Função auxiliar para definir a legenda correta no Modal
+	function updateCaption() {
+		var captionText = document.getElementById("caption");
+		if (captionText && currentGalleryImages[currentImageIndex]) {
+			var currentImg = currentGalleryImages[currentImageIndex];
+			
+			if (typeof currentLang !== 'undefined') {
+				captionText.innerText = currentImg.getAttribute('data-caption-' + currentLang) || currentImg.alt || "";
+			}
+		}
+	}	
 
 	// Fechamento e navegação via teclado
 	document.addEventListener('keydown', function(e) {
