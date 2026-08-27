@@ -252,13 +252,12 @@ color: var(--azul-dbmoney); font-size: 1.8rem; margin-bottom: 15px;
 margin-bottom: 20px;
 }
 
-strong {
-color: #515151
-}
+strong {color: #515151}
 
-strong_black {
-color: var(--ink);
-}
+strong_black {color: var(--ink);}
+
+strong_dbmoney { color: var(--azul-dbmoney); font-size: 1.0rem; font-weight: bold; }
+strong_devbrazil { color: var(--verde-dev-dark); font-size: 1.2rem; font-weight: bold; display: inline-block; margin-bottom: 10px; }
 
 .gallery-title {
 color: var(--azul-dbmoney); margin: 40px 0 20px; border-bottom: 2px solid #E0E0E0; padding-bottom: 10px; font-size: 1.4rem;
