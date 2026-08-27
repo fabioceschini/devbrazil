@@ -691,13 +691,13 @@ display: flex;
 
 .faq{border-top:1px solid #ffffff}
 .faq details{border-bottom:1px solid #eee}
-.faq summary{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px;padding:16px 8px;color:#28251f;font: weight 520px;cursor:pointer;list-style:none;transition:color 140ms cubic-bezier(.2,.7,.2,1),background-color 140ms cubic-bezier(.2,.7,.2,1),padding 180ms cubic-bezier(.2,.7,.2,1)}
+.faq summary{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px;padding:16px 8px;color:#585755;font-size: 1rem; font-weight: normal; cursor:pointer;list-style:none;transition:color 140ms cubic-bezier(.2,.7,.2,1),background-color 140ms cubic-bezier(.2,.7,.2,1),padding 180ms cubic-bezier(.2,.7,.2,1)}
 .faq summary:hover{color:var(--azul-dbmoney);background:rgba(245, 245, 245, 0.68);padding-inline:12px}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary::after{content:"";width:10px;height:10px;flex:0 0 auto;color:var(--azul-dbmoney);background:linear-gradient(currentColor 0 0) center/100% 2px no-repeat,linear-gradient(currentColor 0 0) center/2px 100% no-repeat;transition:background-size 140ms cubic-bezier(.2,.7,.2,1),transform 180ms cubic-bezier(.2,.7,.2,1)}
 .faq details[open] summary::after{content:"";background-size:100% 2px,2px 0;transform:rotate(180deg)}
-.faq details[open] summary{color:var(--azul-dbmoney)}
-.faq details p{max-width:66ch;margin:0 8px 24px;color:#4b473f;font-size:.96rem;text-wrap:pretty}
+.faq details[open] summary{color:var(--azul-dbmoney); font-weight: bold;}
+.faq details p{margin:0 8px 24px;color:#4b473f;font-size:.96rem;text-wrap:pretty}   /*max-width:66ch;*/
 .faq details[open] p{animation:disclosure-in 180ms cubic-bezier(.2,.7,.2,1) both}
 
 .custom-tooltip {
