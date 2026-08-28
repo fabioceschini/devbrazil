@@ -701,7 +701,7 @@ display: flex;
 
 .custom-tooltip {
 position: relative !important;
-		display: inline-flex !important;
+		/* display: inline-flex !important; */
 		align-items: center;
 		cursor: help;
 }
