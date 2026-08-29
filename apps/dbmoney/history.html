@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevBrazil | Software Engineering</title>
+	<link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">	
+    <style>
+        :root {
+            --azul-escuro: #2B579A;
+            --azul-medio: #2B579A;
+            --azul-claro: #3949ab;
+            --cinza-claro: #F0F0F0;
+            --cinza-medio: #d6d6d6;
+            --cinza-escuro: #595959;
+            --verde-claro: #e8f5e9;
+            --verde-escuro: #2e7d32;
+            --laranja-claro: #fff3e0;
+            --laranja-escuro: #ef6c00;
+            --branco: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* font-family: 'Calibri', Tahoma, Geneva, Verdana, sans-serif; */
+            font-family: 'Calibri', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--branco);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.0rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitulo {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 1rem;
+            padding: 0 1rem;
+        }
+
+		.gallery-title { color: var(--azul-dbmoney); margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem; }
+        .screenshot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 12px; }
+        .screenshot-grid img { 
+            width: 100%; border-radius: 8px; cursor: pointer; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.2s;
+        }
+        .screenshot-grid img:hover { transform: scale(1.05); }
+        
+        .secao {
+            margin-bottom: 3rem;
+        }
+        
+        .secao-titulo {
+            color: var(--azul-escuro);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--azul-claro);
+        }
+        
+        /* Estilos para seção de versões */
+        .versao {
+            margin-bottom: 3rem;
+            border-left: 2px solid var(--cinza-medio);
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .versao::before {
+            margin-top: 0rem;
+            content: '';
+            position: absolute;
+            width: 3px;
+            height: 2px;
+            background-color: var(--cinza-medio);
+            border-radius: 10%;
+            left: 0px;
+            top: 10;
+        }
+
+        .versao::after {
+            margin-top: -0.9rem;
+            content: '';
+            position: absolute;
+            width: 5px;
+            height: 2px;
+            background-color: var(--cinza-medio);
+            border-radius: 10%;
+            left: -2px;
+            top: 1;
+        }  
+        
+        .versao-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .versao-numero {
+            font-size: 1.2rem;
+            color: var(--azul-escuro);
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        
+        .versao-data {
+            background-color: var(--cinza-claro);
+            color: var(--cinza-escuro);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .versao-titulo {
+            font-size: 1.0rem;
+            color: var(--cinza-escuro);
+            margin-bottom: 1rem;
+        }
+        
+        .alteracoes {
+            list-style-type: none;
+        }
+        
+        .alteracao-item {
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+			color: var(--cinza-escuro);
+            padding-left: 1.2rem;
+            position: relative;
+        }
+        
+        .alteracao-item::before {
+            content: '■';
+            position: absolute;
+            left: 0;
+            color: var(--azul-medio);
+            font-weight: bold;
+        }
+		
+        .alteracao-item-sub {
+            margin-bottom: 0.8rem;
+            font-size: 0.8rem;
+            padding-left: 2.7rem;
+            position: relative;
+        }
+
+        .alteracao-item-sub::before {
+            content: '•';
+            position: absolute;
+			left: 1.5rem;
+            color: var(--cinza-escuro);
+			font-weight: bold;
+		}
+		
+        .alteracao-item-sub-imagem {
+            margin-bottom: 0.8rem;
+            font-size: 0.8rem;
+            padding-left: 2.7rem;
+            position: relative;
+        }
+		
+        .alteracao-item-sub-imagem::before {
+            content: '•';	/* ★ */
+			/* content: url("images/image-16.png"); */
+			position: absolute;			
+			left: 1.5rem;
+			top: 30%;
+            color: var(--cinza-escuro);
+			font-weight: bold;
+		}
+        
+        .tag {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        .tag-novo {
+            background-color: var(--verde-claro);
+            color: var(--verde-escuro);
+        }
+        
+        .tag-correcao {
+            background-color: var(--laranja-claro);
+            color: var(--laranja-escuro);
+        }
+        
+        .tag-melhoria {
+            background-color: #e3f2fd;
+            color: #1565c0;
+        }
+		
+        .tag-imagens {
+            background-color: #F9E0E9;
+            color: #721C38;
+        }
+       
+        footer {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+			
+			.screenshot-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }          
+        }
+    </style>
+</head>
+<body>
+    <!--
+    <header>
+        <h1>Novidades do App</h1>
+        <p class="subtitulo">MeuApp - Fique por dentro das últimas atualizações e conteúdos</p>
+    </header>
+    -->
+    
+    <div class="container">
+		<section class="secao">
+			<h2 class="secao-titulo"><a data-pt="Acompanhe a evolução do dbMoney"
+                            data-en="Follow dbMoney's evolution"
+                            data-es="Siga la evolución de dbMoney"
+                            data-fr="Suivez l'évolution de dbMoney"
+                            data-de="Verfolgen Sie die Entwicklung von dbMoney"></a></h2>
+
+			<div class="versao">
+				<div class="versao-header">
+					<h3 class="versao-numero">v1.0.13</h3>
+					<span class="versao-data"><a data-pt="14 de Agosto de 2026"
+												 data-en="August 14, 2026"
+												 data-es="14 de Agosto de 2026"
+												 data-fr="14 Août 2026"
+												 data-de="14. August 2026"></a></span>
+				</div>
+				<h4 class="versao-titulo"><a data-pt="Nova versão disponível"
+											 data-en="New version available"
+											 data-es="Nueva versión disponible"
+											 data-fr="Nouvelle version disponible"
+											 data-de="Neue Version verfügbar"></a></h4>			
+				
+				<ul class="alteracoes">
+					<li class="alteracao-item"><span class="tag tag-melhoria"><a data-pt="<pre>Melhoria</pre>" 
+																				 data-en="<pre> Tweak </pre>" 
+																				 data-es="<pre>   Mejora   </pre>" 
+																				 data-fr="<pre>Amélior.</pre>" 
+																				 data-de="<pre>Optimier.</pre>"></a></span>
+											   <a data-pt="Implementada opção de avaliação do app para nos ajudar a melhorar a sua experiência."
+												  data-en="Implemented app rating option to help us improve your experience."
+												  data-es="Implementada la opción de calificación de la aplicación para ayudarnos a mejorar su experiencia."
+												  data-fr="Implémentation de l'option d'évaluation de l'application pour nous aider à améliorer votre expérience."
+												  data-de="Option zur App-Bewertung hinzugefügt, um uns bei der Verbesserung Ihrer Erfahrung zu helfen."></a></li>
+				</ul>
+
+				<ul class="alteracoes">				
+					<li class="alteracao-item"><span class="tag tag-correcao"><a data-pt="<pre>Correção</pre>" 
+																					 data-en="<pre>    Fix     </pre>" 
+																					 data-es="<pre>Corrección</pre>" 
+																					 data-fr="<pre>Correct. </pre>" 
+																					 data-de="<pre>Behoben </pre>"></a></span>
+											   <a data-pt="Solucionada uma falha de inicialização em sistemas sem determinadas bibliotecas da Microsoft pré-instaladas." 
+												  data-en="Fixed a startup issue on systems without certain Microsoft libraries pre-installed."
+												  data-es="Se solucionó un fallo de inicio en sistemas sin ciertas bibliotecas de Microsoft preinstaladas."
+												  data-fr="Résolution d'un problème de démarrage sur les systèmes n'ayant pas certaines bibliothèques Microsoft préinstallées."
+												  data-de="Startproblem auf Systemen ohne vorinstallierte Microsoft-Bibliotheken behoben."></a></li>
+				</ul>
+			</div>
+
+			<div class="versao">
+				<div class="versao-header">
+					<h3 class="versao-numero">v1.0.11</h3>
+					<span class="versao-data"><a data-pt="05 de Agosto de 2026"
+												 data-en="August 05, 2026"
+												 data-es="05 de Agosto de 2026"
+												 data-fr="05 Août 2026"
+												 data-de="05. August 2026"></a></span>
+				</div>
+				<h4 class="versao-titulo"><a data-pt="Nova versão disponível"
+											 data-en="New version available"
+											 data-es="Nueva versión disponible"
+											 data-fr="Nouvelle version disponible"
+											 data-de="Neue Version verfügbar"></a></h4>			
+				
+				<ul class="alteracoes">
+					<li class="alteracao-item"><span class="tag tag-melhoria"><a data-pt="<pre>Melhoria</pre>" 
+																			     data-en="<pre> Tweak </pre>" 
+																				 data-es="<pre>   Mejora   </pre>" 
+																				 data-fr="<pre>Amélior.</pre>" 
+																				 data-de="<pre>Optimier.</pre>"></a></span>
+											   <a data-pt="Ajustes visuais em telas."
+												  data-en="Visual adjustments to screens."
+												  data-es="Ajustes visuales en pantallas."
+												  data-fr="Ajustements visuels sur les écrans."
+												  data-de="Visuelle Anpassungen der Bildschirme."></a></li>
+				</ul>
+				
+				<ul class="alteracoes">				
+					<li class="alteracao-item"><span class="tag tag-correcao"><a data-pt="<pre>Correção</pre>" 
+																					 data-en="<pre>    Fix     </pre>" 
+																					 data-es="<pre>Corrección</pre>" 
+																					 data-fr="<pre>Correct. </pre>" 
+																					 data-de="<pre>Behoben </pre>"></a></span>
+												   <a data-pt="Correção de termos internacionais." 
+													  data-en="Correction of international terms."
+													  data-es="Corrección de términos internacionales."
+													  data-fr="Correction des termes internationaux."
+													  data-de="Korrektur internationaler Begriffe."></a></li>
+				</ul>
+
+				<ul class="alteracoes">				
+					<li class="alteracao-item"><span class="tag tag-correcao"><a data-pt="<pre>Correção</pre>" 
+																					 data-en="<pre>    Fix     </pre>" 
+																					 data-es="<pre>Corrección</pre>" 
+																					 data-fr="<pre>Correct. </pre>" 
+																					 data-de="<pre>Behoben </pre>"></a></span>
+												   <a data-pt="Correção de pequenos bugs." 
+													  data-en="Minor bug fixes."
+													  data-es="Corrección de errores menores."
+													  data-fr="Correction de bugs mineurs."
+													  data-de="Kleinere Fehlerbehebungen."></a></li>
+				</ul>
+			</div>
+
+			<div class="versao">
+				<div class="versao-header">
+					<h3 class="versao-numero">v1.0.10</h3>
+					<span class="versao-data"><a data-pt="28 de Julho de 2026"
+												 data-en="July 28, 2026"
+												 data-es="28 de Julio de 2026"
+												 data-fr="28 Juillet 2026"
+												 data-de="28. Juli 2026"></a></span>
+				</div>
+				<h4 class="versao-titulo"><a data-pt="Nova versão disponível"
+											 data-en="New version available"
+											 data-es="Nueva versión disponible"
+											 data-fr="Nouvelle version disponible"
+											 data-de="Neue Version verfügbar"></a></h4>			
+				
+				<ul class="alteracoes">
+					<li class="alteracao-item"><span class="tag tag-melhoria"><a data-pt="<pre>Melhoria</pre>" 
+																			     data-en="<pre> Tweak </pre>" 
+																				 data-es="<pre>   Mejora   </pre>" 
+																				 data-fr="<pre>Amélior.</pre>" 
+																				 data-de="<pre>Optimier.</pre>"></a></span>
+											   <a data-pt="Ajustes visuais em telas."
+												  data-en="Visual adjustments to screens."
+												  data-es="Ajustes visuales en pantallas."
+												  data-fr="Ajustements visuels sur les écrans."
+												  data-de="Visuelle Anpassungen der Bildschirme."></a></li>
+				</ul>
+				
+				<ul class="alteracoes">				
+					<li class="alteracao-item"><span class="tag tag-correcao"><a data-pt="<pre>Correção</pre>" 
+																					 data-en="<pre>    Fix     </pre>" 
+																					 data-es="<pre>Corrección</pre>" 
+																					 data-fr="<pre>Correct. </pre>" 
+																					 data-de="<pre>Behoben </pre>"></a></span>
+												   <a data-pt="Correção de termos internacionais." 
+													  data-en="Correction of international terms."
+													  data-es="Corrección de términos internacionales."
+													  data-fr="Correction des termes internationaux."
+													  data-de="Korrektur internationaler Begriffe."></a></li>
+				</ul>
+
+			</div>
+
+			<div class="versao">
+				<div class="versao-header">
+					<h3 class="versao-numero">v1.0.8</h3>
+					<span class="versao-data"><a data-pt="25 de Junho de 2026"
+												 data-en="June 25, 2026"
+												 data-es="25 de junio de 2026"
+												 data-fr="25 juin 2026"
+												 data-de="25. Juni 2026"></a></span>
+				</div>
+				<h4 class="versao-titulo"><a data-pt="Nova versão disponível"
+											 data-en="New version available"
+											 data-es="Nueva versión disponible"
+											 data-fr="Nouvelle version disponible"
+											 data-de="Neue Version verfügbar"></a></h4>
+				<ul class="alteracoes">
+					<li class="alteracao-item"><span class="tag tag-melhoria"><a data-pt="<pre>Melhoria</pre>" 
+																			     data-en="<pre> Tweak </pre>" 
+																				 data-es="<pre>   Mejora   </pre>" 
+																				 data-fr="<pre>Amélior.</pre>" 
+																				 data-de="<pre>Optimier.</pre>"></a></span>
+											   <a data-pt="Ajustes visuais na tela de abertura."
+												  data-en="Visual adjustments on the splash screen."
+												  data-es="Ajustes visuales en la pantalla de inicio."
+												  data-fr="Ajustements visuels sur l'écran de démarrage."
+												  data-de="Visuelle Anpassungen auf dem Startbildschirm."></a></li>
+				</ul>
+				
+				<ul class="alteracoes">
+					<li class="alteracao-item"><span class="tag tag-melhoria"><a data-pt="<pre>Melhoria</pre>" 
+																			     data-en="<pre> Tweak </pre>" 
+																				 data-es="<pre>   Mejora   </pre>" 
+																				 data-fr="<pre>Amélior.</pre>" 
+																				 data-de="<pre>Optimier.</pre>"></a></span>
+											   <a data-pt="Ajustes visuais na tela de criação de novos arquivos."
+												  data-en="Visual adjustments on the new file creation screen."
+												  data-es="Ajustes visuales en la pantalla de creación de nuevos archivos."
+												  data-fr="Ajustements visuels sur l'écran de création de nouveaux fichiers."
+												  data-de="Visuelle Anpassungen auf dem Bildschirm zur Erstellung neuer Dateien."></a></li>
+				</ul>
+				
+				<ul class="alteracoes">				
+					<li class="alteracao-item"><span class="tag tag-correcao"><a data-pt="<pre>Correção</pre>" 
+																					 data-en="<pre>    Fix     </pre>" 
+																					 data-es="<pre>Corrección</pre>" 
+																					 data-fr="<pre>Correct. </pre>" 
+																					 data-de="<pre>Behoben </pre>"></a></span>
+												   <a data-pt="Correção de termos internacionais." 
+													  data-en="Correction of international terms."
+													  data-es="Corrección de términos internacionales."
+													  data-fr="Correction des termes internationaux."
+													  data-de="Korrektur internationaler Begriffe."></a></li>
+				</ul>
+				
+				<ul class="alteracoes">				
+					<li class="alteracao-item"><span class="tag tag-correcao"><a data-pt="<pre>Correção</pre>" 
+																					 data-en="<pre>    Fix     </pre>" 
+																					 data-es="<pre>Corrección</pre>" 
+																					 data-fr="<pre>Correct. </pre>" 
+																					 data-de="<pre>Behoben </pre>"></a></span>
+												   <a data-pt="Correção de pequenos bugs." 
+													  data-en="Minor bug fixes."
+													  data-es="Corrección de errores menores."
+													  data-fr="Correction de bugs mineurs."
+													  data-de="Kleinere Fehlerbehebungen."></a></li>
+				</ul>				
+												  
+			</div>
+
+			<div class="versao">
+				<div class="versao-header">
+					<h3 class="versao-numero">v1.0.5</h3>
+					<span class="versao-data"><a data-pt="23 de Junho de 2026"
+												 data-en="June 23, 2026"
+												 data-es="23 de junio de 2026"
+												 data-fr="23 juin 2026"
+												 data-de="23. Juni 2026"></a></span>
+				</div>
+				<h4 class="versao-titulo"><a data-pt="Nova versão disponível"
+											 data-en="New version available"
+											 data-es="Nueva versión disponible"
+											 data-fr="Nouvelle version disponible"
+											 data-de="Neue Version verfügbar"></a></h4>
+				<ul class="alteracoes">				
+					<li class="alteracao-item"><span class="tag tag-melhoria"><a data-pt="<pre>Melhoria</pre>" 
+																			     data-en="<pre> Tweak </pre>" 
+																				 data-es="<pre>   Mejora   </pre>" 
+																				 data-fr="<pre>Amélior.</pre>" 
+																				 data-de="<pre>Optimier.</pre>"></a></span>
+											   <a data-pt="Confira as melhorias a seguir:"
+												  data-en="Check out the improvements below:"
+												  data-es="Consulte las mejoras a continuación:"
+												  data-fr="Découvrez os améliorations ci-dessous :"
+												  data-de="Sehen Sie sich os folgenden Optimierungen an:"></a></li>
+
+					<li class="alteracao-item-sub"><a data-pt="Ajuste visual na tela de manutenção de automatizadores."
+													  data-en="Visual adjustment on the automation maintenance screen."
+													  data-es="Ajuste visual en la pantalla de mantenimiento de automatizaciones."
+													  data-fr="Ajustement visuel sur l'écran de maintenance des automates."
+													  data-de="Visuelle Anpassung in der Maske „Automatisierungsverwaltung“ ."></a></li>
+
+					<li class="alteracao-item-sub"><a data-pt="Ao excluir um automatizador, a descrição foi incluída na mensagem."
+													  data-en="When deleting an automation, its description is now included in the confirmation message."
+													  data-es="Al eliminar una automatización, se ha incluido su descripción en el mensaje de confirmación."
+													  data-fr="Lors de la suppression d'un automate, sa description est désormais incluse dans le message."
+													  data-de="Beim Löschen einer Automatisierung wird deren Beschreibung nun in der Bestätigungsmeldung angezeigt."></a></li>
+													  
+					<li class="alteracao-item-sub"><a data-pt="Ao excluir um automatizador, as transações de importação são atualizadas."
+													  data-en="When deleting an automation, import transactions are automatically updated."
+													  data-es="Al eliminar una automatización, las transacciones de importación se acualizan automáticamente."
+													  data-fr="Lors de la suppression d'un automate, les transactions d'importation sont mises à jour."
+													  data-de="Beim Löschen einer Automatisierung werden die Importtransaktionen automatisch aktualisiert."></a></li>
+					
+					<li class="alteracao-item-sub"><a data-pt="Ajustes de termos em alemão e descrições de campos na tela de configurações."
+													  data-en="Adjustments to German terminology and field descriptions on the settings screen."
+													  data-es="Ajustes de términos en alemán y descripciones de campos en la pantalla de configuración."
+													  data-fr="Ajustements de la terminologie en allemand et des descriptions de champs sur l'écran de configuration."
+													  data-de="Anpassungen der deutschen Terminologie und der Feldbeschreibungen in den Einstellungen."></a></li>  
+				</ul>
+			</div>
+
+			<div class="versao">
+				<div class="versao-header">
+					<h3 class="versao-numero">v1.0.3</h3>
+					<span class="versao-data"><a data-pt="20 de Junho de 2026"
+												 data-en="June 20, 2026"
+												 data-es="20 de mayo de 2026"
+												 data-fr="20 juin 2026"
+												 data-de="20. Juni 2026"></a></span>
+				</div>
+				<h4 class="versao-titulo"><a data-pt="Nova versão disponível"
+											 data-en="New version available"
+											 data-es="Nueva versión disponible"
+											 data-fr="Nouvelle version disponible"
+											 data-de="Neue Version verfügbar"></a></h4>
+				<ul class="alteracoes">
+					<li class="alteracao-item"><span class="tag tag-novo"><a data-pt="<pre>    Novo    </pre>" 
+					                                                         data-en="<pre>   New   </pre>" 
+																			 data-es="<pre>    Nuevo   </pre>" 
+																			 data-fr="<pre>Nouveau</pre>" 
+																			 data-de="<pre>    Neu    </pre>"></a></span>
+											   <a data-pt="Adicionado 3 novos idiomas: <strong>Espanhol, Francês e Alemão</strong>."
+												  data-en="Added 3 new languages: <strong>Spanish, French, and German</strong>."
+												  data-es="Añadidos 3 nuevos idiomas: <strong>Español, Francés y Alemán</strong>."
+												  data-fr="Ajout de 3 nouvelles langues: <strong>Espagnol, Français et Allemand</strong>."
+												  data-de="3 neue Sprachen hinzugefügt: <strong>Spanisch, Französisch und Deutsch</strong>."></a></li>
+												  
+					<li class="alteracao-item-sub-imagem">
+						<div class="screenshot-grid" id="gallery-1-0-3" style="display: flex; gap: 12px; margin-top: 10px;">
+							
+							<img src="images/dbmoney_update_1.0.3_1.png" 
+								 alt="Added 3 new languages: Spanish, French, and German" 
+								 data-caption-pt="Adicionado 3 novos idiomas: Espanhol, Francês e Alemão"
+								 data-caption-en="Added 3 new languages: Spanish, French, and German"
+								 data-caption-es="Añadidos 3 nuevos idiomas: Español, Francés y Alemán"
+								 data-caption-fr="Ajout de 3 nouvelles langues: Espagnol, Français et Allemand"
+								 data-caption-de="3 neue Sprachen hinzugefügt: Spanisch, Französisch und Deutsch"
+								 onclick="openModal(0, 'gallery-1-0-3')" 
+								 style="max-width: 50px; height: 50px;">												  
+						</div>
+					</li>
+												  
+					<li class="alteracao-item"><span class="tag tag-melhoria"><a data-pt="<pre>Melhoria</pre>" 
+					                                                             data-en="<pre> Tweak </pre>" 
+																				 data-es="<pre>   Mejora   </pre>" 
+																				 data-fr="<pre>Amélior.</pre>" 
+																				 data-de="<pre>Optimier.</pre>"></a></span>
+											   <a data-pt="Aprimorada a interface e legibilidade dos textos." 
+												  data-en="Improved interface and text readability."
+												  data-es="Interfaz e legibilidad de textos mejoradas."
+												  data-fr="Amélioration de l'interface et de la lisibilité des textes."
+												  data-de="Benutzeroberfläche und Textlesbarkeit verbessert."></a></li>
+												  
+					<li class="alteracao-item"><span class="tag tag-correcao"><a data-pt="<pre>Correção</pre>" 
+					                                                             data-en="<pre>    Fix     </pre>" 
+																				 data-es="<pre>Corrección</pre>" 
+																				 data-fr="<pre>Correct. </pre>" 
+																				 data-de="<pre>Behoben </pre>"></a></span>
+											   <a data-pt="Correção de pequenos bugs." 
+												  data-en="Minor bug fixes."
+												  data-es="Corrección de errores menores."
+												  data-fr="Correction de bugs mineurs."
+												  data-de="Kleinere Fehlerbehebungen."></a></li>
+				</ul>
+			</div>
+			
+			<div class="versao">
+				<div class="versao-header">
+					<h3 class="versao-numero">v1.0.2</h3>
+					<span class="versao-data"><a data-pt="12 de Junho de 2026"
+												 data-en="June 12, 2026"
+												 data-es="12 de junio de 2026"
+												 data-fr="12 juin 2026"
+												 data-de="12. Juni 2026"></a></span>
+				</div>
+				<h4 class="versao-titulo"><a data-pt="Nova versão disponível"
+											 data-en="New version available"
+											 data-es="Nueva versión disponible"
+											 data-fr="Nouvelle version disponible"
+											 data-de="Neue Version verfügbar"></a></h4>
+				<ul class="alteracoes">				
+					<li class="alteracao-item"><span class="tag tag-novo"><a data-pt="<pre>    Novo    </pre>" 
+					                                                         data-en="<pre>   New   </pre>" 
+																			 data-es="<pre>    Nuevo   </pre>" 
+																			 data-fr="<pre>Nouveau</pre>" 
+																			 data-de="<pre>    Neu    </pre>"></a></span>
+											   <a data-pt="Confira as novidades abaixo:"
+												  data-en="Check out the latest updates below:"
+												  data-es="Conozca las novedades a continuación:"
+												  data-fr="Découvrez les nouveautés ci-dessous :"
+												  data-de="Sehen Sie sich die neuesten Updates unten an:"></a></li>
+
+					<li class="alteracao-item-sub"><a data-pt="Adicionada nova tradução para o <strong>inglês</strong>."
+													  data-en="Added comprehensive <strong>English</strong> translation."
+													  data-es="Añadida nueva traducción al <strong>inglés</strong>."
+													  data-fr="Ajout d'une nova traduction en <strong>anglais</strong>."
+													  data-de="Neue umfassende <strong>englische</strong> Übersetzung hinzugefügt."></a></li>
+
+					<li class="alteracao-item-sub"><a data-pt="Inclusão de 3 novos campos totalmente personalizáveis pelo usuário."
+													  data-en="Included 3 new fully customizable user fields."
+													  data-es="Inclusión de 3 nuevos campos totalmente personalizables por el usuario."
+													  data-fr="Inclusion de 3 nouveaux champs entièrement personnalisables par l'utilisateur."
+													  data-de="3 neue, vollständig anpassbare Benutzerfelder hinzugefügt."></a></li>
+													  
+					<li class="alteracao-item-sub"><a data-pt="Adicionado customização de campos em todas as telas (grids)."
+													  data-en="Added custom field support across all grids and screens."
+													  data-es="Añadida personalización de campos en todas las pantallas (grids)."
+													  data-fr="Ajout de la personnalisation des champs sur tous les écrans (grilles)."
+													  data-de="Unterstützung für benutzerdefinierte Felder in allen Tabellen (Grids) und Ansichten hinzugefügt."></a></li>
+													  
+					<li class="alteracao-item-sub"><a data-pt="Configure a forma como os campos personalizados são exibidos diretamente na tela de Configurações."
+													  data-en="Configure how custom fields are displayed right from the Settings screen."
+													  data-es="Configure la forma en que se muestran los campos personalizados directamente en la pantalla de Configuración."
+													  data-fr="Configurez la manière dont os champs personnalisés s'affichent directement depuis l'écran des Paramètres."
+													  data-de="Konfigurieren Sie die Anzeige benutzerdefinierter Felder direkt im Einstellungsbildschirm."></a></li>													  
+																						
+					<li class="alteracao-item-sub"><a data-pt="Novos ícones de instituições bancárias internacionais."
+													  data-en="Added new icons for international banking institutions."
+													  data-es="Nuevos iconos de instituciones bancarias internacionales."
+													  data-fr="Nouvelles icônes d'institutions bancaires internationales."
+													  data-de="Neue Symbole für internationale Bankinstitute hinzugefügt."></a></li>
+
+					<li class="alteracao-item-sub-imagem">
+						<div class="screenshot-grid" id="gallery-1-0-2" style="display: flex; gap: 12px; margin-top: 10px;">
+							
+							<img src="images/dbmoney_update_1.0.2_1.png" 
+								 alt="Added comprehensive English translation" 
+								 data-caption-pt="Adicionada nova tradução para o inglês"
+								 data-caption-en="Added comprehensive English translation"
+								 data-caption-es="Añadida nueva traducción al inglés"
+								 data-caption-fr="Ajout d'une nouvelle traduction en anglais"
+								 data-caption-de="Neue umfassende englische Übersetzung hinzugefügt"
+								 onclick="openModal(0, 'gallery-1-0-2')" 
+								 style="max-width: 50px; height: 50px;">
+							
+							<img src="images/dbmoney_update_1.0.2_2.png" 
+								 alt="Configure how custom fields are displayed right from the Settings screen" 
+								 data-caption-pt="Configure a forma como os campos personalizados são exibidos diretamente na tela de Configurações"
+								 data-caption-en="Configure how custom fields are displayed right from the Settings screen"
+								 data-caption-es="Configure la forma en que se muestran los campos personalizados directamente en la pantalla de Configuración"
+								 data-caption-fr="Configurez la manière dont vos champs personnalisés s'affichent directement depuis l'écran des Paramètres"
+								 data-caption-de="Konfigurieren Sie die Anzeige benutzerdefinierter Felder direkt im Einstellungsbildschirm"
+								 onclick="openModal(1, 'gallery-1-0-2')" 
+								 style="max-width: 50px; height: 50px;">
+							
+							<img src="images/dbmoney_update_1.0.2_3.png" 
+								 alt="Added custom field support across all grids and screens" 
+								 data-caption-pt="Adicionado customização de campos em todas as telas (grids)" 
+								 data-caption-en="Added custom field support across all grids and screens"
+								 data-caption-es="Añadida personalización de campos en todas las pantallas (grids)"
+								 data-caption-fr="Ajout de la personnalisation des champs sur tous les écrans (grilles)"
+								 data-caption-de="Unterstützung für benutzerdefinierte Felder in allen Tabellen (Grids) und Ansichten hinzugefügt"
+								 onclick="openModal(2, 'gallery-1-0-2')" 
+								 style="max-width: 50px; height: 50px;">
+							
+							<img src="images/dbmoney_update_1.0.2_4.png" 
+								 alt="Added new icons for international banking institutions" 
+								 data-caption-pt="Novos ícones de instituições bancárias internacionais"
+								 data-caption-en="Added new icons for international banking institutions"
+								 data-caption-es="Nuevos iconos de instituciones bancarias internacionales"
+								 data-caption-fr="Nouvelles icônes d'institutions bancaires internationales"
+								 data-caption-de="Neue Symbole für internationale Bankinstitute hinzugefügt"
+								 onclick="openModal(3, 'gallery-1-0-2')" 
+								 style="max-width: 50px; height: 50px;">
+						</div>
+					</li>
+
+					<li class="alteracao-item"><span class="tag tag-melhoria"><a data-pt="<pre>Melhoria</pre>" 
+					                                                             data-en="<pre> Tweak </pre>" 
+																				 data-es="<pre>   Mejora   </pre>" 
+																				 data-fr="<pre>Amélior.</pre>" 
+																				 data-de="<pre>Optimier.</pre>"></a></span>
+											   <a data-pt="Aprimorada a interface e legibilidade dos textos em inglês." 
+												  data-en="Improved English interface translation and overall readability."
+												  data-es="Interfaz y legibilidad de los textos en inglés mejoradas."
+												  data-fr="Amélioration de l'interface et de la lisibilité des textes en anglais."
+												  data-de="Verbesserte englische Benutzeroberfläche und allgemeine Lesbarkeit."></a></li>
+												  
+					<li class="alteracao-item"><span class="tag tag-correcao"><a data-pt="<pre>Correção</pre>" 
+					                                                             data-en="<pre>    Fix     </pre>" 
+																				 data-es="<pre>Corrección</pre>" 
+																				 data-fr="<pre>Correct. </pre>" 
+																				 data-de="<pre>Behoben </pre>"></a></span>
+											   <a data-pt="Corrigidos pequenos erros de digitação nos termos internacionais." 
+												  data-en="Fixed minor typos in international terms."
+												  data-es="Corregidos pequeños errores de ortografía en los términos internacionales."
+												  data-fr="Correction de pequenas fautes de frappe nas os termes internationaux."
+												  data-de="Kleinere Tippfehler in internationalen Begriffen behoben."></a></li>
+				</ul>
+			</div>
+
+			<div class="versao">
+				<div class="versao-header">
+					<h3 class="versao-numero">v1.0.1</h3>
+					<span class="versao-data"><a data-pt="20 de Maio de 2026"
+												 data-en="May 20, 2026"
+												 data-es="20 de mayo de 2026"
+												 data-fr="20 mai 2026"
+												 data-de="20. Mai 2026"></a></span>
+				</div>
+				<h4 class="versao-titulo"><a data-pt="Lançamento oficial na Microsoft Store"
+											 data-en="Official launch on the Microsoft Store"
+											 data-es="Lanzamiento oficial en Microsoft Store"
+											 data-fr="Lancement officiel sur le Microsoft Store"
+											 data-de="Offizieller Start im Microsoft Store"></a></h4>
+				<ul class="alteracoes">
+					<li class="alteracao-item"><a data-pt="É com muito orgulho que anunciamos a primeira versão da melhor ferramenta de engenharia financeira pessoal da Microsoft Store."
+												  data-en="We are very proud to announce the first version of the best personal financial engineering tool on the Microsoft Store."
+												  data-es="Es con gran orgullo que anunciamos la primera versión de la mejor herramienta de ingeniería financeira personal de Microsoft Store."
+												  data-fr="C'est avec une grande fierté que nous annonçons la première version do meilleur outil d'ingénierie financière personnelle sur le Microsoft Store."
+												  data-de="Wir sind stolz, die erste Version des besten Tools für persönliche Finanzplanung im Microsoft Store anzukündigen."></a></li>
+					<li class="alteracao-item"><a data-pt="Criamos o dbMoney para ser a ferramenta mais rápida e segura do seu Windows. Explore os gráficos, organize seus fluxos e sinta a diferença de um software feito para quem busca clareza absoluta nos dados."
+												  data-en="We created dbMoney to be the fastest and most secure tool for your Windows system. Explore the charts, organize your flows, and experience the difference of software designed for those seeking absolute clarity in their data."
+												  data-es="Hemos creado dbMoney para ser la herramienta más rápida y segura de su Windows. Explore los gráficos, organice sus flujos y sienta la diferencia de un software hecho para quienes buscan claridad absoluta en los datos."
+												  data-fr="Nous avons créé dbMoney pour être l'outil le plus rapide et le plus sécurisé de votre Windows. Explorez les graphiques, organisez vos flux et ressentez la différence d'un logiciel conçu pour ceux qui recherchent une clarté absolue des données."
+												  data-de="Wir haben dbMoney entwickelt, um das schnellste und sicherste Tool für Ihr Windows-System zu sein. Erkunden Sie Diagramme, organisieren Sie Ihre Finanzströme und erleben Sie den Unterschied einer Software, die für absolute Datenklarheit entwickelt wurde."></a></li>
+					<li class="alteracao-item"><a data-pt="Sua jornada para a liberdade financeira começa agora."
+												  data-en="Your journey to financial freedom starts now."
+												  data-es="Su viaje hacia la libertad financiera comienza ahora."
+												  data-fr="Votre voyage vers la liberté financière commence maintenant."
+												  data-de="Ihre Reise zur finanziellen Freiheit beginnt jetzt."></a></li>
+				</ul>
+			</div>
+        </section>
+    </div>
+    
+    <!--
+    <footer>
+        <p>&copy; 2025 DevBrazil. Todos os direitos reservados.</p>
+    </footer>
+    -->
+
+	<div id="myModal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); align-items: center; justify-content: center; flex-direction: column;">
+		<span style="position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; user-select: none; z-index: 10000;" onclick="closeModal()">&times;</span>
+		<span style="position: absolute; left: 20px; color: #f1f1f1; font-size: 50px; font-weight: bold; cursor: pointer; user-select: none; padding: 10px; z-index: 10000;" onclick="changeImage(-1); event.stopPropagation();">&#10094;</span>
+		<img id="img01" style="margin: 0 auto; display: block; max-width: 85%; max-height: 80%; border-radius: 4px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+		<div id="caption" style="margin: 15px auto 0; text-align: center; color: #ccc; font-size: 1.1rem; max-width: 80%; font-weight: 300; min-height: 25px;"></div>
+		<span style="position: absolute; right: 20px; color: #f1f1f1; font-size: 50px; font-weight: bold; cursor: pointer; user-select: none; padding: 10px; z-index: 10000;" onclick="changeImage(1); event.stopPropagation();">&#10095;</span>
+	</div>	
+	
+<script>
+	let currentImageIndex = 0;
+	let currentGalleryImages = [];	
+	
+	function updateContent() {
+		document.querySelectorAll('[data-pt]').forEach(el => {
+			const texto = el.getAttribute('data-' + currentLang);
+			if (texto) {
+				// USAR innerHTML para que o navegador processe o <strong>
+				el.innerHTML = texto;
+			}
+		});
+		
+		// Atualiza placeholders
+		document.querySelectorAll('[data-placeholder-pt]').forEach(el => {
+			const texto = el.getAttribute('data-placeholder-' + currentLang);
+			if (texto) {
+				el.placeholder = texto;
+			}
+		});		
+		
+		// Atualiza o texto do botão de troca (Se você usar um botão cíclico, pode adaptar aqui)
+		document.querySelectorAll('.lang-text').forEach(span => {
+			if (currentLang === 'pt') span.innerText = 'en';
+			else if (currentLang === 'en') span.innerText = 'es';
+			else if (currentLang === 'es') span.innerText = 'fr';
+			else if (currentLang === 'fr') span.innerText = 'de';
+			else span.innerText = 'pt';
+		});
+	}
+
+	function changeLanguage(lang) {
+		currentLang = lang;
+		// Atualiza textos
+		updateContent();
+	}
+	
+	window.addEventListener('click', function(event) {
+	
+		// Fecha modal da galeria
+		let galleryModal = document.getElementById("myModal");
+	
+		if (event.target == galleryModal) {
+			closeModal();
+		}
+	});
+	
+	window.onload = function() {
+		// Idioma padrão
+		currentLang = 'en';
+		
+		// Detecta idioma do navegador
+		const browserLang = navigator.language || navigator.userLanguage;
+		
+		if (browserLang.startsWith('en')) {
+			currentLang = 'en';
+		} else if (browserLang.startsWith('es')) {
+			currentLang = 'es';
+		} else if (browserLang.startsWith('fr')) {
+			currentLang = 'fr';
+		} else if (browserLang.startsWith('de')) {
+			currentLang = 'de';
+		} else if (browserLang.startsWith('pt')) {
+			currentLang = 'pt';
+		}
+		
+		// Verifica URL (?lang= ou #)
+		checkURLForLanguage();
+		
+		// Atualiza conteúdo
+		changeLanguage(currentLang);		
+	}
+
+	document.addEventListener('keydown', function(e) {
+		if (document.getElementById("myModal").style.display === "flex") {
+			if (e.key === "ArrowLeft") changeImage(-1);
+			if (e.key === "ArrowRight") changeImage(1);
+			if (e.key === "Escape") closeModal();
+		}
+	});
+
+	// Executa assim que o site carregar
+    document.addEventListener("DOMContentLoaded", checkURLForLanguage);
+
+	function scrollToSection(id) {
+
+		const element = document.getElementById(id);
+
+		if (element) {
+			element.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start'
+			});
+		}
+	}
+	
+	// Função que lê o idioma da URL
+	function checkURLForLanguage() {	
+		const hash = window.location.hash.replace('#', '');		
+		const urlParams = new URLSearchParams(window.location.search);		
+		const langParam = urlParams.get('lang');
+		
+		// Lista de idiomas válidos atualizada
+		const validLangs = ['en', 'pt', 'es', 'fr', 'de'];
+		
+		if (validLangs.includes(hash)) {		
+			currentLang = hash;		
+		} else if (validLangs.includes(langParam)) {		
+			currentLang = langParam;
+		}		
+	}
+	
+	// Função para abrir o modal atualizada com suporte a legenda bilíngue
+	//
+	function openModal(index, galleryId) {
+		currentGalleryImages = [];
+		var images = document.querySelectorAll("#" + galleryId + " img");
+		for (var i = 0; i < images.length; i++) {
+			currentGalleryImages.push(images[i]);
+		}
+    
+		currentImageIndex = index;
+
+		var modal = document.getElementById("myModal");
+		var modalImg = document.getElementById("img01");
+		
+		if (modal && modalImg) {
+			modal.style.display = "flex";
+			modalImg.src = currentGalleryImages[currentImageIndex].src;
+			
+			// Atualiza a legenda com base no idioma atual
+			updateCaption();
+		}		
+	}
+
+	function closeModal() { 
+		document.getElementById("myModal").style.display = "none"; 
+	}
+	
+	// Função de navegar imagens pelas setas ou teclado
+	function changeImage(step) {
+		if (currentGalleryImages.length === 0) return;
+    
+		currentImageIndex += step;
+		if (currentImageIndex >= currentGalleryImages.length) currentImageIndex = 0;
+		if (currentImageIndex < 0) currentImageIndex = currentGalleryImages.length - 1;
+    
+		document.getElementById("img01").src = currentGalleryImages[currentImageIndex].src;
+		
+		// Atualiza a legenda ao mudar de imagem
+		updateCaption();
+	}
+	
+	// Função auxiliar para definir a legenda correta no Modal
+	function updateCaption() {
+		var captionText = document.getElementById("caption");
+		if (captionText && currentGalleryImages[currentImageIndex]) {
+			var currentImg = currentGalleryImages[currentImageIndex];
+			
+			if (typeof currentLang !== 'undefined') {
+				captionText.innerText = currentImg.getAttribute('data-caption-' + currentLang) || currentImg.alt || "";
+			}
+		}
+	}
+
+</script>
+	
+</body>
+</html>

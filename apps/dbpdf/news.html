@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Calibri', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            color: #585858;
+            line-height: 1.5;
+            margin: 1;
+            padding: 0px;
+            text-align: center;
+        }
+		
+		strong { color: #A95153; }
+		
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0px;
+            border-radius: 8px;
+            /* box-shadow: 0 2px 10px rgba(0,0,0,0.05); */
+        }
+        p {
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+        .bold {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        .footer {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 0.9em;
+        }
+        .bold {
+			color: #A95153;
+			font-style: bold;
+		}		
+        .bold-red {
+            color: #A95153; /* Azul padrão Windows para manter a identidade */
+            font-weight: bold;
+		}
+    </style>
+</head>
+<body>
+	
+	<div class="container">
+        <p data-pt="Esse aplicativo foi desenvolvido sob medida para usuários que buscam uma alternativa leve aos leitores tradicionais."
+           data-en="This app was built specifically for users seeking a lightweight alternative to traditional PDF viewers."
+           data-es="Esta aplicación fue diseñada a medida para usuarios que buscan una alternativa ligera a los lectores de PDF tradicionales."
+           data-fr="Cette application a été conçue sur mesure pour les utilisateurs qui recherchent uma alternative légère aux lecteurs PDF traditionnels."
+           data-de="Diese App wurde speziell für Benutzer entwickelt, die eine schlanke Alternative zu herkömmlichen PDF-Readern suchen.">
+        </p>
+        
+        <p data-pt="Totalmente focado em performance e produtividade."
+           data-en="Completely focused on performance and productivity."
+           data-es="Totalmente enfocada en el rendimiento y la productividad."
+           data-fr="Entièrement axée sur la performance et la productivité."
+           data-de="Vollständig auf Leistung und Produktivität ausgerichtet.">
+        </p>
+
+        <p data-pt="Se você gostou do projeto, considere <strong>apoiar</strong> seu desenvolvimento e manutenção com uma pequena doação."
+           data-en="If you enjoy the project, please consider supporting its development and maintenance with a small donation."
+           data-es="Si te gusta el proyecto, considera <strong>apoyar</strong> seu desarrollo y mantenimiento con una pequeña donación."
+           data-fr="Si vous appréciez le projet, pensez à <strong>soutenir</strong> son développement et sa maintenance avec un petit don."
+           data-de="Wenn Ihnen das Projekt gefällt, ziehen Sie es bitte in Betracht, seine Entwicklung und Wartung mit einer kleinen Spende zu <strong>unterstützen</strong>.">
+        </p>
+        
+        <p data-pt="<strong>Seu apoio ajuda a manter o projeto vivo.</strong>"
+           data-en="<strong>Your support helps keep the project alive.</strong>"
+           data-es="<strong>Tu apoyo ayuda a mantener el proyecto vivo.</strong>"
+           data-fr="<strong>Votre soutien aide à maintenir le projet en vie.</strong>"
+           data-de="<strong>Ihre Unterstützung hilft, das Projekt am Leben zu erhalten.</strong>">
+        </p>
+    </div>	
+	
+<script>
+	let currentImageIndex = 0;
+	let currentGalleryImages = [];	
+	
+	function updateContent() {
+		document.querySelectorAll('[data-pt]').forEach(el => {
+			const texto = el.getAttribute('data-' + currentLang);
+			if (texto) {
+				// USAR innerHTML para que o navegador processe o <strong>
+				el.innerHTML = texto;
+			}
+		});
+		
+		// Atualiza placeholders
+		document.querySelectorAll('[data-placeholder-pt]').forEach(el => {
+			const texto = el.getAttribute('data-placeholder-' + currentLang);
+			if (texto) {
+				el.placeholder = texto;
+			}
+		});		
+		
+		// Atualiza o texto do botão de troca (Se você usar um botão cíclico, pode adaptar aqui)
+		document.querySelectorAll('.lang-text').forEach(span => {
+			if (currentLang === 'pt') span.innerText = 'en';
+			else if (currentLang === 'en') span.innerText = 'es';
+			else if (currentLang === 'es') span.innerText = 'fr';
+			else if (currentLang === 'fr') span.innerText = 'de';
+			else span.innerText = 'pt';
+		});
+	}
+
+	function changeLanguage(lang) {
+		currentLang = lang;
+		// Atualiza textos
+		updateContent();
+	}
+	
+	window.addEventListener('click', function(event) {
+	
+		// Fecha modal da galeria
+		let galleryModal = document.getElementById("myModal");
+	
+		if (event.target == galleryModal) {
+			closeModal();
+		}
+	});
+	
+	window.onload = function() {
+		// Idioma padrão
+		currentLang = 'en';
+		
+		// Detecta idioma do navegador
+		const browserLang = navigator.language || navigator.userLanguage;
+		
+		if (browserLang.startsWith('en')) {
+			currentLang = 'en';
+		} else if (browserLang.startsWith('es')) {
+			currentLang = 'es';
+		} else if (browserLang.startsWith('fr')) {
+			currentLang = 'fr';
+		} else if (browserLang.startsWith('de')) {
+			currentLang = 'de';
+		} else if (browserLang.startsWith('pt')) {
+			currentLang = 'pt';
+		}
+		
+		// Verifica URL (?lang= ou #)
+		checkURLForLanguage();
+		
+		// Atualiza conteúdo
+		changeLanguage(currentLang);		
+	}
+
+	document.addEventListener('keydown', function(e) {
+		if (document.getElementById("myModal").style.display === "flex") {
+			if (e.key === "ArrowLeft") changeImage(-1);
+			if (e.key === "ArrowRight") changeImage(1);
+			if (e.key === "Escape") closeModal();
+		}
+	});
+
+	// Executa assim que o site carregar
+    document.addEventListener("DOMContentLoaded", checkURLForLanguage);
+
+	function scrollToSection(id) {
+
+		const element = document.getElementById(id);
+
+		if (element) {
+			element.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start'
+			});
+		}
+	}
+	
+	// Função que lê o idioma da URL
+	function checkURLForLanguage() {	
+		const hash = window.location.hash.replace('#', '');		
+		const urlParams = new URLSearchParams(window.location.search);		
+		const langParam = urlParams.get('lang');
+		
+		// Lista de idiomas válidos atualizada
+		const validLangs = ['en', 'pt', 'es', 'fr', 'de'];
+		
+		if (validLangs.includes(hash)) {		
+			currentLang = hash;		
+		} else if (validLangs.includes(langParam)) {		
+			currentLang = langParam;
+		}		
+	}
+	
+	// Função para abrir o modal atualizada com suporte a legenda bilíngue
+	//
+	function openModal(index, galleryId) {
+		currentGalleryImages = [];
+		var images = document.querySelectorAll("#" + galleryId + " img");
+		for (var i = 0; i < images.length; i++) {
+			currentGalleryImages.push(images[i]);
+		}
+    
+		currentImageIndex = index;
+
+		var modal = document.getElementById("myModal");
+		var modalImg = document.getElementById("img01");
+		
+		if (modal && modalImg) {
+			modal.style.display = "flex";
+			modalImg.src = currentGalleryImages[currentImageIndex].src;
+			
+			// Atualiza a legenda com base no idioma atual
+			updateCaption();
+		}		
+	}
+
+	function closeModal() { 
+		document.getElementById("myModal").style.display = "none"; 
+	}
+	
+	// Função de navegar imagens pelas setas ou teclado
+	function changeImage(step) {
+		if (currentGalleryImages.length === 0) return;
+    
+		currentImageIndex += step;
+		if (currentImageIndex >= currentGalleryImages.length) currentImageIndex = 0;
+		if (currentImageIndex < 0) currentImageIndex = currentGalleryImages.length - 1;
+    
+		document.getElementById("img01").src = currentGalleryImages[currentImageIndex].src;
+		
+		// Atualiza a legenda ao mudar de imagem
+		updateCaption();
+	}
+	
+	// Função auxiliar para definir a legenda correta no Modal
+	function updateCaption() {
+		var captionText = document.getElementById("caption");
+		if (captionText && currentGalleryImages[currentImageIndex]) {
+			var currentImg = currentGalleryImages[currentImageIndex];
+			
+			if (typeof currentLang !== 'undefined') {
+				captionText.innerText = currentImg.getAttribute('data-caption-' + currentLang) || currentImg.alt || "";
+			}
+		}
+	}
+
+</script>	
+	
+</body>
+</html>
