@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -386,4 +387,394 @@
 	}
 </script>	
 </body>
+=======
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+    <title>DevBrazil | Software Engineering</title>
+	<link rel="icon" type="image/png" href="favicon.png">	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Calibri', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F9F9F9;
+            color: #585858;
+            line-height: 1.5;
+            margin: 1;
+			margin-top: 10px;
+            padding: 0px;
+        }
+		
+		strong_blue { color: #004a99;   font-weight: bold; font-size: 0.9rem; }
+		strong_purple { color: #7A5B91; font-weight: bold; font-size: 0.9rem; }
+		strong_yellow { color: #BC8D00; font-weight: bold; font-size: 0.9rem; }
+
+		.linha-personalizada {
+			border: none;
+			height: 1px;
+			background-color: #E0E0E0;
+			width: 90%;
+			margin: 20px auto;
+		}
+		
+        .dbmoney-intro { display: flex; align-items: center; gap: 15px; margin-top: 0px; margin-left: 15px; margin-right: 15px; margin-bottom: 17px; }
+        .dbmoney-intro img { width: 48px; height: auto; }
+        .dbmoney-text h2 { color: #004a99; font-size: 1.5rem; margin-bottom: 15px; }
+		
+		.dbmoney-text p {
+			margin-top: -4px;
+			margin-bottom: 0px;
+		}
+
+		/* Badge Promocional de Escassez */
+		.promo-badge {
+			display: block;
+			width: 85%;
+			max-width: 300px;
+			margin: 0 auto 0px auto;
+			background: #F7EEEF;
+			color: #A95153;
+			text-align: center;
+			font-size: 0.72rem;
+			font-weight: bold;
+			padding: 6px 6px;
+			border-radius: 14px;
+			letter-spacing: 0.5px;
+			text-transform: uppercase;
+			/* box-shadow: 0 2px 4px rgba(217, 83, 79, 0.25); */
+		}
+
+        .btn-title-dbpdf {
+            display: flex;
+            width: 85%;
+            max-width: 300px;
+            margin: 15px auto 0;
+            background: #A95153;
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+			height: 30px;
+			align-items: center;
+            font-size: 1rem;
+			text-align: left;
+			justify-content: left;
+            transition: background 0.3s;
+        }
+		.btn-title-dbpdf.coming-soon {
+			background: #D5EADC;
+			color: #2A583C;
+			border-style: hidden;
+		}
+		
+        .btn-title-dbmoney {
+            display: flex;
+            width: 85%;
+            max-width: auto;
+            margin: 15px auto 0;
+            background: #004a99;
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+			height: 30px;
+			align-items: center;
+            font-size: 1rem;
+			text-align: left;
+			justify-content: left;
+            transition: background 0.3s;
+        }
+		.btn-title-dbmoney.coming-soon {
+			background: #E0EAF9;
+			color: #004a99;
+			border-style: hidden;
+		}		
+		
+		/* Botão Principal direcionando para a Store */
+        .btn-store-dbmoney {
+            display: block;
+            width: 85%;
+            max-width: 300px;
+            margin: 15px auto 0;
+            background: #004a99;
+            color: #fff;
+            padding: 9px 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-align: center;
+            transition: all 0.3s ease;
+			box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+        }
+        .btn-store-dbmoney:hover { 
+			background: #003366; 
+			/* transform: translateY(-1px); */
+			box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+		}		
+		
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0px;
+            border-radius: 8px;
+        }
+        p {
+            font-size: 0.8em;
+            margin-bottom: 0px;
+        }
+        .bold {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        .footer {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 0.9em;
+        }
+		
+		.lang-grid-status {
+			display: flex;
+			justify-content: center;
+			gap: 8px;
+			flex-wrap: wrap;
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+
+		.lang-status-item {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			font-size: 0.80rem;
+			font-weight: 500;
+			color: var(--text-dark);
+			background: #f9f9f9;
+			padding: 5px 8px;
+			border-radius: 10px;
+			border: 1px solid #eee;
+		}
+
+		.lang-status-item img {
+			width: 16px;
+			height: 16px;
+			object-fit: contain;
+		}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+		<a class="btn-title-dbmoney coming-soon"
+		   data-pt='<img src="../../images/dbmoney_24.png" align="center">&nbsp;&nbsp;dbMoney Personal'
+		   data-en='<img src="../../images/dbmoney_24.png" align="center">&nbsp;&nbsp;dbMoney Personal'
+		   data-es='<img src="../../images/dbmoney_24.png" align="center">&nbsp;&nbsp;dbMoney Personal'
+		   data-fr='<img src="../../images/dbmoney_24.png" align="center">&nbsp;&nbsp;dbMoney Personal'
+		   data-de='<img src="../../images/dbmoney_24.png" align="center">&nbsp;&nbsp;dbMoney Personal'>
+		</a>
+	</div>
+	
+	<br>
+			
+	<div class="dbmoney-intro">
+		<div class="dbmoney-text">
+			<p data-pt="O <strong>dbMoney Personal</strong> é o software nativo definitivo para quem deseja retomar o controle total da sua vida financeira sem abrir mão da privacidade."
+			   data-en="<strong>dbMoney Personal</strong> is the ultimate native software for anyone looking to regain total control over their financial life without compromising privacy."
+			   data-es="<strong>dbMoney Personal</strong> es el software nativo definitivo para quienes desean recuperar el control total de su vida financiera sin renunciar a la privacidad."
+			   data-fr="<strong>dbMoney Personal</strong> est le logiciel natif ultime pour quiconque souhaite reprendre le contrôle total de sa vie financière sans compromettre sa vie privée."
+			   data-de="<strong>dbMoney Personal</strong> ist die ultimative native Software für alle, die die volle Kontrolle über ihr Finanzleben zurückgewinnen wollen, ohne Kompromisse bei der Privatsphäre einzugehen">
+			</p>
+		</div>			
+	</div>
+
+	<div class="container">	
+	<span class="promo-badge"
+		      data-pt="<strong>Offline / Licença vitalícia / Sem assinatura</strong>"
+			  data-en="<strong>Offline / Lifetime license / No subscription</strong>"
+			  data-es="<strong>Sin conexión / Licencia de por vida / Sin suscripción</strong>"
+			  data-fr="<strong>Hors ligne / Licence à vie / Sans abonnement</strong>"
+			  data-de="<strong>Offline / Lebenslange Lizenz / Kein Abo</strong>">
+		</span>
+	</div>
+
+	<br>
+	
+	<img src="images/dbmoney_mini_01.png" style="display: block; margin: 0 auto;">
+	<br>
+	<img src="images/dbmoney_mini_02.png" style="display: block; margin: 0 auto;">
+	
+	<hr class="linha-personalizada">
+
+	<!--
+	<div style="display: flex; justify-content: center; gap: 20px;">
+		<img src="../../images/flag_usa_16.png">
+		<img src="../../images/flag_brazil_16.png">
+		<img src="../../images/flag_spain_16.png">
+		<img src="../../images/flag_france_16.png">
+		<img src="../../images/flag_germany_16.png">    
+	</div>
+	-->	
+
+	<!-- Botão apontando para a Microsoft Store -->
+	<a href="ms-windows-store://pdp/?productid=9N0PB6XG7ZQT"
+	   target="_blank"
+	   class="btn-store-dbmoney"
+	   data-pt='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Disponível na Microsoft Store'
+	   data-en='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Available on the Microsoft Store'
+	   data-es='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Disponible en Microsoft Store'
+	   data-fr='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Disponible sur le Microsoft Store'
+	   data-de='<i class="fab fa-windows"></i>&nbsp;&nbsp;&nbsp;Im Microsoft Store erhältlich'>
+	</a>
+
+</div>
+		
+<script>
+	let currentImageIndex = 0;
+	let currentGalleryImages = [];	
+	
+	function updateContent() {
+		document.querySelectorAll('[data-pt]').forEach(el => {
+			const texto = el.getAttribute('data-' + currentLang);
+			if (texto) {
+				el.innerHTML = texto;
+			}
+		});
+		
+		document.querySelectorAll('[data-placeholder-pt]').forEach(el => {
+			const texto = el.getAttribute('data-placeholder-' + currentLang);
+			if (texto) {
+				el.placeholder = texto;
+			}
+		});		
+		
+		document.querySelectorAll('.lang-text').forEach(span => {
+			if (currentLang === 'pt') span.innerText = 'en';
+			else if (currentLang === 'en') span.innerText = 'es';
+			else if (currentLang === 'es') span.innerText = 'fr';
+			else if (currentLang === 'fr') span.innerText = 'de';
+			else span.innerText = 'pt';
+		});
+	}
+
+	function changeLanguage(lang) {
+		currentLang = lang;
+		updateContent();
+	}
+	
+	window.addEventListener('click', function(event) {
+		let galleryModal = document.getElementById("myModal");
+		if (event.target == galleryModal) {
+			closeModal();
+		}
+	});
+	
+	window.onload = function() {
+		currentLang = 'en';
+		
+		const browserLang = navigator.language || navigator.userLanguage;
+		
+		if (browserLang.startsWith('en')) {
+			currentLang = 'en';
+		} else if (browserLang.startsWith('es')) {
+			currentLang = 'es';
+		} else if (browserLang.startsWith('fr')) {
+			currentLang = 'fr';
+		} else if (browserLang.startsWith('de')) {
+			currentLang = 'de';
+		} else if (browserLang.startsWith('pt')) {
+			currentLang = 'pt';
+		}
+		
+		checkURLForLanguage();
+		changeLanguage(currentLang);		
+	}
+
+	document.addEventListener('keydown', function(e) {
+		let modal = document.getElementById("myModal");
+		if (modal && modal.style.display === "flex") {
+			if (e.key === "ArrowLeft") changeImage(-1);
+			if (e.key === "ArrowRight") changeImage(1);
+			if (e.key === "Escape") closeModal();
+		}
+	});
+
+    document.addEventListener("DOMContentLoaded", checkURLForLanguage);
+
+	function scrollToSection(id) {
+		const element = document.getElementById(id);
+		if (element) {
+			element.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start'
+			});
+		}
+	}
+	
+	function checkURLForLanguage() {	
+		const hash = window.location.hash.replace('#', '');		
+		const urlParams = new URLSearchParams(window.location.search);		
+		const langParam = urlParams.get('lang');
+		
+		const validLangs = ['en', 'pt', 'es', 'fr', 'de'];
+		
+		if (validLangs.includes(hash)) {		
+			currentLang = hash;		
+		} else if (validLangs.includes(langParam)) {		
+			currentLang = langParam;
+		}		
+	}
+	
+	function openModal(index, galleryId) {
+		currentGalleryImages = [];
+		var images = document.querySelectorAll("#" + galleryId + " img");
+		for (var i = 0; i < images.length; i++) {
+			currentGalleryImages.push(images[i]);
+		}
+    
+		currentImageIndex = index;
+
+		var modal = document.getElementById("myModal");
+		var modalImg = document.getElementById("img01");
+		
+		if (modal && modalImg) {
+			modal.style.display = "flex";
+			modalImg.src = currentGalleryImages[currentImageIndex].src;
+			
+			updateCaption();
+		}		
+	}
+
+	function closeModal() { 
+		let modal = document.getElementById("myModal");
+		if (modal) modal.style.display = "none"; 
+	}
+	
+	function changeImage(step) {
+		if (currentGalleryImages.length === 0) return;
+    
+		currentImageIndex += step;
+		if (currentImageIndex >= currentGalleryImages.length) currentImageIndex = 0;
+		if (currentImageIndex < 0) currentImageIndex = currentGalleryImages.length - 1;
+    
+		document.getElementById("img01").src = currentGalleryImages[currentImageIndex].src;
+		updateCaption();
+	}
+	
+	function updateCaption() {
+		var captionText = document.getElementById("caption");
+		if (captionText && currentGalleryImages[currentImageIndex]) {
+			var currentImg = currentGalleryImages[currentImageIndex];
+			if (typeof currentLang !== 'undefined') {
+				captionText.innerText = currentImg.getAttribute('data-caption-' + currentLang) || currentImg.alt || "";
+			}
+		}
+	}
+</script>	
+</body>
+>>>>>>> c736d201b739c6353eeb7dadfa0d95a4b6e33a1e
 </html>
