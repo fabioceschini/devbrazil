@@ -1,11 +1,4 @@
-<<<<<<< HEAD
 User-agent: *
 Allow: /
 
 Sitemap: https://devbrazil.com/sitemap.xml
-=======
-User-agent: *
-Allow: /
-
-Sitemap: https://devbrazil.com/sitemap.xml
->>>>>>> c736d201b739c6353eeb7dadfa0d95a4b6e33a1e
