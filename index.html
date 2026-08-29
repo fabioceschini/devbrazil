@@ -1,1246 +1,588 @@
 <!DOCTYPE html>
 
-<html lang="pt-br">
+<html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="#1b845b" name="theme-color"/>
 <title>DevBrazil | Software Engineering</title>
-<link href="favicon.png" rel="icon" type="image/png"/>
+<link href="images/favicon.png" rel="icon" type="image/png"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
-
-
-<link href="style.css" rel="stylesheet"/></head>
+<link href="style.css" rel="stylesheet"/><link href="https://devbrazil.com/en/" rel="canonical"/><link href="https://devbrazil.com/en/" hreflang="en" rel="alternate"/><link href="https://devbrazil.com/pt/" hreflang="pt-BR" rel="alternate"/><link href="https://devbrazil.com/es/" hreflang="es" rel="alternate"/><link href="https://devbrazil.com/fr/" hreflang="fr" rel="alternate"/><link href="https://devbrazil.com/de/" hreflang="de" rel="alternate"/><link href="https://devbrazil.com/" hreflang="x-default" rel="alternate"/></head>
 <body>
 <header>
-    <div class="product-nav-links">
-        <img src="images/devbrazil_logo_96.png" alt="DevBrazil Logo" class="logo-img">
-		<a href="#devbrazil" style="--prod-color:var(--verde-dev)" onclick="scrollToSection('devbrazil'); return false;"><span class="brand-name">Dev<span class="brand-accent">Brazil</span></span></a>
-    </div>
-	<nav>
-		<div class="product-nav-links">
-			<a href="#dbmoney" style="--prod-color:var(--azul-dbmoney)" onclick="scrollToSection('dbmoney'); return false;">dbMoney</a>
-			<div class="nav-divider"></div>
-			<a href="#dbpdf" style="--prod-color:var(--vermelho-dbpdf)" onclick="scrollToSection('dbpdf'); return false;">dbPDF</a>
-			<div class="nav-divider"></div>
-			<a href="#dbradio" style="--prod-color:var(--roxo-dbradio)" onclick="scrollToSection('dbradio'); return false;">dbRadio</a>			
-			<div class="nav-divider"></div>
-			<a href="#dbnotes" style="--prod-color:var(--amarelo-dbnotes)" onclick="scrollToSection('dbnotes'); return false;">dbNotes</a>
-		</div>
-
-		<div class="nav-divider-media-hide"></div>
-
-		<div class="lang-selector" id="langSelector">
-			<a href="javascript:void(0)" class="lang-pill" data-lang="en" onclick="changeLanguage('en')">EN</a>
-			<a href="javascript:void(0)" class="lang-pill" data-lang="pt" onclick="changeLanguage('pt')">PT</a>
-			<a href="javascript:void(0)" class="lang-pill" data-lang="es" onclick="changeLanguage('es')">ES</a>
-			<a href="javascript:void(0)" class="lang-pill" data-lang="fr" onclick="changeLanguage('fr')">FR</a>
-			<a href="javascript:void(0)" class="lang-pill" data-lang="de" onclick="changeLanguage('de')">DE</a>
-		</div>
-		
-		<div class="nav-divider-media-hide"></div>
-		
-		<a href="mailto:support@devbrazil.com" class="header-contact" aria-label="Email" title="support@devbrazil.com">
-			<i class="fas fa-envelope"></i>
-		</a>		
-	</nav>
-</header>
-
-<br>
-<br>
-
-<div class="product-card card-dbmoney" id="dbmoney">
-    <div class="dbmoney-intro">        
-	
-		<div class="dbmoney-text" style="display: flex; flex-direction: column; align-items: center; gap: 0px;">
-			<img src="images/dbmoney_logo_96.png" alt="dbMoney" class="dbmoney-intro" style="display: block; margin: 0 0 -5px 0; padding: 0;">
-		</div>
-
-        <div class="dbmoney-text">
-            <h2 class="product-title product-title-flex">
-                dbMoney Personal&nbsp;&nbsp;
-				<span class="product-eyebrow eyebrow-blue" 
-					data-pt='<i class="fa-brands fa-windows"></i>&nbsp;Windows' 
-					data-en='<i class="fa-brands fa-windows"></i>&nbsp;Windows' 
-					data-es='<i class="fa-brands fa-windows"></i>&nbsp;Windows' 
-					data-fr='<i class="fa-brands fa-windows"></i>&nbsp;Windows' 
-					data-de='<i class="fa-brands fa-windows"></i>&nbsp;Windows'>
-				</span>
-     		</h2>
-
-			<p data-pt="O <strong>dbMoney Personal</strong> é um poderoso software de finanças pessoais desenvolvido para quem deseja retomar o controle total da sua vida financeira sem abrir mão da privacidade."
-			   data-en="<strong>dbMoney Personal</strong> is a powerful personal finance software designed for those who want to take full control of their financial life without sacrificing privacy."
-			   data-es="<strong>dbMoney Personal</strong> es un potente software de finanzas personales diseñado para quienes desean retomar el control total de su vida financiera sin renunciar a la privacidad."
-			   data-fr="<strong>dbMoney Personal</strong> est un puissant logiciel de finances personnelles conçu pour ceux qui souhaitent reprendre le contrôle total de leur vie financière sans compromettre leur confidentialité."
-			   data-de="<strong>dbMoney Personal</strong> ist eine leistungsstarke Software für persönliche Finanzen, die für alle entwickelt wurde, die die volle Kontrolle über ihr Finanzleben zurückgewinnen möchten, ohne auf Privatsphäre zu verzichten.">
-			</p>
-			<br>
-			<span class="product-eyebrow eyebrow-green" 
-				data-pt='<i class="fa fa-gift"></i>&nbsp;Versão Basic: Gratuito'
-				data-en='<i class="fa fa-gift"></i>&nbsp;Basic Version: Free'
-				data-es='<i class="fa fa-gift"></i>&nbsp;Versión Basic: Gratis'
-				data-fr='<i class="fa fa-gift"></i>&nbsp;Version Basic: Gratuit'
-				data-de='<i class="fa fa-gift"></i>&nbsp;Basic-Version: Kostenlos'>
-			</span>
-				<span class="product-eyebrow eyebrow-purple custom-tooltip" 
-					data-pt='<i class="fa fa-star"></i>&nbsp;Premium: $ 29.99 (vitalício) <i class="fa-solid fa-circle-question"></i><span class="tooltip-text">Preço em USD. O valor final pode variar conforme a região ou câmbio local na Microsoft Store.</span>' 
-					data-en='<i class="fa fa-star"></i>&nbsp;Premium: $ 29.99 (lifetime) <i class="fa-solid fa-circle-question"></i><span class="tooltip-text">Price listed in USD. Final price may vary by region or local currency exchange rate in the Microsoft Store.</span>'  
-					data-es='<i class="fa fa-star"></i>&nbsp;Premium: $ 29.99 (de por vida) <i class="fa-solid fa-circle-question"></i><span class="tooltip-text">Precio en USD. El valor final puede variar según la región o el tipo de cambio local en la Microsoft Store.</span>' 
-					data-fr='<i class="fa fa-star"></i>&nbsp;Premium: $ 29.99 (à vie) <i class="fa-solid fa-circle-question"></i><span class="tooltip-text">Prix en USD. Le montant final peut varier selon la région ou le taux de change local sur le Microsoft Store.</span>' 
-					data-de='<i class="fa fa-star"></i>&nbsp;Premium: $ 29.99 (lebenslang) <i class="fa-solid fa-circle-question"></i><span class="tooltip-text">Preis in USD. Der Endpreis kann je nach Region oder lokalem Wechselkurs im Microsoft Store variieren.</span>' 
-				></span>
-        </div>
-
-		<div class="dbmoney-text" style="display: flex; flex-direction: column; align-items: center; gap: 0px;">
-			<a href="https://apps.microsoft.com/detail/9N0PB6XG7ZQT" 
-			   target="_blank" 
-			   class="btn-store-dbmoney-mini" 
-			   data-pt='<i class="fab fa-windows"></i>&nbsp;Baixar na Microsoft Store'
-			   data-en='<i class="fab fa-windows"></i>&nbsp;Get it from Microsoft Store' 
-			   data-es='<i class="fab fa-windows"></i>&nbsp;Obtener de Microsoft Store' 
-			   data-fr='<i class="fab fa-windows"></i>&nbsp;Télécharger sur Microsoft Store' 
-			   data-de='<i class="fab fa-windows"></i>&nbsp;Aus dem Microsoft Store herunterladen'>
-			</a>
-		</div>
-    </div>
-	
-	<br>
-
-    <div class="about-content">
-		<p data-pt="<strong_dbmoney>Seus dados pertencem a você, e a mais ninguém.</strong_dbmoney>" 
-		   data-en="<strong_dbmoney>Your data belongs to you, and no one else.</strong_dbmoney>" 
-		   data-es="<strong_dbmoney>Sus datos le pertenecen a usted, y a nadie más.</strong_dbmoney>"
-		   data-fr="<strong_dbmoney>Vos données vous appartiennent, et à personne d'autre.</strong_dbmoney>"
-		   data-de="<strong_dbmoney>Ihre Daten gehören Ihnen und niemandem sonst.</strong_dbmoney>">
-		</p>
-		<p data-pt="Ao contrário de plataformas web que expõem suas informações em servidores de terceiros, o dbMoney prioriza a segurança máxima. Seus dados permanecem criptografados e armazenados localmente no seu computador, funcionando <strong>100% offline</strong>." 
-		   data-en="Unlike web platforms that expose your information to third-party servers, dbMoney prioritizes maximum security. Your data remains encrypted and stored locally on your computer, operating <strong>100% offline</strong>." 
-		   data-es="A diferencia de las plataformas web que exponen su información en servidores de terceros, dbMoney prioriza la máxima seguridad. Sus datos permanecen encriptados y almacenados localmente en su computadora, funcionando <strong>100% offline</strong>."
-		   data-fr="Contrairement aux plateformes web qui exposent vos informations sur des serveurs tiers, dbMoney donne la priorité à une sécurité maximale. Vos données restent cryptées et stockées locallement sur votre ordinateur, fonctionnant à <strong>100% hors ligne</strong>."
-		   data-de="Im Gegensatz zu Webplattformen, die Ihre Informationen auf fremden Servern offenlegen, priorisiert dbMoney maximale Sicherheit. Ihre Daten bleiben verschlüsselt und lokal auf Ihrem Computer gespeichert – und funktionieren zu <strong>100 % offline</strong>.">
-		</p>
-		<br>
-		<p data-pt="<strong_dbmoney>Quer mobilidade?</strong_dbmoney>" 
-		   data-en="<strong_dbmoney>Need mobility?</strong_dbmoney>" 
-		   data-es="<strong_dbmoney>¿Busca movilidad?</strong_dbmoney>"
-		   data-fr="<strong_dbmoney>Besoin de mobilité ?</strong_dbmoney>"
-		   data-de="<strong_dbmoney>Möchten Sie Flexibilität?</strong_dbmoney>">
-		</p>
-		<p data-pt="Sincronize seus arquivos através do seu <strong>OneDrive</strong> ou <strong>Google Drive</strong> para acessá-los em outros computadores."
-		   data-en="Sync your files using your <strong>OneDrive</strong> or <strong>Google Drive</strong> to access them on other computers." 
-		   data-es="Sincroniza tus archivos a través de tu <strong>OneDrive</strong> o <strong>Google Drive</strong> para acceder a ellos en otros ordenadores."
-		   data-fr="Synchronisez vos fichiers via votre <strong>OneDrive</strong> ou <strong>Google Drive</strong> pour y accéder sur d'autres ordinateurs."
-		   data-de="Synchronisieren Sie Ihre Dateien über Ihr <strong>OneDrive</strong> oder <strong>Google Drive</strong>, um von anderen Computern darauf zuzugreifen.">
-		</p>
-		
-		<br>
-		
-		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa-solid fa-plane-slash"></i>&nbsp;100% Offline' data-en='<i class="fa-solid fa-plane-slash"></i>&nbsp;100% Offline' data-es='<i class="fa-solid fa-plane-slash"></i>&nbsp;100% Offline' data-fr='<i class="fa-solid fa-plane-slash"></i>&nbsp;100 % Hors Ligne' data-de='<i class="fa-solid fa-plane-slash"></i>&nbsp;100% Offline'></span>
-		
-		<span class="product-eyebrow eyebrow-gray"
-			data-pt='<i class="fa-solid fa-calendar-xmark"></i>&nbsp;Sem Mensalidades'
-			data-en='<i class="fa-solid fa-calendar-xmark"></i>&nbsp;No Subscription Fees'
-			data-es='<i class="fa-solid fa-calendar-xmark"></i>&nbsp;Sin Mensualidades'
-			data-fr='<i class="fa-solid fa-calendar-xmark"></i>&nbsp;Sans Abonnement'
-			data-de='<i class="fa-solid fa-calendar-xmark"></i>&nbsp;Keine Monatsgebühren'>
-		</span>
-		<span class="product-eyebrow eyebrow-gray" 
-			data-pt='<i class="fas fa-bolt"></i>&nbsp;Performance Nativa'
-			data-en='<i class="fas fa-bolt"></i>&nbsp;Native Performance'
-			data-es='<i class="fas fa-bolt"></i>&nbsp;Rendimiento Nativo'
-			data-fr='<i class="fas fa-bolt"></i>&nbsp;Performance Native'
-			data-de='<i class="fas fa-bolt"></i>&nbsp;Native Performance'>
-		</span>
-		<span class="product-eyebrow eyebrow-gray" 
-			data-pt='<i class="fa-solid fa-download"></i>&nbsp;Importação de Extratos (OFX)'
-			data-en='<i class="fa-solid fa-download"></i>&nbsp;Bank Statement Import (OFX)'
-			data-es='<i class="fa-solid fa-download"></i>&nbsp;Importación de Extractos (OFX)'
-			data-fr='<i class="fa-solid fa-download"></i>&nbsp;Importation de Relevés (OFX)'
-			data-de='<i class="fa-solid fa-download"></i>&nbsp;Kontoauszugsimport (OFX)'
-		</span>
-		<span class="product-eyebrow eyebrow-gray" 
-			data-pt='<i class="fa-solid fa-tag"></i>&nbsp;Categorização flexível'
-			data-en='<i class="fa-solid fa-tag"></i>&nbsp;Flexible Categorization'
-			data-es='<i class="fa-solid fa-tag"></i>&nbsp;Categorización Flexible'
-			data-fr='<i class="fa-solid fa-tag"></i>&nbsp;Catégorisation Flexible'
-			data-de='<i class="fa-solid fa-tag"></i>&nbsp;Flexible Kategorisierung'
-		</span>
-    </div>
-
-    <h3 class="gallery-title">
-		<a data-pt="Capturas de tela" 
-		   data-en="Screenshots" 
-		   data-es="Capturas de pantalla" 
-		   data-fr="Captures d'écran" 
-		   data-de="Screenshots"></a>
-	</h3>
-	<div class="screenshot-grid" id="gallery-dbmoney">
-		<!--
-
-		-->
-		
-		<!-- Imagens visíveis -->
-		<img src="images/dbmoney_screen_01.webp"
-				alt="Screen 01" 
-				data-caption-pt="Tela de abertura (acesso aos seus arquivos e informações gerais)"
-				data-caption-en="Welcome screen (access to your files and general overview)"
-				data-caption-es="Pantalla de inicio (acceso a tus archivos e información general)"
-				data-caption-fr="Écran d'accueil (accès à vos fichiers et informations générales)"
-				data-caption-de="Startbildschirm (Zugriff auf Ihre Dateien und allgemeine Informationen)"
-				onclick="openModal(0, 'gallery-dbmoney')">
-		
-		<img src="images/dbmoney_screen_02.webp"
-				alt="Screen 02" 
-				data-caption-pt="Visualização de dashboards e gráficos para tomada de decisões"
-				data-caption-en="Dashboards and charts view for decision-making"
-				data-caption-es="Visualización de dashboards y gráficos para la toma de decisiones"
-				data-caption-fr="Visualisation de tableaux de bord et graphiques pour la prise de décision"
-				data-caption-de="Anzeige von Dashboards und Diagrammen zur Entscheidungsfindung"
-				onclick="openModal(1, 'gallery-dbmoney')">
-		
-		<img src="images/dbmoney_screen_03.webp"
-				alt="Screen 03"
-				data-caption-pt="Tela principal dos lançamentos (receitas e despesas)"
-				data-caption-en="Main transactions screen (income and expenses)"
-				data-caption-es="Pantalla principal de movimientos (ingresos y gastos)"
-				data-caption-fr="Écran principal des transactions (revenus et dépenses)"
-				data-caption-de="Hauptbildschirm für Buchungen (Einnahmen und Ausgaben)"
-				onclick="openModal(2, 'gallery-dbmoney')">
-		
-		<!-- Acesso às demais imagens -->
-		<div class="gallery-more" onclick="openModal(3, 'gallery-dbmoney')">
-			<img src="images/dbmoney_screen_04.webp"
-			     alt="More screenshots"
-				 data-caption-pt="Tela de edição de lançamento e escolha de ícones para contas e categorias"
-				 data-caption-en="Transaction editing screen with icon selection for accounts and categories"
-				 data-caption-es="Pantalla de edición de movimientos y selección de iconos para cuentas y categorías"
-				 data-caption-fr="Écran de modification des transactions et choix des icônes para comptes et catégories"
-				 data-caption-de="Buchungsbearbeitung und Auswahl von Symbolen für Konten und Kategorien">
-			<div class="gallery-more-overlay">
-				<span class="gallery-more-count">+14</span>
-				<small data-pt="Mais capturas"
-					   data-en="More screenshots"
-					   data-es="Más capturas"
-					   data-fr="Plus de captures"
-					   data-de="Weitere Screenshots">
-				</small>				
-			</div>
-		</div>
-
-		<!-- Imagens restantes: continuam disponíveis para o modal -->
-		<div class="gallery-hidden">			
-			<img src="images/dbmoney_screen_05.webp"
-					alt="Screen 05"
-					data-caption-pt="Tela de edição de lançamento com campos personalizados pelo usuário"
-					data-caption-en="Transaction editing screen with user-customized fields"
-					data-caption-es="Pantalla de edición de movimientos con campos personalizados por el usuario"
-					data-caption-fr="Écran de modification des transactions avec champs personnalisés par l'utilisateur"
-					data-caption-de="Buchungsbearbeitung mit benutzerdefinierten Feldern"
-					onclick="openModal(4, 'gallery-dbmoney')">
-
-			<img src="images/dbmoney_screen_06.webp"
-					alt="Screen 06"
-					data-caption-pt="Alto poder de manipulação de dados (customização de filtros)"
-					data-caption-en="Powerful data management (customizable filters)"
-					data-caption-es="Gran capacidad de gestión de datos (personalización de filtros)"
-					data-caption-fr="Puissante gestion des données (personnalisation des filtres)"
-					data-caption-de="Leistungsstarke Datenverwaltung (anpassbare Filter)"
-					onclick="openModal(5, 'gallery-dbmoney')">
-
-			<img src="images/dbmoney_screen_07.webp"
-					alt="Screen 07"
-					data-caption-pt="Inclusão de multiplos lançamentos / Geraçao de parcelas"
-					data-caption-en="Batch transaction entry / Installment generator"
-					data-caption-es="Entrada de múltiples movimientos / Generación de cuotas"
-					data-caption-fr="Saisie de transactions multiples / Génération d'échéances"
-					data-caption-de="Erfassung mehrerer Buchungen / Ratenzahlungsgenerator"
-					onclick="openModal(6, 'gallery-dbmoney')">
-
-			<img src="images/dbmoney_screen_08.webp"
-					alt="Screen 08"
-					data-caption-pt="Alteração de lançamentos em lote"
-					data-caption-en="Bulk editing of transactions"
-					data-caption-es="Edición masiva de movimientos"
-					data-caption-fr="Modification en masse des transactions"
-					data-caption-de="Massenbearbeitung von Buchungen"
-					onclick="openModal(7, 'gallery-dbmoney')">
-
-			<img src="images/dbmoney_screen_09.webp"
-					alt="Screen 09"
-					data-caption-pt="Replicação de lançamentos para outro período"
-					data-caption-en="Duplicate transactions to another period"
-					data-caption-es="Replicación de movimientos a otro período"
-					data-caption-fr="Duplication de transactions sur une autre période"
-					data-caption-de="Kopieren von Buchungen in einen anderen Zeitraum"
-					onclick="openModal(8, 'gallery-dbmoney')">
-
-			<img src="images/dbmoney_screen_10.webp"
-					alt="Screen 10"
-					data-caption-pt="Unificação/conciliação de lançamentos (eliminação de duplicados)"
-					data-caption-en="Transaction merging/reconciliation (duplicate elimination)"
-					data-caption-es="Unificación/conciliación de movimientos (eliminación de duplicados)"
-					data-caption-fr="Fusion/rapprochement des transactions (élimination dos doublons)"
-					data-caption-de="Zusammenführung/Abgleich von Buchungen (Bereinigung von Duplikaten)"
-					onclick="openModal(9, 'gallery-dbmoney')">
-
-    		<img src="images/dbmoney_screen_11.webp"
-					alt="Screen 11"
-					data-caption-pt="Desmembrar lançamento em 2 ou mais parcelas"
-					data-caption-en="Split transaction into 2 or more installments"
-					data-caption-es="Dividir movimiento en 2 o más cuotas"
-					data-caption-fr="Fractionner la transaction en 2 échéances ou plus"
-					data-caption-de="Buchung in 2 oder mehr Raten aufteilen"
-					onclick="openModal(10, 'gallery-dbmoney')">
-
-    		<img src="images/dbmoney_screen_12.webp"
-					alt="Screen 12"
-					data-caption-pt="Importação de extratos bancários OFX"
-					data-caption-en="OFX bank statement import"
-					data-caption-es="Importación de extractos bancarios OFX"
-					data-caption-fr="Importation de relevés bancaires OFX"
-					data-caption-de="Kontoauszugsimport (OFX)"
-					onclick="openModal(11, 'gallery-dbmoney')">	
-
-    		<img src="images/dbmoney_screen_13.webp"
-					alt="Screen 13"
-					data-caption-pt="Configurações da barra lateral (exibição, cálculo de saldos e aparência)"
-					data-caption-en="Sidebar settings (display, balance calculations, and appearance)"
-					data-caption-es="Configuración de la barra lateral (visualización, cálculo de saldos y apariencia)"
-					data-caption-fr="Paramètres de la barre latérale (affichage, calcul dos soldes et apparence)"
-					data-caption-de="Seitenleisten-Einstellungen (Anzeige, Saldenberechnung und Erscheinungsbild)"
-					onclick="openModal(12, 'gallery-dbmoney')">	
-
-    		<img src="images/dbmoney_screen_14.webp"
-					alt="Screen 14"
-					data-caption-pt="Preferências (exibição, totalizadores, moeda padrão e campos personalizados)"
-					data-caption-en="Preferences (display, summary totals, default currency, and custom fields)"
-					data-caption-es="Preferencias (visualización, totalizadores, moneda predeterminada y campos personalizados)"
-					data-caption-fr="Préférences (affichage, totaliseurs, devise par défaut et champs personnalisés)"
-					data-caption-de="Einstellungen (Anzeige, Gesamtsummen, Standardwährung und benutzerdefinierte Felder)"
-					onclick="openModal(13, 'gallery-dbmoney')">	
-
-    		<img src="images/dbmoney_screen_15.webp"
-					alt="Screen 15"
-					data-caption-pt="Configurações de aparência da tela de lançamentos e extrato bancário"
-					data-caption-en="Appearance settings for transactions and bank statement screens"
-					data-caption-es="Configuración de apariencia de la pantalla de movimientos y extracto bancario"
-					data-caption-fr="Paramètres d'apparence des écrans de transactions et relevés bancaires"
-					data-caption-de="Design-Einstellungen für Buchungen und Kontoauszüge"
-					onclick="openModal(14, 'gallery-dbmoney')">
-
-    		<img src="images/dbmoney_screen_16.webp"
-					alt="Screen 16"
-					data-caption-pt="Tela de manutenção de contas (ajuste de saldos e formato de moeda personalizado)"
-					data-caption-en="Account management screen (balance adjustments and custom currency format)"
-					data-caption-es="Pantalla de gestión de cuentas (ajuste de saldos y formato de moneda personalizado)"
-					data-caption-fr="Écran de gestion dos comptes (ajustement dos soldes et format de devise personnalisé)"
-					data-caption-de="Konto-Verwaltungsbildschirm (Saldo-Anpassungen und benutzerdefiniertes Währungsformat)"
-					onclick="openModal(15, 'gallery-dbmoney')">
-
-    		<img src="images/dbmoney_screen_17.webp"
-					alt="Screen 17"
-					data-caption-pt="Exemplo de relatório da tela de lançamentos"
-					data-caption-en="Sample transactions report"
-					data-caption-es="Ejemplo de informe de la pantalla de movimientos"
-					data-caption-fr="Exemple de rapport sur l'écran des transactions"
-					data-caption-de="Beispielbericht der Buchungsansicht"
-					onclick="openModal(16, 'gallery-dbmoney')">
-		</div>
-
-		<div id="gallery-dbmoney-youtube">
-			<a href="https://www.youtube.com/watch?v=wLP-gaJQ5b0" target="_blank">
-				<img src="images/dbmoney_youtube.webp" alt="dbMoney on YouTube">
-			</a>
-		</div>		
-	</div>
-	
-    <h3 class="gallery-title-faq"><a data-pt="Planos e Versões" data-en="Plans & Versions" data-es="Planes y versiones" data-fr="Plans & Versions" data-de="Pläne & Versionen"></a></h3>
-	<div class="pricing-table-container">
-		<table>
-			<thead>
-				<tr>
-					<th><a data-pt="Funcionalidade" data-en="Feature" data-es="Funcionalidad" data-fr="Fonctionnalité" data-de="Funktion"></a></th>
-					<th><a data-pt="Versão Basic" data-en="Basic Version" data-es="Versión Basic" data-fr="Version Basic" data-de="Basic-Version"></a></th>
-					<th><a data-pt="Versão Premium" data-en="Premium Version" data-es="Versión Premium" data-fr="Version Premium" data-de="Premium-Version"></a></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><i class="fas fa-wallet"></i><a data-pt=" Contas / Carteiras" data-en=" Accounts / Wallets" data-es=" Cuentas / Carteras" data-fr=" Comptes / Portefeuilles" data-de=" Konten / Wallets"></a></td>
-					<td><span class="limit-text"><a data-pt="2 contas" data-en="2 accounts" data-es="2 cuentas" data-fr="2 comptes" data-de="2 Konten"></a></span></td>
-					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-				</tr>
-				<tr>
-					<td><i class="fa-solid fa-tag"></i><a data-pt=" Categorias, contatos e marcadores" data-en=" Categories, contacts, and tags" data-es=" Categorías, contactos y marcadores" data-fr=" Catégories, contacts et étiquettes" data-de=" Kategorien, Kontakte und Tags"></a></td>
-					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-				</tr>
-				<tr>
-					<td><i class="fas fa-pie-chart"></i><a data-pt=" Dashboards de alta resolução" data-en=" High-resolution Dashboards" data-es=" Dashboards de alta resolución" data-fr=" Tableaux de bord haute résolution" data-de=" Hochauflösende Dashboards"></a></td>
-					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-				</tr>               
-				<tr>
-					<td><i class="fas fa-users"></i><a data-pt=" Gestão Multicarteiras / Multiperfil" data-en=" Multi-Wallet / Multi-Profile Management" data-es=" Gestión multicarteras / multiperfiles" data-fr=" Gestion multi-portefeuilles / multi-profils" data-de=" Multi-Wallet- / Multi-Profil-Verwaltung"></a></td>
-					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-				</tr>
-				<tr>
-					<td><i class="fas fa-columns"></i><a data-pt=" Campos customizáveis" data-en=" Custom Fields" data-es=" Campos personalizables" data-fr=" Champs personnalisables" data-de=" Benutzerdefinierte Felder"></a></td>
-					<td><span class="limit-text"><a data-pt="3 campos" data-en="3 fields" data-es="3 campos" data-fr="3 champs" data-de="3 Felder"></a></span></td>
-					<td><span class="limit-text"><a data-pt="3 campos" data-en="3 fields" data-es="3 campos" data-fr="3 champs" data-de="3 Felder"></a></span></td>
-				</tr>
-				<tr>
-					<td><i class="fas fa-edit"></i><a data-pt=" Lançamentos Manuais" data-en=" Manual Transactions" data-es=" Transacciones manuales" data-fr=" Transactions manuelles" data-de=" Manuelle Buchungen"></a></td>
-					<td><span class="limit-text"><a data-pt="20 por mês" data-en="20 per month" data-es="20 al mes" data-fr="20 par mois" data-de="20 pro Monat"></a></span></td>
-					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-				</tr>
-				<tr>
-					<td><i class="fas fa-list-alt"></i><a data-pt=" Alteração em lote" data-en=" Batch Editing" data-es=" Edición por lotes" data-fr=" Modification em masse" data-de=" Stapelverarbeitung (Massenbearbeitung)"></a></td>
-					<td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
-					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-				</tr>
-				<tr>
-					<td><i class="fas fa-plus-square"></i><a data-pt=" Múltiplos lançamentos" data-en=" Multiple Transactions" data-es=" Múltiples transacciones" data-fr=" Transactions multiples" data-de=" Mehrfache Buchungen"></a></td>
-					<td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
-					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-				</tr>
-				<tr>
-					<td><i class="fas fa-clone"></i><a data-pt=" Replicar/copiar lançamentos" data-en=" Replicate/Copy Transactions" data-es=" Replicar/copiar transacciones" data-fr=" Dupliquer/copier des transactions" data-de=" Buchungen duplizieren/kopieren"></a></td>
-					<td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
-					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-				</tr>
-				<tr>
-					<td><i class="fas fa-compress"></i><a data-pt=" Unificar/conciliar lançamentos" data-en=" Merge/Reconcile Transactions" data-es=" Fusionar/conciliar transacciones" data-fr=" Fusionner/réconcilier des transactions" data-de=" Buchungen zusammenführen/abgleichen"></a></td>
-					<td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
-					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-				</tr>
-				<tr>
-					<td><i class="fas fa-arrows"></i><a data-pt=" Desmembrar lançamentos" data-en=" Split transactions" data-es=" Dividir transacciones" data-fr=" Diviser des transactions" data-de=" Buchungen aufteilen"></a></td>
-					<td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
-					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-				</tr>
-				<tr>
-					<td><i class="fas fa-file-import"></i><a data-pt=" Importação de extratos (OFX)" data-en=" Statement Import (OFX)" data-es=" Importación de extractos (OFX)" data-fr=" Importation de relevés (OFX)" data-de=" Kontoauszugsimport (OFX)"></a></td>
-					<td><span class="limit-text"><a data-pt="3 importações" data-en="3 imports" data-es="3 importaciones" data-fr="3 importations" data-de="3 Importe"></a></span></td>
-					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-				</tr>               
-				<tr>
-					<td><i class="fas fa-file-excel"></i><a data-pt=" Exportar para Excel e HTML" data-en=" Export to Excel and HTML" data-es=" Exportar a Excel y HTML" data-fr=" Exporter vers Excel et HTML" data-de=" Nach Excel und HTML exportieren"></a></td>
-					<td><span class="limit-text"><a data-pt="5 exportações" data-en="5 exports" data-es="5 exportaciones" data-fr="5 exportations" data-de="5 Exporte"></a></span></td>
-					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-				</tr>
-				<tr>
-					<td><i class="fas fa-file-pdf"></i><a data-pt=" Exportar para PDF" data-en=" Export to PDF" data-es=" Exportar a PDF" data-fr=" Exporter vers PDF" data-de=" Nach PDF exportieren"></a></td>
-					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
-				</tr>
-				<tr>
-					<td><i class="fas fa-history"></i><a data-pt=" Backup automático (configurável)" data-en=" Automatic Backup (Configurable)" data-es=" Respaldo automático (configurable)" data-fr=" Sauvegarde automatique (configurable)" data-de=" Automatische Sicherung (konfigurierbar)"></a></td>
-					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
-					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
-				</tr>
-				<tr>
-					<td><i class="fas fa-envelope"></i><a data-pt=" Suporte por e-mail" data-en=" Email Support" data-es=" Soporte por correo electrónico" data-fr=" Support par e-mail" data-de=" E-Mail-Support"></a></td>
-					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
-					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
-				</tr>
-				<tr>
-					<td><strong><i class="fa-solid fa-dollar-sign"></i><a data-pt=" Preço" data-en=" Price" data-es=" Precio" data-fr=" Prix" data-de=" Preis"></a></strong></td>
-					<td><span class="limit-text-blue"><a data-pt=" Gratuito" data-en=" Free" data-es=" Gratis" data-fr=" Gratuit" data-de=" Kostenlos"></a></span></td>
-					<td><span class="limit-text-blue"><a data-pt=" $ 29.99 (vitalício)" data-en=" $ 29.99 (lifetime)" data-es=" $ 29.99 (de por vida)" data-fr=" $ 29.99 (à vie)" data-de=" $ 29.99 (lebenslang)"></a></span>
-						<br>
-						<small style="font-size: 0.75rem; color: #777; display: block; margin-top: 4px;" 
-							   data-pt="* Oferta por tempo limitado"   
-							   data-en="* Limited time offer"
-							   data-es="* Oferta por tiempo limitado"
-							   data-fr="* Offre à durée limitée"
-							   data-de="* Befristetes Angebot">
-						</small>
-						<small style="font-size: 0.75rem; color: #777; display: block; margin-top: 4px;" 
-							   data-pt="* Preço pode variar por região/país" 
-							   data-en="* Price may vary by region/country"
-							   data-es="* El precio puede variar según la región o el país"
-							   data-fr="* Le prix peut varier selon la région/le pays"
-							   data-de="* Der Preis kann je nach Region/Land variieren">
-						</small>                      
-					</td>
-				</tr>       
-			</tbody>
-		</table>
-	</div>
-	
-	<h3 class="gallery-title-faq" 
-		data-pt="Perguntas frequentes"
-		data-en="Frequently Asked Questions (FAQ)"
-		data-es="Preguntas frecuentes"
-		data-fr="Foire aux questions (FAQ)"
-		data-de="Häufig gestellte Fragen (FAQ)"></h3>
-	<div class="faq">
-		<details>
-			<summary
-				data-pt="1. O dbMoney funciona sem internet?"
-				data-en="1. Does dbMoney work without an internet connection?"
-				data-es="1. ¿dbMoney funciona sin internet?"
-				data-fr="1. dbMoney fonctionne-t-il sans connexion Internet ?"
-				data-de="1. Funktioniert dbMoney ohne Internetverbindung?">
-			</summary>
-			<p data-pt="Sim, o dbMoney é instalado localmente em seu computador e não depende de conexão com a internet para funcionar. Não coletamos nenhum dado pessoal. O dbMoney utiliza a internet apenas para exibição de novidades e verificação de versões."
-			   data-en="Yes, dbMoney is installed locally on your computer and does not depend on an internet connection to function. We do not collect any personal data. dbMoney uses the internet solely to display news and check for version updates."
-			   data-es="Sí, dbMoney se instala localmente en su computadora y no requiere conexión a internet para funcionar. No recopilamos ningún dato personal. dbMoney utiliza internet únicamente para mostrar novedades y verificar actualizaciones de versión."
-			   data-fr="Oui, dbMoney est installé localement sur votre ordinateur et ne nécessite aucune connexion Internet pour fonctionner. Nous ne collectons aucune donnée personnelle. dbMoney utilise Internet uniquement pour afficher des actualités et vérifier la disponibilité des mises à jour."
-			   data-de="Ja, dbMoney wird lokal auf Ihrem Computer installiert und benötigt keine Internetverbindung, um zu funktionieren. Wir erfassen keine personenbezogenen Daten. dbMoney nutzt das Internet lediglich zur Anzeige von Neuigkeiten und zur Überprüfung von Versionsupdates.">
-			</p>			
-		</details>
-		<details>
-			<summary
-				data-pt="2. Como faço para adquirir a versão Premium?"
-				data-en="2. How do I purchase the Premium version?"
-				data-es="2. ¿Cómo puedo adquirir la versión Premium?"
-				data-fr="2. Comment acheter la version Premium ?"
-				data-de="2. Wie kann ich die Premium-Version erwerben?">
-			</summary>
-			<p data-pt="A versão Premium pode ser adquirida na tela inicial do dbMoney, no botão <strong>Premium</strong> (parte superior). A compra será realizada diretamente na Microsoft Store, assim como a gestão do seu pagamento. Não temos acesso a nenhum dado de pagamento informado."
-			   data-en="The Premium version can be purchased directly on the dbMoney home screen by clicking the <strong>Premium</strong> button (located at the top). The purchase and payment management are handled directly through the Microsoft Store. We do not have access to any payment details provided."
-			   data-es="La versión Premium se puede adquirir directamente en la pantalla principal de dbMoney, haciendo clic en el botón <strong>Premium</strong> (ubicado en la parte superior). La compra y la gestión del pago se realizan directamente a través de la Microsoft Store. No tenemos acceso a ningún dato de pago proporcionado."
-			   data-fr="La version Premium peut être achetée directement sur l'écran d'accueil de dbMoney en cliquant sur le bouton <strong>Premium</strong> (situé en haut). L'achat et la gestion du paiement sont effectués directement via le Microsoft Store. Nous n'avons accès à aucune donnée de paiement saisie."
-			   data-de="Die Premium-Version kann direkt auf dem Startbildschirm von dbMoney über die Schaltfläche „<strong>Premium</strong>“ (im oberen Bereich) erworben werden. Der Kauf und die Zahlungsabwicklung erfolgen direkt über den Microsoft Store. Wir haben keinen Zugriff auf eingegebene Zahlungsdaten.">
-			</p>
-		</details>
-		<details>
-			<summary
-				data-pt="3. O pagamento da versão Premium é uma assinatura mensal ou taxa única?"
-				data-en="3. Is the Premium payment a monthly subscription or a one-time fee?"
-				data-es="3. ¿El pago de la versión Premium es una suscripción mensual o una tarifa única?"
-				data-fr="3. Le paiement de la version Premium est-il un abonnement mensuel ou un achat unique ?"
-				data-de="3. Ist die Zahlung für die Premium-Version ein monatliches Abonnement oder eine einmalige Gebühr?">
-			</summary>
-			<p data-pt="Taxa única, sem mensalidades, uso vitalício!"
-			   data-en="One-time fee—no subscriptions, lifetime use!"
-			   data-es="¡Tarifa única, sin mensualidades y de uso de por vida!"
-			   data-fr="Frais uniques : pas d'abonnement, utilisation à vie !"
-			   data-de="Einmalige Gebühr – keine Abonnements, lebenslange Nutzung!">
-			</p>
-		</details>
-		<details>
-			<summary
-				data-pt="4. E se eu formatar meu PC ou trocar de computador, preciso pagar a versão Premium novamente?"
-				data-en="4. If I format my PC or switch computers, do I need to buy the Premium version again?"
-				data-es="4. Si formateo mi PC o cambio de computadora, ¿debo pagar la versión Premium nuevamente?"
-				data-fr="4. Si je formate mon PC ou change d'ordinateur, dois-je racheter la version Premium ?"
-				data-de="4. Muss ich die Premium-Version erneut kaufen, wenn ich meinen PC formatiere oder den Computer wechsle?">
-			</summary>
-			<p data-pt="Não, a licença fica vinculada à sua conta Microsoft. Ao inserir sua conta Microsoft em seu novo computador, a licença Premium será restabelecida."
-			   data-en="No, your license is linked to your Microsoft account. Once you log in with your Microsoft account on your new computer, your Premium license will be restored."
-			   data-es="No, su licencia queda vinculada a su cuenta de Microsoft. Al iniciar sesión con su cuenta de Microsoft en la nueva computadora, su licencia Premium se restablecerá automáticamente."
-			   data-fr="Non, votre licence est liée à votre compte Microsoft. Dès que vous vous connectez avec votre compte Microsoft sur votre nouvel ordinateur, votre licence Premium est automatiquement restaurée."
-			   data-de="Nein, Ihre Lizenz ist an Ihr Microsoft-Konto gebunden. Sobald Sie sich auf Ihrem neuen Computer mit Ihrem Microsoft-Konto anmelden, wird Ihre Premium-Lizenz wiederhergestellt.">
-			</p>
-		</details>
-		<details>
-			<summary
-				data-pt="5. O que acontece se eu usar a versão Basic (gratuita)? Existe limite de tempo?"
-				data-en="5. What happens if I use the Basic (free) version? Is there a time limit?"
-				data-es="5. ¿Qué sucede si uso la versión Basic (gratuita)? ¿Existe un límite de tiempo?"
-				data-fr="5. Que se passe-t-il si j'utilise la version Basic (gratuite) ? Y a-t-il une limite de temps ?"
-				data-de="5. Was passiert, wenn ich die Basic-Version (kostenlos) nutze? Gibt es ein Zeitlimit?">
-			</summary>
-			<p data-pt="Não, a versão gratuita pode ser utilizada pelo tempo que achar necessário, porém, haverá limitações listadas na seção <strong>Planos e Versões</strong>."
-			   data-en="No, you can use the free version for as long as you need. However, it includes feature limitations, which are listed in the <strong>Plans & Versions</strong> section."
-			   data-es="No, puede utilizar la versión gratuita durante el tiempo que considere necesario. Sin embargo, cuenta con limitaciones de funciones, las cuales se detallan en la sección <strong>Planes y Versiones</strong>."
-			   data-fr="Non, vous pouvez utiliser la version gratuite aussi longtemps que nécessaire. Cependant, elle comporte des fonctionnalités limitées, détaillées dans la section <strong>Plans & Versions</strong>."
-			   data-de="Nein, Sie können die kostenlose Version so lange nutzen, wie Sie möchten. Sie enthält jedoch Funktionseinschränkungen, die im Bereich „<strong>Pläne & Versionen</strong>“ aufgeführt sind.">
-			</p>
-		</details>
-		<details>
-			<summary
-				data-pt="6. Como funciona a gestão de arquivos no dbMoney?"
-				data-en="6. How does file management work in dbMoney?"
-				data-es="6. ¿Cómo funciona la gestión de archivos en dbMoney?"
-				data-fr="6. Comment fonctionne la gestion des fichiers dans dbMoney ?"
-				data-de="6. Wie funktioniert die Dateiverwaltung in dbMoney?">
-			</summary>
-			<p data-pt="O arquivo de dados gerado pelo dbMoney possui o formato <strong>.dbm</strong> (<i>exemplo: JohnSmith.dbm</i>) e segue o mesmo conceito de um arquivo do Excel. O arquivo de dados tem criptografia de ponta e só pode ser aberto pelo dbMoney (uma senha pode ser definida para reforçar ainda mais a sua segurança). Você pode ter vários arquivos de dados, um para cada fim (pessoal, comercial e outros)."
-			   data-en="Data files generated by dbMoney use the <strong>.dbm</strong> format (<i>e.g., JohnSmith.dbm</i>) and follow the same concept as an Excel spreadsheet. The data file features end-to-end encryption and can only be opened by dbMoney (you can also set a password for added security). You can create multiple data files, one for each purpose (personal, business, etc.)."
-			   data-es="El archivo de datos generado por dbMoney utiliza el formato <strong>.dbm</strong> (<i>ejemplo: JohnSmith.dbm</i>) y sigue el mismo concepto que una planilla de Excel. El archivo de datos cuenta con cifrado de extremo a extremo y solo se puede abrir con dbMoney (también puede configurar una contraseña para reforzar aún más su seguridad). Puede crear múltiples archivos de datos, uno para cada propósito (personal, comercial, entre otros)."
-			   data-fr="Les fichiers de données générés par dbMoney utilisent le format <strong>.dbm</strong> (<i>exemple : JohnSmith.dbm</i>) et fonctionnent selon le même principe qu'un fichier Excel. Le fichier de données bénéficie d'un chiffrement de bout en bout et ne peut être ouvert que par dbMoney (vous pouvez également définir un mot de passe pour renforcer la sécurité). Vous pouvez créer plusieurs fichiers de données, un pour chaque usage (personnel, professionnel, etc.)."
-			   data-de="Die von dbMoney erstellten Datendateien nutzen das Format <strong>.dbm</strong> (<i>z. B. JohnSmith.dbm</i>) und folgen demselben Konzept wie eine Excel-Datei. Die Datendatei verfügt über eine Ende-zu-Ende-Verschlüsselung und kann nur von dbMoney geöffnet werden (Sie können zusätzlich ein Passwort festlegen, um die Sicherheit weiter zu erhöhen). Sie können mehrere Datendateien für unterschiedliche Zwecke anlegen (privat, geschäftlich usw.).">
-			</p>
-		</details>
-		<details>
-			<summary
-				data-pt="7. Posso armazenar e utilizar meus arquivos na nuvem?"
-				data-en="7. Can I store and use my files in the cloud?"
-				data-es="7. ¿Puedo almacenar y utilizar mis archivos en la nube?"
-				data-fr="7. Puis-je stocker et utiliser mes fichiers dans le cloud ?"
-				data-de="7. Kann ich meine Dateien in der Cloud speichern und nutzen?">
-			</summary>
-			<p data-pt="Sim, assim como um arquivo do Excel, você pode armazenar e utilizar seus arquivos na sua própria nuvem (OneDrive ou Google Drive) para fins de backup ou em outros computadores."
-			   data-en="Yes, just like an Excel file, you can store and use your data files in your own cloud storage (OneDrive or Google Drive) for backup purposes or to access them on other computers."
-			   data-es="Sí, al igual que un archivo de Excel, puede almacenar y utilizar sus archivos de datos en su propia nube (OneDrive o Google Drive) para realizar copias de seguridad o para acceder a ellos desde otras computadoras."
-			   data-fr="Oui, tout comme un fichier Excel, vous pouvez stocker et utiliser vos fichiers de données sur votre propre service cloud (OneDrive ou Google Drive) pour effectuer des sauvegardes ou y accéder depuis d'autres ordinateurs."
-			   data-de="Ja, genau wie eine Excel-Datei können Sie Ihre Datendateien in Ihrer eigenen Cloud (OneDrive oder Google Drive) speichern und nutzen, um Backups zu erstellen oder von anderen Computern darauf zuzugreifen.">
-			</p>
-		</details>
-		<details>
-			<summary
-				data-pt="8. O dbMoney possui rotina de backup automático?"
-				data-en="8. Does dbMoney have an automatic backup feature?"
-				data-es="8. ¿dbMoney cuenta con función de copia de seguridad automática?"
-				data-fr="8. dbMoney intègre-t-il une fonction de sauvegarde automatique ?"
-				data-de="8. Verfügt dbMoney über eine automatische Backup-Funktion?">
-			</summary>
-			<p data-pt="Sim, o dbMoney possibilita a gestão de backups automáticos ou manuais, tudo é configurável dentro do app."
-			   data-en="Yes, dbMoney allows you to manage automatic or manual backups, fully configurable within the app settings."
-			   data-es="Sí, dbMoney permite gestionar copias de seguridad (backups) automáticas o manuales; todo se puede configurar fácilmente dentro de la aplicación."
-			   data-fr="Oui, dbMoney permet de gérer des sauvegardes automatiques ou manuelles, entièrement configurables depuis l'application."
-			   data-de="Ja, dbMoney ermöglicht die Verwaltung automatischer oder manueller Backups – alles lässt sich direkt in der App konfigurieren.">
-			</p>
-		</details>
-		<details>
-			<summary
-				data-pt="9. É possível importar extratos do meu banco automaticamente?"
-				data-en="9. Can I automatically import bank statements?"
-				data-es="9. ¿Es posible importar extractos bancarios automáticamente?"
-				data-fr="9. Est-il possible d'importer automatiquement mes relevés bancaires ?"
-				data-de="9. Können Kontoauszüge automatisch importiert werden?">
-			</summary>
-			<p data-pt="Sim. O dbMoney permite a importação de arquivos de extrato bancário no padrão OFX, evitando a digitação manual de cada transação, além de contar com automatizadores para o preenchimento automático das informações e a verificação de lançamentos duplicados."
-			   data-en="Yes. dbMoney allows you to import bank statements in the standard OFX format, eliminating the need to manually enter every transaction. It also includes automated tools for pre-filling information and detecting duplicate entries."
-			   data-es="Sí. dbMoney permite la importación de extractos bancarios en el formato estándar OFX, evitando la entrada manual de cada transacción. Además, incluye herramientas automatizadas para el llenado de información y la detección de registros duplicados."
-			   data-fr="Oui. dbMoney permet l'importation de relevés bancaires au format standard OFX, évitant ainsi la saisie manuelle de chaque transaction. Il inclut également des outils automatisés pour le remplissage des informations et la détection des doublons."
-			   data-de="Ja. dbMoney unterstützt den Import von Kontoauszügen im standardisierten OFX-Format, sodass Sie nicht jede Transaktion manuell eingeben müssen. Zudem sind automatische Werkzeuge zur Vorausfüllung von Informationen und zur Erkennung von Doppeleinträgen enthalten.">
-			</p>
-		</details>
-		<details>
-			<summary
-				data-pt="10. Como faço para não perder minhas informações ao trocar de computador?"
-				data-en="10. How do I keep my data safe when switching computers?"
-				data-es="10. ¿Cómo evito perder mi información al cambiar de computadora?"
-				data-fr="10. Comment éviter de perdre mes informations lors d'un changement d'ordinateur ?"
-				data-de="10. Wie stelle ich sicher, dass meine Daten beim Computerwechsel nicht verloren gehen?">
-			</summary>
-			<p data-pt="Você pode criar cópias de segurança (backup) com um clique e armazená-las em um local de sua preferência ou em sua própria nuvem (OneDrive ou Google Drive) para restaurar facilmente em outro computador."
-			   data-en="You can create backups with a single click and save them to your preferred location or your own cloud storage (OneDrive or Google Drive) to easily restore them on another computer."
-			   data-es="Puede crear copias de seguridad con un solo clic y guardarlas en la ubicación de su preferencia o en su propia nube (OneDrive o Google Drive) para restaurarlas fácilmente en otra computadora."
-			   data-fr="Vous pouvez créer des copies de sauvegarde en un seul clic et les enregistrer dans l'emplacement de votre choix ou sur votre cloud (OneDrive ou Google Drive) afin de les restaurer facilement sur un autre ordinateur."
-			   data-de="Sie können mit einem Klick Sicherungskopien (Backups) erstellen und diese an einem Ort Ihrer Wahl oder in Ihrer eigenen Cloud (OneDrive oder Google Drive) speichern, um sie problemlos auf einem anderen Computer Wiederherzustellen.">
-			</p>
-		</details>
-		<details>
-			<summary
-				data-pt="11. Posso utilizar o dbMoney em mais de um idioma ou moeda?"
-				data-en="11. Can I use dbMoney in multiple languages or currencies?"
-				data-es="11. ¿Puedo utilizar dbMoney en múltiples idiomas o monedas?"
-				data-fr="11. Puis-je utiliser dbMoney en plusieurs langues ou devises ?"
-				data-de="11. Kann ich dbMoney in mehreren Sprachen oder Währungen nutzen?">
-			</summary>
-			<p data-pt="Sim, o dbMoney possui suporte nativo para múltiplos idiomas e moedas, sendo ideal para uso local e internacional."
-			   data-en="Yes, dbMoney features native support for multiple languages and currencies, making it ideal for both local and international use."
-			   data-es="Sí, dbMoney cuenta con soporte nativo para múltiples idiomas y monedas, siendo ideal tanto para uso local como internacional."
-			   data-fr="Oui, dbMoney prend en charge nativement plusieurs langues et devises, ce qui le rend idéal pour un usage local et international."
-			   data-de="Ja, dbMoney bietet native Unterstützung für mehrere Sprachen und Währungen und ist somit ideal für den lokalen und internationalen Einsatz.">
-			</p>
-		</details>
-		<details>
-			<summary
-				data-pt="12. Como funciona o suporte técnico caso eu precise de ajuda?"
-				data-en="12. How does technical support work if I need help?"
-				data-es="12. ¿Cómo funciona el soporte técnico si necesito ayuda?"
-				data-fr="12. Comment fonctionne l'assistance technique en cas de besoin ?"
-				data-de="12. Wie funktioniert der technische Support, wenn ich Hilfe benötige?">
-			</summary>
-			<p data-pt="O suporte técnico pode ser acionado a qualquer momento pelo e-mail <a href='mailto:support@devbrazil.com'>support@devbrazil.com</a> ou pelo formulário de contato desta página."
-			   data-en="Technical support can be reached at any time via email at <a href='mailto:support@devbrazil.com'>support@devbrazil.com</a> or through the contact form on this page."
-			   data-es="Puede ponerse en contacto con nuestro soporte técnico en cualquier momento escribiendo al correo <a href='mailto:support@devbrazil.com'>support@devbrazil.com</a> o a través del formulario de contacto de esta página."
-			   data-fr="L'assistance technique est joignable à tout moment par e-mail à <a href='mailto:support@devbrazil.com'>support@devbrazil.com</a> ou via le formulaire de contact de cette page."
-			   data-de="Der technische Support kann jederzeit per E-Mail unter <a href='mailto:support@devbrazil.com'>support@devbrazil.com</a> oder über das Kontaktformular auf dieser Seite kontaktiert werden.">
-			</p>
-		</details>
-	</div>
-	
-	<h3 class="gallery-title" data-pt="Idiomas disponíveis" data-en="Available languages" data-es="Idiomas disponibles" data-fr="Langues disponibles" data-de="Verfügbare Sprachen"></h3>
-
-	<div class="lang-grid-status">
-		<div class="lang-status-item">
-			<img src="images/flag_usa_16.png" alt="English">
-			<span data-pt="Inglês" data-en="English" data-es="Inglés" data-fr="Anglais" data-de="Englisch">Inglês</span>
-		</div>
-		<div class="lang-status-item">
-			<img src="images/flag_brazil_16.png" alt="Português">
-			<span data-pt="Português" data-en="Portuguese" data-es="Portugués" data-fr="Portugais" data-de="Portugiesisch">Português</span>		
-		</div>
-		<div class="lang-status-item">
-			<img src="images/flag_spain_16.png" alt="Español">
-			<span data-pt="Espanhol" data-en="Spanish" data-es="Español" data-fr="Espagnol" data-de="Spanisch">Espanhol</span>			
-		</div>
-		<div class="lang-status-item">
-			<img src="images/flag_france_16.png" alt="Français">
-			<span data-pt="Francês" data-en="French" data-es="Francés" data-fr="Français" data-de="Französisch">Francês</span>			
-		</div>
-		<div class="lang-status-item">
-			<img src="images/flag_germany_16.png" alt="Deutsch">
-			<span data-pt="Alemão" data-en="German" data-es="Alemán" data-fr="Allemand" data-de="Deutsch">Alemão</span>			
-		</div>
-	</div>
-
-	<a href="https://apps.microsoft.com/detail/9N0PB6XG7ZQT" 
-		target="_blank" 
-		class="btn-store-dbmoney" 
-		data-pt='<i class="fab fa-windows"></i>&nbsp;Baixar na Microsoft Store'
-		data-en='<i class="fab fa-windows"></i>&nbsp;Get it from Microsoft Store' 
-		data-es='<i class="fab fa-windows"></i>&nbsp;Obtener de Microsoft Store' 
-		data-fr='<i class="fab fa-windows"></i>&nbsp;Télécharger sur Microsoft Store' 
-		data-de='<i class="fab fa-windows"></i>&nbsp;Aus dem Microsoft Store herunterladen'>
-	</a>
+<div class="product-nav-links">
+<img alt="DevBrazil Logo" class="logo-img" src="images/devbrazil_logo_96.png"/>
+<a href="#devbrazil" onclick="scrollToSection('devbrazil'); return false;" style="--prod-color:var(--verde-dev)"><span class="brand-name">Dev<span class="brand-accent">Brazil</span></span></a>
 </div>
-
-<br>
-
+<nav>
+<div class="product-nav-links">
+<a href="#dbmoney" onclick="scrollToSection('dbmoney'); return false;" style="--prod-color:var(--azul-dbmoney)">dbMoney</a>
+<div class="nav-divider"></div>
+<a href="#dbpdf" onclick="scrollToSection('dbpdf'); return false;" style="--prod-color:var(--vermelho-dbpdf)">dbPDF</a>
+<div class="nav-divider"></div>
+<a href="#dbradio" onclick="scrollToSection('dbradio'); return false;" style="--prod-color:var(--roxo-dbradio)">dbRadio</a>
+<div class="nav-divider"></div>
+<a href="#dbnotes" onclick="scrollToSection('dbnotes'); return false;" style="--prod-color:var(--amarelo-dbnotes)">dbNotes</a>
+</div>
+<div class="nav-divider-media-hide"></div>
+<div class="lang-selector" id="langSelector">
+<a class="lang-pill active" data-lang="en" href="/">EN</a>
+<a class="lang-pill" data-lang="pt" href="/pt/">PT</a>
+<a class="lang-pill" data-lang="es" href="/es/">ES</a>
+<a class="lang-pill" data-lang="fr" href="/fr/">FR</a>
+<a class="lang-pill" data-lang="de" href="/de/">DE</a>
+</div>
+<div class="nav-divider-media-hide"></div>
+<a aria-label="Email" class="header-contact" href="mailto:support@devbrazil.com" id="contactLink" title="support@devbrazil.com">
+<i class="fas fa-envelope"></i>
+</a>
+</nav>
+</header>
+<br/>
+<br/>
+<div class="product-card card-dbmoney" id="dbmoney">
+<div class="dbmoney-intro">
+<div class="dbmoney-text" style="display: flex; flex-direction: column; align-items: center; gap: 0px;">
+<img alt="dbMoney" class="dbmoney-intro" src="images/dbmoney_logo_96.png" style="display: block; margin: 0 0 -5px 0; padding: 0;"/>
+</div>
+<div class="dbmoney-text">
+<h2 class="product-title product-title-flex">
+                dbMoney Personal  
+				<span class="product-eyebrow eyebrow-blue"><i class="fa-brands fa-windows"></i> Windows</span>
+</h2>
+<p><strong>dbMoney Personal</strong> is a powerful personal finance software designed for those who want to take full control of their financial life without sacrificing privacy.</p>
+<br/>
+<span class="product-eyebrow eyebrow-green"><i class="fa fa-gift"></i> Basic Version: Free</span>
+<span class="product-eyebrow eyebrow-purple custom-tooltip"><i class="fa fa-star"></i> Premium: $ 29.99 (lifetime) <i class="fa-solid fa-circle-question"></i><span class="tooltip-text">Price listed in USD. Final price may vary by region or local currency exchange rate in the Microsoft Store.</span></span>
+</div>
+<div class="dbmoney-text" style="display: flex; flex-direction: column; align-items: center; gap: 0px;">
+<a class="btn-store-dbmoney-mini" href="https://apps.microsoft.com/detail/9N0PB6XG7ZQT" target="_blank"><i class="fab fa-windows"></i> Get it from Microsoft Store</a>
+</div>
+</div>
+<br/>
+<div class="about-content">
+<p><strong_dbmoney>Your data belongs to you, and no one else.</strong_dbmoney></p>
+<p>Unlike web platforms that expose your information to third-party servers, dbMoney prioritizes maximum security. Your data remains encrypted and stored locally on your computer, operating <strong>100% offline</strong>.</p>
+<br/>
+<p><strong_dbmoney>Need mobility?</strong_dbmoney></p>
+<p>Sync your files using your <strong>OneDrive</strong> or <strong>Google Drive</strong> to access them on other computers.</p>
+<br/>
+<span class="product-eyebrow eyebrow-gray"><i class="fa-solid fa-plane-slash"></i> 100% Offline</span>
+<span class="product-eyebrow eyebrow-gray"><i class="fa-solid fa-calendar-xmark"></i> No Subscription Fees</span>
+<span class="product-eyebrow eyebrow-gray"><i class="fas fa-bolt"></i> Native Performance</span>
+<span <="" class="product-eyebrow eyebrow-gray" span=""><i class="fa-solid fa-download"></i> Bank Statement Import (OFX)</span></div>
+<h3 class="gallery-title">
+<a>Screenshots</a>
+</h3>
+<div class="screenshot-grid" id="gallery-dbmoney">
+<!--
+-->
+<!-- Imagens visíveis -->
+<img alt="Screen 01" data-caption-de="Startbildschirm (Zugriff auf Ihre Dateien und allgemeine Informationen)" data-caption-en="Welcome screen (access to your files and general overview)" data-caption-es="Pantalla de inicio (acceso a tus archivos e información general)" data-caption-fr="Écran d'accueil (accès à vos fichiers et informations générales)" data-caption-pt="Tela de abertura (acesso aos seus arquivos e informações gerais)" onclick="openModal(0, 'gallery-dbmoney')" src="images/dbmoney_screen_01.webp"/>
+<img alt="Screen 02" data-caption-de="Anzeige von Dashboards und Diagrammen zur Entscheidungsfindung" data-caption-en="Dashboards and charts view for decision-making" data-caption-es="Visualización de dashboards y gráficos para la toma de decisiones" data-caption-fr="Visualisation de tableaux de bord et graphiques pour la prise de décision" data-caption-pt="Visualização de dashboards e gráficos para tomada de decisões" onclick="openModal(1, 'gallery-dbmoney')" src="images/dbmoney_screen_02.webp"/>
+<img alt="Screen 03" data-caption-de="Hauptbildschirm für Buchungen (Einnahmen und Ausgaben)" data-caption-en="Main transactions screen (income and expenses)" data-caption-es="Pantalla principal de movimientos (ingresos y gastos)" data-caption-fr="Écran principal des transactions (revenus et dépenses)" data-caption-pt="Tela principal dos lançamentos (receitas e despesas)" onclick="openModal(2, 'gallery-dbmoney')" src="images/dbmoney_screen_03.webp"/>
+<!-- Acesso às demais imagens -->
+<div class="gallery-more" onclick="openModal(3, 'gallery-dbmoney')">
+<img alt="More screenshots" data-caption-de="Buchungsbearbeitung und Auswahl von Symbolen für Konten und Kategorien" data-caption-en="Transaction editing screen with icon selection for accounts and categories" data-caption-es="Pantalla de edición de movimientos y selección de iconos para cuentas y categorías" data-caption-fr="Écran de modification des transactions et choix des icônes para comptes et catégories" data-caption-pt="Tela de edição de lançamento e escolha de ícones para contas e categorias" src="images/dbmoney_screen_04.webp"/>
+<div class="gallery-more-overlay">
+<span class="gallery-more-count">+14</span>
+<small>More screenshots</small>
+</div>
+</div>
+<!-- Imagens restantes: continuam disponíveis para o modal -->
+<div class="gallery-hidden">
+<img alt="Screen 05" data-caption-de="Buchungsbearbeitung mit benutzerdefinierten Feldern" data-caption-en="Transaction editing screen with user-customized fields" data-caption-es="Pantalla de edición de movimientos con campos personalizados por el usuario" data-caption-fr="Écran de modification des transactions avec champs personnalisés par l'utilisateur" data-caption-pt="Tela de edição de lançamento com campos personalizados pelo usuário" onclick="openModal(4, 'gallery-dbmoney')" src="images/dbmoney_screen_05.webp"/>
+<img alt="Screen 06" data-caption-de="Leistungsstarke Datenverwaltung (anpassbare Filter)" data-caption-en="Powerful data management (customizable filters)" data-caption-es="Gran capacidad de gestión de datos (personalización de filtros)" data-caption-fr="Puissante gestion des données (personnalisation des filtres)" data-caption-pt="Alto poder de manipulação de dados (customização de filtros)" onclick="openModal(5, 'gallery-dbmoney')" src="images/dbmoney_screen_06.webp"/>
+<img alt="Screen 07" data-caption-de="Erfassung mehrerer Buchungen / Ratenzahlungsgenerator" data-caption-en="Batch transaction entry / Installment generator" data-caption-es="Entrada de múltiples movimientos / Generación de cuotas" data-caption-fr="Saisie de transactions multiples / Génération d'échéances" data-caption-pt="Inclusão de multiplos lançamentos / Geraçao de parcelas" onclick="openModal(6, 'gallery-dbmoney')" src="images/dbmoney_screen_07.webp"/>
+<img alt="Screen 08" data-caption-de="Massenbearbeitung von Buchungen" data-caption-en="Bulk editing of transactions" data-caption-es="Edición masiva de movimientos" data-caption-fr="Modification en masse des transactions" data-caption-pt="Alteração de lançamentos em lote" onclick="openModal(7, 'gallery-dbmoney')" src="images/dbmoney_screen_08.webp"/>
+<img alt="Screen 09" data-caption-de="Kopieren von Buchungen in einen anderen Zeitraum" data-caption-en="Duplicate transactions to another period" data-caption-es="Replicación de movimientos a otro período" data-caption-fr="Duplication de transactions sur une autre période" data-caption-pt="Replicação de lançamentos para outro período" onclick="openModal(8, 'gallery-dbmoney')" src="images/dbmoney_screen_09.webp"/>
+<img alt="Screen 10" data-caption-de="Zusammenführung/Abgleich von Buchungen (Bereinigung von Duplikaten)" data-caption-en="Transaction merging/reconciliation (duplicate elimination)" data-caption-es="Unificación/conciliación de movimientos (eliminación de duplicados)" data-caption-fr="Fusion/rapprochement des transactions (élimination dos doublons)" data-caption-pt="Unificação/conciliação de lançamentos (eliminação de duplicados)" onclick="openModal(9, 'gallery-dbmoney')" src="images/dbmoney_screen_10.webp"/>
+<img alt="Screen 11" data-caption-de="Buchung in 2 oder mehr Raten aufteilen" data-caption-en="Split transaction into 2 or more installments" data-caption-es="Dividir movimiento en 2 o más cuotas" data-caption-fr="Fractionner la transaction en 2 échéances ou plus" data-caption-pt="Desmembrar lançamento em 2 ou mais parcelas" onclick="openModal(10, 'gallery-dbmoney')" src="images/dbmoney_screen_11.webp"/>
+<img alt="Screen 12" data-caption-de="Kontoauszugsimport (OFX)" data-caption-en="OFX bank statement import" data-caption-es="Importación de extractos bancarios OFX" data-caption-fr="Importation de relevés bancaires OFX" data-caption-pt="Importação de extratos bancários OFX" onclick="openModal(11, 'gallery-dbmoney')" src="images/dbmoney_screen_12.webp"/>
+<img alt="Screen 13" data-caption-de="Seitenleisten-Einstellungen (Anzeige, Saldenberechnung und Erscheinungsbild)" data-caption-en="Sidebar settings (display, balance calculations, and appearance)" data-caption-es="Configuración de la barra lateral (visualización, cálculo de saldos y apariencia)" data-caption-fr="Paramètres de la barre latérale (affichage, calcul dos soldes et apparence)" data-caption-pt="Configurações da barra lateral (exibição, cálculo de saldos e aparência)" onclick="openModal(12, 'gallery-dbmoney')" src="images/dbmoney_screen_13.webp"/>
+<img alt="Screen 14" data-caption-de="Einstellungen (Anzeige, Gesamtsummen, Standardwährung und benutzerdefinierte Felder)" data-caption-en="Preferences (display, summary totals, default currency, and custom fields)" data-caption-es="Preferencias (visualización, totalizadores, moneda predeterminada y campos personalizados)" data-caption-fr="Préférences (affichage, totaliseurs, devise par défaut et champs personnalisés)" data-caption-pt="Preferências (exibição, totalizadores, moeda padrão e campos personalizados)" onclick="openModal(13, 'gallery-dbmoney')" src="images/dbmoney_screen_14.webp"/>
+<img alt="Screen 15" data-caption-de="Design-Einstellungen für Buchungen und Kontoauszüge" data-caption-en="Appearance settings for transactions and bank statement screens" data-caption-es="Configuración de apariencia de la pantalla de movimientos y extracto bancario" data-caption-fr="Paramètres d'apparence des écrans de transactions et relevés bancaires" data-caption-pt="Configurações de aparência da tela de lançamentos e extrato bancário" onclick="openModal(14, 'gallery-dbmoney')" src="images/dbmoney_screen_15.webp"/>
+<img alt="Screen 16" data-caption-de="Konto-Verwaltungsbildschirm (Saldo-Anpassungen und benutzerdefiniertes Währungsformat)" data-caption-en="Account management screen (balance adjustments and custom currency format)" data-caption-es="Pantalla de gestión de cuentas (ajuste de saldos y formato de moneda personalizado)" data-caption-fr="Écran de gestion dos comptes (ajustement dos soldes et format de devise personnalisé)" data-caption-pt="Tela de manutenção de contas (ajuste de saldos e formato de moeda personalizado)" onclick="openModal(15, 'gallery-dbmoney')" src="images/dbmoney_screen_16.webp"/>
+<img alt="Screen 17" data-caption-de="Beispielbericht der Buchungsansicht" data-caption-en="Sample transactions report" data-caption-es="Ejemplo de informe de la pantalla de movimientos" data-caption-fr="Exemple de rapport sur l'écran des transactions" data-caption-pt="Exemplo de relatório da tela de lançamentos" onclick="openModal(16, 'gallery-dbmoney')" src="images/dbmoney_screen_17.webp"/>
+</div>
+<div id="gallery-dbmoney-youtube">
+<a href="https://www.youtube.com/watch?v=wLP-gaJQ5b0" target="_blank">
+<img alt="dbMoney on YouTube" src="images/dbmoney_youtube.webp"/>
+</a>
+</div>
+</div>
+<h3 class="gallery-title-faq"><a>Plans &amp; Versions</a></h3>
+<div class="pricing-table-container">
+<table>
+<thead>
+<tr>
+<th><a>Feature</a></th>
+<th><a>Basic Version</a></th>
+<th><a>Premium Version</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><i class="fas fa-wallet"></i><a> Accounts / Wallets</a></td>
+<td><span class="limit-text"><a>2 accounts</a></span></td>
+<td><i class="fas fa-check-circle check-yes"></i><a> Unlimited</a></td>
+</tr>
+<tr>
+<td><i class="fa-solid fa-tag"></i><a> Categories, contacts, and tags</a></td>
+<td><i class="fas fa-check-circle check-yes"></i><a> Unlimited</a></td>
+<td><i class="fas fa-check-circle check-yes"></i><a> Unlimited</a></td>
+</tr>
+<tr>
+<td><i class="fas fa-pie-chart"></i><a> High-resolution Dashboards</a></td>
+<td><i class="fas fa-check-circle check-yes"></i><a> Unlimited</a></td>
+<td><i class="fas fa-check-circle check-yes"></i><a> Unlimited</a></td>
+</tr>
+<tr>
+<td><i class="fas fa-users"></i><a> Multi-Wallet / Multi-Profile Management</a></td>
+<td><i class="fas fa-check-circle check-yes"></i><a> Unlimited</a></td>
+<td><i class="fas fa-check-circle check-yes"></i><a> Unlimited</a></td>
+</tr>
+<tr>
+<td><i class="fas fa-columns"></i><a> Custom Fields</a></td>
+<td><span class="limit-text"><a>3 fields</a></span></td>
+<td><span class="limit-text"><a>3 fields</a></span></td>
+</tr>
+<tr>
+<td><i class="fas fa-edit"></i><a> Manual Transactions</a></td>
+<td><span class="limit-text"><a>20 per month</a></span></td>
+<td><i class="fas fa-check-circle check-yes"></i><a> Unlimited</a></td>
+</tr>
+<tr>
+<td><i class="fas fa-list-alt"></i><a> Batch Editing</a></td>
+<td><span class="limit-text"><a>3 executions</a></span></td>
+<td><i class="fas fa-check-circle check-yes"></i><a> Unlimited</a></td>
+</tr>
+<tr>
+<td><i class="fas fa-plus-square"></i><a> Multiple Transactions</a></td>
+<td><span class="limit-text"><a>3 executions</a></span></td>
+<td><i class="fas fa-check-circle check-yes"></i><a> Unlimited</a></td>
+</tr>
+<tr>
+<td><i class="fas fa-clone"></i><a> Replicate/Copy Transactions</a></td>
+<td><span class="limit-text"><a>3 executions</a></span></td>
+<td><i class="fas fa-check-circle check-yes"></i><a> Unlimited</a></td>
+</tr>
+<tr>
+<td><i class="fas fa-compress"></i><a> Merge/Reconcile Transactions</a></td>
+<td><span class="limit-text"><a>3 executions</a></span></td>
+<td><i class="fas fa-check-circle check-yes"></i><a> Unlimited</a></td>
+</tr>
+<tr>
+<td><i class="fas fa-arrows"></i><a> Split transactions</a></td>
+<td><span class="limit-text"><a>3 executions</a></span></td>
+<td><i class="fas fa-check-circle check-yes"></i><a> Unlimited</a></td>
+</tr>
+<tr>
+<td><i class="fas fa-file-import"></i><a> Statement Import (OFX)</a></td>
+<td><span class="limit-text"><a>3 imports</a></span></td>
+<td><i class="fas fa-check-circle check-yes"></i><a> Unlimited</a></td>
+</tr>
+<tr>
+<td><i class="fas fa-file-excel"></i><a> Export to Excel and HTML</a></td>
+<td><span class="limit-text"><a>5 exports</a></span></td>
+<td><i class="fas fa-check-circle check-yes"></i><a> Unlimited</a></td>
+</tr>
+<tr>
+<td><i class="fas fa-file-pdf"></i><a> Export to PDF</a></td>
+<td><i class="fas fa-check-circle check-yes"></i><a> Unlimited</a></td>
+<td><i class="fas fa-check-circle check-yes"></i><a> Unlimited</a></td>
+</tr>
+<tr>
+<td><i class="fas fa-history"></i><a> Automatic Backup (Configurable)</a></td>
+<td><i class="fas fa-check-circle check-yes"></i><a> Yes</a></td>
+<td><i class="fas fa-check-circle check-yes"></i><a> Yes</a></td>
+</tr>
+<tr>
+<td><i class="fas fa-envelope"></i><a> Email Support</a></td>
+<td><i class="fas fa-check-circle check-yes"></i><a> Yes</a></td>
+<td><i class="fas fa-check-circle check-yes"></i><a> Yes</a></td>
+</tr>
+<tr>
+<td><strong><i class="fa-solid fa-dollar-sign"></i><a> Price</a></strong></td>
+<td><span class="limit-text-blue"><a> Free</a></span></td>
+<td><span class="limit-text-blue"><a> $ 29.99 (lifetime)</a></span>
+<br/>
+<small style="font-size: 0.75rem; color: #777; display: block; margin-top: 4px;">* Limited time offer</small>
+<small style="font-size: 0.75rem; color: #777; display: block; margin-top: 4px;">* Price may vary by region/country</small>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 class="gallery-title-faq">Frequently Asked Questions (FAQ)</h3>
+<div class="faq">
+<details>
+<summary>1. Does dbMoney work without an internet connection?</summary>
+<p>Yes, dbMoney is installed locally on your computer and does not depend on an internet connection to function. dbMoney uses the internet (when connected) solely to display news, usage statistics, and check for updates. We do not collect any personal data.</p>
+</details>
+<details>
+<summary>2. How do I purchase the Premium version?</summary>
+<p>The Premium version can be purchased directly on the dbMoney home screen by clicking the <strong>Premium</strong> button (located at the top). The purchase and payment management are handled directly through the Microsoft Store. We do not have access to any payment details provided.</p>
+</details>
+<details>
+<summary>3. Is the Premium payment a monthly subscription or a one-time fee?</summary>
+<p>One-time fee—no subscriptions, lifetime use!</p>
+</details>
+<details>
+<summary>4. If I format my PC or switch computers, do I need to buy the Premium version again?</summary>
+<p>No, your license is linked to your Microsoft account. Once you log in with your Microsoft account on your new computer, your Premium license will be restored.</p>
+</details>
+<details>
+<summary>5. What happens if I use the Basic (free) version? Is there a time limit?</summary>
+<p>No, you can use the free version for as long as you need. However, it includes feature limitations, which are listed in the <strong>Plans &amp; Versions</strong> section.</p>
+</details>
+<details>
+<summary>6. How does file management work in dbMoney?</summary>
+<p>Data files generated by dbMoney use the <strong>.dbm</strong> format (<i>e.g., JohnSmith.dbm</i>) and follow the same concept as an Excel spreadsheet. The data file features end-to-end encryption and can only be opened by dbMoney (you can also set a password for added security). You can create multiple data files, one for each purpose (personal, business, etc.).</p>
+</details>
+<details>
+<summary>7. Can I store and use my files in the cloud?</summary>
+<p>Yes, just like an Excel file, you can store and use your data files in your own cloud storage (OneDrive or Google Drive) for backup purposes or to access them on other computers.</p>
+</details>
+<details>
+<summary>8. Does dbMoney have an automatic backup feature?</summary>
+<p>Yes, dbMoney allows you to manage automatic or manual backups, fully configurable within the app settings.</p>
+</details>
+<details>
+<summary>9. Can I automatically import bank statements?</summary>
+<p>Yes. dbMoney allows you to import bank statements in the standard OFX format, eliminating the need to manually enter every transaction. It also includes automated tools for pre-filling information and detecting duplicate entries.</p>
+</details>
+<details>
+<summary>10. How do I keep my data safe when switching computers?</summary>
+<p>You can create backups with a single click and save them to your preferred location or your own cloud storage (OneDrive or Google Drive) to easily restore them on another computer.</p>
+</details>
+<details>
+<summary>11. Can I use dbMoney in multiple languages or currencies?</summary>
+<p>Yes, dbMoney features native support for multiple languages and currencies, making it ideal for both local and international use.</p>
+</details>
+<details>
+<summary>12. How does technical support work if I need help?</summary>
+<p>Technical support can be reached at any time via email at <a href="mailto:support@devbrazil.com">support@devbrazil.com</a> or through the contact form on this page.</p>
+</details>
+</div>
+<h3 class="gallery-title">Available languages</h3>
+<div class="lang-grid-status">
+<div class="lang-status-item">
+<img alt="English" src="images/flag_usa_16.png"/>
+<span>English</span>
+</div>
+<div class="lang-status-item">
+<img alt="Português" src="images/flag_brazil_16.png"/>
+<span>Portuguese</span>
+</div>
+<div class="lang-status-item">
+<img alt="Español" src="images/flag_spain_16.png"/>
+<span>Spanish</span>
+</div>
+<div class="lang-status-item">
+<img alt="Français" src="images/flag_france_16.png"/>
+<span>French</span>
+</div>
+<div class="lang-status-item">
+<img alt="Deutsch" src="images/flag_germany_16.png"/>
+<span>German</span>
+</div>
+</div>
+<a class="btn-store-dbmoney" href="https://apps.microsoft.com/detail/9N0PB6XG7ZQT" target="_blank"><i class="fab fa-windows"></i> Get it from Microsoft Store</a>
+</div>
+<br/>
 <!-- Produto: dbPDF -->
 <div class="product-card card-dbpdf" id="dbpdf">
-    <div class="dbmoney-intro">
-        <img src="images/dbpdf_logo_96.png" alt="dbPDF" class="dbmoney-intro">
-        <div class="dbmoney-text">
-            <h2 class="product-title product-title-flex">
-                dbPDF&nbsp;&nbsp;
-                <span class="product-eyebrow eyebrow-red" data-pt='<i class="fa-brands fa-windows"></i>&nbsp;Windows' data-en='<i class="fa-brands fa-windows"></i>&nbsp;Windows' data-es='<i class="fa-brands fa-windows"></i>&nbsp;Windows' data-fr='<i class="fa-brands fa-windows"></i>&nbsp;Windows' data-de='<i class="fa-brands fa-windows"></i>&nbsp;Windows'></span>				
-				<span class="product-eyebrow eyebrow-red" data-pt='<i class="fa fa-gift"></i>&nbsp;100% Gratuito' data-en='<i class="fa fa-gift"></i>&nbsp;100% Free' data-es='<i class="fa fa-gift"></i>&nbsp;100% Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;100% Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;100% Kostenlos'><i class="fa fa-gift"></i>&nbsp;100% Gratuito</span>
-            </h2>
-            
-            <p data-pt="O <strong>dbPDF</strong> é o leitor nativo definitivo para quem não tem tempo a perder. Desenvolvido para quebrar o ciclo de softwares pesados e lentos, ele entrega uma experiência de leitura fluida, elegante e instantânea, abrindo seus arquivos no exato segundo em que você clica neles."
-               data-en="<strong>dbPDF</strong> is the ultimate native reader for those who value every second. Built to break the cycle of heavy, bloated software, it delivers a fluid, elegant, and instant reading experience—opening your files the exact millisecond you click them."
-               data-es="<strong>dbPDF</strong> es el lector nativo definitivo para quienes no tienen tiempo que perder. Desarrollado para romper el ciclo de software pesado y lento, ofrece una experiencia de lectura fluida, elegante e instantánea, abriendo sus archivos en el segundo exacto en que hace clic en ellos."
-               data-fr="<strong>dbPDF</strong> est le lecteur natif ultime pour ceux qui n'ont pas de temps à perdre. Développé pour briser le cycle des logiciels lourds et lents, il offre une expérience de lecture fluide, élégante et instantanée, ouvrant vos fichiers à la seconde exacte où vous cliquez dessus."
-               data-de="<strong>dbPDF</strong> ist der ultimative native Reader für alle, die keine Zeit zu verlieren haben. Entwickelt, um den Teufelskreis schwerfälliger und langsamer Software zu durchbrechen, bietet er ein flüssiges, elegantes und sofortiges Leseerlebnis – und öffnet Ihre Dateien in genau der Sekunde, in der Sie darauf klicken.">
-            </p>
-        </div>
-    </div>
-    
-    <br>
-    <div class="about-content">
-        <p data-pt="Sem ferramentas desnecessárias que poluem a tela, o dbPDF foca no que realmente importa: a sua produtividade e a privacidade absoluta dos seus documentos. Sinta a diferença de um software feito sob medida para quem busca eficiência máxima no Windows."
-           data-en="By stripping away unnecessary features that clutter the screen, dbPDF focuses entirely on what matters most: your productivity and the absolute privacy of your documents. Experience the true power of software tailored for those who demand maximum efficiency on Windows."
-           data-es="Sin herramientas innecesarias que saturen la pantalla, dbPDF se enfoca en lo que realmente importa: su productividad y la privacidad absoluta de sus documentos. Sienta la diferencia de un software hecho a la medida para quienes buscan la máxima eficiencia en Windows."
-           data-fr="Sans outils superflus qui encombrent l'écran, dbPDF se concentre sur ce qui compte vraiment : votre productivité et la confidentialité absolue de vos documents. Ressentez la différence d'un logiciel conçu sur mesure pour ceux qui recherchent une efficacité maximale sur Windows."
-           data-de="Ohne unnötige Tools, die den Bildschirm überladen, konzentriert sich dbPDF auf das, was wirklich zählt: Ihre Produktivität und die absolute Privatsphäre Ihrer Dokumente. Spüren Sie den Unterschied einer Software, die maßgeschneidert für alle ist, die maximale Effizienz unter Windows suchen.">
-        </p>
-    </div>
-    
-    <h3 class="gallery-title-red"><a data-pt="Capturas de tela" data-en="Screenshots" data-es="Capturas de pantalla" data-fr="Captures d'écran" data-de="Screenshots"></a></h3>
-    
-    <div class="screenshot-grid" id="gallery-dbpdf">
-        <img src="images/dbpdf_screen_01.webp" alt="Screen 01" onclick="openModal(0, 'gallery-dbpdf')">
-        <img src="images/dbpdf_screen_02.webp" alt="Screen 02" onclick="openModal(1, 'gallery-dbpdf')">
-        <img src="images/dbpdf_screen_03.webp" alt="Screen 03" onclick="openModal(2, 'gallery-dbpdf')">
-        <img src="images/dbpdf_screen_04.webp" alt="Screen 04" onclick="openModal(3, 'gallery-dbpdf')">
-    </div>
-    
-    <h3 class="gallery-title-red" data-pt="Idiomas disponíveis" data-en="Available languages" data-es="Idiomas disponibles" data-fr="Langues disponibles" data-de="Verfügbare Sprachen"></h3>
-
-	<div class="lang-grid-status">
-		<div class="lang-status-item">
-			<img src="images/flag_usa_16.png" alt="English">
-			<span data-pt="Inglês" data-en="English" data-es="Inglés" data-fr="Anglais" data-de="Englisch">Inglês</span>
-		</div>
-		<div class="lang-status-item">
-			<img src="images/flag_brazil_16.png" alt="Português">
-			<span data-pt="Português" data-en="Portuguese" data-es="Portugués" data-fr="Portugais" data-de="Portugiesisch">Português</span>		
-		</div>
-		<div class="lang-status-item">
-			<img src="images/flag_spain_16.png" alt="Español">
-			<span data-pt="Espanhol" data-en="Spanish" data-es="Español" data-fr="Espagnol" data-de="Spanisch">Espanhol</span>			
-		</div>
-		<div class="lang-status-item">
-			<img src="images/flag_france_16.png" alt="Français">
-			<span data-pt="Francês" data-en="French" data-es="Francés" data-fr="Français" data-de="Französisch">Francês</span>			
-		</div>
-		<div class="lang-status-item">
-			<img src="images/flag_germany_16.png" alt="Deutsch">
-			<span data-pt="Alemão" data-en="German" data-es="Alemán" data-fr="Allemand" data-de="Deutsch">Alemão</span>			
-		</div>
-    </div>	
-    
-    <a href="https://apps.microsoft.com/detail/9N7H3FPQX608" 
-	    target="_blank" 
-	    class="btn-store-dbpdf" 
-		data-pt='<i class="fab fa-windows"></i>&nbsp;Baixar na Microsoft Store'
-		data-en='<i class="fab fa-windows"></i>&nbsp;Get it from Microsoft Store' 
-		data-es='<i class="fab fa-windows"></i>&nbsp;Obtener de Microsoft Store' 
-		data-fr='<i class="fab fa-windows"></i>&nbsp;Télécharger sur Microsoft Store' 
-		data-de='<i class="fab fa-windows"></i>&nbsp;Aus dem Microsoft Store herunterladen'>
-	</a>	    
+<div class="dbmoney-intro">
+<img alt="dbPDF" class="dbmoney-intro" src="images/dbpdf_logo_96.png"/>
+<div class="dbmoney-text">
+<h2 class="product-title product-title-flex">
+                dbPDF  
+                <span class="product-eyebrow eyebrow-red"><i class="fa-brands fa-windows"></i> Windows</span>
+<span class="product-eyebrow eyebrow-red"><i class="fa fa-gift"></i> 100% Free</span>
+</h2>
+<p><strong>dbPDF</strong> is the ultimate native reader for those who value every second. Built to break the cycle of heavy, bloated software, it delivers a fluid, elegant, and instant reading experience—opening your files the exact millisecond you click them.</p>
 </div>
-
-<br>
-
+</div>
+<br/>
+<div class="about-content">
+<p>By stripping away unnecessary features that clutter the screen, dbPDF focuses entirely on what matters most: your productivity and the absolute privacy of your documents. Experience the true power of software tailored for those who demand maximum efficiency on Windows.</p>
+</div>
+<h3 class="gallery-title-red"><a>Screenshots</a></h3>
+<div class="screenshot-grid" id="gallery-dbpdf">
+<img alt="Screen 01" onclick="openModal(0, 'gallery-dbpdf')" src="images/dbpdf_screen_01.webp"/>
+<img alt="Screen 02" onclick="openModal(1, 'gallery-dbpdf')" src="images/dbpdf_screen_02.webp"/>
+<img alt="Screen 03" onclick="openModal(2, 'gallery-dbpdf')" src="images/dbpdf_screen_03.webp"/>
+<img alt="Screen 04" onclick="openModal(3, 'gallery-dbpdf')" src="images/dbpdf_screen_04.webp"/>
+</div>
+<h3 class="gallery-title-red">Available languages</h3>
+<div class="lang-grid-status">
+<div class="lang-status-item">
+<img alt="English" src="images/flag_usa_16.png"/>
+<span>English</span>
+</div>
+<div class="lang-status-item">
+<img alt="Português" src="images/flag_brazil_16.png"/>
+<span>Portuguese</span>
+</div>
+<div class="lang-status-item">
+<img alt="Español" src="images/flag_spain_16.png"/>
+<span>Spanish</span>
+</div>
+<div class="lang-status-item">
+<img alt="Français" src="images/flag_france_16.png"/>
+<span>French</span>
+</div>
+<div class="lang-status-item">
+<img alt="Deutsch" src="images/flag_germany_16.png"/>
+<span>German</span>
+</div>
+</div>
+<a class="btn-store-dbpdf" href="https://apps.microsoft.com/detail/9N7H3FPQX608" target="_blank"><i class="fab fa-windows"></i> Get it from Microsoft Store</a>
+</div>
+<br/>
 <!-- Produto: dbRadio (beta) -->
 <div class="product-card card-dbradio" id="dbradio">
-    <div class="dbmoney-intro">
-        <img src="images/dbradio_logo_96.png" alt="dbRadio" class="dbmoney-intro">
-        <div class="dbmoney-text">
-            
-			<h2 class="product-title product-title-flex">              
-                dbRadio (beta)&nbsp;&nbsp;
+<div class="dbmoney-intro">
+<img alt="dbRadio" class="dbmoney-intro" src="images/dbradio_logo_96.png"/>
+<div class="dbmoney-text">
+<h2 class="product-title product-title-flex">              
+                dbRadio (beta)  
 				<!-- <span class="product-eyebrow eyebrow-purple" data-pt='<i class="fab fa-windows"></i>&nbsp;RÁDIO ONLINE' data-en='<i class="fab fa-windows"></i>&nbsp;ONLINE RADIO' data-es='<i class="fab fa-windows"></i>&nbsp;RADIO ONLINE' data-fr='<i class="fab fa-windows"></i>&nbsp;RADIO EN LIGNE' data-de='<i class="fab fa-windows"></i>&nbsp;ONLINE-RADIO'><i class="fab fa-windows"></i>&nbsp;RÁDIO ONLINE · WINDOWS</span> -->
-				<span class="product-eyebrow eyebrow-purple" data-pt='<i class="fa-brands fa-windows"></i>&nbsp;Windows' data-en='<i class="fa-brands fa-windows"></i>&nbsp;Windows' data-es='<i class="fa-brands fa-windows"></i>&nbsp;Windows' data-fr='<i class="fa-brands fa-windows"></i>&nbsp;Windows' data-de='<i class="fa-brands fa-windows"></i>&nbsp;Windows'></span>
-				<span class="product-eyebrow eyebrow-purple" data-pt='<i class="fa fa-gift"></i>&nbsp;100% Gratuito' data-en='<i class="fa fa-gift"></i>&nbsp;100% Free' data-es='<i class="fa fa-gift"></i>&nbsp;100% Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;100% Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;100% Kostenlos'><i class="fa fa-gift"></i>&nbsp;100% Gratuito</span>				
-            </h2>           
-            <p data-pt="Mais que um player, uma rede global de ouvintes. No <strong>dbRadio</strong>, cada usuário é um curador. Adicione rádios exclusivas e, em breve, descubra o que o mundo está ouvindo através das listas compartilhadas pela nossa comunidade. Experiência nativa, leve e conectada."
-               data-en="More than just a player, a global network of listeners. On <strong>dbRadio</strong>, every user is a curator. Add exclusive stations and, coming soon, discover what the world is listening to through our community's shared playlists. A native, lightweight, and connected experience."
-               data-es="Más que un reproductor, una red global de oyentes. En <strong>dbRadio</strong>, cada usuario es un curador. Agregue estaciones exclusivas y, próximamente, descubra lo que el mundo está escuchando a través de las listas compartidas por nuestra comunidad. Una experiencia nativa, ligera y conectada."
-               data-fr="Plus qu'un simple lecteur, un réseau mondial d'auditeurs. Sur <strong>dbRadio</strong>, chaque utilisateur est un conservateur. Ajoutez des stations exclusives et, bientôt, découvrez ce que le monde écoute grâce aux listes de lecture partagées de notre communauté. Une expérience native, légère et connectée."
-               data-de="Mehr als nur ein Player, ein globales Netzwerk von Hörern. Auf <strong>dbRadio</strong> ist jeder Nutzer ein Kurator. Fügen Sie exklusive Sender hinzu und entdecken Sie demnächst, was die Welt hört, über die von unserer Community geteilten Playlists. Ein natives, leichtgewichtiges und vernetztes Erlebnis.">
-            </p>
-        </div>
-    </div>
-    <br>
-    <div class="about-content">
-        <p data-pt="Participe da construção do maior banco de dados comunitário de streaming da internet. Cadastre emissoras, compartilhe logos e ajude outros usuários a encontrarem rádios independentes que não estão nos apps comerciais."
-           data-en="Participate in building the largest community-based streaming database on the internet. Register stations, share logos, and help other users find independent radio stations that are not available on commercial apps."
-           data-es="Participe en la construcción de la mayor base de datos comunitaria de streaming en internet. Registre emisoras, comparta logotipos y ayude a otros usuarios a encontrar radios independientes que no están en las aplicaciones comerciales."
-           data-fr="Participez à la construction de la plus grande base de données communautaire de streaming sur Internet. Enregistrez des stations, partagez des logos et aidez d'autres utilisateurs à trouver des radios indépendantes qui ne sont pas disponibles sur les applications commerciales."
-           data-de="Beteiligen Sie sich am Aufbau der größten communitybasierten Streaming-Datenbank im Internet. Registrieren Sie Sender, teilen Sie Logos und helfen Sie anderen Nutzern, unabhängige Radiosender zu finden, die nicht in kommerziellen Apps verfügbar sind.">
-        </p>
-    </div>
-    
-    <div class="about-content" style="color: var(--roxo-dbradio)">
-        <a data-pt="Este aplicativo foi desenvolvido para entusiastas de webrádios ao redor do mundo."
-           data-en="This app was developed for web radio enthusiasts around the world."
-           data-es="Esta aplicación fue desarrollada para entusiastas de las web radios en todo el mundo."
-           data-fr="Cette application a été développée pour les passionnés de web-radios du monde entier."
-           data-de="Diese App wurde für Web-Radio-Enthusiasten auf der ganzen Welt entwickelt.">
-        </a>
-    </div>
-
-    <h3 class="gallery-title-purple"><a data-pt="Capturas de tela" data-en="Screenshots" data-es="Capturas de pantalla" data-fr="Captures d'écran" data-de="Screenshots"></a></h3>
-    <div class="screenshot-grid" id="gallery-dbradio">
-        <img src="images/dbradio_screen_01.webp" alt="Screen 01" onclick="openModal(0, 'gallery-dbradio')">
-        <img src="images/dbradio_screen_02.webp" alt="Screen 02" onclick="openModal(1, 'gallery-dbradio')">
-        <img src="images/dbradio_screen_03.webp" alt="Screen 03" onclick="openModal(2, 'gallery-dbradio')">
-        <img src="images/dbradio_screen_04.webp" alt="Screen 04" onclick="openModal(3, 'gallery-dbradio')">
-        <img src="images/dbradio_screen_05.webp" alt="Screen 05" onclick="openModal(4, 'gallery-dbradio')">
-    </div>
-    
-    <h3 class="gallery-title-purple" data-pt="Idiomas disponíveis" data-en="Available languages" data-es="Idiomas disponibles" data-fr="Langues disponibles" data-de="Verfügbare Sprachen"></h3>
-
-    <div class="lang-grid-status">
-		<div class="lang-status-item">
-			<img src="images/flag_usa_16.png" alt="English">
-			<span data-pt="Inglês" data-en="English" data-es="Inglés" data-fr="Anglais" data-de="Englisch">Inglês</span>
-		</div>
-		<div class="lang-status-item">
-			<img src="images/flag_brazil_16.png" alt="Português">
-			<span data-pt="Português" data-en="Portuguese" data-es="Portugués" data-fr="Portugais" data-de="Portugiesisch">Português</span>		
-		</div>
-		<div class="lang-status-item">
-			<img src="images/flag_spain_16.png" alt="Español">
-			<span data-pt="Espanhol" data-en="Spanish" data-es="Español" data-fr="Espagnol" data-de="Spanisch">Espanhol</span>			
-			<i class="fa fa-spinner"></i>
-		</div>		
-    </div>
-    
-    <a href="https://apps.microsoft.com/detail/9NRWV6JRPT8R" 
-	    target="_blank" 
-	    class="btn-store-dbradio" 
-		data-pt='<i class="fab fa-windows"></i>&nbsp;Baixar na Microsoft Store'
-		data-en='<i class="fab fa-windows"></i>&nbsp;Get it from Microsoft Store' 
-		data-es='<i class="fab fa-windows"></i>&nbsp;Obtener de Microsoft Store' 
-		data-fr='<i class="fab fa-windows"></i>&nbsp;Télécharger sur Microsoft Store' 
-		data-de='<i class="fab fa-windows"></i>&nbsp;Aus dem Microsoft Store herunterladen'>
-	</a>
+<span class="product-eyebrow eyebrow-purple"><i class="fa-brands fa-windows"></i> Windows</span>
+<span class="product-eyebrow eyebrow-purple"><i class="fa fa-gift"></i> 100% Free</span>
+</h2>
+<p>More than just a player, a global network of listeners. On <strong>dbRadio</strong>, every user is a curator. Add exclusive stations and, coming soon, discover what the world is listening to through our community's shared playlists. A native, lightweight, and connected experience.</p>
 </div>
-
-<br>
-
+</div>
+<br/>
+<div class="about-content">
+<p>Participate in building the largest community-based streaming database on the internet. Register stations, share logos, and help other users find independent radio stations that are not available on commercial apps.</p>
+</div>
+<div class="about-content" style="color: var(--roxo-dbradio)">
+<a>This app was developed for web radio enthusiasts around the world.</a>
+</div>
+<h3 class="gallery-title-purple"><a>Screenshots</a></h3>
+<div class="screenshot-grid" id="gallery-dbradio">
+<img alt="Screen 01" onclick="openModal(0, 'gallery-dbradio')" src="images/dbradio_screen_01.webp"/>
+<img alt="Screen 02" onclick="openModal(1, 'gallery-dbradio')" src="images/dbradio_screen_02.webp"/>
+<img alt="Screen 03" onclick="openModal(2, 'gallery-dbradio')" src="images/dbradio_screen_03.webp"/>
+<img alt="Screen 04" onclick="openModal(3, 'gallery-dbradio')" src="images/dbradio_screen_04.webp"/>
+<img alt="Screen 05" onclick="openModal(4, 'gallery-dbradio')" src="images/dbradio_screen_05.webp"/>
+</div>
+<h3 class="gallery-title-purple">Available languages</h3>
+<div class="lang-grid-status">
+<div class="lang-status-item">
+<img alt="English" src="images/flag_usa_16.png"/>
+<span>English</span>
+</div>
+<div class="lang-status-item">
+<img alt="Português" src="images/flag_brazil_16.png"/>
+<span>Portuguese</span>
+</div>
+<div class="lang-status-item">
+<img alt="Español" src="images/flag_spain_16.png"/>
+<span>Spanish</span>
+<i class="fa fa-spinner"></i>
+</div>
+</div>
+<a class="btn-store-dbradio" href="https://apps.microsoft.com/detail/9NRWV6JRPT8R" target="_blank"><i class="fab fa-windows"></i> Get it from Microsoft Store</a>
+</div>
+<br/>
 <!-- Produto: dbNotes (Em Breve) -->
 <div class="product-card card-dbnotes" id="dbnotes">
-    <div class="dbmoney-intro">
-        <img src="images/dbnotes_logo_96.png" alt="dbNotes" class="dbmoney-intro">
-        <div class="dbmoney-text">
-            <h2 class="product-title product-title-flex">
-				dbNotes&nbsp;&nbsp;
+<div class="dbmoney-intro">
+<img alt="dbNotes" class="dbmoney-intro" src="images/dbnotes_logo_96.png"/>
+<div class="dbmoney-text">
+<h2 class="product-title product-title-flex">
+				dbNotes  
 				<!-- <span class="product-eyebrow eyebrow-yellow" data-pt='<i class="fab fa-windows"></i>&nbsp;ANOTAÇÕES' data-en='<i class="fab fa-windows"></i>&nbsp;NOTES' data-es='<i class="fab fa-windows"></i>&nbsp;NOTAS' data-fr='<i class="fab fa-windows"></i>&nbsp;NOTES' data-de='<i class="fab fa-windows"></i>NOTIZEN'><i class="fab fa-windows"></i>&nbsp;ANOTAÇÕES</span> -->
-				<span class="product-eyebrow eyebrow-yellow" data-pt='<i class="fa-brands fa-windows"></i>&nbsp;Windows' data-en='<i class="fa-brands fa-windows"></i>&nbsp;Windows' data-es='<i class="fa-brands fa-windows"></i>&nbsp;Windows' data-fr='<i class="fa-brands fa-windows"></i>&nbsp;Windows' data-de='<i class="fa-brands fa-windows"></i>&nbsp;Windows'></span>
-				<span class="product-eyebrow eyebrow-yellow" data-pt='<i class="fa fa-gift"></i>&nbsp;100% Gratuito' data-en='<i class="fa fa-gift"></i>&nbsp;100% Free' data-es='<i class="fa fa-gift"></i>&nbsp;100% Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;100% Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;100% Kostenlos'><i class="fa fa-gift"></i>&nbsp;100% Gratuito</span>
-                <span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa fa-spinner"></i>&nbsp;Em Desenvolvimento' data-en='<i class="fa fa-spinner"></i>&nbsp;In Development' data-es='<i class="fa fa-spinner"></i>&nbsp;En Desarrollo' data-fr='<i class="fa fa-spinner"></i>&nbsp;En Développement' data-de='<i class="fa fa-spinner"></i>&nbsp;In Entwicklung'><i class="fa fa-spinner"></i>&nbsp;Em Desenvolvimento</span>
-            </h2>
-            
-            <p data-pt="O <strong>dbNotes</strong> é o aplicativo ideal para o mundo acadêmico, criação de manuais técnicos, documentações e escrita estruturada. Desenvolvido nativamente para Windows, ele combina um editor de texto com recursos avançados a um sistema exclusivo de arquivos locais criptografados, garantindo velocidade máxima e privacidade total para as suas informações."
-               data-en="<strong>dbNotes</strong> is the ultimate application for academia, technical manuals, documentation, and structured writing. Built natively for Windows, it combines an advanced text editor with a secure standalone file system, ensuring unmatched speed and absolute privacy for your data."
-               data-es="<strong>dbNotes</strong> es la aplicación ideal para el mundo académico, la creación de manuales técnicos, documentaciones y escritura estructurada. Desarrollado de forma nativa para Windows, combina un editor de texto con funciones avanzadas y un exclusivo sistema de archivos locales encriptados, garantizando la máxima velocidad y total privacidad para su información."
-               data-fr="<strong>dbNotes</strong> est l'application idéale pour le monde académique, la création de manuels techniques, la documentation et l'écriture structurée. Développé nativement pour Windows, il combine un éditeur de texte aux fonctionnalités avancées avec un système exclusif de fichiers locaux chiffrés, garantissant une vitesse maximale et une confidentialité totale de vos informations."
-               data-de="<strong>dbNotes</strong> ist die ideale Anwendung für den akademischen Bereich, die Erstellung technischer Handbücher, Dokumentationen und strukturiertes Schreiben. Es wurde nativ für Windows entwickelt und kombiniert einen fortschrittlichen Texteditor mit einem exklusiven verschlüsselten lokalen Dateisystem, um maximale Geschwindigkeit und absolute Privatsphäre für Ihre Informationen zu gewährleisten.">
-            </p>
-        </div>
-    </div>
-
-    <div class="about-content"> 
-        <h3 class="gallery-title-yellow"
-            data-pt="O que faz o dbNotes ser único:"
-            data-en="What makes dbNotes unique:"
-            data-es="Lo que hace que dbNotes sea único:"
-            data-fr="Ce qui rend dbNotes unique :"
-            data-de="Was dbNotes einzigartig macht:">
-        </h3>
-
-        <div class="about-content">
-            <strong><i class="fas fa-sort-amount-desc"></i><a data-pt=" Árvore Dinâmica de Documentos:" data-en=" Dynamic Document Tree:" data-es=" Árbol dinámico de documentos:" data-fr=" Arborescence dynamique de documents :" data-de=" Dynamische Dokumentenstruktur:"></a></strong>
-            <a data-pt="Organize seus projetos, capítulos de livros, teses ou manuais em uma estrutura de árvore com nós e subnós totalmente customizável." 
-               data-en="Organize your research, book chapters, theses, or manuals into a fully customizable tree structure with nodes and sub-nodes."
-               data-es="Organice sus proyectos, capítulos de libros, tesis o manuales en una estructura de árbol con nodos y subnodos totalmente personalizable."
-               data-fr="Organisez vos projets, chapitres de livres, thèses ou manuels dans une structure arborescente entièrement personnalisable avec des nœuds et des sous-nœuds."
-               data-de="Organisieren Sie Ihre Projekte, Buchkapitel, Abschlussarbeiten oder Handbücher in einer vollständig anpassbaren Baumstruktur mit Knoten und Unterknoten."></a>
-        </div>
-
-        <div class="about-content">
-            <strong><i class="fas fa-paperclip"></i><a data-pt=" Anexos por Nó:" data-en=" Node-Specific Attachments:" data-es=" Archivos adjuntos por nodo:" data-fr=" Pièces jointes par nœud :" data-de=" Anhänge pro Knoten:"></a></strong>
-            <a data-pt="Cada página ou documento da sua árvore possui sua própria área de anexos. Guarde PDFs, planilhas, imagens ou códigos diretamente vinculados à nota correspondente." 
-               data-en="Every single page or document within your tree has its own dedicated attachment area. Keep PDFs, spreadsheets, images, or source code directly linked to the relevant note." 
-               data-es="Cada página o documento de su árbol tiene su propia área de archivos adjuntos. Guarde PDFs, hojas de cálculo, imágenes o códigos directamente vinculados a la nota correspondiente."
-               data-fr="Chaque page ou document de votre arborescence possède sa propre zone de pièces jointes. Enregistrez des fichiers PDF, des feuilles de calcul, des images ou du code source directement liés à la note correspondante."
-               data-de="Jede Seite oder jedes Dokument in Ihrer Struktur verfügt über einen eigenen Anhangsbereich. Speichern Sie PDFs, Tabellenkalkulationen, Bilder oder Quellcode direkt verknüpft mit der entsprechenden Notiz."></a>
-        </div>
-        
-        <div class="about-content">
-            <strong><i class="fas fa-lock"></i><a data-pt=" Segurança e Praticidade do dbMoney:" data-en=" Secure & Lightweight (Like dbMoney):" data-es=" Seguridad y practicidad de dbMoney:" data-fr=" Sécurité et simplicité de dbMoney :" data-de=" Sicherheit und Komfort von dbMoney:"></a></strong>
-            <a data-pt="Seus dados ficam salvos e criptografados no seu computador. Para sincronizar entre vários PCs (casa, faculdade ou trabalho), basta salvar o arquivo na pasta do seu serviço de nuvem (OneDrive, Google Drive ou Dropbox)." 
-               data-en="Your data is stored and encrypted locally on your PC. To work across multiple computers (home, school, or work), simply store the file inside your preferred cloud folder (OneDrive, Google Drive, or Dropbox)." 
-               data-es="Sus datos se guardan de forma encriptada en su computadora. Para sincronizar entre varias PCs (casa, universidad o trabajo), simplemente guarde el archivo en la carpeta de su servicio en la nube (OneDrive, Google Drive o Dropbox)."
-               data-fr="Vos données sont enregistrées et chiffrées localement sur votre ordinateur. Pour synchroniser plusieurs PC (maison, université ou travail), il suffit de sauvegarder o fichier dans le dossier de votre service cloud (OneDrive, Google Drive ou Dropbox)."
-               data-de="Ihre Daten werden verschlüsselt auf Ihrem Computer gespeichert. Um zwischen mehreren PCs (Zuhause, Universität oder Arbeit) zu synchronisieren, speichern Sie die Datei einfach im Ordner Ihres Cloud-Dienstes (OneDrive, Google Drive oder Dropbox)."></a>
-        </div>      
-    </div>
-    
-    <h3 class="gallery-title-yellow"><a data-pt="Capturas de tela" data-en="Screenshots" data-es="Capturas de pantalla" data-fr="Captures d'écran" data-de="Screenshots"></a></h3>
-    <div class="screenshot-grid" id="gallery-dbnotes">
-        <img src="images/dbnotes_screen_01.webp" alt="Screen 01" onclick="openModal(0, 'gallery-dbnotes')">
-        <img src="images/dbnotes_screen_02.webp" alt="Screen 02" onclick="openModal(1, 'gallery-dbnotes')">
-    </div>
-
-	<h3 class="gallery-title-yellow" data-pt="Idiomas disponíveis" data-en="Available languages" data-es="Idiomas disponibles" data-fr="Langues disponibles" data-de="Verfügbare Sprachen"></h3>
-    <div class="lang-grid-status">
-		<div class="lang-status-item">
-			<img src="images/flag_usa_16.png" alt="English">
-			<span data-pt="Inglês" data-en="English" data-es="Inglés" data-fr="Anglais" data-de="Englisch">Inglês</span>
-			<i class="fa fa-spinner"></i>
-		</div>
-		<div class="lang-status-item">
-			<img src="images/flag_brazil_16.png" alt="Português">
-			<span data-pt="Português" data-en="Portuguese" data-es="Portugués" data-fr="Portugais" data-de="Portugiesisch">Português</span>		
-			<i class="fa fa-spinner"></i>
-		</div>
-		<div class="lang-status-item">
-			<img src="images/flag_spain_16.png" alt="Español">
-			<span data-pt="Espanhol" data-en="Spanish" data-es="Español" data-fr="Espagnol" data-de="Spanisch">Espanhol</span>			
-			<i class="fa fa-spinner"></i>
-		</div>
-		<div class="lang-status-item">
-			<img src="images/flag_france_16.png" alt="Français">
-			<span data-pt="Francês" data-en="French" data-es="Francés" data-fr="Français" data-de="Französisch">Francês</span>			
-			<i class="fa fa-spinner"></i>
-		</div>
-		<div class="lang-status-item">
-			<img src="images/flag_germany_16.png" alt="Deutsch">
-			<span data-pt="Alemão" data-en="German" data-es="Alemán" data-fr="Allemand" data-de="Deutsch">Alemão</span>			
-			<i class="fa fa-spinner"></i>
-		</div>
-    </div>
-    
-    <a 
-	   target="_blank"
-	   class="btn-store-gray"
-	   data-pt='<i class="fa fa-spinner"></i>&nbsp;Em breve na Microsoft Store'
-	   data-en='<i class="fa fa-spinner"></i>&nbsp;Coming soon to the Microsoft Store'
-	   data-es='<i class="fa fa-spinner"></i>&nbsp;Próximamente en Microsoft Store'
-	   data-fr='<i class="fa fa-spinner"></i>&nbsp;Bientôt disponible sur le Microsoft Store'
-	   data-de='<i class="fa fa-spinner"></i>&nbsp;Demnächst im Microsoft Store erhältlich'>
-	</a>
+<span class="product-eyebrow eyebrow-yellow"><i class="fa-brands fa-windows"></i> Windows</span>
+<span class="product-eyebrow eyebrow-yellow"><i class="fa fa-gift"></i> 100% Free</span>
+<span class="product-eyebrow eyebrow-gray"><i class="fa fa-spinner"></i> In Development</span>
+</h2>
+<p><strong>dbNotes</strong> is the ultimate application for academia, technical manuals, documentation, and structured writing. Built natively for Windows, it combines an advanced text editor with a secure standalone file system, ensuring unmatched speed and absolute privacy for your data.</p>
 </div>
-
-<br>
-
+</div>
+<div class="about-content">
+<h3 class="gallery-title-yellow">What makes dbNotes unique:</h3>
+<div class="about-content">
+<strong><i class="fas fa-sort-amount-desc"></i><a> Dynamic Document Tree:</a></strong>
+<a>Organize your research, book chapters, theses, or manuals into a fully customizable tree structure with nodes and sub-nodes.</a>
+</div>
+<div class="about-content">
+<strong><i class="fas fa-paperclip"></i><a> Node-Specific Attachments:</a></strong>
+<a>Every single page or document within your tree has its own dedicated attachment area. Keep PDFs, spreadsheets, images, or source code directly linked to the relevant note.</a>
+</div>
+<div class="about-content">
+<strong><i class="fas fa-lock"></i><a> Secure &amp; Lightweight (Like dbMoney):</a></strong>
+<a>Your data is stored and encrypted locally on your PC. To work across multiple computers (home, school, or work), simply store the file inside your preferred cloud folder (OneDrive, Google Drive, or Dropbox).</a>
+</div>
+</div>
+<h3 class="gallery-title-yellow"><a>Screenshots</a></h3>
+<div class="screenshot-grid" id="gallery-dbnotes">
+<img alt="Screen 01" onclick="openModal(0, 'gallery-dbnotes')" src="images/dbnotes_screen_01.webp"/>
+<img alt="Screen 02" onclick="openModal(1, 'gallery-dbnotes')" src="images/dbnotes_screen_02.webp"/>
+</div>
+<h3 class="gallery-title-yellow">Available languages</h3>
+<div class="lang-grid-status">
+<div class="lang-status-item">
+<img alt="English" src="images/flag_usa_16.png"/>
+<span>English</span>
+<i class="fa fa-spinner"></i>
+</div>
+<div class="lang-status-item">
+<img alt="Português" src="images/flag_brazil_16.png"/>
+<span>Portuguese</span>
+<i class="fa fa-spinner"></i>
+</div>
+<div class="lang-status-item">
+<img alt="Español" src="images/flag_spain_16.png"/>
+<span>Spanish</span>
+<i class="fa fa-spinner"></i>
+</div>
+<div class="lang-status-item">
+<img alt="Français" src="images/flag_france_16.png"/>
+<span>French</span>
+<i class="fa fa-spinner"></i>
+</div>
+<div class="lang-status-item">
+<img alt="Deutsch" src="images/flag_germany_16.png"/>
+<span>German</span>
+<i class="fa fa-spinner"></i>
+</div>
+</div>
+<a class="btn-store-gray" target="_blank"><i class="fa fa-spinner"></i> Coming soon to the Microsoft Store</a>
+</div>
+<br/>
 <!-- About: DevBrazil -->
 <div class="product-card card-devbrazil" id="devbrazil">
-    <div class="dbmoney-intro">
-        <img src="images/devbrazil_logo_96.png" alt="DevBrazil" class="dbmoney-intro">		
-        <div class="dbmoney-text">
-            <!--
+<div class="dbmoney-intro">
+<img alt="DevBrazil" class="dbmoney-intro" src="images/devbrazil_logo_96.png"/>
+<div class="dbmoney-text">
+<!--
 			<span class="product-eyebrow eyebrow-green" data-pt="100% OFFLINE · WINDOWS" data-en="100% OFFLINE · WINDOWS" data-es="100% SIN CONEXIÓN · WINDOWS" data-fr="100% HORS LIGNE · WINDOWS" data-de="100% OFFLINE · WINDOWS">4 PRODUTOS · 100% OFFLINE · WINDOWS</span>
 			-->
-            <h2>
-				<strong_black>Dev</strong_black>Brazil				
-            </h2>           
-			<p data-pt="Nascida da paixão pela eficiência e com mais de 25 anos de experiência no desenvolvimento de sistemas críticos, a <strong>DevBrazil</strong> combina solidez técnica com inovação para criar softwares nativos de alta performance."
-			   data-en="Born from a passion for efficiency and backed by over 25 years of experience in mission-critical systems, <strong>DevBrazil</strong> combines technical expertise with innovation to build high-performance native software."
-			   data-es="Nacida de la pasión por la eficiencia y respaldada por más de 25 años de experiencia en el desarrollo de sistemas críticos, <strong>DevBrazil</strong> combina solidez técnica con innovación para crear software nativo de alto rendimiento."
-			   data-fr="Née d'une passion pour l'efficacité et forte de plus de 25 ans d'expérience dans les systèmes critiques, <strong>DevBrazil</strong> allie expertise technique et innovation pour créer des logiciels natifs de haute performance."
-			   data-de="Aus der Leidenschaft für Effizienz entstanden und gestützt auf mehr von 25 Jahren Erfahrung mit geschäftskritischen Systemen, verbindet <strong>DevBrazil</strong> technische Kompetenz mit Innovation, um native High-Performance-Software zu entwickeln.">
-			</p>
-        </div>
-    </div>
-	<br>    
-    <div class="about-content">
-		<p data-pt="Nosso propósito é simples: desenvolver soluções que respeitam o seu tempo, potencializam sua produtividade e garantem a privacidade absoluta dos seus dados. Criamos ferramentas leves, rápidas e independentes para quem exige o máximo do seu ecossistema de trabalho."
-		   data-en="Our mission is clear: to create solutions that honor your time, amplify your productivity, and protect your absolute data privacy. We build lightweight, fast, and standalone tools for individuals and professionals who demand excellence from their workflow."
-		   data-es="Nuestro propósito es simple: desarrollar soluciones que respeten su tiempo, potencien su productividad y garanticen la privacidad absoluta de sus datos. Creamos herramientas ligeras, rápidas e independientes para quienes exigen el máximo de su ecosistema de trabajo."
-		   data-fr="Notre mission é simple : concevoir des solutions qui respectent votre temps, maximisent votre productivité et garantissent la confidentialité absolue de vos données. Nous créons des outils légers, rapides et indépendants pour ceux qui exigent le maximum de leur écosystème de travail."
-		   data-de="Unser Ziel ist einfach: Lösungen zu entwickeln, die Ihre Zeit respektieren, Ihre Produktivität maximieren und die absolute Privatsphäre Ihrer Daten garantieren. Wir entwickeln schlanke, schnelle und unabhängige Tools für alle, die das Maximum aus ihrer Arbeitsumgebung herausholen wollen.">
-		</p>
-		<br>
-		<p data-pt="<strong>Junte-se a nós. Nossa tecnologia já impulsiona a produtividade de usuários em mais de 120 mercados e territórios ao redor do mundo.</strong>"
-		   data-en="<strong>Join us. Our technology is already driving productivity for users across more than 120 markets and territories worldwide.</strong>"
-           data-es="<strong>Únase a nosotros. Nuestra tecnología ya impulsa la productividad de usuarios en más de 120 mercados y territorios en todo el mundo.</strong>"
-           data-fr="<strong>Rejoignez-nous. Notre technologie stimule déjà la productivité d'utilisateurs dans plus de 120 marchés et territoires à travers le monde.</strong>"
-           data-de="<strong>Schließen Sie sich uns an. Unsere Technologie steigert bereits die Produktivität von Anwendern in mehr als 120 Märkten und Regionen weltweit.</strong>">
-        </p>
-		<br>
-		
-		<a data-pt='<i class="fas fa-envelope"></i> Contato'
-		   data-en='<i class="fas fa-envelope"></i> Contact'
-		   data-es='<i class="fas fa-envelope"></i> Contacto'
-		   data-fr='<i class="fas fa-envelope"></i> Contact'
-		   data-de='<i class="fas fa-envelope"></i> Kontakt'
-		   href="mailto:support@devbrazil.com" 
-		   class="product-eyebrow eyebrow-green" 
-		   title="support@devbrazil.com">		   
-		</a>			
-		<span class="product-eyebrow eyebrow-gray" 
-			data-pt='<i class="fa fa-map-marker"></i> Lençóis Paulista, SP - Brasil' 
-			data-en='<i class="fa fa-map-marker"></i> Lençóis Paulista, SP - Brazil'
-			data-es='<i class="fa fa-map-marker"></i> Lençóis Paulista, SP - Brasil'
-			data-fr='<i class="fa fa-map-marker"></i> Lençóis Paulista, SP - Brésil'
-			data-de='<i class="fa fa-map-marker"></i> Lençóis Paulista, SP - Brasilien'>
-		</span>
-		<span class="product-eyebrow eyebrow-red" 
-			data-pt='<i class="fa-solid fa-heart"></i> Made in Brazil'
-			data-en='<i class="fa-solid fa-heart"></i> Made in Brazil'
-			data-es='<i class="fa-solid fa-heart"></i> Made in Brazil'
-			data-fr='<i class="fa-solid fa-heart"></i> Made in Brazil'
-			data-de='<i class="fa-solid fa-heart"></i> Made in Brazil'>
-		</span>
-    </div>
-	
-	<div class="about-content">
-		<h3 class="gallery-title-green">
-			<a data-pt="A História por Trás"
-			data-en="The Story Behind"
-			data-es="La historia detrás"
-			data-fr="L'histoire derrière"
-			data-de="Die Geschichte dahinter">
-			</a>
-		</h3>
-		<div class="dbmoney-intro">
-			<img src="images/history-96.png" alt="DevBrazil" class="dbmoney-intro">
-			<a data-pt="Fundada em Maio de 2026, a <strong>DevBrazil</strong> não nasceu em uma sala de reuniões corporativa, mas sim do sonho de criar algo diferente, algo que fosse na <strong>contramão</strong> do mercado, da falta de privacidade, da venda de informações sensíveis, dos infinitos planos de pagamentos mensais, dos aplicativos pesados e cheios de propagandas."
-			   data-en="Founded in May 2026, <strong>DevBrazil</strong> was not born in a corporate boardroom, but from the dream of creating something different—something that goes <strong>against the grain</strong> of the current market, of privacy loss, selling sensitive information, endless monthly subscription plans, and heavy, ad-cluttered applications."
-			   data-es="Fundada en mayo de 2026, <strong>DevBrazil</strong> no nació en una sala de reuniones corporativa, sino del sueño de crear algo diferente, algo que fuese a la <strong>contracorriente</strong> del mercado, de la falta de privacidad, de la venta de información sensible, de los infinitos planes de pago mensual, de las aplicaciones pesadas y llenas de publicidad."
-			   data-fr="Fondée en mai 2026, <strong>DevBrazil</strong> n'est pas née dans une salle de réunion d'entreprise, mais du rêve de créer quelque chose de différent — quelque chose qui aille à <strong>l'encontre</strong> du marché, de l'absence de confidentialité, de la vente d'informations sensibles, des abonnements mensuels sans fin et des applications lourdes et truffées de publicités."
-			   data-de="<strong>DevBrazil</strong> wurde im Mai 2026 nicht in einem Konzern-Tagungsraum geboren, sondern aus dem Traum, etwas Anderes zu schaffen — etwas, das <strong>gegen den Strom</strong> des Marktes schwimmt, gegen den Mangel an Privatsphäre, den Verkauf sensibler Daten, endlose monatliche Abonnements sowie träge, werbeüberladene Anwendungen.">
-			</a>
-		</div>
-		<p data-pt="O projeto já existia há muitos anos e durante muito tempo alguns protótipos de produtos haviam sido criados para este fim." 
-		   data-en="The project had already existed for many years, and over time, several product prototypes had been built for this purpose."
-		   data-es="El proyecto ya existía desde hacía muchos años y, durante mucho tiempo, se habían creado algunos prototipos de productos con este fin."
-		   data-fr="Le projet existait déjà depuis de nombreuses années et, pendant longtemps, plusieurs prototypes de produits avaient été créés à cet effet."
-		   data-de="Das Projekt existierte bereits seit vielen Jahren, und im Laufe der Zeit wurden verschiedene Produktprototypen für diesen Zweck entwickelt.">
-		</p>
-		<br>
-		<p data-pt="Com a correria do dia a dia, nunca encontrava um tempo para me dedicar exclusivamente a este projeto. Até que no início de 2026 comecei o planejamento para distribuir uma pequena linha de produtos nativos de alta performance e que levassem a privacidade e segurança como prioridade máxima."
-		   data-en="With the daily rush, I could never find the time to dedicate myself exclusively to this project. That was until early 2026, when I began planning to distribute a small line of high-performance native products that prioritize privacy and security above all else."
-		   data-es="Con el ajetreo del día a día, nunca encontraba tiempo para dedicarme exclusivamente a este proyecto. Hasta que a principios de 2026 comencé a planificar la distribución de una pequeña línea de productos nativos de alto rendimiento que tuviesen la privacidad y la seguridad como máxima prioridad."
-		   data-fr="Avec le tourbillon du quotidien, je ne trouvais jamais le temps de me consacrer exclusivement à ce projet. Jusqu'au début de l'année 2026, où j'ai commencé à planifier la distribution d'une gamme restreinte de produits natifs à haute performance, plaçant la confidentialité et la sécurité au cœur des priorités."
-		   data-de="Durch die Hektik des Alltags fand ich nie die Zeit, mich ausschließlich diesem Projekt zu widmen. Bis ich Anfang 2026 mit der Planung begann, eine kleine Reihe leistungsstarker, nativer Produkte zu veröffentlichen, die Privatsphäre und Sicherheit an oberste Stelle setzen.">
-		</p>
-		<br>
-		<p data-pt="Essa filosofia guia a criação de cada produto da DevBrazil: <strong>todas as nossas soluções nascem de uma necessidade pessoal prática que, refinada ao extremo, se transforma em um produto completo para o mercado.</strong>" 
-		   data-en="This philosophy guides the creation of every DevBrazil product: <strong>all of our solutions stem from a practical personal need that, refined to the extreme, turns into a complete product for the market.</strong>"
-		   data-es="Esta filosofía guía la creación de cada producto de DevBrazil: <strong>todas nuestras soluciones nacen de una necesidad personal práctica que, refinada al extremo, se convierte en un producto completo para el mercado.</strong>"
-		   data-fr="Cette philosophie guide la création de chaque produit DevBrazil : <strong>toutes nos solutions naissent d'un besoin personnel et pratique qui, peaufiné à l'extrême, se transforme en un produit complet pour le marché.</strong>"
-		   data-de="Diese Philosophie leitet die Entwicklung jedes DevBrazil-Produkts: <strong>Alle unsere Lösungen entstehen aus einem praktischen, persönlichen Bedürfnis, das, bis ins Detail perfektioniert, zu einem vollständigen Produkt für den Markt wird.</strong>">
-		</p>
-	</div>
-
-	<div class="about-content">
-		<h3 class="gallery-title-green">
-			<a data-pt="A Evolução do dbMoney"
-			   data-en="The Evolution of dbMoney"
-			   data-es="La evolución de dbMoney"
-			   data-fr="L'évolution de dbMoney"
-			   data-de="Die Entwicklung von dbMoney"></a>
-		</h3>
-		<div class="dbmoney-intro">
-			<img src="images/graph-96.png" alt="DevBrazil" class="dbmoney-intro">
-			<a data-pt="O maior exemplo dessa trajetória é o <strong>dbMoney Personal</strong>. O que hoje é uma solução robusta de gestão financeira desktop começou há mais de 15 anos como um projeto pessoal." 
-			   data-en="The greatest example of this journey is <strong>dbMoney Personal</strong>. What is today a robust desktop financial management solution began over 15 years ago as a personal project."
-			   data-es="El mayor ejemplo de esta trayectoria es <strong>dbMoney Personal</strong>. Lo que hoy es una solución robusta de gestión financiera de escritorio comenzó hace más de 15 años como un proyecto personal."
-			   data-fr="Le plus bel exemple de ce parcours est <strong>dbMoney Personal</strong>. Ce qui est aujourd'hui une solution robuste de gestion financière sur ordinateur a commencé il y a plus de 15 ans comme un projet personnel."
-			   data-de="Das beste Beispiel dieser Reise ist <strong>dbMoney Personal</strong>. Was heute eine robuste Desktop-Lösung für das Finanzmanagement ist, begann vor über 15 Jahren als persönliches Projekt.">
-			</a>
-		</div>
-		<p data-pt="Na época, a busca por uma ferramenta confiável para organização financeira esbarrava sempre nos mesmos obstáculos: sistemas complexos demais, dependência excessiva da nuvem ou falta de privacidade para dados sensíveis, além das infinitas mensalidades." 
-		   data-en="At the time, the search for a reliable financial organization tool always ran into the same obstacles: overly complex systems, excessive cloud dependency, or a lack of privacy for sensitive data, not to mention endless monthly subscription fees."
-		   data-es="En aquel momento, la búsqueda de una herramienta confiable para la organización financiera chocaba siempre con los mismos obstáculos: sistemas demasiado complejos, dependencia excesiva de la nube o falta de privacidad para los datos sensibles, además de las infinitas suscripciones mensuales."
-		   data-fr="À l'époque, la recherche d'un outil fiable pour l'organisation financière se heurtait toujours aux mêmes obstacles : des systèmes trop complexes, une dépendance excessive au cloud ou un manque de confidentialité pour les données sensibles, sans compter les abonnements mensuels sans fin."
-		   data-de="Damals stieß die Suche nach einem zuverlässigen Werkzeug zur Finanzorganisation immer wieder auf dieselben Hindernisse: übermäßig komplexe Systeme, übertriebene Abhängigkeit von der Cloud oder fehlender Schutz sensibler Daten – ganz zu schweigen von endlosen monatlichen Abonnements.">
-		</p>
-		<br>
-		<p data-pt="A solução foi construir uma ferramenta própria, focada na experiência do usuário, no desempenho e na segurança de manter as informações sob o controle do próprio usuário."
-		   data-en="The solution was to build a custom tool, focused on user experience, performance, and the security of keeping information under the user's own control."
-		   data-es="La solución fue construir una herramienta propia, enfocada en la experiencia del usuario, el rendimiento y la seguridad de mantener la información bajo el control del propio usuario."
-		   data-fr="La solution a été de créer un outil sur mesure, axé sur l'expérience utilisateur, la performance et la sécurité de garder les informations sous le contrôle exclusif de l'utilisateur."
-		   data-de="Die Lösung bestand darin, ein eigenes Werkzeug zu entwickeln, das auf Benutzerfreundlichkeit, Leistung und die Sicherheit ausgerichtet ist, die Daten unter der eigenen Kontrolle des Benutzers zu behalten.">
-		</p>
-		<br>
-		<p data-pt="Ao longo de mais de uma década e meia de evolução contínua, testes diários e aprimoramento técnico, essa ferramenta pessoal amadureceu, ganhou novos recursos — como dashboards intuitivos, importação de OFX com regras inteligentes, alto poder de manipulação e extração de dados, além de diversas customizações — e se tornou o <strong>dbMoney Personal</strong>." 
-		   data-en="Over more than a decade and a half of continuous evolution, daily testing, and technical refinement, this personal tool matured, gained new features—such as intuitive dashboards, OFX import with smart rules, powerful data manipulation and extraction, alongside various customizations—and became <strong>dbMoney Personal</strong>."
-		   data-es="A lo largo de más de una década y media de evolución continua, pruebas diarias y perfeccionamiento técnico, esta herramienta personal maduró, incorporó nuevas funciones —como paneles intuitivos, importación de OFX con reglas inteligentes, alto poder de manipulación y extracción de datos, además de diversas personalizaciones— y se convirtió en <strong>dbMoney Personal</strong>."
-		   data-fr="Au cours de plus d'une décennie et demi d'évolution continue, de tests quotidiens et de perfectionnement technique, cet outil personnel a mûri, s'est enrichi de nouvelles fonctionnalités — telles que des tableaux de bord intuitifs, l'importation de fichiers OFX avec des règles intelligentes, une grande capacité de manipulation et d'extraction de données, ainsi que de nombreuses options de personnalisation — pour devenir <strong>dbMoney Personal</strong>."
-		   data-de="Laufende Weiterentwicklung über mehr als anderthalb Jahrzehnte, tägliche Tests und technischer Feinschliff ließen dieses persönliche Werkzeug reifen. Es gewann neue Funktionen hinzu — wie intuitive Dashboards, OFX-Import mit intelligenten Regeln, leistungsstarke Datenverarbeitung und -extraktion sowie zahlreiche Anpassungsmöglichkeiten — und wurde schließlich zu <strong>dbMoney Personal</strong>.">
-		</p>
-	</div>
-
-	<div class="about-content">
-		<h3 class="gallery-title-green">
-			<a data-pt="Sobre o fundador"
-			   data-en="About the Founder"
-			   data-es="Sobre el fundador"
-			   data-fr="À propos du fondateur"
-			   data-de="Über den Gründer"></a></h3>
-		<div class="dbmoney-intro">
-			<img src="images/founder.png" alt="Founder" class="dbmoney-intro">
-			<p data-pt="Olá, sou <strong>Fabio Ceschini</strong>, brasileiro, 43 anos, pai de dois filhos, fundador e arquiteto na <strong>DevBrazil</strong>. Entusiasta de tecnologia, curioso, inimigo do status quo, apaixonado por criar soluções simples, rápidas e que realmente facilitem a vida das pessoas."
-			   data-en="Hello, I'm <strong>Fabio Ceschini</strong>, Brazilian, 43 years old, father of two, founder and software architect at <strong>DevBrazil</strong>. Technology enthusiast, curious mind, enemy of the status quo, and passionate about creating simple, fast solutions that truly make people's lives easier."
-			   data-es="Hola, soy <strong>Fabio Ceschini</strong>, brasileño, 43 años, padre de dos hijos, fundador y arquitecto en <strong>DevBrazil</strong>. Entusiasta de la tecnología, curioso, enemigo del status quo, apasionado por crear soluciones simples, rápidas y que realmente faciliten la vida de las personas."
-			   data-fr="Bonjour, je suis <strong>Fabio Ceschini</strong>, brésilien, 43 ans, père de deux enfants, fondateur et architecte logiciel chez <strong>DevBrazil</strong>. Passionné de technologie, curieux, ennemi du statu quo et désireux de créer des solutions simples, rapides et qui facilitent vraiment la vie des gens."
-			   data-de="Hallo, ich bin <strong>Fabio Ceschini</strong>, Brasilianer, 43 Jahre alt, Vater von zwei Kindern, Gründer und Softwarearchitekt bei <strong>DevBrazil</strong>. Technologiebegeistert, neugierig, ein Feind des Status quo und leidenschaftlich darin, einfache, schnelle Lösungen zu entwickeln, die das Leben der Menschen wirklich erleichtern.">
-			</p>
-		</div>	
-	</div>
-	
-	<div class="about-content">
-		<p data-pt="Minha trajetória com desenvolvimento de software começou aos 15 anos de idade. Me formei em Sistemas de Informação e trabalhei durante muitos anos em grandes empresas em setores como indústria, comércio, bancos, financeiras e e-commerce." 
-		   data-en="My journey with software development began at 15. I earned a degree in Information Systems and worked for many years in large companies across sectors such as manufacturing, retail, banking, finance, and e-commerce."
-		   data-es="Mi trayectoria en el desarrollo de software comenzó a los 15 años. Me gradué en Sistemas de Información y trabajé durante muchos años en grandes empresas en sectores como industria, comercio, banca, finanzas y comercio electrónico."
-		   data-fr="Mon parcours dans le développement de logiciels a commencé à l'âge de 15 ans. Diplômé en Systèmes d'Information, j'ai travaillé pendant de nombreuses années au sein de grandes entreprises dans des secteurs tels que l'industrie, le commerce, la banque, la finance et le e-commerce."
-		   data-de="Mein Weg in der Softwareentwicklung begann im Alter von 15 Jahren. Ich habe einen Abschluss in Wirtschaftsinformatik und arbeitete viele Jahre in großen Unternehmen in Branchen wie Industrie, Handel, Banken, Finanzen und E-Commerce.">
-		</p>
-	</div>
-	
-	<hr>
-	<br>
-	
-	<div class="about-content">
-		<p data-pt="<strong>Meus hobbies:</strong>" 
-		   data-en="<strong>My hobbies:</strong>" 
-		   data-es="<strong>Mis pasatiempos:</strong>" 
-		   data-fr="<strong>Mes centres d'intérêt :</strong>" 
-		   data-de="<strong>Meine Hobbies:</strong>">
-		</p>
-		<span class="product-eyebrow eyebrow-gray" 
-			data-pt='<i class="fa-solid fa-futbol"></i> Futebol'
-			data-en='<i class="fa-solid fa-futbol"></i> Soccer'
-			data-es='<i class="fa-solid fa-futbol"></i> Fútbol'
-			data-fr='<i class="fa-solid fa-futbol"></i> Football'
-			data-de='<i class="fa-solid fa-futbol"></i> Fußball'>
-		</span>
-		<span class="product-eyebrow eyebrow-gray"
-			data-pt='<i class="fa-solid fa-bicycle"></i> Ciclismo'
-			data-en='<i class="fa-solid fa-bicycle"></i> Cycling'
-			data-es='<i class="fa-solid fa-bicycle"></i> Ciclismo'
-			data-fr='<i class="fa-solid fa-bicycle"></i> Cyclisme'
-			data-de='<i class="fa-solid fa-bicycle"></i> Radfahren'>
-		</span>
-		<span class="product-eyebrow eyebrow-gray"
-			data-pt='<i class="fa-solid fa-person-running"></i> Corrida'
-			data-en='<i class="fa-solid fa-person-running"></i> Running'
-			data-es='<i class="fa-solid fa-person-running"></i> Carrera'
-			data-fr='<i class="fa-solid fa-person-running"></i> Course à pied'
-			data-de='<i class="fa-solid fa-person-running"></i> Laufen'>
-		</span>
-		<span class="product-eyebrow eyebrow-gray"
-			data-pt='<i class="fa-solid fa-utensils"></i> Culinária'
-			data-en='<i class="fa-solid fa-utensils"></i> Cooking'
-			data-es='<i class="fa-solid fa-utensils"></i> Cocina'
-			data-fr='<i class="fa-solid fa-utensils"></i> Cuisine'
-			data-de='<i class="fa-solid fa-utensils"></i> Kochen'>
-		</span>
-		<span class="product-eyebrow eyebrow-gray"
-			data-pt='<i class="fa-solid fa-hammer"></i> Carpintaria'
-			data-en='<i class="fa-solid fa-hammer"></i> Woodworking'
-			data-es='<i class="fa-solid fa-hammer"></i> Carpintería'
-			data-fr='<i class="fa-solid fa-hammer"></i> Menuiserie'
-			data-de='<i class="fa-solid fa-hammer"></i> Tischlern'>
-		</span>
-		<span class="product-eyebrow eyebrow-gray"
-			data-pt='<i class="fa-solid fa-landmark"></i> Arquitetura'
-			data-en='<i class="fa-solid fa-landmark"></i> Architecture'
-			data-es='<i class="fa-solid fa-landmark"></i> Arquitectura'
-			data-fr='<i class="fa-solid fa-landmark"></i> Architecture'
-			data-de='<i class="fa-solid fa-landmark"></i> Architektur'>
-		</span>
-		<span class="product-eyebrow eyebrow-gray"
-			data-pt='<i class="fa-solid fa-robot"></i> Automação'
-			data-en='<i class="fa-solid fa-robot"></i> Automation'
-			data-es='<i class="fa-solid fa-robot"></i> Automatización'
-			data-fr='<i class="fa-solid fa-robot"></i> Automatisation'
-			data-de='<i class="fa-solid fa-robot"></i> Automation'>
-		</span>
-	</div>
-	
-	<hr>
-	<br>
-	
-	<div class="about-content">
-		<a data-pt="Se você tiver alguma sugestão, solicitação, crítica ou melhoria, entre em contato, eu adoraria receber uma mensagem sua. Ah, e se quiser, me adicione no LinkedIn!"
-		   data-en="If you have any suggestions, requests, feedback, or improvements, please get in touch—I'd love to hear from you. Ah, and feel free to connect with me on LinkedIn!"
-		   data-es="Si tienes alguna sugerencia, solicitud, crítica o mejora, ponte en contacto; me encantaría recibir un mensaje tuyo. ¡Ah, y si quieres, conéctate conmigo en LinkedIn!"
-		   data-fr="Si vous avez des suggestions, des demandes, des critiques ou des améliorations à proposer, n'hésitez pas à me contacter ; je serais ravi de lire votre message. Ah, et si vous le souhaitez, rejoignez-moi sur LinkedIn !"
-		   data-de="Wenn Sie Vorschläge, Anfragen, Kritik oder Verbesserungsideen haben, nehmen Sie gerne Kontakt auf – ich würde mich freuen, von Ihnen zu hören. Ach ja, und wenn Sie möchten, vernetzen Sie sich gerne mit mir auf LinkedIn!"></a>
-	</div>	
-
-	<div class="about-content">
-		<a href="https://www.linkedin.com/in/fabioceschini/" 
-		target="_blank" 
-		class="product-eyebrow eyebrow-blue" 
-		data-pt='<i class="fa-brands fa-linkedin"></i> LinkedIn' 
-		data-en='<i class="fa-brands fa-linkedin"></i> LinkedIn' 
-		data-es='<i class="fa-brands fa-linkedin"></i> LinkedIn' 
-		data-fr='<i class="fa-brands fa-linkedin"></i> LinkedIn' 
-		data-de='<i class="fa-brands fa-linkedin"></i> LinkedIn'>
-		</a>
-		
-		<a data-pt='<i class="fas fa-envelope"></i> Contato'
-		   data-en='<i class="fas fa-envelope"></i> Contact'
-		   data-es='<i class="fas fa-envelope"></i> Contacto'
-		   data-fr='<i class="fas fa-envelope"></i> Contact'
-		   data-de='<i class="fas fa-envelope"></i> Kontakt'
-		   href="mailto:fabio@devbrazil.com" 
-		   class="product-eyebrow eyebrow-green" 
-		   title="fabio@devbrazil.com">
-		</a>			
-	</div>
+<h2>
+<strong_black>Dev</strong_black>Brazil				
+            </h2>
+<p>Born from a passion for efficiency and backed by over 25 years of experience in mission-critical systems, <strong>DevBrazil</strong> combines technical expertise with innovation to build high-performance native software.</p>
 </div>
-
+</div>
+<br/>
+<div class="about-content">
+<p>Our mission is clear: to create solutions that honor your time, amplify your productivity, and protect your absolute data privacy. We build lightweight, fast, and standalone tools for individuals and professionals who demand excellence from their workflow.</p>
+<br/>
+<p><strong>Join us. Our technology is already driving productivity for users across more than 120 markets and territories worldwide.</strong></p>
+<br/>
+<a class="product-eyebrow eyebrow-green" href="#" id="contactLink2" title="support@devbrazil.com"><i class="fas fa-envelope"></i> Contact</a>
+<span class="product-eyebrow eyebrow-gray"><i class="fa fa-map-marker"></i> Lençóis Paulista, SP - Brazil</span>
+<span class="product-eyebrow eyebrow-red"><i class="fa-solid fa-heart"></i> Made in Brazil</span>
+</div>
+<div class="about-content">
+<h3 class="gallery-title-green">
+<a>The Story Behind</a>
+</h3>
+<div class="dbmoney-intro">
+<img alt="DevBrazil" class="dbmoney-intro" src="images/history-96.png"/>
+<a>Founded in May 2026, <strong>DevBrazil</strong> was not born in a corporate boardroom, but from the dream of creating something different—something that goes <strong>against the grain</strong> of the current market, of privacy loss, selling sensitive information, endless monthly subscription plans, and heavy, ad-cluttered applications.</a>
+</div>
+<p>The project had already existed for many years, and over time, several product prototypes had been built for this purpose.</p>
+<br/>
+<p>With the daily rush, I could never find the time to dedicate myself exclusively to this project. That was until early 2026, when I began planning to distribute a small line of high-performance native products that prioritize privacy and security above all else.</p>
+<br/>
+<p>This philosophy guides the creation of every DevBrazil product: <strong>all of our solutions stem from a practical personal need that, refined to the extreme, turns into a complete product for the market.</strong></p>
+</div>
+<div class="about-content">
+<h3 class="gallery-title-green">
+<a>The Evolution of dbMoney</a>
+</h3>
+<div class="dbmoney-intro">
+<img alt="DevBrazil" class="dbmoney-intro" src="images/graph-96.png"/>
+<a>The greatest example of this journey is <strong>dbMoney Personal</strong>. What is today a robust desktop financial management solution began over 15 years ago as a personal project.</a>
+</div>
+<p>At the time, the search for a reliable financial organization tool always ran into the same obstacles: overly complex systems, excessive cloud dependency, or a lack of privacy for sensitive data, not to mention endless monthly subscription fees.</p>
+<br/>
+<p>The solution was to build a custom tool, focused on user experience, performance, and the security of keeping information under the user's own control.</p>
+<br/>
+<p>Over more than a decade and a half of continuous evolution, daily testing, and technical refinement, this personal tool matured, gained new features—such as intuitive dashboards, OFX import with smart rules, powerful data manipulation and extraction, alongside various customizations—and became <strong>dbMoney Personal</strong>.</p>
+</div>
+<div class="about-content">
+<h3 class="gallery-title-green">
+<a>About the Founder</a></h3>
+<div class="dbmoney-intro">
+<img alt="Founder" class="dbmoney-intro" src="images/founder.png"/>
+<p>Hello, I'm <strong>Fabio Ceschini</strong>, Brazilian, 43 years old, father of two, founder and software architect at <strong>DevBrazil</strong>. Technology enthusiast, curious mind, enemy of the status quo, and passionate about creating simple, fast solutions that truly make people's lives easier.</p>
+</div>
+</div>
+<div class="about-content">
+<p>My journey with software development began at 15. I earned a degree in Information Systems and worked for many years in large companies across sectors such as manufacturing, retail, banking, finance, and e-commerce.</p>
+</div>
+<hr/>
+<br/>
+<div class="about-content">
+<p><strong>My hobbies:</strong></p>
+<span class="product-eyebrow eyebrow-gray"><i class="fa-solid fa-futbol"></i> Soccer</span>
+<span class="product-eyebrow eyebrow-gray"><i class="fa-solid fa-bicycle"></i> Cycling</span>
+<span class="product-eyebrow eyebrow-gray"><i class="fa-solid fa-person-running"></i> Running</span>
+<span class="product-eyebrow eyebrow-gray"><i class="fa-solid fa-utensils"></i> Cooking</span>
+<span class="product-eyebrow eyebrow-gray"><i class="fa-solid fa-hammer"></i> Woodworking</span>
+<span class="product-eyebrow eyebrow-gray"><i class="fa-solid fa-landmark"></i> Architecture</span>
+<span class="product-eyebrow eyebrow-gray"><i class="fa-solid fa-robot"></i> Automation</span>
+</div>
+<hr/>
+<br/>
+<div class="about-content">
+<a>If you have any suggestions, requests, feedback, or improvements, please get in touch—I'd love to hear from you. Ah, and feel free to connect with me on LinkedIn!</a>
+</div>
+<div class="about-content">
+<a class="product-eyebrow eyebrow-blue" href="https://www.linkedin.com/in/fabioceschini/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+<a class="product-eyebrow eyebrow-green" href="mailto:fabio@devbrazil.com" title="fabio@devbrazil.com"><i class="fas fa-envelope"></i> Contact</a>
+</div>
+</div>
 <footer>
-    <p data-pt="&copy; 2026 DevBrazil. Todos os direitos reservados."
-       data-en="&copy; 2026 DevBrazil. All rights reserved."
-       data-es="&copy; 2026 DevBrazil. Todos los derechos reservados."
-       data-fr="&copy; 2026 DevBrazil. Tous droits réservés."
-       data-de="&copy; 2026 DevBrazil. Alle Rechte vorbehalten.">
-    </p>
+<p>© 2026 DevBrazil. All rights reserved.</p>
 </footer>
-
-<div id="myModal" class="modal">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <span class="nav-btn prev-btn" onclick="changeImage(-1)">&#10094;</span>
-    <img class="modal-content" id="img01">
-    <span class="nav-btn next-btn" onclick="changeImage(1)">&#10095;</span>
-	<div id="caption" class="modal-caption"></div>
+<div class="modal" id="myModal">
+<span class="close" onclick="closeModal()">×</span>
+<span class="nav-btn prev-btn" onclick="changeImage(-1)">❮</span>
+<img class="modal-content" id="img01"/>
+<span class="nav-btn next-btn" onclick="changeImage(1)">❯</span>
+<div class="modal-caption" id="caption"></div>
 </div>
-
-<script src="script.js" defer></script></body>
+<!-- CONTACT MODAL -->
+<div class="contact-modal" id="contactModal">
+<div aria-modal="true" class="contact-modal-content" role="dialog">
+<!-- CLOSE BUTTON -->
+<button aria-label="Close" class="contact-close" id="contactClose" type="button"> × </button>
+<div class="about-content">
+<h3 class="gallery-title-green">
+<a>Contact form</a>
+</h3>
+<div class="about-content">
+<a>Fill in your details or get in touch via email:</a>
+<a class="product-eyebrow eyebrow-gray" href="mailto:support@devbrazil.com" title="support@devbrazil.com">support@devbrazil.com</a>
+</div>
+</div>
+<!-- FORM -->
+<form id="contactForm">
+<!-- NAME -->
+<input id="contactName" maxlength="100" name="name" placeholder="Your name" required="" type="text"/>
+<!-- EMAIL -->
+<input id="contactEmail" maxlength="150" name="email" placeholder="Your email" required="" type="email"/>
+<!-- MESSAGE -->
+<textarea id="contactMessage" maxlength="5000" name="message" placeholder="Your message" required="" rows="6"></textarea>
+<!-- SEND BUTTON -->
+<button class="contact-send" id="contactSend" type="submit">Send Message</button>
+<!-- STATUS -->
+<div aria-live="polite" class="contact-status" id="contactStatus"></div>
+</form>
+</div>
+</div>
+<script defer="" src="script.js"></script>
+</body>
 </html>

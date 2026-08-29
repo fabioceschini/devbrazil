@@ -43,6 +43,7 @@ function updateContent() {
 function changeLanguage(lang) {
     currentLang = lang;
     updateContent();
+    /* updateContactPlaceholders(language); */
 
     document.querySelectorAll('.lang-pill').forEach(pill => {
         pill.classList.toggle('active', pill.getAttribute('data-lang') === lang);
@@ -187,12 +188,138 @@ document.addEventListener('keydown', event => {
 });
 
 window.addEventListener('load', () => {
-    currentLang = 'en';
+    // O idioma correto já vem definido no <html lang="..."> de cada
+    // página gerada (en, pt-BR, es, fr, de). Usamos isso como fonte
+    // da verdade em vez de forçar 'en' ou depender do navegador,
+    // para que o pill de idioma ativo bata com a página realmente
+    // carregada (importante nas páginas /pt/, /es/, /fr/, /de/).
+    const htmlLang = (document.documentElement.lang || 'en').toLowerCase();
+    currentLang = htmlLang.startsWith('pt') ? 'pt' : htmlLang.slice(0, 2);
 
-    const browserLang = navigator.language || navigator.userLanguage || '';
-    if (browserLang.startsWith('en')) currentLang = 'en';
-
-    checkURLForLanguage();
+    checkURLForLanguage(); // permite forçar via #hash ou ?lang= ao testar
     changeLanguage(currentLang);
     updateActiveMenu();
 });
+
+
+
+/* =========================================
+   CONTACT MODAL
+========================================= */
+
+const contactButton = document.getElementById('contactButton');
+const contactModal = document.getElementById('contactModal');
+const contactClose = document.getElementById('contactClose');
+const contactForm = document.getElementById('contactForm');
+const contactName = document.getElementById('contactName');
+const contactEmail = document.getElementById('contactEmail');
+const contactMessage = document.getElementById('contactMessage');
+const contactSend = document.getElementById('contactSend');
+const contactStatus = document.getElementById('contactStatus');
+const contactLink = document.getElementById('contactLink');
+const contactLink2 = document.getElementById('contactLink2');
+/* URL DO CLOUDFLARE WORKER */
+const CONTACT_WORKER_URL = 'https://devbrazil-contact.fabioceschini.workers.dev/';
+
+
+function openContactModal() {
+    if (!contactModal) { return; }
+
+    contactModal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+
+    setTimeout( () => { if (contactName) { contactName.focus(); } }, 100 );
+}
+
+function closeContactModal() {
+    if (!contactModal) { return; }
+
+    contactModal.classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+if (contactButton) {
+    contactButton.addEventListener( 'click', openContactModal );
+}
+
+if (contactClose) {
+    contactClose.addEventListener( 'click', closeContactModal );
+}
+
+if (contactModal) {
+    contactModal.addEventListener( 'click', (event) => { if ( event.target === contactModal ) { closeContactModal(); } } );
+}
+
+document.addEventListener( 
+    'keydown', (event) => { if ( event.key === 'Escape' && contactModal && contactModal.classList.contains('show') ) { closeContactModal(); } }
+);
+
+if (contactForm) {
+    contactForm.addEventListener(
+        'submit',
+        async (event) => {
+
+            event.preventDefault();
+
+            const name = contactName .value .trim();
+            const email = contactEmail .value .trim();
+            const message = contactMessage .value .trim();
+
+            /* Validação adicional */
+            if ( !name || !email || !message ) {
+                contactStatus.textContent = 'Please complete all fields.';
+                contactStatus.className = 'contact-status error';
+                return;
+            }
+
+            /* Estado de envio */
+            contactSend.disabled = true;
+            contactStatus.textContent = 'Sending...';
+            contactStatus.className = 'contact-status';
+
+            try {
+                const response =
+                    await fetch(
+                        CONTACT_WORKER_URL,
+                        {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify( { name: name, email: email, message: message } )
+                        }
+                    );
+
+                /* Tenta obter resposta JSON */
+                let data;
+                try { data = await response.json(); } catch { data = {}; }
+                
+                /* Erro retornado pelo Worker */
+                if (!response.ok) { throw new Error( data.error || 'Unable to send the message.' ); }
+
+                /* Sucesso */
+                contactStatus.textContent = 'Message sent successfully!';
+                contactStatus.className = 'contact-status success';
+                contactForm.reset();
+
+                /* Fecha após 2 segundos */
+                setTimeout( () => { 
+                    closeContactModal(); 
+                    contactStatus.textContent = ''; },
+                    2000
+                );
+
+            } catch (error) {
+                console.error( 'CONTACT_ERROR:', error );
+                contactStatus.textContent = error.message || 'Unable to send the message. Please try again later.';
+                contactStatus.className = 'contact-status error';
+            } finally { contactSend.disabled = false; }
+        }
+    );
+}
+
+if (contactLink) {
+    contactLink.addEventListener( 'click', (event) => { event.preventDefault(); openContactModal(); } );
+}
+
+if (contactLink2) {
+    contactLink2.addEventListener( 'click', (event) => { event.preventDefault(); openContactModal(); } );
+}
