@@ -3,6 +3,9 @@ echo ===================================
 echo   Atualizando arquivos no GitHub...
 echo ===================================
 
+:: Aborte o merge com conflitos:
+git merge --abort
+
 :: 1. Baixa alteracoes remotas se existirem
 git pull origin main --rebase
 
@@ -17,7 +20,10 @@ if "%msg%"=="" set msg=Atualizacao automatica
 git commit -m "%msg%"
 echo.
 echo Enviando para o GitHub...
-git push origin main
+
+:: Envie os arquivos forçando a atualização no GitHub: (O parâmetro --force ou -f irá sobrescrever o repositório remoto com os seus arquivos locais corretos)
+:: git push origin main
+git push -u origin main --force
 
 echo.
 echo ===================================
