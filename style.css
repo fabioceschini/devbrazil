@@ -46,7 +46,7 @@ nav { display: flex; align-items: center; gap: 28px; }
 .product-nav-links {
     display: flex;
     align-items: center;
-    gap: 26px;
+    gap: 20px;
 }
 
 .product-nav-links a {
