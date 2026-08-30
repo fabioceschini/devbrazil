@@ -41,40 +41,35 @@ hr {border: 0; height: 1px; background-color: #eee;}
 .brand-name {font-weight: 700; font-size: 1.05rem; color: var(--ink); letter-spacing: 0.2px;}
 .brand-name .brand-accent {color: var(--verde-dev);}
 
-nav {
-display: flex;
-            align-items: center;
-            gap: 28px;
-}
+nav { display: flex; align-items: center; gap: 28px; }
 
 .product-nav-links {
-display: flex;
-            align-items: center;
-            gap: 26px;
+    display: flex;
+    align-items: center;
+    gap: 26px;
 }
 
 .product-nav-links a {
-position: relative;
-            text-decoration: none;
-            color: var(--muted);
-            font-weight: 600;
-            font-size: 0.9rem;
-            padding: 4px 0;
-            
-			transition: all 0.2s ease;
-            --prod-color: var(--verde-dev);
+    position: relative;
+    text-decoration: none;
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 4px 0;
+    transition: all 0.2s ease;
+    --prod-color: var(--verde-dev);
 }
 
 .product-nav-links a::after {
-content: "";
-            position: absolute;
-            left: 0;
-            bottom: -4px;
-            width: 0%;
-            height: 2px;
-            background: var(--prod-color);
-            transition: width 0.2s ease;
-            border-radius: 2px;
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: var(--prod-color);
+    transition: width 0.2s ease;
+    border-radius: 2px;
 }
 
 .product-nav-links a:hover,
