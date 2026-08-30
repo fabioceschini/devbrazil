@@ -362,6 +362,7 @@ def generate_robots():
     Path("robots.txt").write_text(
         f"""User-agent: *
 Allow: /
+Disallow: /cdn-cgi/
 
 Sitemap: {BASE_URL}/sitemap.xml
 """,
