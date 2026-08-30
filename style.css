@@ -933,7 +933,7 @@ display:none
         justify-content: center;
         align-items: center;
         gap: 14px;           
-        width: 100%;
+        width: 90%;
     }
 
     .product-nav-links { gap: 16px; flex-wrap: wrap; justify-content: center; }
