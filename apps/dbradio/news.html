@@ -1,9 +1,9 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+<head>	
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" href="../../images/favicon.png">
     <style>
         body {
             font-family: 'Calibri', Tahoma, Geneva, Verdana, sans-serif;
@@ -55,7 +55,6 @@
         
         <p data-pt="Gostaríamos que todos pudessem ouvir suas rádios favoritas em casa e no trabalho."
 		   data-en="Our goal is to enable everyone to listen to their favorite stations both at home and at work.">
-		            
 		</p>		
         
         <p data-pt="Para que isso seja possível, investimos em um <strong>servidor dedicado</strong> para armazenar e compartilhar as rádios cadastradas pela comunidade."
@@ -162,169 +161,4 @@
 	
 </script>	
 
-=======
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: 'Calibri', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #ffffff;
-            color: #585858;
-            line-height: 1.4;
-            margin: 1;
-            padding: 0px;
-            text-align: center;
-        }
-		
-		strong { color: #66447D; }
-		
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 3px;
-            border-radius: 8px;
-            /* box-shadow: 0 2px 10px rgba(0,0,0,0.05); */
-        }
-        p {
-            font-size: 0.8em;
-            margin-bottom: 5px;
-        }
-        .bold {
-            color: #2c3e50;
-            font-weight: 600;
-        }
-        .footer {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            font-size: 0.9em;
-        }
-        .purple {
-            color: #66447D; /* Azul padrão Windows para manter a identidade */
-		}		
-        .bold-purple {
-            color: #66447D; /* Azul padrão Windows para manter a identidade */
-            font-weight: bold;
-		}
-    </style>
-</head>
-<body>
-    <div class="container">
-        <p data-pt="Este aplicativo foi desenvolvido para entusiastas de webrádios ao redor do mundo."
-		   data-en="This app was built for web radio enthusiasts around the world.">		   
-		</p>
-        
-        <p data-pt="Gostaríamos que todos pudessem ouvir suas rádios favoritas em casa e no trabalho."
-		   data-en="Our goal is to enable everyone to listen to their favorite stations both at home and at work.">
-		            
-		</p>		
-        
-        <p data-pt="Para que isso seja possível, investimos em um <strong>servidor dedicado</strong> para armazenar e compartilhar as rádios cadastradas pela comunidade."
-		   data-en="To make this possible, we invest in a <strong>dedicated server</strong> to store and share the radio stations registered by our community.">
-		</p>
-        
-		<p data-pt="Se você gostou do projeto, considere <strong>apoiar</strong> seu desenvolvimento e manutenção com uma pequena doação."
-		   data-en="If you enjoy the project, please consider <strong>supporting</strong> its development and maintenance with a small donation.">
-		</p>
-        
-        <!-- <p>Juntos, construiremos a maior base comunitária de rádios da web.</p> -->
-		
-		<p data-pt="<strong>O dbRadio é 100% gratuito</strong>"
-		   data-en="<strong>dbRadio is 100% free</strong>">
-		</p>
-        
-		<!--
-        <div class="footer">
-            O <span class="bold-purple">dbRadio</span> é e sempre será <span class="bold-purple">100% gratuito</span>.<br><br>
-        </div>
-		-->
-    </div>
-</body>
-
-<script>
-	
-	function updateContent() {
-
-		document.querySelectorAll('[data-pt]').forEach(el => {
-			const texto = el.getAttribute('data-' + currentLang);
-			if (texto) {
-				// USAR innerHTML para que o navegador processe o <strong>
-				el.innerHTML = texto;
-			}
-		});
-		
-		// Atualiza placeholders
-		document.querySelectorAll('[data-placeholder-pt]').forEach(el => {
-			const texto = el.getAttribute('data-placeholder-' + currentLang);
-
-			if (texto) {
-				el.placeholder = texto;
-			}
-		});		
-		
-		// Atualiza o texto do botão de troca
-		document.querySelectorAll('.lang-text').forEach(span => {
-			span.innerText = (currentLang === 'pt') ? 'EN' : 'PT';
-		});
-	}
-
-	function changeLanguage(lang) {	
-		currentLang = lang;
-
-		// Atualiza textos
-		updateContent();
-		}
-	
-	window.onload = function() {
-		// Idioma padrão
-		currentLang = 'en';
-		
-		// Detecta idioma do navegador
-		const browserLang = navigator.language || navigator.userLanguage;
-		
-		if (browserLang.startsWith('en')) {
-			currentLang = 'en';
-		}
-		
-		// Verifica URL (?lang=en ou #en)
-		checkURLForLanguage();
-		
-		// Atualiza conteúdo
-		changeLanguage(currentLang);		
-	}
-
-	// Executa assim que o site carregar
-    document.addEventListener("DOMContentLoaded", checkURLForLanguage);
-
-	function scrollToSection(id) {
-
-		const element = document.getElementById(id);
-
-		if (element) {
-			element.scrollIntoView({
-				behavior: 'smooth',
-				block: 'start'
-			});
-		}
-	}
-	
-	// Função que lê o idioma da URL
-    function checkURLForLanguage() {	
-		const hash = window.location.hash.replace('#', '');		
-		const urlParams = new URLSearchParams(window.location.search);		
-		const langParam = urlParams.get('lang');
-		
-		if (hash === 'en' || hash === 'pt') {		
-			currentLang = hash;		
-		} else if (langParam === 'en' || langParam === 'pt') {		
-			currentLang = langParam;
-		}		
-    }
-	
-</script>	
-
->>>>>>> c736d201b739c6353eeb7dadfa0d95a4b6e33a1e
 </html>
