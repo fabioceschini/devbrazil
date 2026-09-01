@@ -661,11 +661,26 @@
 		</details>
 		<details>
 			<summary
-				data-pt="12. Como funciona o suporte técnico caso eu precise de ajuda?"
-				data-en="12. How does technical support work if I need help?"
-				data-es="12. ¿Cómo funciona el soporte técnico si necesito ayuda?"
-				data-fr="12. Comment fonctionne l'assistance technique en cas de besoin ?"
-				data-de="12. Wie funktioniert der technische Support, wenn ich Hilfe benötige?">
+				data-pt="12. Posso utilizar o dbMoney em smartphones ou tablets (iPhone ou Android)?"
+				data-en="12. Can I use dbMoney on smartphones or tablets (iPhone or Android)?"
+				data-es="12. ¿Puedo usar dbMoney en teléfonos inteligentes o tabletas (iPhone o Android)?"
+				data-fr="12. Puis-je utiliser dbMoney sur smartphones ou tablettes (iPhone ou Android) ?"
+				data-de="12. Kann ich dbMoney auf Smartphones oder Tablets (iPhone oder Android) nutzen?">
+			</summary>
+			<p data-pt="Esta versão do dbMoney está disponível exclusivamente para Windows. Criar uma versão multiplataforma integrada exigiria hospedar seus dados em servidores na nuvem, o que geraria custos recorrentes de infraestrutura e obrigaria a cobrança de mensalidades. Além disso, manter o aplicativo 100% local no seu computador garante o pilar fundamental do dbMoney: a total privacidade e soberania dos seus dados."
+			   data-en="This version of dbMoney is available exclusively for Windows. Creating an integrated cross-platform app would require hosting your data on cloud servers, generating recurring infrastructure costs that would force a monthly subscription model. Furthermore, keeping the app 100% local on your computer ensures the core principle of dbMoney: total privacy and data sovereignty."
+			   data-es="Esta versión de dbMoney está disponible exclusivamente para Windows. Crear una aplicación multiplataforma integrada requeriría alojar sus datos en servidores en la nube, lo que generaría costes recurrentes de infraestructura e impondría el cobro de suscripciones mensuales. Además, mantener la aplicación 100% local en su ordenador garantiza el principio fundamental de dbMoney: la total privacidad y soberanía de sus datos."
+			   data-fr="Cette version de dbMoney est disponible exclusivement pour Windows. Créer une application multiplateforme intégrée nécessiterait l'hébergement de vos données sur des serveurs cloud, ce qui engendrerait des coûts d'infrastructure récurrents et imposerait un abonnement mensuel. De plus, conserver l'application 100 % locale sur votre ordinateur garantit le principe fondamental de dbMoney : la confidentialité totale et la souveraineté de vos données."
+			   data-de="Diese Version von dbMoney ist exklusiv für Windows verfügbar. Eine integrierte plattformübergreifende Anwendung würde das Hosten Ihrer Daten auf Cloud-Servern erfordern. Dies würde wiederkehrende Infrastrukturkosten verursachen und ein monatliches Abonnement erzwingen. Zudem garantiert die 100 % lokale Speicherung auf Ihrem Computer das Kernprinzip von dbMoney: volle Datensouveränität und Datenschutz.">
+			</p>
+		</details>
+		<details>
+			<summary
+				data-pt="13. Como funciona o suporte técnico caso eu precise de ajuda?"
+				data-en="13. How does technical support work if I need help?"
+				data-es="13. ¿Cómo funciona el soporte técnico si necesito ayuda?"
+				data-fr="13. Comment fonctionne l'assistance technique en cas de besoin ?"
+				data-de="13. Wie funktioniert der technische Support, wenn ich Hilfe benötige?">
 			</summary>
 			<p data-pt="O suporte técnico pode ser acionado a qualquer momento pelo e-mail <a href='mailto:support@devbrazil.com'>support@devbrazil.com</a> ou pelo formulário de contato desta página."
 			   data-en="Technical support can be reached at any time via email at <a href='mailto:support@devbrazil.com'>support@devbrazil.com</a> or through the contact form on this page."
@@ -1218,7 +1233,6 @@
 
     <div class="contact-modal-content" role="dialog" aria-modal="true">
 
-        <!-- CLOSE BUTTON -->
         <button id="contactClose" class="contact-close" type="button" aria-label="Close"> &times; </button>
   
 		<div class="about-content">
@@ -1249,91 +1263,65 @@
 			</div>			
 		</div>
 
-        <!-- FORM -->
         <form id="contactForm">
-
-
-            <!-- NAME -->
             <input
                 type="text"
                 id="contactName"
                 name="name"
                 required
                 maxlength="100"
-
                 placeholder="Your name"
-
                 data-placeholder-pt="Seu nome"
                 data-placeholder-en="Your name"
                 data-placeholder-es="Su nombre"
                 data-placeholder-fr="Votre nom"
-                data-placeholder-de="Ihr Name"
-            >
+                data-placeholder-de="Ihr Name">
 
-
-            <!-- EMAIL -->
             <input
                 type="email"
                 id="contactEmail"
                 name="email"
                 required
                 maxlength="150"
-
                 placeholder="Your email"
-
                 data-placeholder-pt="Seu e-mail"
                 data-placeholder-en="Your email"
                 data-placeholder-es="Su correo electrónico"
                 data-placeholder-fr="Votre e-mail"
-                data-placeholder-de="Ihre E-Mail-Adresse"
-            >
+                data-placeholder-de="Ihre E-Mail-Adresse">
 
-
-            <!-- MESSAGE -->
             <textarea
                 id="contactMessage"
                 name="message"
                 rows="6"
                 required
                 maxlength="5000"
-
                 placeholder="Your message"
-
                 data-placeholder-pt="Sua mensagem"
                 data-placeholder-en="Your message"
                 data-placeholder-es="Su mensaje"
                 data-placeholder-fr="Votre message"
-                data-placeholder-de="Ihre Nachricht"
-            ></textarea>
+                data-placeholder-de="Ihre Nachricht">
+			</textarea>
 
-
-            <!-- SEND BUTTON -->
             <button
                 type="submit"
                 id="contactSend"
                 class="contact-send"
-
                 data-pt="Enviar mensagem"
                 data-en="Send Message"
                 data-es="Enviar mensaje"
                 data-fr="Envoyer le message"
                 data-de="Nachricht senden">
-
                 Send Message
-
             </button>
 
-
-            <!-- STATUS -->
             <div
                 id="contactStatus"
                 class="contact-status"
-                aria-live="polite"
-            ></div>
-
-
+                aria-live="polite">
+			</div>
         </form>
-
     </div>
 </div>
 

@@ -277,7 +277,11 @@
 <p>Yes, dbMoney features native support for multiple languages and currencies, making it ideal for both local and international use.</p>
 </details>
 <details>
-<summary>12. How does technical support work if I need help?</summary>
+<summary>12. Can I use dbMoney on smartphones or tablets (iPhone or Android)?</summary>
+<p>This version of dbMoney is available exclusively for Windows. Creating an integrated cross-platform app would require hosting your data on cloud servers, generating recurring infrastructure costs that would force a monthly subscription model. Furthermore, keeping the app 100% local on your computer ensures the core principle of dbMoney: total privacy and data sovereignty.</p>
+</details>
+<details>
+<summary>13. How does technical support work if I need help?</summary>
 <p>Technical support can be reached at any time via email at <a href="mailto:support@devbrazil.com">support@devbrazil.com</a> or through the contact form on this page.</p>
 </details>
 </div>
@@ -550,7 +554,6 @@
 <!-- CONTACT MODAL -->
 <div class="contact-modal" id="contactModal">
 <div aria-modal="true" class="contact-modal-content" role="dialog">
-<!-- CLOSE BUTTON -->
 <button aria-label="Close" class="contact-close" id="contactClose" type="button"> × </button>
 <div class="about-content">
 <h3 class="gallery-title-green">
@@ -561,18 +564,14 @@
 <a class="product-eyebrow eyebrow-gray" href="mailto:support@devbrazil.com" title="support@devbrazil.com">support@devbrazil.com</a>
 </div>
 </div>
-<!-- FORM -->
 <form id="contactForm">
-<!-- NAME -->
 <input id="contactName" maxlength="100" name="name" placeholder="Your name" required="" type="text"/>
-<!-- EMAIL -->
 <input id="contactEmail" maxlength="150" name="email" placeholder="Your email" required="" type="email"/>
-<!-- MESSAGE -->
-<textarea id="contactMessage" maxlength="5000" name="message" placeholder="Your message" required="" rows="6"></textarea>
-<!-- SEND BUTTON -->
+<textarea id="contactMessage" maxlength="5000" name="message" placeholder="Your message" required="" rows="6">
+			</textarea>
 <button class="contact-send" id="contactSend" type="submit">Send Message</button>
-<!-- STATUS -->
-<div aria-live="polite" class="contact-status" id="contactStatus"></div>
+<div aria-live="polite" class="contact-status" id="contactStatus">
+</div>
 </form>
 </div>
 </div>
