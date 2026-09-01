@@ -6,6 +6,7 @@
     <title>DevBrazil | Software Engineering</title>
 	<link rel="icon" type="image/png" href="../../images/favicon.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
     <style>
         :root {
             --verde-dev: #1b845b;
@@ -15,10 +16,12 @@
             --bg-light: #f4f7f6;
             --text-dark: #333;
             --white: #ffffff;
+            --font-body: "Inter", "Segoe UI", sans-serif;
+            --font-mono: "JetBrains Mono", "Consolas", monospace;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Bahnschrift', 'Segoe UI', sans-serif; background-color: var(#fff); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
+        body { font-family: var(--font-body); background-color: var(#fff); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
 
         /* --- HEADER --- */
         header {
@@ -27,12 +30,12 @@
             display: flex;
             justify-content: space-between; /* Mantém Logo na esquerda e Nav na direita */
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
-		
+
         /* --- HERO --- */
         .hero { padding: 60px 5%; text-align: center; background: linear-gradient(135deg, #fff 0%, #e6f2ed 100%); }
         .hero h1 { font-size: 2.5rem; margin-bottom: 15px; color: var(--verde-dev); line-height: 1.1; }
@@ -43,7 +46,7 @@
             background: #fff;
             max-width: 1400px;
             margin: -30px auto 50px;
-            padding: 40px 5%;
+            padding: 20px 5%;
             border-radius: 15px;
             /* box-shadow: 0 10px 30px rgba(0,0,0,0.05); */
             /* border-left: 8px solid var(--azul-dbmoney); */
@@ -64,7 +67,7 @@
         .pricing-table-container { margin-top: 10px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
         table { width: 100%; border-collapse: collapse; margin-top: 10px; min-width: 500px; }
         th, td { padding: 12px 10px; text-align: left; border-bottom: 1px solid #eee; font-size: 0.9rem; }
-        th { background-color: #f8f9fa; color: var(--azul-dbmoney); }
+        th { background-color: white; color: var(--azul-dbmoney); }
         .check-yes { color: #28a745; }
         .check-no { color: #dc3545; }
         .limit-text { font-size: 0.75rem; color: #856404; background: #fff3cd; padding: 2px 6px; border-radius: 4px; display: inline-block; }
@@ -90,6 +93,7 @@
         /* --- MEDIA QUERIES --- */
         @media (max-width: 768px) {
             header { flex-direction: column; gap: 15px; padding: 15px; }
+
 			.nav {
                 display: flex;
                 flex-direction: row; /* Mantém na mesma linha */
@@ -111,6 +115,7 @@
             .card-dbmoney { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid var(--azul-dbmoney); }
         }
     </style>
+
 </head>
 <body>
 
@@ -212,18 +217,18 @@
 					<td><span class="limit-text-blue"><a data-pt=" $ 29.99 (vitalício)" data-en=" $ 29.99 (lifetime)" data-es=" $ 29.99 (de por vida)" data-fr=" $ 29.99 (à vie)" data-de=" $ 29.99 (lebenslang)"></a></span>
 						<br>
 						<small style="font-size: 0.75rem; color: #777; display: block; margin-top: 4px;" 
-							   data-pt="* Oferta por tempo limitado"   
-							   data-en="* Limited time offer"
-							   data-es="* Oferta por tiempo limitado"
-							   data-fr="* Offre à durée limitée"
-							   data-de="* Befristetes Angebot">
+							data-pt="* Oferta por tempo limitado"   
+							data-en="* Limited time offer"
+							data-es="* Oferta por tiempo limitado"
+							data-fr="* Offre à durée limitée"
+							data-de="* Befristetes Angebot">
 						</small>
 						<small style="font-size: 0.75rem; color: #777; display: block; margin-top: 4px;" 
-							   data-pt="* Preço pode variar por região/país" 
-							   data-en="* Price may vary by region/country"
-							   data-es="* El precio puede variar según la región o el país"
-							   data-fr="* Le prix peut varier selon la région/le pays"
-							   data-de="* Der Preis kann je nach Region/Land variieren">
+							data-pt="* Preço pode variar por região/país" 
+							data-en="* Price may vary by region/country"
+							data-es="* El precio puede variar según la región o el país"
+							data-fr="* Le prix peut varier selon la région/le pays"
+							data-de="* Der Preis kann je nach Region/Land variieren">
 						</small>                      
 					</td>
 				</tr>       

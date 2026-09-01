@@ -1,306 +1,1453 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
+	<meta charset="utf-8"/>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+	<meta content="#1b845b" name="theme-color"/>
     <title>DevBrazil | Software Engineering</title>
 	<link rel="icon" type="image/png" href="../../images/favicon.png">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+	<link href="https://fonts.googleapis.com" rel="preconnect"/>
+	<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;600;700&amp;display=swap" rel="stylesheet"/>	
+
     <style>
-        body {
-            /* font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; */
-            font-family: 'Calibri', Tahoma, Geneva, Verdana, sans-serif;
-			line-height: 1.6;
-            color: #333;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0px 20px;
-            background-color: #ffffff;
-        }
-        .container {
-            background-color: #ffffff;
-            padding: 10px;
-            border-radius: 8px;
-            /*
-			box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            border-top: 8px solid #004a99;
-			*/
-        }
-        header {
-            text-align: left;
-            border-bottom: 2px solid #2B579A; /* #eee; */
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-        }
-        header h1 {
-            color: #004a99;
-            margin: 0;
-            font-size: 22px;
-            /* text-transform: uppercase; */
-            letter-spacing: 1px;
-        }
-        header p {
-            color: #666;
-            font-size: 14px;
-            margin-top: 5px;
-        }
-        h1 {
-            color: #003366;
-            font-size: 20px;
-            margin-top: 20px;
-        }
-        h2 {
-            background-color: #f0f7ff;
-			color: #004a99;
-            border-left: 5px solid #004a99;
-            padding: 10px;
-			padding-left: 15px;
-            margin-top: 35px;
-            font-size: 20px;
-        }
-        h3 {
-            color: #003366;
-            font-size: 17px;
-            margin-top: 25px;
-        }
-        pc {
-            text-align: center;
-            font-size: 15px;
-        }		
-        p, li {
-            text-align: justify;
-            font-size: 15px;
-        }
-        ul {
-            margin-bottom: 20px;
-        }
-        .highlight-box {
-            background-color: #eef6ff;
-            padding: 10px;
-            border-radius: 4px;
-            border: 1px dashed #004a99;
-            margin: 20px 0;
-        }
-        footer {
-            margin-top: 40px;
-            text-align: center;
-            font-size: 13px;
-            color: #999;
-            border-top: 1px solid #eee;
-            padding-top: 20px;
-        }
-        .btn-print {
-            display: inline-block;
-            margin-bottom: 20px;
-            padding: 10px 20px;
-            background-color: #004a99;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-        }
+		:root {
+		--verde-dev: #1b845b;
+					--verde-dev-dark: #146a48;
+					--azul-dbmoney: #004a99;			
+					--vermelho-dbpdf: #A75052;
+					--roxo-dbradio: #6a1b9a;
+					--amarelo-dbnotes: #AF8300;
+					--bg-light: #f7f6f1;
+					--ink: #1c2321;
+					--text-dark: #333;
+					--muted: #70766f;
+					--line: #e7e4da;
+					--white: #ffffff;
+					--font-body: "Inter", "Segoe UI", sans-serif;
+					--font-mono: "JetBrains Mono", "Consolas", monospace;
+		}
+
+		* {box-sizing: border-box; margin: 0; padding: 0;}
+
+		body {font-family: var(--font-body); background-color: white; color: var(--ink); line-height: 1.6; overflow-x: hidden;}
+
+		header {
+		background: rgba(255,255,255,0.85);
+					padding: 16px 5%;
+					display: flex;
+					justify-content: space-between; 
+					align-items: center;
+					border-bottom: 1px solid var(--line);
+					position: sticky;
+					top: 0;
+					z-index: 1000;
+					backdrop-filter: blur(10px);
+					-webkit-backdrop-filter: blur(10px);
+					gap: 20px;
+		}
+
+		hr {border: 0; height: 1px; background-color: #eee;}
+
+		.logo-img {width: 34px; height: 34px;}
+
+		.brand-name {font-weight: 700; font-size: 1.05rem; color: var(--ink); letter-spacing: 0.2px;}
+		.brand-name .brand-accent {color: var(--verde-dev);}
+
+		nav { display: flex; align-items: center; gap: 28px; }
+
+		.product-nav-links {
+			display: flex;
+			align-items: center;
+			gap: 24px;
+		}
+
+		.product-nav-links a {
+			position: relative;
+			text-decoration: none;
+			color: var(--muted);
+			font-weight: 600;
+			font-size: 0.9rem;
+			padding: 4px 0;
+			transition: all 0.2s ease;
+			--prod-color: var(--verde-dev);
+		}
+
+		.product-nav-links a::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			bottom: -4px;
+			width: 0%;
+			height: 2px;
+			background: var(--prod-color);
+			transition: width 0.2s ease;
+			border-radius: 2px;
+		}
+
+		.product-nav-links a:hover,
+		.product-nav-links a.active {
+		font-weight: 700;
+					color: var(--prod-color);
+		}
+
+		.product-nav-links a:hover::after,
+		.product-nav-links a.active::after {
+		width: 100%;
+		}
+
+		.nav-divider {
+		width: 1px; height: 20px; background: var(--line); flex-shrink: 0;
+		}
+
+		.nav-divider-media-hide {
+		width: 1px; height: 20px; background: var(--line); flex-shrink: 0;
+		}
+
+		.header-contact {
+		color: var(--muted);
+					font-size: 0.95rem;
+					text-decoration: none;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 34px; height: 34px;
+					border-radius: 50%;
+					transition: all 0.2s ease;
+					flex-shrink: 0;
+		}
+
+		.header-contact:hover {
+		background: rgba(27,132,91,0.08); color: var(--verde-dev);
+		}
+
+		.product-eyebrow {
+		display: inline-block;
+					align-items: center;
+					gap: 8px;
+					font-family: var(--font-mono);
+					font-size: 0.7rem;
+					font-weight: 600;
+					letter-spacing: 0.08em;
+					
+					padding: 9px 12px;
+					border-radius: 10px;            
+					margin-left: 5px;
+					line-height: 1;
+					text-decoration: none;
+		}
+
+		.eyebrow-blue {margin-left: 0px; margin-right: 5px;  margin-top: 7px; margin-bottom: 7px; color: var(--azul-dbmoney); background: rgba(0,74,153,0.08);}
+		.eyebrow-red {margin-left: 0px; margin-right: 10px; margin-top: 7px; margin-bottom: 7px; color: var(--vermelho-dbpdf); background: rgba(167,80,82,0.1);}
+		.eyebrow-yellow {margin-left: 0px; margin-right: 10px; margin-top: 7px; margin-bottom: 7px; color: #8a6800; background: rgba(188,141,0,0.12);}
+		.eyebrow-purple {margin-left: 0px; margin-right: 10px; margin-top: 7px; margin-bottom: 7px; color: var(--roxo-dbradio); background: rgba(106,27,154,0.08);}
+		.eyebrow-green {margin-left: 0px; margin-right: 5px;  margin-top: 7px; margin-bottom: 7px; color: var(--verde-dev-dark); background: rgba(27,132,91,0.1);}
+		.eyebrow-gray {margin-left: 0px; margin-right: 5px;  margin-top: 7px; margin-bottom: 7px; color: #686868; background: #F2F2F2;}
+
+		.lang-selector {position: relative; display: inline-flex; align-items: center; gap: 2px; flex-shrink: 0;}
+
+		.lang-pill {
+		font-family: var(--font-mono);
+					font-size: 0.78rem;
+					font-weight: 600;
+					letter-spacing: 0.03em;
+					color: var(--muted);
+					text-decoration: none;
+					padding: 6px 10px;
+					border-radius: 6px;
+					transition: all 0.15s ease;
+		}
+
+		.lang-pill:hover {
+		color: var(--ink); background: rgba(0,0,0,0.04);
+		}
+
+		.lang-pill.active {
+		background: var(--bg-light);
+					border: 1px solid var(--line);
+					color: var(--ink);
+		}
+
+		.product-card {
+		background: #fff;
+					max-width: 1400px;
+					margin: -30px auto 50px;
+					padding: 40px 5%;
+					border-radius: 15px;
+					/*box-shadow: 0 10px 30px rgba(0,0,0,0.05);*/
+					/* border-left: 8px solid var(--azul-dbmoney);*/
+		}
+
+		.card-dbpdf {border-left-color: #A75052 !important;}
+		.card-dbpdf h2 {color: #d32f2f !important;}
+
+		.card-dbnotes {border-left-color: #BC8D00 !important;}
+		.card-dbnotes h2 {color: #AF8300 !important;}
+
+		.card-dbradio {border-left-color: #7A5B91 !important;}
+		.card-dbradio h2 {color: #6a1b9a !important;}
+
+		.card-devbrazil {border-left-color: #1B845B !important;}
+		.card-devbrazil h2 {color: #1B845B !important;}
+
+		.dbmoney-intro {display: flex; align-items: center; gap: 30px; margin-bottom: 10px;}
+		.dbmoney-intro img {width: 96px; height: auto;}
+		.dbmoney-text h2 {color: var(--azul-dbmoney); font-size: 1.8rem; margin-bottom: 15px;}
+
+		.about-content {margin-bottom: 20px;}
+
+		strong {color: #515151}
+
+		strong_black {color: var(--ink);}
+
+		strong_dbmoney { color: var(--azul-dbmoney); font-size: 1.0rem; font-weight: bold; }
+		strong_devbrazil { color: var(--verde-dev-dark); font-size: 1.2rem; font-weight: bold; display: inline-block; margin-bottom: 10px; }
+
+		.gallery-title {color: var(--azul-dbmoney); margin: 40px 0 20px; border-bottom: 2px solid #E0E0E0; padding-bottom: 10px; font-size: 1.4rem;}
+		.gallery-title-faq {color: var(--azul-dbmoney); margin: 40px 0 10px; border-bottom: 2px solid #E0E0E0; padding-bottom: 10px; font-size: 1.4rem;}
+		.gallery-title-red {color: #A75052; margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem;}
+		.gallery-title-yellow {color: #BC8D00; margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem;}
+		.gallery-title-purple {color: var(--roxo-dbradio); margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem;}
+		.gallery-title-green {color: var(--verde-dev); margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.6rem;}
+
+		.screenshot-grid {display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px;}
+		.screenshot-grid img {width: 100%; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.2s;}
+		.screenshot-grid img:hover {transform: scale(1.05);}
+
+		#gallery-dbmoney {
+		display: grid;
+					grid-template-columns: repeat(4, minmax(0, 1fr)) 300px;
+					gap: 20px;
+					align-items: center;
+		}
+
+		#gallery-dbmoney-youtube {
+		grid-column: 5;
+					grid-row: 1;
+
+					width: 185px;
+					padding-left: 25px;
+					margin-left: 5px;
+
+					border-left: 1px solid rgba(128, 128, 128, 0.25);
+					box-sizing: border-box;
+		}
+
+		#gallery-dbmoney-youtube a {
+		display: block;
+		}
+
+		#gallery-dbmoney-youtube img {
+		display: block;
+					width: 100%;
+					height: auto;
+		}
+
+		.gallery-more {
+		position: relative;
+					cursor: pointer;
+					overflow: hidden;
+					width: 100%; 
+					border-radius: 8px; 
+					box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+					transition: transform 0.2s;
+		}
+
+		.gallery-more img {
+		display: block;
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+		}
+
+		.gallery-more-overlay {
+		position: absolute;
+					inset: 0;
+
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+
+					background: rgba(0, 10, 0, 0.60);
+					color: white;
+
+					transition: background 0.2s ease;
+		}
+
+		.gallery-more-overlay span {
+		font-size: 32px;
+					font-weight: 700;
+		}
+
+		.gallery-more-overlay small {
+		margin-top: 5px;
+					font-size: 14px;
+		}
+
+		.gallery-more:hover .gallery-more-overlay {
+		background: rgba(0, 0, 0, 0.75);
+		}
+
+		.gallery-hidden {
+		display: none !important;
+		}
+
+		.pricing-table-container {
+		margin-top: 10px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+		}
+
+		table {
+		width: 100%; border-collapse: collapse; margin-top: 0px; min-width: 500px;
+		}
+
+		th,
+		td {
+		padding: 12px 10px; text-align: left; border-bottom: 1px solid #eee; font-size: 0.9rem;
+		}
+
+		th {
+		background-color: #f8f9fa; color: var(--azul-dbmoney);
+		}
+
+		.check-yes {
+		color: #28a745;
+		}
+
+		.limit-text {
+		font-size: 0.75rem; color: #856404; background: #fff3cd; padding: 2px 6px; border-radius: 4px; display: inline-block;
+		}
+
+		.limit-text-blue {
+		font-weight: bold; color: var(--azul-dbmoney);
+		}
+
+		.btn-store-dbmoney {
+		display: block;
+					width: 100%;
+					max-width: 350px;
+					margin: 40px auto 0;
+					background: var(--azul-dbmoney);
+					color: #fff;
+					padding: 12px 20px;
+					border-radius: 8px;
+					text-decoration: none;
+					font-family: var(--font-mono);
+					font-size: 0.9rem;
+					font-weight: bold;
+					text-align: center;
+					transition: background 0.3s;
+		}
+
+		.btn-store-dbmoney:hover {
+		background: #003366;
+		}
+
+		.btn-store-dbmoney-mini {
+		display: inline-flex;       
+					flex-direction: column;     
+					align-items: center;        
+					justify-content: center;    
+					width: auto;                
+					max-width: 350px;
+					background: var(--azul-dbmoney);
+					color: #fff;
+					padding: 10px 16px;         
+					border-radius: 10px;
+					text-decoration: none;
+					font-family: var(--font-mono);
+					font-size: 0.8rem;
+					font-weight: bold;
+					text-align: center;
+					transition: background 0.3s;
+					gap: 6px;
+		}
+
+		.btn-store-dbmoney-mini i {
+		display: block;
+		}
+
+		.btn-store-dbmoney-mini:hover {
+		background: #003366;
+		}
+
+		.btn-store-dbpdf {
+		display: block;
+					width: 100%;
+					max-width: 350px;
+					margin: 40px auto 0;
+					background: var(--vermelho-dbpdf);
+					color: #fff;
+					padding: 12px 20px;
+					border-radius: 8px;
+					text-decoration: none;
+					font-family: var(--font-mono);
+					font-size: 0.9rem;
+					font-weight: bold;
+					text-align: center;
+					transition: background 0.3s;
+		}
+
+		.btn-store-dbpdf:hover {
+		background: #823E40;
+		}
+
+		.btn-store-gray {
+		display: block;
+					width: 100%;
+					max-width: 350px;
+					margin: 40px auto 0;
+					background: #E0E0E0;
+					color: #898989;
+					padding: 12px 20px;
+					border-radius: 8px;
+					text-decoration: none;
+					font-family: var(--font-mono);
+					font-size: 0.8rem;
+					font-weight: bold;
+					text-align: center;
+					transition: background 0.3s;
+		}
+
+		.btn-store-gray:hover {
+		background: #CECECE;
+		}
+
+		.btn-store-dbradio {
+		display: block;
+					width: 100%;
+					max-width: 350px;
+					margin: 40px auto 0;
+					background: var(--roxo-dbradio);
+					color: #fff;
+					padding: 12px 20px;
+					border-radius: 8px;
+					text-decoration: none;
+					font-family: var(--font-mono);
+					font-size: 0.9rem;
+					font-weight: bold;
+					text-align: center;
+					transition: background 0.3s;
+		}
+
+		.btn-store-dbradio:hover {
+		background: #59436B;
+		}
+
+		.modal {
+		display: none; position: fixed; z-index: 2000;
+					left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9);;
+					justify-content: center; align-items: center;
+		}
+
+		.modal-content {
+		max-width: 85%; max-height: 85vh; border-radius: 5px; object-fit: contain;
+		}
+
+		.close {
+		position: absolute; top: 15px; right: 25px; color: #fff; font-size: 35px; font-weight: bold; cursor: pointer; z-index: 2001;
+		}
+
+		.modal-caption {
+		position: absolute;
+					bottom: 15px;
+					left: 50%;
+					transform: translateX(-50%);
+
+					width: 70%;
+					max-width: 900px;
+
+					color: white;
+					text-align: center;
+					font-size: 16px;
+					line-height: 1.5;
+
+					padding: 10px 20px;
+					border-radius: 8px;
+		}
+
+		.nav-btn {
+		position: absolute; top: 50%; transform: translateY(-50%);
+					color: white; font-size: 30px; cursor: pointer; padding: 15px;
+					user-select: none; transition: 0.3s; z-index: 2001;
+		}
+
+		.nav-btn:hover {
+		color: var(--verde-dev);
+		}
+
+		.prev-btn {
+		left: 5px;
+		}
+
+		.next-btn {
+		right: 5px;
+		}
+
+		footer {
+		background: #333; color: #fff; text-align: center; padding: 15px 5%; margin-top: 50px; font-size: 0.9rem;
+		}
+
+		.contact-modal {
+		display: none;
+					position: fixed;
+					z-index: 3000;
+					left: 0;
+					top: 0;
+					width: 100%;
+					height: 100%;
+					background-color: rgba(0,0,0,0.6);
+					backdrop-filter: blur(5px);
+					justify-content: center;
+					align-items: center;
+		}
+
+		.contact-modal-content {
+		background-color: #fff;
+					padding: 30px;
+					border-radius: 15px;
+					width: 90%;
+					max-width: 500px;
+					position: relative;
+					box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+		}
+
+		.close-contact {
+		position: absolute;
+					right: 20px;
+					top: 15px;
+					font-size: 28px;
+					font-weight: bold;
+					cursor: pointer;
+					color: #999;
+		}
+
+		.contact-modal h2 {
+		color: var(--verde-dev);
+					margin-bottom: 10px;
+		}
+
+		#contactForm {
+		display: flex;
+					flex-direction: column;
+					gap: 15px;
+					margin-top: 20px;
+		}
+
+		#contactForm input,
+		#contactForm textarea {
+		padding: 12px;
+					border: 1px solid #ddd;
+					border-radius: 8px;
+					font-family: inherit;
+					font-size: 1rem;
+		}
+
+		#contactForm input:focus,
+		#contactForm textarea:focus {
+		outline: none;
+					border-color: var(--verde-dev);
+					box-shadow: 0 0 5px rgba(27, 132, 91, 0.2);
+		}
+
+		.btn-send {
+		background-color: var(--verde-dev);
+					color: white;
+					padding: 12px;
+					border: none;
+					border-radius: 8px;
+					font-weight: bold;
+					cursor: pointer;
+					transition: background 0.3s;
+		}
+
+		.btn-send:hover {
+		background-color: #146645;
+		}
+
+		.lang-grid-status {
+		display: flex;
+					gap: 10px;
+					flex-wrap: wrap;
+					margin-top: 15px;
+					margin-bottom: 25px;
+		}
+
+		.lang-status-item {
+		display: flex;
+					align-items: center;
+					gap: 8px;								
+					font-family: var(--font-mono);
+					font-size: 0.7rem;
+					font-weight: 600;
+					letter-spacing: 0.08em;
+					color: var(--text-dark);
+					background: #F2F2F2;
+					padding: 5px 12px;
+					border-radius: 10px;
+					border: 1px solid #eee;
+		}
+
+		.lang-status-item img {
+			width: 16px;
+			height: 16px;
+			object-fit: contain;
+		}
+
+		.lang-status-item.coming-soon {
+			color: #888;
+		}
+
+		.product-title-flex {
+			display: flex;
+			align-items: center;       
+			justify-content: left;
+		}
+
+		.faq{border-top:1px solid #ffffff}
+		.faq details{border-bottom:1px solid #eee}
+		.faq summary{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px;padding:16px 8px;color:#585755;font-size: 1rem; font-weight: normal; cursor:pointer;list-style:none;transition:color 140ms cubic-bezier(.2,.7,.2,1),background-color 140ms cubic-bezier(.2,.7,.2,1),padding 180ms cubic-bezier(.2,.7,.2,1)}
+		.faq summary:hover{color:var(--azul-dbmoney);background:rgba(245, 245, 245, 0.68);padding-inline:12px}
+		.faq summary::-webkit-details-marker{display:none}
+		.faq summary::after{content:"";width:10px;height:10px;flex:0 0 auto;color:var(--azul-dbmoney);background:linear-gradient(currentColor 0 0) center/100% 2px no-repeat,linear-gradient(currentColor 0 0) center/2px 100% no-repeat;transition:background-size 140ms cubic-bezier(.2,.7,.2,1),transform 180ms cubic-bezier(.2,.7,.2,1)}
+		.faq details[open] summary::after{content:"";background-size:100% 2px,2px 0;transform:rotate(180deg)}
+		.faq details[open] summary{color:var(--azul-dbmoney); font-weight: bold;}
+		.faq details p{margin:0 8px 24px;color:#4b473f;font-size:.96rem;text-wrap:pretty}   /*max-width:66ch;*/
+		.faq details[open] p{animation:disclosure-in 180ms cubic-bezier(.2,.7,.2,1) both}
+
+		.custom-tooltip {
+		position: relative !important;
+				/* display: inline-flex !important; */
+				align-items: center;
+				cursor: help;
+		}
+
+		.custom-tooltip .tooltip-text {
+		visibility: hidden;
+				opacity: 0;
+				width: 230px;
+				background-color: #1e293b; 
+				color: #ffffff;
+				text-align: center;
+				font-weight: normal;
+				font-size: 11px;
+				line-height: 1.4;
+				border-radius: 6px;
+				padding: 8px 12px;
+				
+				
+				position: absolute;
+				z-index: 99;
+				bottom: 125%;
+				left: 50%;
+				transform: translateX(-50%);
+				
+				
+				transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+				box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+				pointer-events: none;
+		}
+
+		.custom-tooltip .tooltip-text::after {
+		content: "";
+				position: absolute;
+				top: 100%;
+				left: 50%;
+				margin-left: -5px;
+				border-width: 5px;
+				border-style: solid;
+				border-color: #1e293b transparent transparent transparent;
+		}
+
+		.custom-tooltip:hover .tooltip-text {
+		visibility: visible;
+				opacity: 1;
+		}
+
+		.inline-style-1 {
+		--prod-color:var(--verde-dev)
+		}
+
+		.inline-style-2 {
+		--prod-color:var(--azul-dbmoney)
+		}
+
+		.inline-style-3 {
+		--prod-color:var(--vermelho-dbpdf)
+		}
+
+		.inline-style-4 {
+		--prod-color:var(--roxo-dbradio)
+		}
+
+		.inline-style-5 {
+		--prod-color:var(--amarelo-dbnotes)
+		}
+
+		.inline-style-6 {
+		display: flex; flex-direction: column; align-items: center; gap: 0px;
+		}
+
+		.inline-style-7 {
+		display: block; margin: 0 0 -5px 0; padding: 0;
+		}
+
+		.inline-style-8 {
+		font-size: 0.75rem; color: #777; display: block; margin-top: 4px;
+		}
+
+		.inline-style-9 {
+		color: var(--roxo-dbradio)
+		}
+
+		.inline-style-10 {
+		color: var(--verde-dev)
+		}
+
+		.inline-style-11 {
+		display:none
+		}
+
+		/* Product menu colors: hover and active section */
+		.product-nav-links a[href^="#"] {
+			color: inherit;
+			transition: color 0.2s ease, border-color 0.2s ease;
+		}
+		.product-nav-links a[href^="#"]:hover,
+		.product-nav-links a[href^="#"].active {
+			color: var(--prod-color) !important;
+		}
+		.product-nav-links a[href^="#"].active {
+			border-bottom-color: var(--prod-color) !important;
+		}
+
+		@media (max-width: 768px) {
+			
+			header { flex-direction: column; gap: 12px; padding: 14px 15px; }
+
+			nav {
+				display: flex;
+				flex-direction: row; 
+				flex-wrap: wrap;     
+				justify-content: center;
+				align-items: center;
+				gap: 14px;           
+				width: 90%;
+			}
+
+			.product-nav-links { gap: 14px; flex-wrap: wrap; justify-content: center; }
+			.product-nav-links a { font-size: 0.85rem; }
+
+			.nav-divider-media-hide { display: none; }
+
+			/* .header-contact { display: none; } */
+
+			#gallery-dbmoney { grid-template-columns: repeat(2, 1fr); }
+
+			#gallery-dbmoney-youtube {
+				grid-column: 1 / -1;
+				grid-row: auto;
+				width: 200px;
+				margin: 10px auto 0;
+				padding-left: 0;
+				padding-top: 20px;
+				border-left: none;
+				border-top: 1px solid rgba(128, 128, 128, 0.25);
+			}
+
+			.card-dbmoney { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px; /* solid var(--azul-dbmoney); */ }
+			.card-dbpdf { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid #A75052; }
+			.card-dbradio { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid #7A5B91; }
+			.card-dbnotes { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid #BC8D00; }
+			.card-devbrazil { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid #1B845B; }
+
+			.gallery-title { flex-direction: column; text-align: center; gap: 20px; }
+			.gallery-title-faq { flex-direction: column; text-align: center; gap: 20px; }
+			.gallery-title-red { flex-direction: column; text-align: center; gap: 20px; }
+			.gallery-title-yellow { flex-direction: column; text-align: center; gap: 20px; }
+			.gallery-title-purple { flex-direction: column; text-align: center; gap: 20px; }
+
+			.dbmoney-intro {flex-direction: column; text-align: center; gap: 20px;}
+			.dbmoney-intro img {width: 100px;}
+			.dbmoney-text h2 {font-size: 1.5rem;}
+			.about-content {flex-direction: column; text-align: center; gap: 20px;}
+
+			.screenshot-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
+
+			.nav-btn { font-size: 24px; padding: 10px; }
+
+			.lang-grid-status { justify-content: center; gap: 10px; }
+			.lang-status-item { padding: 5px 10px; }
+
+			.product-title-flex { flex-direction: column; gap: 5px; }
+
+			.btn-store-dbmoney-mini { flex-direction: row; justify-content: flex-start; text-align: left; }
+			.btn-store-dbmoney-mini i { display: inline-block; }
+		}
     </style>
+
 </head>
 <body>
 
-<div class="container">
-    <h1 data-pt="<strong>Assuma o controle total do seu patrimônio com a precisão de uma ferramenta profissional.</strong>"
-	    data-en="<strong>Take full control of your assets with the precision of a professional tool.</strong>"
-	    data-es="<strong>Asuma el control total de su patrimonio con la precisión de una herramienta profesional.</strong>"
-	    data-fr="<strong>Prenez le contrôle total de votre patrimoine com a précision d'un outil professionnel.</strong>"
-	    data-de="<strong>Übernehmen Sie die volle Kontrolle über Ihr Vermögen mit der Präzision eines professionellen Werkzeugs.</strong>"></h1>
+<br>
 
-    <p data-pt="O <strong>dbMoney Personal</strong> não é apenas mais um aplicativo de finanças; é um software de alta performance projetado para quem exige segurança, privacidade e profundidade na análise dos dados. Desenvolvido nativamente para o ecossistema Windows, ele une a robustez de sistemas bancários à agilidade de uma interface moderna e intuitiva."
-	   data-en="<strong>dbMoney Personal</strong> is not just another finance application; it's high-performance software designed for those who demand security, privacy, and in-depth data analysis. Developed natively for the Windows ecosystem, it combines the robustness of banking systems with the agility of a modern and intuitive interface."
-	   data-es="<strong>dbMoney Personal</strong> no es una aplicación de finanzas más; es un software de alto rendimiento diseñado para quienes exigen seguridad, privacidad y profundidad en el análisis de datos. Desarrollado de forma nativa para el ecosistema Windows, une la robustez de los sistemas bancarios con la agilidad de una interfaz moderna e intuitiva."
-	   data-fr="<strong>dbMoney Personal</strong> n'est pas une simples application de finance de plus ; c'est un logiciel de haute performance conçu pour ceux qui exigent sécurité, confidentialité e profondeur dans l'analyse des données. Développé nativement pour l'écosystème Windows, il associe la robustesse des systèmes bancaires à l'agilité d'une interface moderne et intuitive."
-	   data-de="<strong>dbMoney Personal</strong> ist nicht nur eine weitere Finanz-App; es ist eine Hochleistungssoftware für alle, die Sicherheit, Privatsphäre und fundierte Datenanalysen verlangen. Es wurde nativ für das Windows-Ökosystem entwickelt und kombiniert die Robustheit de Banksysteme mit der Agilität einer modernen, intuitiven Benutzeroberfläche."></p>
+<div class="product-card card-dbmoney" id="dbmoney">
+    <div class="dbmoney-intro">        
+	
+		<div class="dbmoney-text" style="display: flex; flex-direction: column; align-items: center; gap: 0px;">
+			<img src="../../images/dbmoney_logo_96.png" alt="dbMoney" class="dbmoney-intro" style="display: block; margin: 0 0 -5px 0; padding: 0;">
+		</div>
 
-    <div class="highlight-box">
-        <a data-pt="''Seus dados financeiros são sensíveis e pertencem apenas a você. O dbMoney funciona totalmente offline.''"
-		   data-en="''Your financial data is sensitive and belongs only to you. dbMoney works completely offline.''"
-		   data-es="''Sus datos financieros son confidenciales y le pertenecen solo a usted. dbMoney funciona totalmente offline.''"
-		   data-fr="''Vos données financières sont sensibles et n'appartiennent qu'à vous. dbMoney fonctionne entièrement hors ligne.''"
-		   data-de="''Ihre Finanzdaten sind sensibel und gehören allein Ihnen. dbMoney funciona komplett offline.''"></a>
+        <div class="dbmoney-text">
+            <h2 class="product-title product-title-flex">
+                dbMoney Personal&nbsp;&nbsp;
+				<span class="product-eyebrow eyebrow-blue" 
+					data-pt='<i class="fa-brands fa-windows"></i>&nbsp;Windows' 
+					data-en='<i class="fa-brands fa-windows"></i>&nbsp;Windows' 
+					data-es='<i class="fa-brands fa-windows"></i>&nbsp;Windows' 
+					data-fr='<i class="fa-brands fa-windows"></i>&nbsp;Windows' 
+					data-de='<i class="fa-brands fa-windows"></i>&nbsp;Windows'>
+				</span>
+     		</h2>
+
+			<p data-pt="O <strong>dbMoney Personal</strong> é um poderoso software de finanças pessoais desenvolvido para quem deseja retomar o controle total da sua vida financeira sem abrir mão da privacidade."
+			   data-en="<strong>dbMoney Personal</strong> is a powerful personal finance software designed for those who want to take full control of their financial life without sacrificing privacy."
+			   data-es="<strong>dbMoney Personal</strong> es un potente software de finanzas personales diseñado para quienes desean retomar el control total de su vida financiera sin renunciar a la privacidad."
+			   data-fr="<strong>dbMoney Personal</strong> est un puissant logiciel de finances personnelles conçu pour ceux qui souhaitent reprendre le contrôle total de leur vie financière sans compromettre leur confidentialité."
+			   data-de="<strong>dbMoney Personal</strong> ist eine leistungsstarke Software für persönliche Finanzen, die für alle entwickelt wurde, die die volle Kontrolle über ihr Finanzleben zurückgewinnen möchten, ohne auf Privatsphäre zu verzichten.">
+			</p>
+			<br>
+			<span class="product-eyebrow eyebrow-green" 
+				data-pt='<i class="fa fa-gift"></i>&nbsp;Versão Basic: Gratuito'
+				data-en='<i class="fa fa-gift"></i>&nbsp;Basic Version: Free'
+				data-es='<i class="fa fa-gift"></i>&nbsp;Versión Basic: Gratis'
+				data-fr='<i class="fa fa-gift"></i>&nbsp;Version Basic: Gratuit'
+				data-de='<i class="fa fa-gift"></i>&nbsp;Basic-Version: Kostenlos'>
+			</span>
+				<span class="product-eyebrow eyebrow-purple custom-tooltip" 
+					data-pt='<i class="fa fa-star"></i>&nbsp;Premium: $ 29.99 (vitalício) <i class="fa-solid fa-circle-question"></i><span class="tooltip-text">Preço em USD. O valor final pode variar conforme a região ou câmbio local na Microsoft Store.</span>' 
+					data-en='<i class="fa fa-star"></i>&nbsp;Premium: $ 29.99 (lifetime) <i class="fa-solid fa-circle-question"></i><span class="tooltip-text">Price listed in USD. Final price may vary by region or local currency exchange rate in the Microsoft Store.</span>'  
+					data-es='<i class="fa fa-star"></i>&nbsp;Premium: $ 29.99 (de por vida) <i class="fa-solid fa-circle-question"></i><span class="tooltip-text">Precio en USD. El valor final puede variar según la región o el tipo de cambio local en la Microsoft Store.</span>' 
+					data-fr='<i class="fa fa-star"></i>&nbsp;Premium: $ 29.99 (à vie) <i class="fa-solid fa-circle-question"></i><span class="tooltip-text">Prix en USD. Le montant final peut varier selon la région ou le taux de change local sur le Microsoft Store.</span>' 
+					data-de='<i class="fa fa-star"></i>&nbsp;Premium: $ 29.99 (lebenslang) <i class="fa-solid fa-circle-question"></i><span class="tooltip-text">Preis in USD. Der Endpreis kann je nach Region oder lokalem Wechselkurs im Microsoft Store variieren.</span>' 
+				></span>
+        </div>
+    </div>
+	
+	<br>
+	<hr>
+	<br>	
+
+    <div class="about-content">
+		<p data-pt="<strong_dbmoney>Seus dados pertencem a você, e a mais ninguém.</strong_dbmoney>" 
+		   data-en="<strong_dbmoney>Your data belongs to you, and no one else.</strong_dbmoney>" 
+		   data-es="<strong_dbmoney>Sus datos le pertenecen a usted, y a nadie más.</strong_dbmoney>"
+		   data-fr="<strong_dbmoney>Vos données vous appartiennent, et à personne d'autre.</strong_dbmoney>"
+		   data-de="<strong_dbmoney>Ihre Daten gehören Ihnen und niemandem sonst.</strong_dbmoney>">
+		</p>
+		<p data-pt="Ao contrário de plataformas web que expõem suas informações em servidores de terceiros, o dbMoney prioriza a segurança máxima. Seus dados permanecem criptografados e armazenados localmente no seu computador, funcionando <strong>100% offline</strong>." 
+		   data-en="Unlike web platforms that expose your information to third-party servers, dbMoney prioritizes maximum security. Your data remains encrypted and stored locally on your computer, operating <strong>100% offline</strong>." 
+		   data-es="A diferencia de las plataformas web que exponen su información en servidores de terceros, dbMoney prioriza la máxima seguridad. Sus datos permanecen encriptados y almacenados localmente en su computadora, funcionando <strong>100% offline</strong>."
+		   data-fr="Contrairement aux plateformes web qui exposent vos informations sur des serveurs tiers, dbMoney donne la priorité à une sécurité maximale. Vos données restent cryptées et stockées locallement sur votre ordinateur, fonctionnant à <strong>100% hors ligne</strong>."
+		   data-de="Im Gegensatz zu Webplattformen, die Ihre Informationen auf fremden Servern offenlegen, priorisiert dbMoney maximale Sicherheit. Ihre Daten bleiben verschlüsselt und lokal auf Ihrem Computer gespeichert – und funktionieren zu <strong>100 % offline</strong>.">
+		</p>
+		<br>
+		<p data-pt="<strong_dbmoney>Quer mobilidade?</strong_dbmoney>" 
+		   data-en="<strong_dbmoney>Need mobility?</strong_dbmoney>" 
+		   data-es="<strong_dbmoney>¿Busca movilidad?</strong_dbmoney>"
+		   data-fr="<strong_dbmoney>Besoin de mobilité ?</strong_dbmoney>"
+		   data-de="<strong_dbmoney>Möchten Sie Flexibilität?</strong_dbmoney>">
+		</p>
+		<p data-pt="Sincronize seus arquivos através do seu <strong>OneDrive</strong> ou <strong>Google Drive</strong> para acessá-los em outros computadores."
+		   data-en="Sync your files using your <strong>OneDrive</strong> or <strong>Google Drive</strong> to access them on other computers." 
+		   data-es="Sincroniza tus archivos a través de tu <strong>OneDrive</strong> o <strong>Google Drive</strong> para acceder a ellos en otros ordenadores."
+		   data-fr="Synchronisez vos fichiers via votre <strong>OneDrive</strong> ou <strong>Google Drive</strong> pour y accéder sur d'autres ordinateurs."
+		   data-de="Synchronisieren Sie Ihre Dateien über Ihr <strong>OneDrive</strong> oder <strong>Google Drive</strong>, um von anderen Computern darauf zuzugreifen.">
+		</p>
+		
+		<br>
+		
+		<span class="product-eyebrow eyebrow-gray" data-pt='<i class="fa-solid fa-plane-slash"></i>&nbsp;100% Offline' data-en='<i class="fa-solid fa-plane-slash"></i>&nbsp;100% Offline' data-es='<i class="fa-solid fa-plane-slash"></i>&nbsp;100% Offline' data-fr='<i class="fa-solid fa-plane-slash"></i>&nbsp;100 % Hors Ligne' data-de='<i class="fa-solid fa-plane-slash"></i>&nbsp;100% Offline'></span>
+		
+		<span class="product-eyebrow eyebrow-gray"
+			data-pt='<i class="fa-solid fa-calendar-xmark"></i>&nbsp;Sem Mensalidades'
+			data-en='<i class="fa-solid fa-calendar-xmark"></i>&nbsp;No Subscription Fees'
+			data-es='<i class="fa-solid fa-calendar-xmark"></i>&nbsp;Sin Mensualidades'
+			data-fr='<i class="fa-solid fa-calendar-xmark"></i>&nbsp;Sans Abonnement'
+			data-de='<i class="fa-solid fa-calendar-xmark"></i>&nbsp;Keine Monatsgebühren'>
+		</span>
+		<span class="product-eyebrow eyebrow-gray" 
+			data-pt='<i class="fas fa-bolt"></i>&nbsp;Performance Nativa'
+			data-en='<i class="fas fa-bolt"></i>&nbsp;Native Performance'
+			data-es='<i class="fas fa-bolt"></i>&nbsp;Rendimiento Nativo'
+			data-fr='<i class="fas fa-bolt"></i>&nbsp;Performance Native'
+			data-de='<i class="fas fa-bolt"></i>&nbsp;Native Performance'>
+		</span>
+		<span class="product-eyebrow eyebrow-gray" 
+			data-pt='<i class="fa-solid fa-download"></i>&nbsp;Importação de Extratos (OFX)'
+			data-en='<i class="fa-solid fa-download"></i>&nbsp;Bank Statement Import (OFX)'
+			data-es='<i class="fa-solid fa-download"></i>&nbsp;Importación de Extractos (OFX)'
+			data-fr='<i class="fa-solid fa-download"></i>&nbsp;Importation de Relevés (OFX)'
+			data-de='<i class="fa-solid fa-download"></i>&nbsp;Kontoauszugsimport (OFX)'
+		</span>
+		<span class="product-eyebrow eyebrow-gray" 
+			data-pt='<i class="fa-solid fa-tag"></i>&nbsp;Categorização flexível'
+			data-en='<i class="fa-solid fa-tag"></i>&nbsp;Flexible Categorization'
+			data-es='<i class="fa-solid fa-tag"></i>&nbsp;Categorización Flexible'
+			data-fr='<i class="fa-solid fa-tag"></i>&nbsp;Catégorisation Flexible'
+			data-de='<i class="fa-solid fa-tag"></i>&nbsp;Flexible Kategorisierung'
+		</span>
     </div>
 
-    <h3 data-pt="Por que escolher o dbMoney?"
-	    data-en="Why choose dbMoney?"
-	    data-es="¿Por qué elegir dbMoney?"
-	    data-fr="Pourquoi choisir dbMoney ?"
-	    data-de="Warum dbMoney wählen?"></h3>
-    <ul>
-        <li data-pt="<strong>Privacidade em Primeiro Lugar (100% Offline):</strong> Nada de nuvem, nada de rastreamento, nada de dados vazados. O dbMoney utiliza arquivos de dados local criptografado."
-		    data-en="<strong>Privacy First (100% Offline):</strong> No cloud, no tracking, no data leaks. dbMoney uses an encrypted local data file."
-		    data-es="<strong>Privacidad primero (100% offline):</strong> Sin nube, sin rastreo, sin filtraciones de datos. dbMoney utiliza un archivo de datos local encriptado."
-		    data-fr="<strong>La confidentialité d'abord (100% hors ligne) :</strong> Pas de cloud, pas de suivi, pas de fuite de données. dbMoney utilise un fichier de données local chiffré."
-		    data-de="<strong>Privatsphäre an erster Stelle (100 % Offline):</strong> Keine Cloud, kein Tracking, keine Datenlecks. dbMoney verwendet eine verschlüsselte lokale Datendatei."></li>
-        <li data-pt="<strong>Performance Nativa:</strong> Respostas instantâneas mesmo com milhares de registros e cálculos complexos."
-		    data-en="<strong>Native Performance:</strong> Instant responses even with thousands of records and complex calculations."
-		    data-es="<strong>Rendimiento nativo:</strong> Respuestas instantáneas incluso con miles de registros y cálculos complejos."
-		    data-fr="<strong>Performance native :</strong> Réponses instantanées même avec des milliers d'enregistrements et des calculs complexes."
-		    data-de="<strong>Native Performance:</strong> Blitzschnelle Reaktionen selbst bei Tausenden von Datensätzen und komplexen Berechnungen."></li>
-        <li data-pt="<strong>Engenharia de Dados:</strong> Organize receitas e despesas com um sistema flexível de categorias e subcategorias independente do fluxo."
-		    data-en="<strong>Data Engineering:</strong> Organize income and expenses with a flexible system of categories and subcategories independent of the cash flow."
-		    data-es="<strong>Ingeniería de datos:</strong> Organice ingresos y gastos con un sistema flexible de categorías y subcategorías independiente del flujo."
-		    data-fr="<strong>Ingénierie des données :</strong> Organisez les revenus et les dépenses grâce à un système flexible de catégories et de sous-catégories indépendant du flux."
-		    data-de="<strong>Daten-Engineering:</strong> Organisieren Sie Einnahmen und Ausgaben mit einem flexiblen System von Kategorien und Unterkategorien, unabhängig vom Cashflow."></li>
-        <li data-pt="<strong>Segurança Blindada:</strong> Sistema de backup automático configurável para você nunca perder seu histórico."
-		    data-en="<strong>Bulletproof Security:</strong> Configurable automatic backup system so you never lose your history."
-		    data-es="<strong>Seguridad blindada:</strong> Sistema de copia de seguridad automática configurable para que nunca pierda su historial."
-		    data-fr="<strong>Sécurité blindée :</strong> Système de sauvegarde automatique configurable pour ne jamais perdre votre historique."
-		    data-de="<strong>Bombenfeste Sicherheit:</strong> Konfigurierbares automatisches Backup-System, damit Sie Ihre Historie nie verlieren."></li>
-    </ul>
+    <h3 class="gallery-title">
+		<a data-pt="Capturas de tela" 
+		   data-en="Screenshots" 
+		   data-es="Capturas de pantalla" 
+		   data-fr="Captures d'écran" 
+		   data-de="Screenshots"></a>
+	</h3>
+	<div class="screenshot-grid" id="gallery-dbmoney">
+	
+		<!-- Imagens visíveis -->
+		<img src="../../images/dbmoney_screen_01.webp"
+				alt="Screen 01" 
+				data-caption-pt="Tela de abertura (acesso aos seus arquivos e informações gerais)"
+				data-caption-en="Welcome screen (access to your files and general overview)"
+				data-caption-es="Pantalla de inicio (acceso a tus archivos e información general)"
+				data-caption-fr="Écran d'accueil (accès à vos fichiers et informations générales)"
+				data-caption-de="Startbildschirm (Zugriff auf Ihre Dateien und allgemeine Informationen)"
+				onclick="openModal(0, 'gallery-dbmoney')">
+		
+		<img src="../../images/dbmoney_screen_02.webp"
+				alt="Screen 02" 
+				data-caption-pt="Visualização de dashboards e gráficos para tomada de decisões"
+				data-caption-en="Dashboards and charts view for decision-making"
+				data-caption-es="Visualización de dashboards y gráficos para la toma de decisiones"
+				data-caption-fr="Visualisation de tableaux de bord et graphiques pour la prise de décision"
+				data-caption-de="Anzeige von Dashboards und Diagrammen zur Entscheidungsfindung"
+				onclick="openModal(1, 'gallery-dbmoney')">
+		
+		<img src="../../images/dbmoney_screen_03.webp"
+				alt="Screen 03"
+				data-caption-pt="Tela principal dos lançamentos (receitas e despesas)"
+				data-caption-en="Main transactions screen (income and expenses)"
+				data-caption-es="Pantalla principal de movimientos (ingresos y gastos)"
+				data-caption-fr="Écran principal des transactions (revenus et dépenses)"
+				data-caption-de="Hauptbildschirm für Buchungen (Einnahmen und Ausgaben)"
+				onclick="openModal(2, 'gallery-dbmoney')">
+		
+		<!-- Acesso às demais imagens -->
+		<div class="gallery-more" onclick="openModal(3, 'gallery-dbmoney')">
+			<img src="../../images/dbmoney_screen_04.webp"
+			     alt="More screenshots"
+				 data-caption-pt="Tela de edição de lançamento e escolha de ícones para contas e categorias"
+				 data-caption-en="Transaction editing screen with icon selection for accounts and categories"
+				 data-caption-es="Pantalla de edición de movimientos y selección de iconos para cuentas y categorías"
+				 data-caption-fr="Écran de modification des transactions et choix des icônes para comptes et catégories"
+				 data-caption-de="Buchungsbearbeitung und Auswahl von Symbolen für Konten und Kategorien">
+			<div class="gallery-more-overlay">
+				<span class="gallery-more-count">+14</span>
+				<small data-pt="Mais capturas"
+					   data-en="More screenshots"
+					   data-es="Más capturas"
+					   data-fr="Plus de captures"
+					   data-de="Weitere Screenshots">
+				</small>				
+			</div>
+		</div>
 
-    <h3 data-pt="Recursos Principais:"
-	    data-en="Key Features:"
-	    data-es="Funciones principales:"
-	    data-fr="Caractéristiques principales :"
-	    data-de="Hauptmerkmale:"></h3>
-    <ul>
-        <li data-pt="<strong>Interface Multi-Painel:</strong> Otimizada para produtividade no desktop, utilizando componentes profissionais."
-		    data-en="<strong>Multi-Panel Interface:</strong> Optimized for desktop productivity, using professional components."
-		    data-es="<strong>Interfaz multipanel:</strong> Optimizada para la productividad no desktop, utilizando componentes profesionales."
-		    data-fr="<strong>Interface multi-panneaux :</strong> Optimisée pour la productivité sur bureau, utilisant des composants professionnels."
-		    data-de="<strong>Multi-Panel-Benutzeroberfläche:</strong> Optimiert für Desktop-Produktivität unter Verwendung professioneller Komponenten."></li>
-        <li data-pt="<strong>Dashboard Inteligente:</strong> Gráficos de alta fidelidade para insights imediatos sobre seus hábitos de consumo."
-		    data-en="<strong>Smart Dashboard:</strong> High-fidelity charts for immediate insights into your consumption habits."
-		    data-es="<strong>Tablero inteligente (Dashboard):</strong> Gráficos de alta fidelidad para obtener información inmediata sobre sus hábitos de consumo."
-		    data-fr="<strong>Tableau de bord intelligent :</strong> Graphiques haute fidélité pour un aperçu immédiat de vos habitudes de consommation."
-		    data-de="<strong>Intelligentes Dashboard:</strong> Hochpräzise Diagramme für sofortige Einblicke in Ihre Konsumgewohnheiten."></li>
-        <li data-pt="<strong>Foco no Usuário Windows:</strong> Suporte total a alta resolução (DPI) e navegação ágil via teclado."
-		    data-en="<strong>Focus on the Windows User:</strong> Full support for high resolution (DPI) and agile keyboard navigation."
-		    data-es="<strong>Enfoque en el usuario de Windows:</strong> Soporte total para alta resolución (DPI) y navegación ágil mediante teclado."
-		    data-fr="<strong>Pensé pour l'utilisateur Windows :</strong> Prise en charge totale da haute résolution (DPI) et navigation rapide au clavier."
-		    data-de="<strong>Fokus auf Windows-Benutzer:</strong> Volle Unterstützung für hohe Auflösungen (DPI) und schnelle Tastaturnavigation."></li>
-		<li data-pt="<strong>Visualização Customizada:</strong> Altere fontes, cores e organize os dados com filtros e agrupamentos avançados."
-		    data-en="<strong>Customized Visualization:</strong> Change fonts, colors, and organize data with advanced filters and groupings."
-		    data-es="<strong>Visualización personalizada:</strong> Cambie fuentes, colores y organice los datos con filtros y agrupaciones avanzadas."
-		    data-fr="<strong>Visualisation personnalisée :</strong> Modifiez les polices, les couleurs et organisez os données com des filtres et regroupements avancés."
-		    data-de="<strong>Benutzerdefinierte Ansicht:</strong> Ändern Sie Schriftarten und Farben e organisieren Sie Daten mit erweiterten Filtern und Gruppierungen."></li>
-		<li data-pt="<strong>Poder de Manipulação:</strong> Edição em lote, múltiplos lançamentos e desmembramento para controle granular."
-		    data-en="<strong>Powerful Manipulation:</strong> Batch editing, multiple transactions, and split transactions for granular control."
-		    data-es="<strong>Poder de manipulación:</strong> Edición en lote, transacciones múltiples y división de gastos para un control granular."
-		    data-fr="<strong>Gestion puissante :</strong> Édition en lot, transactions multiples et ventilation pour un contrôle granulaire."
-		    data-de="<strong>Leistungsstarke Bearbeitung:</strong> Massenbearbeitung, Mehrfachbuchungen und Splittung für eine granulare Kontrolle."></li>
-		<li data-pt="<strong>Importação e Automação:</strong> Importe extratos de qualquer banco e crie regras inteligentes para categorização automática."
-		    data-en="<strong>Import and Automation:</strong> Import bank statements from any bank and create smart rules for automatic categorization."
-		    data-es="<strong>Importación y automatización:</strong> Importe extractos de cualquier banco y cree reglas inteligentes para la categorización automática."
-		    data-fr="<strong>Importation et automatisation :</strong> Importez des relevés de n'importe quelle banque et créez des règles intelligentes para une catégorisation automatique."
-		    data-de="<strong>Import und Automatisierung:</strong> Importieren Sie Kontoauszüge von jeder Bank und erstellen Sie intelligente Regeln für die automatische Kategorisierung."></li>
-		<li data-pt="<strong>Exportação Profissional:</strong> Gere relatórios em Excel, HTML e PDF baseados na sua visão personalizada."
-		    data-en="<strong>Professional Export:</strong> Generate reports in Excel, HTML, and PDF based on your customized view."
-		    data-es="<strong>Exportación profesional:</strong> Genere informes en Excel, HTML y PDF basados en su vista personalizada."
-		    data-fr="<strong>Exportation professionnelle :</strong> Générez des rapports au format Excel, HTML et PDF basés sur votre vue personnalisée."
-		    data-de="<strong>Professioneller Export:</strong> Erstellen Sie Berichte in Excel, HTML und PDF basierend auf Ihrer benutzerdefinierten Ansicht."></li>
-    </ul>
+		<!-- Imagens restantes: continuam disponíveis para o modal -->
+		<div class="gallery-hidden">			
+			<img src="../../images/dbmoney_screen_05.webp"
+					alt="Screen 05"
+					data-caption-pt="Tela de edição de lançamento com campos personalizados pelo usuário"
+					data-caption-en="Transaction editing screen with user-customized fields"
+					data-caption-es="Pantalla de edición de movimientos con campos personalizados por el usuario"
+					data-caption-fr="Écran de modification des transactions avec champs personnalisés par l'utilisateur"
+					data-caption-de="Buchungsbearbeitung mit benutzerdefinierten Feldern"
+					onclick="openModal(4, 'gallery-dbmoney')">
 
-    <h3 data-pt="Liberdade Financeira Sem Mensalidades"
-	    data-en="Financial Freedom Without Monthly Fees"
-	    data-es="Libertad financiera sin cuotas mensuales"
-	    data-fr="La liberté financière sans abonnement"
-	    data-de="Finanzielle Freiheit ohne monatliche Gebühren"></h3>
-    <p data-pt="Acreditamos que você não deve pagar para sempre para controlar o seu próprio dinheiro. O dbMoney segue o modelo clássico de software: <strong>compra única, uso vitalício.</strong>"
-	   data-en="We believe you shouldn't have to pay forever to control your own money. dbMoney follows the classic software model: <strong>one-time purchase, lifetime use.</strong>"
-	   data-es="Creemos que no deberia pagar para siempre para controlar su propio dinero. dbMoney sigue el modelo clásico de software: <strong>compra única, uso de por vida.</strong>"
-	   data-fr="Nous pensons que vous ne devriez pas payer indéfiniment pour contrôler votre propre argent. dbMoney suit le modèle classique du logiciel : <strong>un seul achat, une utilisation à vie.</strong>"
-	   data-de="Wir glauben, dass Sie nicht ewig bezahlen sollten, um Ihr eigenes Geld zu kontrollieren. dbMoney folgt dem klassischen Softwaremodell: <strong>einmaliger Kauf, lebenslange Nutzung.</strong>"></p>
+			<img src="../../images/dbmoney_screen_06.webp"
+					alt="Screen 06"
+					data-caption-pt="Alto poder de manipulação de dados (customização de filtros)"
+					data-caption-en="Powerful data management (customizable filters)"
+					data-caption-es="Gran capacidad de gestión de datos (personalización de filtros)"
+					data-caption-fr="Puissante gestion des données (personnalisation des filtres)"
+					data-caption-de="Leistungsstarke Datenverwaltung (anpassbare Filter)"
+					onclick="openModal(5, 'gallery-dbmoney')">
 
-	<!--
-    <footer>
-		&copy; 2026 DevBrazil<br>
-    </footer>
-	-->
+			<img src="../../images/dbmoney_screen_07.webp"
+					alt="Screen 07"
+					data-caption-pt="Inclusão de multiplos lançamentos / Geraçao de parcelas"
+					data-caption-en="Batch transaction entry / Installment generator"
+					data-caption-es="Entrada de múltiples movimientos / Generación de cuotas"
+					data-caption-fr="Saisie de transactions multiples / Génération d'échéances"
+					data-caption-de="Erfassung mehrerer Buchungen / Ratenzahlungsgenerator"
+					onclick="openModal(6, 'gallery-dbmoney')">
+
+			<img src="../../images/dbmoney_screen_08.webp"
+					alt="Screen 08"
+					data-caption-pt="Alteração de lançamentos em lote"
+					data-caption-en="Bulk editing of transactions"
+					data-caption-es="Edición masiva de movimientos"
+					data-caption-fr="Modification en masse des transactions"
+					data-caption-de="Massenbearbeitung von Buchungen"
+					onclick="openModal(7, 'gallery-dbmoney')">
+
+			<img src="../../images/dbmoney_screen_09.webp"
+					alt="Screen 09"
+					data-caption-pt="Replicação de lançamentos para outro período"
+					data-caption-en="Duplicate transactions to another period"
+					data-caption-es="Replicación de movimientos a otro período"
+					data-caption-fr="Duplication de transactions sur une autre période"
+					data-caption-de="Kopieren von Buchungen in einen anderen Zeitraum"
+					onclick="openModal(8, 'gallery-dbmoney')">
+
+			<img src="../../images/dbmoney_screen_10.webp"
+					alt="Screen 10"
+					data-caption-pt="Unificação/conciliação de lançamentos (eliminação de duplicados)"
+					data-caption-en="Transaction merging/reconciliation (duplicate elimination)"
+					data-caption-es="Unificación/conciliación de movimientos (eliminación de duplicados)"
+					data-caption-fr="Fusion/rapprochement des transactions (élimination dos doublons)"
+					data-caption-de="Zusammenführung/Abgleich von Buchungen (Bereinigung von Duplikaten)"
+					onclick="openModal(9, 'gallery-dbmoney')">
+
+    		<img src="../../images/dbmoney_screen_11.webp"
+					alt="Screen 11"
+					data-caption-pt="Desmembrar lançamento em 2 ou mais parcelas"
+					data-caption-en="Split transaction into 2 or more installments"
+					data-caption-es="Dividir movimiento en 2 o más cuotas"
+					data-caption-fr="Fractionner la transaction en 2 échéances ou plus"
+					data-caption-de="Buchung in 2 oder mehr Raten aufteilen"
+					onclick="openModal(10, 'gallery-dbmoney')">
+
+    		<img src="../../images/dbmoney_screen_12.webp"
+					alt="Screen 12"
+					data-caption-pt="Importação de extratos bancários OFX"
+					data-caption-en="OFX bank statement import"
+					data-caption-es="Importación de extractos bancarios OFX"
+					data-caption-fr="Importation de relevés bancaires OFX"
+					data-caption-de="Kontoauszugsimport (OFX)"
+					onclick="openModal(11, 'gallery-dbmoney')">	
+
+    		<img src="../../images/dbmoney_screen_13.webp"
+					alt="Screen 13"
+					data-caption-pt="Configurações da barra lateral (exibição, cálculo de saldos e aparência)"
+					data-caption-en="Sidebar settings (display, balance calculations, and appearance)"
+					data-caption-es="Configuración de la barra lateral (visualización, cálculo de saldos y apariencia)"
+					data-caption-fr="Paramètres de la barre latérale (affichage, calcul dos soldes et apparence)"
+					data-caption-de="Seitenleisten-Einstellungen (Anzeige, Saldenberechnung und Erscheinungsbild)"
+					onclick="openModal(12, 'gallery-dbmoney')">	
+
+    		<img src="../../images/dbmoney_screen_14.webp"
+					alt="Screen 14"
+					data-caption-pt="Preferências (exibição, totalizadores, moeda padrão e campos personalizados)"
+					data-caption-en="Preferences (display, summary totals, default currency, and custom fields)"
+					data-caption-es="Preferencias (visualización, totalizadores, moneda predeterminada y campos personalizados)"
+					data-caption-fr="Préférences (affichage, totaliseurs, devise par défaut et champs personnalisés)"
+					data-caption-de="Einstellungen (Anzeige, Gesamtsummen, Standardwährung und benutzerdefinierte Felder)"
+					onclick="openModal(13, 'gallery-dbmoney')">	
+
+    		<img src="../../images/dbmoney_screen_15.webp"
+					alt="Screen 15"
+					data-caption-pt="Configurações de aparência da tela de lançamentos e extrato bancário"
+					data-caption-en="Appearance settings for transactions and bank statement screens"
+					data-caption-es="Configuración de apariencia de la pantalla de movimientos y extracto bancario"
+					data-caption-fr="Paramètres d'apparence des écrans de transactions et relevés bancaires"
+					data-caption-de="Design-Einstellungen für Buchungen und Kontoauszüge"
+					onclick="openModal(14, 'gallery-dbmoney')">
+
+    		<img src="../../images/dbmoney_screen_16.webp"
+					alt="Screen 16"
+					data-caption-pt="Tela de manutenção de contas (ajuste de saldos e formato de moeda personalizado)"
+					data-caption-en="Account management screen (balance adjustments and custom currency format)"
+					data-caption-es="Pantalla de gestión de cuentas (ajuste de saldos y formato de moneda personalizado)"
+					data-caption-fr="Écran de gestion dos comptes (ajustement dos soldes et format de devise personnalisé)"
+					data-caption-de="Konto-Verwaltungsbildschirm (Saldo-Anpassungen und benutzerdefiniertes Währungsformat)"
+					onclick="openModal(15, 'gallery-dbmoney')">
+
+    		<img src="../../images/dbmoney_screen_17.webp"
+					alt="Screen 17"
+					data-caption-pt="Exemplo de relatório da tela de lançamentos"
+					data-caption-en="Sample transactions report"
+					data-caption-es="Ejemplo de informe de la pantalla de movimientos"
+					data-caption-fr="Exemple de rapport sur l'écran des transactions"
+					data-caption-de="Beispielbericht der Buchungsansicht"
+					onclick="openModal(16, 'gallery-dbmoney')">
+		</div>
+	</div>
+	
+    <h3 class="gallery-title-faq"><a data-pt="Planos e Versões" data-en="Plans & Versions" data-es="Planes y versiones" data-fr="Plans & Versions" data-de="Pläne & Versionen"></a></h3>
+	<div class="pricing-table-container">
+		<table>
+			<thead>
+				<tr>
+					<th><a data-pt="Funcionalidade" data-en="Feature" data-es="Funcionalidad" data-fr="Fonctionnalité" data-de="Funktion"></a></th>
+					<th><a data-pt="Versão Basic" data-en="Basic Version" data-es="Versión Basic" data-fr="Version Basic" data-de="Basic-Version"></a></th>
+					<th><a data-pt="Versão Premium" data-en="Premium Version" data-es="Versión Premium" data-fr="Version Premium" data-de="Premium-Version"></a></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><i class="fas fa-wallet"></i><a data-pt=" Contas / Carteiras" data-en=" Accounts / Wallets" data-es=" Cuentas / Carteras" data-fr=" Comptes / Portefeuilles" data-de=" Konten / Wallets"></a></td>
+					<td><span class="limit-text"><a data-pt="2 contas" data-en="2 accounts" data-es="2 cuentas" data-fr="2 comptes" data-de="2 Konten"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fa-solid fa-tag"></i><a data-pt=" Categorias, contatos e marcadores" data-en=" Categories, contacts, and tags" data-es=" Categorías, contactos y marcadores" data-fr=" Catégories, contacts et étiquettes" data-de=" Kategorien, Kontakte und Tags"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-pie-chart"></i><a data-pt=" Dashboards de alta resolução" data-en=" High-resolution Dashboards" data-es=" Dashboards de alta resolución" data-fr=" Tableaux de bord haute résolution" data-de=" Hochauflösende Dashboards"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>               
+				<tr>
+					<td><i class="fas fa-users"></i><a data-pt=" Gestão Multicarteiras / Multiperfil" data-en=" Multi-Wallet / Multi-Profile Management" data-es=" Gestión multicarteras / multiperfiles" data-fr=" Gestion multi-portefeuilles / multi-profils" data-de=" Multi-Wallet- / Multi-Profil-Verwaltung"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-columns"></i><a data-pt=" Campos customizáveis" data-en=" Custom Fields" data-es=" Campos personalizables" data-fr=" Champs personnalisables" data-de=" Benutzerdefinierte Felder"></a></td>
+					<td><span class="limit-text"><a data-pt="3 campos" data-en="3 fields" data-es="3 campos" data-fr="3 champs" data-de="3 Felder"></a></span></td>
+					<td><span class="limit-text"><a data-pt="3 campos" data-en="3 fields" data-es="3 campos" data-fr="3 champs" data-de="3 Felder"></a></span></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-edit"></i><a data-pt=" Lançamentos Manuais" data-en=" Manual Transactions" data-es=" Transacciones manuales" data-fr=" Transactions manuelles" data-de=" Manuelle Buchungen"></a></td>
+					<td><span class="limit-text"><a data-pt="20 por mês" data-en="20 per month" data-es="20 al mes" data-fr="20 par mois" data-de="20 pro Monat"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-list-alt"></i><a data-pt=" Alteração em lote" data-en=" Batch Editing" data-es=" Edición por lotes" data-fr=" Modification em masse" data-de=" Stapelverarbeitung (Massenbearbeitung)"></a></td>
+					<td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-plus-square"></i><a data-pt=" Múltiplos lançamentos" data-en=" Multiple Transactions" data-es=" Múltiples transacciones" data-fr=" Transactions multiples" data-de=" Mehrfache Buchungen"></a></td>
+					<td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-clone"></i><a data-pt=" Replicar/copiar lançamentos" data-en=" Replicate/Copy Transactions" data-es=" Replicar/copiar transacciones" data-fr=" Dupliquer/copier des transactions" data-de=" Buchungen duplizieren/kopieren"></a></td>
+					<td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-compress"></i><a data-pt=" Unificar/conciliar lançamentos" data-en=" Merge/Reconcile Transactions" data-es=" Fusionar/conciliar transacciones" data-fr=" Fusionner/réconcilier des transactions" data-de=" Buchungen zusammenführen/abgleichen"></a></td>
+					<td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-arrows"></i><a data-pt=" Desmembrar lançamentos" data-en=" Split transactions" data-es=" Dividir transacciones" data-fr=" Diviser des transactions" data-de=" Buchungen aufteilen"></a></td>
+					<td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-file-import"></i><a data-pt=" Importação de extratos (OFX)" data-en=" Statement Import (OFX)" data-es=" Importación de extractos (OFX)" data-fr=" Importation de relevés (OFX)" data-de=" Kontoauszugsimport (OFX)"></a></td>
+					<td><span class="limit-text"><a data-pt="3 importações" data-en="3 imports" data-es="3 importaciones" data-fr="3 importations" data-de="3 Importe"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>               
+				<tr>
+					<td><i class="fas fa-file-excel"></i><a data-pt=" Exportar para Excel e HTML" data-en=" Export to Excel and HTML" data-es=" Exportar a Excel y HTML" data-fr=" Exporter vers Excel et HTML" data-de=" Nach Excel und HTML exportieren"></a></td>
+					<td><span class="limit-text"><a data-pt="5 exportações" data-en="5 exports" data-es="5 exportaciones" data-fr="5 exportations" data-de="5 Exporte"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-file-pdf"></i><a data-pt=" Exportar para PDF" data-en=" Export to PDF" data-es=" Exportar a PDF" data-fr=" Exporter vers PDF" data-de=" Nach PDF exportieren"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-history"></i><a data-pt=" Backup automático (configurável)" data-en=" Automatic Backup (Configurable)" data-es=" Respaldo automático (configurable)" data-fr=" Sauvegarde automatique (configurable)" data-de=" Automatische Sicherung (konfigurierbar)"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-envelope"></i><a data-pt=" Suporte por e-mail" data-en=" Email Support" data-es=" Soporte por correo electrónico" data-fr=" Support par e-mail" data-de=" E-Mail-Support"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
+				</tr>
+				<tr>
+					<td><strong><i class="fa-solid fa-dollar-sign"></i><a data-pt=" Preço" data-en=" Price" data-es=" Precio" data-fr=" Prix" data-de=" Preis"></a></strong></td>
+					<td><span class="limit-text-blue"><a data-pt=" Gratuito" data-en=" Free" data-es=" Gratis" data-fr=" Gratuit" data-de=" Kostenlos"></a></span></td>
+					<td><span class="limit-text-blue"><a data-pt=" $ 29.99 (vitalício)" data-en=" $ 29.99 (lifetime)" data-es=" $ 29.99 (de por vida)" data-fr=" $ 29.99 (à vie)" data-de=" $ 29.99 (lebenslang)"></a></span>
+						<br>
+						<small style="font-size: 0.75rem; color: #777; display: block; margin-top: 4px;" 
+							   data-pt="* Oferta por tempo limitado"   
+							   data-en="* Limited time offer"
+							   data-es="* Oferta por tiempo limitado"
+							   data-fr="* Offre à durée limitée"
+							   data-de="* Befristetes Angebot">
+						</small>
+						<small style="font-size: 0.75rem; color: #777; display: block; margin-top: 4px;" 
+							   data-pt="* Preço pode variar por região/país" 
+							   data-en="* Price may vary by region/country"
+							   data-es="* El precio puede variar según la región o el país"
+							   data-fr="* Le prix peut varier selon la région/le pays"
+							   data-de="* Der Preis kann je nach Region/Land variieren">
+						</small>                      
+					</td>
+				</tr>       
+			</tbody>
+		</table>
+	</div>
+	
+	<h3 class="gallery-title-faq" 
+		data-pt="Perguntas frequentes"
+		data-en="Frequently Asked Questions (FAQ)"
+		data-es="Preguntas frecuentes"
+		data-fr="Foire aux questions (FAQ)"
+		data-de="Häufig gestellte Fragen (FAQ)"></h3>
+	<div class="faq">
+		<details>
+			<summary
+				data-pt="1. O dbMoney funciona sem internet?"
+				data-en="1. Does dbMoney work without an internet connection?"
+				data-es="1. ¿dbMoney funciona sin internet?"
+				data-fr="1. dbMoney fonctionne-t-il sans connexion Internet ?"
+				data-de="1. Funktioniert dbMoney ohne Internetverbindung?">
+			</summary>
+			<p data-pt="Sim, o dbMoney é instalado localmente em seu computador e não depende de conexão com a internet para funcionar. O dbMoney utiliza a internet (quando conectado) apenas para exibição de novidades, estatísticas de uso e verificação de novas versões. Não coletamos nenhum dado pessoal."
+			   data-en="Yes, dbMoney is installed locally on your computer and does not depend on an internet connection to function. dbMoney uses the internet (when connected) solely to display news, usage statistics, and check for updates. We do not collect any personal data."
+			   data-es="Sí, dbMoney se instala localmente en su computadora y no depende de una conexión a internet para funcionar. dbMoney utiliza internet (cuando está conectado) únicamente para mostrar novedades, estadísticas de uso y verificar nuevas versiones. No recopilamos ningún dato personal."
+			   data-fr="Oui, dbMoney est installé localement sur votre ordinateur et ne dépend pas d'une connexion Internet pour fonctionner. dbMoney utilise Internet (lorsqu'il est connecté) uniquement pour afficher les nouveautés, les statistiques d'utilisation et vérifier les nouvelles versions. Nous ne collectons aucune donnée personnelle."
+			   data-de="Ja, dbMoney wird lokal auf Ihrem Computer installiert und benötigt keine Internetverbindung, um zu funktionieren. dbMoney nutzt das Internet (wenn eine Verbindung besteht) ausschließlich zur Anzeige von Neuigkeiten, Nutzungsstatistiken und zur Überprüfung auf neue Versionen. Wir erfassen keinerlei personenbezogene Daten.">
+			</p>			
+		</details>
+		<details>
+			<summary
+				data-pt="2. Como faço para adquirir a versão Premium?"
+				data-en="2. How do I purchase the Premium version?"
+				data-es="2. ¿Cómo puedo adquirir la versión Premium?"
+				data-fr="2. Comment acheter la version Premium ?"
+				data-de="2. Wie kann ich die Premium-Version erwerben?">
+			</summary>
+			<p data-pt="A versão Premium pode ser adquirida na tela inicial do dbMoney, no botão <strong>Premium</strong> (parte superior). A compra será realizada diretamente na Microsoft Store, assim como a gestão do seu pagamento. Não temos acesso a nenhum dado de pagamento informado."
+			   data-en="The Premium version can be purchased directly on the dbMoney home screen by clicking the <strong>Premium</strong> button (located at the top). The purchase and payment management are handled directly through the Microsoft Store. We do not have access to any payment details provided."
+			   data-es="La versión Premium se puede adquirir directamente en la pantalla principal de dbMoney, haciendo clic en el botón <strong>Premium</strong> (ubicado en la parte superior). La compra y la gestión del pago se realizan directamente a través de la Microsoft Store. No tenemos acceso a ningún dato de pago proporcionado."
+			   data-fr="La version Premium peut être achetée directement sur l'écran d'accueil de dbMoney en cliquant sur le bouton <strong>Premium</strong> (situé en haut). L'achat et la gestion du paiement sont effectués directement via le Microsoft Store. Nous n'avons accès à aucune donnée de paiement saisie."
+			   data-de="Die Premium-Version kann direkt auf dem Startbildschirm von dbMoney über die Schaltfläche „<strong>Premium</strong>“ (im oberen Bereich) erworben werden. Der Kauf und die Zahlungsabwicklung erfolgen direkt über den Microsoft Store. Wir haben keinen Zugriff auf eingegebene Zahlungsdaten.">
+			</p>
+		</details>
+		<details>
+			<summary
+				data-pt="3. O pagamento da versão Premium é uma assinatura mensal ou taxa única?"
+				data-en="3. Is the Premium payment a monthly subscription or a one-time fee?"
+				data-es="3. ¿El pago de la versión Premium es una suscripción mensual o una tarifa única?"
+				data-fr="3. Le paiement de la version Premium est-il un abonnement mensuel ou un achat unique ?"
+				data-de="3. Ist die Zahlung für die Premium-Version ein monatliches Abonnement oder eine einmalige Gebühr?">
+			</summary>
+			<p data-pt="Taxa única, sem mensalidades, uso vitalício!"
+			   data-en="One-time fee—no subscriptions, lifetime use!"
+			   data-es="¡Tarifa única, sin mensualidades y de uso de por vida!"
+			   data-fr="Frais uniques : pas d'abonnement, utilisation à vie !"
+			   data-de="Einmalige Gebühr – keine Abonnements, lebenslange Nutzung!">
+			</p>
+		</details>
+		<details>
+			<summary
+				data-pt="4. E se eu formatar meu PC ou trocar de computador, preciso pagar a versão Premium novamente?"
+				data-en="4. If I format my PC or switch computers, do I need to buy the Premium version again?"
+				data-es="4. Si formateo mi PC o cambio de computadora, ¿debo pagar la versión Premium nuevamente?"
+				data-fr="4. Si je formate mon PC ou change d'ordinateur, dois-je racheter la version Premium ?"
+				data-de="4. Muss ich die Premium-Version erneut kaufen, wenn ich meinen PC formatiere oder den Computer wechsle?">
+			</summary>
+			<p data-pt="Não, a licença fica vinculada à sua conta Microsoft. Ao inserir sua conta Microsoft em seu novo computador, a licença Premium será restabelecida."
+			   data-en="No, your license is linked to your Microsoft account. Once you log in with your Microsoft account on your new computer, your Premium license will be restored."
+			   data-es="No, su licencia queda vinculada a su cuenta de Microsoft. Al iniciar sesión con su cuenta de Microsoft en la nueva computadora, su licencia Premium se restablecerá automáticamente."
+			   data-fr="Non, votre licence est liée à votre compte Microsoft. Dès que vous vous connectez avec votre compte Microsoft sur votre nouvel ordinateur, votre licence Premium est automatiquement restaurée."
+			   data-de="Nein, Ihre Lizenz ist an Ihr Microsoft-Konto gebunden. Sobald Sie sich auf Ihrem neuen Computer mit Ihrem Microsoft-Konto anmelden, wird Ihre Premium-Lizenz wiederhergestellt.">
+			</p>
+		</details>
+		<details>
+			<summary
+				data-pt="5. O que acontece se eu usar a versão Basic (gratuita)? Existe limite de tempo?"
+				data-en="5. What happens if I use the Basic (free) version? Is there a time limit?"
+				data-es="5. ¿Qué sucede si uso la versión Basic (gratuita)? ¿Existe un límite de tiempo?"
+				data-fr="5. Que se passe-t-il si j'utilise la version Basic (gratuite) ? Y a-t-il une limite de temps ?"
+				data-de="5. Was passiert, wenn ich die Basic-Version (kostenlos) nutze? Gibt es ein Zeitlimit?">
+			</summary>
+			<p data-pt="Não, a versão gratuita pode ser utilizada pelo tempo que achar necessário, porém, haverá limitações listadas na seção <strong>Planos e Versões</strong>."
+			   data-en="No, you can use the free version for as long as you need. However, it includes feature limitations, which are listed in the <strong>Plans & Versions</strong> section."
+			   data-es="No, puede utilizar la versión gratuita durante el tiempo que considere necesario. Sin embargo, cuenta con limitaciones de funciones, las cuales se detallan en la sección <strong>Planes y Versiones</strong>."
+			   data-fr="Non, vous pouvez utiliser la version gratuite aussi longtemps que nécessaire. Cependant, elle comporte des fonctionnalités limitées, détaillées dans la section <strong>Plans & Versions</strong>."
+			   data-de="Nein, Sie können die kostenlose Version so lange nutzen, wie Sie möchten. Sie enthält jedoch Funktionseinschränkungen, die im Bereich „<strong>Pläne & Versionen</strong>“ aufgeführt sind.">
+			</p>
+		</details>
+		<details>
+			<summary
+				data-pt="6. Como funciona a gestão de arquivos no dbMoney?"
+				data-en="6. How does file management work in dbMoney?"
+				data-es="6. ¿Cómo funciona la gestión de archivos en dbMoney?"
+				data-fr="6. Comment fonctionne la gestion des fichiers dans dbMoney ?"
+				data-de="6. Wie funktioniert die Dateiverwaltung in dbMoney?">
+			</summary>
+			<p data-pt="O arquivo de dados gerado pelo dbMoney possui o formato <strong>.dbm</strong> (<i>exemplo: JohnSmith.dbm</i>) e segue o mesmo conceito de um arquivo do Excel. O arquivo de dados tem criptografia de ponta e só pode ser aberto pelo dbMoney (uma senha pode ser definida para reforçar ainda mais a sua segurança). Você pode ter vários arquivos de dados, um para cada fim (pessoal, comercial e outros)."
+			   data-en="Data files generated by dbMoney use the <strong>.dbm</strong> format (<i>e.g., JohnSmith.dbm</i>) and follow the same concept as an Excel spreadsheet. The data file features end-to-end encryption and can only be opened by dbMoney (you can also set a password for added security). You can create multiple data files, one for each purpose (personal, business, etc.)."
+			   data-es="El archivo de datos generado por dbMoney utiliza el formato <strong>.dbm</strong> (<i>ejemplo: JohnSmith.dbm</i>) y sigue el mismo concepto que una planilla de Excel. El archivo de datos cuenta con cifrado de extremo a extremo y solo se puede abrir con dbMoney (también puede configurar una contraseña para reforzar aún más su seguridad). Puede crear múltiples archivos de datos, uno para cada propósito (personal, comercial, entre otros)."
+			   data-fr="Les fichiers de données générés par dbMoney utilisent le format <strong>.dbm</strong> (<i>exemple : JohnSmith.dbm</i>) et fonctionnent selon le même principe qu'un fichier Excel. Le fichier de données bénéficie d'un chiffrement de bout en bout et ne peut être ouvert que par dbMoney (vous pouvez également définir un mot de passe pour renforcer la sécurité). Vous pouvez créer plusieurs fichiers de données, un pour chaque usage (personnel, professionnel, etc.)."
+			   data-de="Die von dbMoney erstellten Datendateien nutzen das Format <strong>.dbm</strong> (<i>z. B. JohnSmith.dbm</i>) und folgen demselben Konzept wie eine Excel-Datei. Die Datendatei verfügt über eine Ende-zu-Ende-Verschlüsselung und kann nur von dbMoney geöffnet werden (Sie können zusätzlich ein Passwort festlegen, um die Sicherheit weiter zu erhöhen). Sie können mehrere Datendateien für unterschiedliche Zwecke anlegen (privat, geschäftlich usw.).">
+			</p>
+		</details>
+		<details>
+			<summary
+				data-pt="7. Posso armazenar e utilizar meus arquivos na nuvem?"
+				data-en="7. Can I store and use my files in the cloud?"
+				data-es="7. ¿Puedo almacenar y utilizar mis archivos en la nube?"
+				data-fr="7. Puis-je stocker et utiliser mes fichiers dans le cloud ?"
+				data-de="7. Kann ich meine Dateien in der Cloud speichern und nutzen?">
+			</summary>
+			<p data-pt="Sim, assim como um arquivo do Excel, você pode armazenar e utilizar seus arquivos na sua própria nuvem (OneDrive ou Google Drive) para fins de backup ou em outros computadores."
+			   data-en="Yes, just like an Excel file, you can store and use your data files in your own cloud storage (OneDrive or Google Drive) for backup purposes or to access them on other computers."
+			   data-es="Sí, al igual que un archivo de Excel, puede almacenar y utilizar sus archivos de datos en su propia nube (OneDrive o Google Drive) para realizar copias de seguridad o para acceder a ellos desde otras computadoras."
+			   data-fr="Oui, tout comme un fichier Excel, vous pouvez stocker et utiliser vos fichiers de données sur votre propre service cloud (OneDrive ou Google Drive) pour effectuer des sauvegardes ou y accéder depuis d'autres ordinateurs."
+			   data-de="Ja, genau wie eine Excel-Datei können Sie Ihre Datendateien in Ihrer eigenen Cloud (OneDrive oder Google Drive) speichern und nutzen, um Backups zu erstellen oder von anderen Computern darauf zuzugreifen.">
+			</p>
+		</details>
+		<details>
+			<summary
+				data-pt="8. O dbMoney possui rotina de backup automático?"
+				data-en="8. Does dbMoney have an automatic backup feature?"
+				data-es="8. ¿dbMoney cuenta con función de copia de seguridad automática?"
+				data-fr="8. dbMoney intègre-t-il une fonction de sauvegarde automatique ?"
+				data-de="8. Verfügt dbMoney über eine automatische Backup-Funktion?">
+			</summary>
+			<p data-pt="Sim, o dbMoney possibilita a gestão de backups automáticos ou manuais, tudo é configurável dentro do app."
+			   data-en="Yes, dbMoney allows you to manage automatic or manual backups, fully configurable within the app settings."
+			   data-es="Sí, dbMoney permite gestionar copias de seguridad (backups) automáticas o manuales; todo se puede configurar fácilmente dentro de la aplicación."
+			   data-fr="Oui, dbMoney permet de gérer des sauvegardes automatiques ou manuelles, entièrement configurables depuis l'application."
+			   data-de="Ja, dbMoney ermöglicht die Verwaltung automatischer oder manueller Backups – alles lässt sich direkt in der App konfigurieren.">
+			</p>
+		</details>
+		<details>
+			<summary
+				data-pt="9. É possível importar extratos do meu banco automaticamente?"
+				data-en="9. Can I automatically import bank statements?"
+				data-es="9. ¿Es posible importar extractos bancarios automáticamente?"
+				data-fr="9. Est-il possible d'importer automatiquement mes relevés bancaires ?"
+				data-de="9. Können Kontoauszüge automatisch importiert werden?">
+			</summary>
+			<p data-pt="Sim. O dbMoney permite a importação de arquivos de extrato bancário no padrão OFX, evitando a digitação manual de cada transação, além de contar com automatizadores para o preenchimento automático das informações e a verificação de lançamentos duplicados."
+			   data-en="Yes. dbMoney allows you to import bank statements in the standard OFX format, eliminating the need to manually enter every transaction. It also includes automated tools for pre-filling information and detecting duplicate entries."
+			   data-es="Sí. dbMoney permite la importación de extractos bancarios en el formato estándar OFX, evitando la entrada manual de cada transacción. Además, incluye herramientas automatizadas para el llenado de información y la detección de registros duplicados."
+			   data-fr="Oui. dbMoney permet l'importation de relevés bancaires au format standard OFX, évitant ainsi la saisie manuelle de chaque transaction. Il inclut également des outils automatisés pour le remplissage des informations et la détection des doublons."
+			   data-de="Ja. dbMoney unterstützt den Import von Kontoauszügen im standardisierten OFX-Format, sodass Sie nicht jede Transaktion manuell eingeben müssen. Zudem sind automatische Werkzeuge zur Vorausfüllung von Informationen und zur Erkennung von Doppeleinträgen enthalten.">
+			</p>
+		</details>
+		<details>
+			<summary
+				data-pt="10. Consigo realizar a leitura automática do meu extrato bancário através do Open Finance?"
+				data-en="10. Can I automatically import my bank statement through Open Finance?"
+				data-es="10. ¿Puedo realizar la lectura automática de mi extracto bancario a través de Open Finance?"
+				data-fr="10. Puis-je importer automatiquement mon relevé bancaire via Open Finance ?"
+				data-de="10. Kann ich meinen Kontoauszug automatisch über Open Finance einlesen?">
+			</summary>
+			<p data-pt="No momento, não. As APIs de Open Finance exigem servidores intermediários pagos que geram custos mensais de manutenção. Estamos estudando alternativas técnicas para integrar essa funcionalidade no futuro sem repassar mensalidades aos usuários. Atualmente, você pode importar seus extratos bancários de forma simples, gratuita e instantânea utilizando arquivos no formato OFX (oferecido por praticamente todos os bancos)."
+			   data-en="Not at this time. Open Finance APIs require paid intermediary servers that create recurring monthly costs. We are studying technical alternatives to integrate this feature in the future without passing subscription fees to users. Currently, you can import your bank statements easily, for free, and instantly using OFX files (provided by virtually all banks)."
+			   data-es="Por el momento, no. Las API de Open Finance requieren servidores intermediarios de pago que generan costes mensuales de mantenimiento. Estamos estudiando alternativas técnicas para integrar esta funcionalidad en el futuro sin trasladar cuotas mensuales a los usuarios. Actualmente, puede importar sus extractos bancarios de forma sencilla, gratuita e instantánea mediante archivos en formato OFX (ofrecido por prácticamente todos los bancos)."
+			   data-fr="Pas pour le moment. Les API Open Finance nécessitent des serveurs intermédiaires payants qui génèrent des coûts mensuels récurrents. Nous étudions des alternatives techniques pour intégrer cette fonctionnalité à l'avenir sans imposer d'abonnement aux utilisateurs. Actuellement, vous pouvez importer vos relevés bancaires facilement, gratuitement et instantanément grâce aux fichiers au format OFX (fournis par pratiquement toutes les banques)."
+			   data-de="Derzeit noch nicht. Open Finance-APIs erfordern kostenpflichtige Zwischenserver, die wiederkehrende monatliche Kosten verursachen. Wir prüfen technische Alternativen, um diese Funktion in Zukunft ohne monatliche Gebühren für die Nutzer zu integrieren. Derzeit können Sie Ihre Kontoauszüge einfach, kostenlos und sofort über Dateien im OFX-Format importieren (das von nahezu allen Banken unterstützt wird).">
+			</p>
+		</details>		
+		<details>
+			<summary
+				data-pt="11. Como faço para não perder minhas informações ao trocar de computador?"
+				data-en="11. How do I keep my data safe when switching computers?"
+				data-es="11. ¿Cómo evito perder mi información al cambiar de computadora?"
+				data-fr="11. Comment éviter de perdre mes informations lors d'un changement d'ordinateur ?"
+				data-de="11. Wie stelle ich sicher, dass meine Daten beim Computerwechsel nicht verloren gehen?">
+			</summary>
+			<p data-pt="Você pode criar cópias de segurança (backup) com um clique e armazená-las em um local de sua preferência ou em sua própria nuvem (OneDrive ou Google Drive) para restaurar facilmente em outro computador."
+			   data-en="You can create backups with a single click and save them to your preferred location or your own cloud storage (OneDrive or Google Drive) to easily restore them on another computer."
+			   data-es="Puede crear copias de seguridad con un solo clic y guardarlas en la ubicación de su preferencia o en su propia nube (OneDrive o Google Drive) para restaurarlas fácilmente en otra computadora."
+			   data-fr="Vous pouvez créer des copies de sauvegarde en un seul clic et les enregistrer dans l'emplacement de votre choix ou sur votre cloud (OneDrive ou Google Drive) afin de les restaurer facilement sur un autre ordinateur."
+			   data-de="Sie können mit einem Klick Sicherungskopien (Backups) erstellen und diese an einem Ort Ihrer Wahl oder in Ihrer eigenen Cloud (OneDrive oder Google Drive) speichern, um sie problemlos auf einem anderen Computer Wiederherzustellen.">
+			</p>
+		</details>
+		<details>
+			<summary
+				data-pt="12. Posso utilizar o dbMoney em smartphones ou tablets (iPhone ou Android)?"
+				data-en="12. Can I use dbMoney on smartphones or tablets (iPhone or Android)?"
+				data-es="12. ¿Puedo usar dbMoney en teléfonos inteligentes o tabletas (iPhone o Android)?"
+				data-fr="12. Puis-je utiliser dbMoney sur smartphones ou tablettes (iPhone ou Android) ?"
+				data-de="12. Kann ich dbMoney auf Smartphones oder Tablets (iPhone oder Android) nutzen?">
+			</summary>
+			<p data-pt="Esta versão do dbMoney está disponível exclusivamente para Windows. Criar uma versão multiplataforma integrada exigiria hospedar seus dados em servidores na nuvem, o que geraria custos recorrentes de infraestrutura e obrigaria a cobrança de mensalidades. Além disso, manter o aplicativo 100% local no seu computador garante o pilar fundamental do dbMoney: a total privacidade e soberania dos seus dados."
+			   data-en="This version of dbMoney is available exclusively for Windows. Creating an integrated cross-platform app would require hosting your data on cloud servers, generating recurring infrastructure costs that would force a monthly subscription model. Furthermore, keeping the app 100% local on your computer ensures the core principle of dbMoney: total privacy and data sovereignty."
+			   data-es="Esta versión de dbMoney está disponible exclusivamente para Windows. Crear una aplicación multiplataforma integrada requeriría alojar sus datos en servidores en la nube, lo que generaría costes recurrentes de infraestructura e impondría el cobro de suscripciones mensuales. Además, mantener la aplicación 100% local en su ordenador garantiza el principio fundamental de dbMoney: la total privacidad y soberanía de sus datos."
+			   data-fr="Cette version de dbMoney est disponible exclusivement pour Windows. Créer une application multiplateforme intégrée nécessiterait l'hébergement de vos données sur des serveurs cloud, ce qui engendrerait des coûts d'infrastructure récurrents et imposerait un abonnement mensuel. De plus, conserver l'application 100 % locale sur votre ordinateur garantit le principe fondamental de dbMoney : la confidentialité totale et la souveraineté de vos données."
+			   data-de="Diese Version von dbMoney ist exklusiv für Windows verfügbar. Eine integrierte plattformübergreifende Anwendung würde das Hosten Ihrer Daten auf Cloud-Servern erfordern. Dies würde wiederkehrende Infrastrukturkosten verursachen und ein monatliches Abonnement erzwingen. Zudem garantiert die 100 % lokale Speicherung auf Ihrem Computer das Kernprinzip von dbMoney: volle Datensouveränität und Datenschutz.">
+			</p>
+		</details>
+		<details>
+			<summary
+				data-pt="13. Posso utilizar o dbMoney em mais de um idioma ou moeda?"
+				data-en="13. Can I use dbMoney in multiple languages or currencies?"
+				data-es="13. ¿Puedo utilizar dbMoney en múltiples idiomas o monedas?"
+				data-fr="13. Puis-je utiliser dbMoney en plusieurs langues ou devises ?"
+				data-de="13. Kann ich dbMoney in mehreren Sprachen oder Währungen nutzen?">
+			</summary>
+			<p data-pt="Sim, o dbMoney possui suporte nativo para múltiplos idiomas e moedas, sendo ideal para uso local e internacional."
+			   data-en="Yes, dbMoney features native support for multiple languages and currencies, making it ideal for both local and international use."
+			   data-es="Sí, dbMoney cuenta con soporte nativo para múltiples idiomas y monedas, siendo ideal tanto para uso local como internacional."
+			   data-fr="Oui, dbMoney prend en charge nativement plusieurs langues et devises, ce qui le rend idéal pour un usage local et international."
+			   data-de="Ja, dbMoney bietet native Unterstützung für mehrere Sprachen und Währungen und ist somit ideal für den lokalen und internationalen Einsatz.">
+			</p>
+		</details>
+		<details>
+			<summary
+				data-pt="14. Como funciona o suporte técnico caso eu precise de ajuda?"
+				data-en="14. How does technical support work if I need help?"
+				data-es="14. ¿Cómo funciona el soporte técnico si necesito ayuda?"
+				data-fr="14. Comment fonctionne l'assistance technique en cas de besoin ?"
+				data-de="14. Wie funktioniert der technische Support, wenn ich Hilfe benötige?">
+			</summary>
+			<p data-pt="O suporte técnico pode ser acionado a qualquer momento pelo e-mail <a href='mailto:support@devbrazil.com'>support@devbrazil.com</a> ou pelo formulário de contato desta página."
+			   data-en="Technical support can be reached at any time via email at <a href='mailto:support@devbrazil.com'>support@devbrazil.com</a> or through the contact form on this page."
+			   data-es="Puede ponerse en contacto con nuestro soporte técnico en cualquier momento escribiendo al correo <a href='mailto:support@devbrazil.com'>support@devbrazil.com</a> o a través del formulario de contacto de esta página."
+			   data-fr="L'assistance technique est joignable à tout moment par e-mail à <a href='mailto:support@devbrazil.com'>support@devbrazil.com</a> ou via le formulaire de contact de cette page."
+			   data-de="Der technische Support kann jederzeit per E-Mail unter <a href='mailto:support@devbrazil.com'>support@devbrazil.com</a> oder über das Kontaktformular auf dieser Seite kontaktiert werden.">
+			</p>
+		</details>
+	</div>
+	
+	<h3 class="gallery-title" data-pt="Idiomas disponíveis" data-en="Available languages" data-es="Idiomas disponibles" data-fr="Langues disponibles" data-de="Verfügbare Sprachen"></h3>
+
+	<div class="lang-grid-status">
+		<div class="lang-status-item">
+			<img src="../../images/flag_usa_16.png" alt="English">
+			<span data-pt="Inglês" data-en="English" data-es="Inglés" data-fr="Anglais" data-de="Englisch">Inglês</span>
+		</div>
+		<div class="lang-status-item">
+			<img src="../../images/flag_brazil_16.png" alt="Português">
+			<span data-pt="Português" data-en="Portuguese" data-es="Portugués" data-fr="Portugais" data-de="Portugiesisch">Português</span>		
+		</div>
+		<div class="lang-status-item">
+			<img src="../../images/flag_spain_16.png" alt="Español">
+			<span data-pt="Espanhol" data-en="Spanish" data-es="Español" data-fr="Espagnol" data-de="Spanisch">Espanhol</span>			
+		</div>
+		<div class="lang-status-item">
+			<img src="../../images/flag_france_16.png" alt="Français">
+			<span data-pt="Francês" data-en="French" data-es="Francés" data-fr="Français" data-de="Französisch">Francês</span>			
+		</div>
+		<div class="lang-status-item">
+			<img src="../../images/flag_germany_16.png" alt="Deutsch">
+			<span data-pt="Alemão" data-en="German" data-es="Alemán" data-fr="Allemand" data-de="Deutsch">Alemão</span>			
+		</div>
+	</div>
 </div>
 
-<script>
-	let currentLang = 'en'; // Variável global de controle
+<div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <span class="nav-btn prev-btn" onclick="changeImage(-1)">&#10094;</span>
+    <img class="modal-content" id="img01">
+    <span class="nav-btn next-btn" onclick="changeImage(1)">&#10095;</span>
+	<div id="caption" class="modal-caption"></div>
+</div>
 
-	function updateContent() {
-		document.querySelectorAll('[data-pt]').forEach(el => {
-			const texto = el.getAttribute('data-' + currentLang);
-			if (texto) {
-				// USAR innerHTML para que o navegador processe as tags HTML como <strong>
-				el.innerHTML = texto;
-			}
-		});
-		
-		// Atualiza placeholders (caso existam)
-		document.querySelectorAll('[data-placeholder-pt]').forEach(el => {
-			const texto = el.getAttribute('data-placeholder-' + currentLang);
-			if (texto) {
-				el.placeholder = texto;
-			}
-		});		
-		
-		// Atualiza o texto do botão de troca ciclicamente
-		document.querySelectorAll('.lang-text').forEach(span => {
-			if (currentLang === 'pt') span.innerText = 'EN';
-			else if (currentLang === 'en') span.innerText = 'ES';
-			else if (currentLang === 'es') span.innerText = 'FR';
-			else if (currentLang === 'fr') span.innerText = 'DE';
-			else span.innerText = 'PT';
-		});
-	}
-
-	function changeLanguage(lang) {	
-		currentLang = lang;
-		// Atualiza textos na tela
-		updateContent();
-	}
-	
-	window.onload = function() {
-		// Idioma padrão de segurança
-		currentLang = 'en';
-		
-		// Detecta idioma nativo do navegador do usuário
-		const browserLang = navigator.language || navigator.userLanguage;
-		
-		if (browserLang.startsWith('en')) {
-			currentLang = 'en';
-		} else if (browserLang.startsWith('es')) {
-			currentLang = 'es';
-		} else if (browserLang.startsWith('fr')) {
-			currentLang = 'fr';
-		} else if (browserLang.startsWith('de')) {
-			currentLang = 'de';
-		} else if (browserLang.startsWith('pt')) {
-			currentLang = 'pt';
-		}
-		
-		// Verifica parâmetros adicionais na URL (?lang= ou #)
-		checkURLForLanguage();
-		
-		// Aplica as strings do idioma selecionado
-		changeLanguage(currentLang);		
-	}
-
-	// Executa a leitura da URL assim que a árvore DOM estiver pronta
-    document.addEventListener("DOMContentLoaded", checkURLForLanguage);
-
-	function scrollToSection(id) {
-		const element = document.getElementById(id);
-		if (element) {
-			element.scrollIntoView({
-				behavior: 'smooth',
-				block: 'start'
-			});
-		}
-	}
-	
-	// Função interna de leitura de parâmetros da URL estendida
-    function checkURLForLanguage() {	
-		const hash = window.location.hash.replace('#', '');		
-		const urlParams = new URLSearchParams(window.location.search);		
-		const langParam = urlParams.get('lang');
-		
-		const validLangs = ['en', 'pt', 'es', 'fr', 'de'];
-		
-		if (validLangs.includes(hash)) {		
-			currentLang = hash;		
-		} else if (validLangs.includes(langParam)) {		
-			currentLang = langParam;
-		}		
-    }
-</script>
+<script src="../../script.js" defer></script>
 
 </body>
 </html>
