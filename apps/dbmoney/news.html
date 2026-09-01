@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+    <title>DevBrazil | Software Engineering</title>
+	<link rel="icon" type="image/png" href="../../images/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+	<script src="https://tally.so/widgets/embed.js"></script>
+
+    <style>
+		:root {
+			--azul-escuro: #2B579A;
+			--azul-medio: #2B579A;
+			--azul-claro: #3949ab;
+			--cinza-claro: #F0F0F0;
+			--cinza-medio: #d6d6d6;
+			--cinza-escuro: #595959;
+			--verde-claro: #e8f5e9;
+			--verde-escuro: #2e7d32;
+			--laranja-claro: #fff3e0;
+			--laranja-escuro: #ef6c00;
+			--branco: #ffffff;
+			--font-body: "Inter", "Segoe UI", sans-serif;
+			--font-mono: "JetBrains Mono", "Consolas", monospace;	
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'Calibri', Tahoma, Geneva, Verdana, sans-serif;
+		}
+
+		body {
+			font-family: var(--font-body);
+			background-color: var(--branco);
+			color: #333;
+			line-height: 1.6;}
+
+		header {
+			background-color: var(--azul-escuro);
+			color: var(--branco);
+			padding: 2rem;
+			text-align: center;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		}
+
+		h1 {
+			font-size: 2.0rem;
+			margin-bottom: 0.5rem;
+		}
+
+		.subtitulo {
+			font-size: 1.2rem;
+			font-weight: 300;
+			opacity: 0.9;
+		}
+
+		.container {
+			max-width: 1400px;
+			margin: 1rem;
+			padding: 0 1rem;
+		}
+
+		.gallery-title { color: var(--azul-dbmoney); margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem; }
+		.screenshot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 12px; }
+		.screenshot-grid img { 
+			width: 100%; border-radius: 8px; cursor: pointer; 
+			box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.2s;
+		}
+		.screenshot-grid img:hover { transform: scale(1.05); }
+
+		.secao {
+			margin-bottom: 2rem;
+		}
+
+		.secao-titulo {
+			color: var(--azul-escuro);
+			font-size: 1.3rem;
+			margin-bottom: 1.5rem;
+			padding-bottom: 0.5rem;
+			border-bottom: 2px solid var(--azul-claro);
+		}
+
+		/* Estilos para seção de versões */
+		.versao {
+			margin-bottom: 2rem;
+			border-left: 2px solid var(--cinza-medio);
+			padding-left: 1.5rem;
+			position: relative;
+		}
+
+		.versao::before {
+			margin-top: 0rem;
+			content: '';
+			position: absolute;
+			width: 3px;
+			height: 2px;
+			background-color: var(--cinza-medio);
+			border-radius: 10%;
+			left: 0px;
+			top: 10;
+		}
+
+		.versao::after {
+			margin-top: -0.9rem;
+			content: '';
+			position: absolute;
+			width: 5px;
+			height: 2px;
+			background-color: var(--cinza-medio);
+			border-radius: 10%;
+			left: -2px;
+			top: 1;
+		}  
+
+		.versao-header {
+			display: flex;
+			align-items: center;
+			margin-bottom: 1rem;
+		}
+
+		.versao-numero {
+			font-size: 1.2rem;
+			color: var(--azul-escuro);
+			font-weight: bold;
+			margin-right: 1rem;
+		}
+
+		.versao-data {
+			background-color: var(--cinza-claro);
+			color: var(--cinza-escuro);
+			padding: 0.3rem 0.8rem;
+			border-radius: 20px;
+			font-size: 0.8rem;
+		}
+
+		.versao-titulo {
+			font-size: 1.0rem;
+			color: var(--cinza-escuro);
+			margin-bottom: 1rem;
+		}
+
+		.alteracoes {
+			list-style-type: none;
+		}
+
+		.alteracao-item {
+			margin-bottom: 0.8rem;
+			font-size: 0.9rem;
+			color: var(--cinza-escuro);
+			padding-left: 1.2rem;
+			position: relative;
+		}
+
+		.alteracao-item::before {
+			content: '■';
+			position: absolute;
+			left: 0;
+			color: var(--azul-medio);
+			font-weight: bold;
+		}
+
+		.alteracao-item-sub {
+			margin-bottom: 0.8rem;
+			font-size: 0.8rem;
+			padding-left: 2.7rem;
+			position: relative;
+		}
+
+		.alteracao-item-sub::before {
+			content: '•';
+			position: absolute;
+			left: 1.5rem;
+			color: var(--cinza-escuro);
+			font-weight: bold;
+		}
+
+		.alteracao-item-sub-imagem {
+			margin-bottom: 0.8rem;
+			font-size: 0.8rem;
+			padding-left: 2.7rem;
+			position: relative;
+		}
+
+		.alteracao-item-sub-imagem::before {
+			content: '•';
+			position: absolute;			
+			left: 1.5rem;
+			top: 30%;
+			color: var(--cinza-escuro);
+			font-weight: bold;
+		}
+
+		.tag {
+			display: inline-block;
+			padding: 0.2rem 0.6rem;
+			border-radius: 4px;
+			font-size: 0.8rem;
+			font-weight: bold;
+			margin-right: 0.5rem;
+		}
+
+		.tag-novo {
+			background-color: var(--verde-claro);
+			color: var(--verde-escuro);
+		}
+
+		.tag-correcao {
+			background-color: var(--laranja-claro);
+			color: var(--laranja-escuro);
+		}
+
+		.tag-melhoria {
+			background-color: #e3f2fd;
+			color: #1565c0;
+		}
+
+		.tag-imagens {
+			background-color: #F9E0E9;
+			color: #721C38;
+		}
+
+		/* Estilos para seção de vídeos */
+		.videos-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+			gap: 1.5rem;
+		}
+
+		.video-card {
+			background-color: var(--cinza-claro);
+			border-radius: 8px;
+			overflow: hidden;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+			transition: transform 0.3s ease;
+		}
+
+		.video-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+		}
+
+		.video-card:hover .video-thumbnail::after {
+			background: rgba(229, 9, 20, 0.9);
+			transform: scale(1.1);
+		}		
+
+		.video-thumbnail {
+			position: relative;
+			height: 180px;
+			background-color: var(--azul-claro);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: var(--branco);
+			font-size: 3rem;
+			overflow: hidden;
+		}
+
+		.video-thumbnail::after {
+			content: '▶';
+			position: absolute;
+			font-size: 2.2rem;
+			z-index: 2;
+			background: rgba(0, 0, 0, 0.6);
+			width: 60px;
+			height: 60px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50%;
+			transition: background 0.2s, transform 0.2s;
+		}
+
+		.video-info {
+			padding: 1rem;
+		}
+
+		.video-titulo {
+			font-size: 1.1rem;
+			font-weight: 600;
+			margin-bottom: 0.5rem;
+			color: var(--azul-escuro);
+		}
+
+		.video-data {
+			font-size: 0.8rem;
+			color: #666;
+			margin-bottom: 0.5rem;
+		}
+
+		.video-descricao {
+			font-size: 0.9rem;
+			color: #444;
+		}       
+
+		footer {
+			background-color: var(--azul-escuro);
+			color: var(--branco);
+			text-align: center;
+			padding: 1.5rem;
+			margin-top: 3rem;
+		}
+		
+		
+		/* --- Banner de Promoção Premium --- */
+		.promo-banner {
+			background: linear-gradient(135deg, #EAF0F9 0%, #A6BAD7 100%);
+			color: #ffffff;
+			border-radius: 8px;
+			padding: 1.25rem 1.5rem;
+			margin-bottom: 2rem;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 1.5rem;
+			box-shadow: 0 4px 12px rgba(43, 87, 154, 0.2);
+			border-left: 5px solid #2B579A;
+		}
+
+		.promo-content {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+		}
+
+		.promo-badge {
+			align-self: flex-start;
+			background-color: #2B579A;
+			color: #ffffff;
+			padding: 0.3rem 0.75rem;
+			border-radius: 20px;
+			font-size: 0.78rem;
+			font-weight: bold;
+			display: flex;
+			align-items: center;
+			gap: 0.4rem;
+			letter-spacing: 0.3px;
+		}
+
+		.promo-text h3 {
+			font-size: 1.2rem;
+			font-weight: 700;
+			color: var(--azul-escuro);
+			margin: 0;
+			line-height: 1.3;
+		}
+
+		.promo-text p {
+			font-size: 0.88rem;
+			color: var(--cinza-escuro);
+			line-height: 1.4;
+			margin: 0;
+		}
+
+		.promo-btn {
+			background-color: #2B579A;
+			color: #ffffff;
+			border: none;
+			padding: 0.8rem 1.4rem;
+			border-radius: 6px;
+			font-weight: bold;
+			font-size: 0.92rem;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			gap: 0.6rem;
+			white-space: nowrap;
+			transition: all 0.2s ease;
+			box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+		}
+
+		.promo-btn:hover {
+			background-color: #1F3F70;
+			transform: translateY(-2px);
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+		}
+
+		/* --- REGRAS DO VOUCHER JÁ RESGATADO --- */
+		.promo-claimed-msg {
+			display: none;
+			color: #2B579A;
+			font-weight: bold;
+			font-size: 0.95rem;
+			align-items: center;
+			gap: 0.5rem;
+			background-color: rgba(255, 255, 255, 0.6);
+			padding: 0.6rem 1rem;
+			border-radius: 6px;
+		}
+
+		/* Se o <body> tiver a classe 'voucher-already-claimed', ajusta os elementos */
+		body.voucher-already-claimed .promo-btn {
+			display: none !important;
+		}
+
+		body.voucher-already-claimed .promo-claimed-msg {
+			display: flex !important;
+		}
+		
+
+		@media (max-width: 768px) {
+			.container {
+				padding: 0 1rem;
+			}
+			
+			h1 {
+				font-size: 2rem;
+			}
+			
+			.screenshot-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+			
+			.videos-grid {
+				grid-template-columns: 1fr;
+			}
+			
+			.promo-banner {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+			.promo-btn {
+				width: 100%;
+				justify-content: center;
+			}
+		}
+    </style>
+
+</head>
+<body>
+    
+    <div class="container">
+	
+		<!--
+		<div class="promo-banner">
+			<div class="promo-content">
+				<div class="promo-badge">
+					<i class="fa-solid fa-gift"></i>
+					<a data-pt="Oferta de Lançamento" 
+					   data-en="Launch Offer" 
+					   data-es="Oferta de Lanzamiento" 
+					   data-fr="Offre de Lancement" 
+					   data-de="Einführungsangebot"></a>
+				</div>
+				<div class="promo-text">
+					<h3>
+						<a data-pt="Ganhe uma licença Premium vitalícia do dbMoney!" 
+						   data-en="Get a free lifetime Premium license for dbMoney!" 
+						   data-es="¡Obtén una licencia Premium de por vida para dbMoney!" 
+						   data-fr="Obtenez une licence Premium à vie pour dbMoney !" 
+						   data-de="Holen Sie sich eine lebenslange Premium-Lizenz für dbMoney!"></a>
+					</h3>
+					<p>
+						<a data-pt="Para celebrar nosso lançamento, estamos disponibilizando um lote restrito de licenças gratuitas por tempo determinado. Resgate sua chave, experimente todos os recursos e nos ajude a evoluir compartilhando sua opinião." 
+						   data-en="To celebrate our launch, we are offering a limited batch of free licenses for a short time. Claim your key, explore all features, and help us evolve by sharing your feedback." 
+						   data-es="Para celebrar nuestro lanzamiento, ofrecemos un lote limitado de licencias gratuitas por tiempo determinado. Canjea tu clave, prueba todas las funciones y ayúdanos a mejorar compartiendo tu opinión." 
+						   data-fr="Pour célébrer notre lancement, nous offrons un lot limité de licences gratuites pour une durée limitée. Réclamez votre clé, essayez toutes les fonctionnalités et aidez-nous à évoluer en partageant votre avis." 
+						   data-de="Zur Feier unseres Starts stellen wir für kurze Zeit ein begrenztes Kontingent an kostenlosen Lizenzen bereit. Holen Sie sich Ihren Schlüssel, testen Sie alle Funktionen und helfen Sie uns mit Ihrem Feedback weiter."></a>
+					</p>
+				</div>
+			</div>			
+			
+			<button class="promo-btn" onclick="openFormModal()">
+				<i class="fa-solid fa-key"></i>
+				<a data-pt="Resgatar Licença Grátis" 
+				   data-en="Claim Free License" 
+				   data-es="Canjear Licencia Gratis" 
+				   data-fr="Obtenir la licence gratuite" 
+				   data-de="Kostenlose Lizenz anfordern"></a>
+			</button>
+			
+			<div class="promo-claimed-msg">
+				<i class="fa-solid fa-circle-check" style="color: #2e7d32; font-size: 1.2rem;"></i>
+				<a data-pt="Sua licença Premium já foi resgatada!" 
+				   data-en="Your Premium license has already been claimed!" 
+				   data-es="¡Tu licencia Premium ya ha sido canjeada!" 
+				   data-fr="Votre licence Premium a déjà été réclamée !" 
+				   data-de="Ihre Premium-Lizenz wurde bereits angefordert!"></a>
+			</div>
+		</div>
+		-->		
+	
+        <section class="secao">
+            <h2 class="secao-titulo"><a data-pt="Bem-vindo à sua central financeira"
+			                            data-en="Welcome to your financial hub"
+										data-es="Bienvenido a tu centro financiero"
+										data-fr="Bienvenue dans votre centre financier"
+										data-de="Willkommen in Ihrer Finanzzentrale"></a></h2>
+            
+			<div class="versao">
+				<div class="versao-header">
+					<h3 class="versao-numero">v1.0.13</h3>
+					<span class="versao-data"><a data-pt="14 de Agosto de 2026"
+												 data-en="August 14, 2026"
+												 data-es="14 de Agosto de 2026"
+												 data-fr="14 Août 2026"
+												 data-de="14. August 2026"></a></span>
+				</div>
+				<h4 class="versao-titulo"><a data-pt="Nova versão disponível"
+											 data-en="New version available"
+											 data-es="Nueva versión disponible"
+											 data-fr="Nouvelle version disponible"
+											 data-de="Neue Version verfügbar"></a></h4>			
+
+				<ul class="alteracoes">
+					<li class="alteracao-item"><span class="tag tag-melhoria"><a data-pt="<pre>Melhoria</pre>" 
+																				 data-en="<pre> Tweak </pre>" 
+																				 data-es="<pre>   Mejora   </pre>" 
+																				 data-fr="<pre>Amélior.</pre>" 
+																				 data-de="<pre>Optimier.</pre>"></a></span>
+											   <a data-pt="Implementada opção de avaliação do app para nos ajudar a melhorar a sua experiência."
+												  data-en="Implemented app rating option to help us improve your experience."
+												  data-es="Implementada la opción de calificación de la aplicación para ayudarnos a mejorar su experiencia."
+												  data-fr="Implémentation de l'option d'évaluation de l'application pour nous aider à améliorer votre expérience."
+												  data-de="Option zur App-Bewertung hinzugefügt, um uns bei der Verbesserung Ihrer Erfahrung zu helfen."></a></li>
+				</ul>
+
+				<ul class="alteracoes">				
+					<li class="alteracao-item"><span class="tag tag-correcao"><a data-pt="<pre>Correção</pre>" 
+																					 data-en="<pre>    Fix     </pre>" 
+																					 data-es="<pre>Corrección</pre>" 
+																					 data-fr="<pre>Correct. </pre>" 
+																					 data-de="<pre>Behoben </pre>"></a></span>
+											   <a data-pt="Solucionada uma falha de inicialização em sistemas sem determinadas bibliotecas da Microsoft pré-instaladas." 
+												  data-en="Fixed a startup issue on systems without certain Microsoft libraries pre-installed."
+												  data-es="Se solucionó un fallo de inicio en sistemas sin ciertas bibliotecas de Microsoft preinstaladas."
+												  data-fr="Résolution d'un problème de démarrage sur les systèmes n'ayant pas certaines bibliothèques Microsoft préinstallées."
+												  data-de="Startproblem auf Systemen ohne vorinstallierte Microsoft-Bibliotheken behoben."></a></li>
+				</ul>
+			</div>
+        </section>
+        
+        <section class="secao">
+            <h2 class="secao-titulo"><a data-pt="Novos Vídeos"
+			                            data-en="New Videos"
+										data-es="Nuevos videos"
+										data-fr="Nouvelles vidéos"
+										data-de="Neue Videos"></a></h2>
+            
+            <div class="videos-grid">
+                <div class="video-card">
+					<a href="https://www.youtube.com/watch?v=wLP-gaJQ5b0" target="_blank" rel="noopener noreferrer">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/wLP-gaJQ5b0/maxresdefault.jpg" alt="Thumbnail" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                    </a>
+                    <div class="video-info">
+                        <h3 class="video-titulo"><a data-pt="Visão geral" 
+						                            data-en="Overview"
+													data-es="Resumen general"
+													data-fr="Aperçu général"
+													data-de="Übersicht"></a></h3>
+													
+                        <p class="video-data"><a data-pt="Publicado em 25 de Junho de 2026" 
+						                         data-en="Published on Jun 25, 2026"
+												 data-es="Publicado el 25 de junio de 2026"
+												 data-fr="Publié le 25er juin 2026"
+												 data-de="Veröffentlicht am 25. Juni 2026"></a></p>
+                        <p class="video-descricao"><a data-pt="Um tour com uma visão rápida e exibição dos principais recursos do dbMoney."
+						                              data-en="A tour providing a quick overview and showcasing the main features of dbMoney."
+													  data-es="Un recorrido visual rápido que muestra las funciones principales de dbMoney."
+													  data-fr="Un aperçu rapide et visuel des principales fonctionnalités de dbMoney."
+													  data-de="Ein schneller visueller Rundgang mit Vorstellung der Hauptfunktionen von dbMoney."></a></p>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-thumbnail"></div>
+                    <div class="video-info">
+                        <h3 class="video-titulo"><a data-pt="Recursos avançados"
+						                            data-en="Advanced features"
+													data-es="Funciones avanzadas"
+													data-fr="Fonctionnalités avancées"
+													data-de="Erweiterte Funktionen"></a></h3>
+                        <p class="video-data"><a data-pt="Em breve" 
+						                         data-en="Coming soon"
+												 data-es="Próximamente"
+												 data-fr="Bientôt disponibles"
+												 data-de="Demnächst verfügbar"></a></p>
+                        <p class="video-descricao"><a data-pt="Aprenda de maneira detalhada a utilizar os principais recursos do dbMoney."
+						                              data-en="Learn in detail how to use the main features of dbMoney."
+													  data-es="Aprenda en detalle cómo utilizar las funciones principales de dbMoney."
+													  data-fr="Apprenez en détail à utiliser les principales fonctionnalités de dbMoney."
+													  data-de="Lernen Sie im Detail, wie Sie die wichtigsten Funktionen von dbMoney nutzen."></a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+	<div id="myModal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); align-items: center; justify-content: center; flex-direction: column;">
+		<span style="position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; user-select: none; z-index: 10000;" onclick="closeModal()">&times;</span>
+		<span style="position: absolute; left: 20px; color: #f1f1f1; font-size: 50px; font-weight: bold; cursor: pointer; user-select: none; padding: 10px; z-index: 10000;" onclick="changeImage(-1); event.stopPropagation();">&#10094;</span>
+		<img id="img01" style="margin: 0 auto; display: block; max-width: 85%; max-height: 80%; border-radius: 4px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+		<div id="caption" style="margin: 15px auto 0; text-align: center; color: #ccc; font-size: 1.1rem; max-width: 80%; font-weight: 300; min-height: 25px;"></div>
+		<span style="position: absolute; right: 20px; color: #f1f1f1; font-size: 50px; font-weight: bold; cursor: pointer; user-select: none; padding: 10px; z-index: 10000;" onclick="changeImage(1); event.stopPropagation();">&#10095;</span>
+	</div>	
+
+<script>
+	let currentImageIndex = 0;
+	let currentGalleryImages = [];	
+	let currentLang = 'en';
+
+	function updateContent() {
+		document.querySelectorAll('[data-pt]').forEach(el => {
+			const texto = el.getAttribute('data-' + currentLang);
+			if (texto) {
+				el.innerHTML = texto;
+			}
+		});
+		
+		document.querySelectorAll('[data-placeholder-pt]').forEach(el => {
+			const texto = el.getAttribute('data-placeholder-' + currentLang);
+			if (texto) {
+				el.placeholder = texto;
+			}
+		});		
+		
+		document.querySelectorAll('.lang-text').forEach(span => {
+			if (currentLang === 'pt') span.innerText = 'en';
+			else if (currentLang === 'en') span.innerText = 'es';
+			else if (currentLang === 'es') span.innerText = 'fr';
+			else if (currentLang === 'fr') span.innerText = 'de';
+			else span.innerText = 'pt';
+		});
+	}
+
+	function changeLanguage(lang) {
+		currentLang = lang;
+		updateContent();
+	}
+	
+	window.addEventListener('click', function(event) {
+		let galleryModal = document.getElementById("myModal");
+		if (event.target == galleryModal) {
+			closeModal();
+		}
+	});
+	
+	window.onload = function() {
+		currentLang = 'en';
+		
+		const browserLang = navigator.language || navigator.userLanguage;
+		if (browserLang.startsWith('en')) currentLang = 'en';
+		else if (browserLang.startsWith('es')) currentLang = 'es';
+		else if (browserLang.startsWith('fr')) currentLang = 'fr';
+		else if (browserLang.startsWith('de')) currentLang = 'de';
+		else if (browserLang.startsWith('pt')) currentLang = 'pt';
+		
+		checkURLForLanguage();
+		changeLanguage(currentLang);
+	}
+
+	document.addEventListener('keydown', function(e) {
+		if (document.getElementById("myModal").style.display === "flex") {
+			if (e.key === "ArrowLeft") changeImage(-1);
+			if (e.key === "ArrowRight") changeImage(1);
+			if (e.key === "Escape") closeModal();
+		}
+	});
+
+    document.addEventListener("DOMContentLoaded", checkURLForLanguage);
+
+	function checkURLForLanguage() {	
+		const hash = window.location.hash.replace('#', '');		
+		const urlParams = new URLSearchParams(window.location.search);		
+		const langParam = urlParams.get('lang');
+		
+		const validLangs = ['en', 'pt', 'es', 'fr', 'de'];
+		
+		if (validLangs.includes(hash)) {		
+			currentLang = hash;		
+		} else if (validLangs.includes(langParam)) {		
+			currentLang = langParam;
+		}		
+	}
+	
+	function openModal(index, galleryId) {
+		currentGalleryImages = [];
+		var images = document.querySelectorAll("#" + galleryId + " img");
+		for (var i = 0; i < images.length; i++) {
+			currentGalleryImages.push(images[i]);
+		}
+    
+		currentImageIndex = index;
+
+		var modal = document.getElementById("myModal");
+		var modalImg = document.getElementById("img01");
+		
+		if (modal && modalImg) {
+			modal.style.display = "flex";
+			modalImg.src = currentGalleryImages[currentImageIndex].src;
+			updateCaption();
+		}		
+	}
+
+	function closeModal() { 
+		document.getElementById("myModal").style.display = "none"; 
+	}
+	
+	function changeImage(step) {
+		if (currentGalleryImages.length === 0) return;
+    
+		currentImageIndex += step;
+		if (currentImageIndex >= currentGalleryImages.length) currentImageIndex = 0;
+		if (currentImageIndex < 0) currentImageIndex = currentGalleryImages.length - 1;
+    
+		document.getElementById("img01").src = currentGalleryImages[currentImageIndex].src;
+		updateCaption();
+	}
+	
+	function updateCaption() {
+		var captionText = document.getElementById("caption");
+		if (captionText && currentGalleryImages[currentImageIndex]) {
+			var currentImg = currentGalleryImages[currentImageIndex];
+			if (typeof currentLang !== 'undefined') {
+				captionText.innerText = currentImg.getAttribute('data-caption-' + currentLang) || currentImg.alt || "";
+			}
+		}
+	}
+	
+	// Função auxiliar para comparar versões no formato "X.Y.Z"
+	function compareVersions(v1, v2) {
+		const parts1 = v1.split('.').map(Number);
+		const parts2 = v2.split('.').map(Number);
+		for (let i = 0; i < Math.max(parts1.length, parts2.length); i++) {
+			const val1 = parts1[i] || 0;
+			const val2 = parts2[i] || 0;
+			if (val1 > val2) return 1;
+			if (val1 < val2) return -1;
+		}
+		return 0;
+	}
+	
+	/* --- ABERTURA DO MODAL DO TALLY & ENVIO AO DELPHI --- */
+	function openFormModal() {
+		const urlParams = new URLSearchParams(window.location.search);
+		const currentAppVersion = urlParams.get('v') || '1.0.0';
+
+		// Impede o resgate se a versão for menor que 1.0.12
+		if (compareVersions(currentAppVersion, '1.0.12') < 0) {
+			
+			// Mensagens multilíngues
+			const messages = {
+				pt: 'Esta promoção é exclusiva para a versão 1.0.12 ou superior do dbMoney Personal. Por favor, atualize o aplicativo para resgatar.',
+				en: 'This promotion is exclusive to version 1.0.12 or higher of dbMoney Personal. Please update the app to claim.',
+				es: 'Esta promoción es exclusiva para la versión 1.0.12 o superior de dbMoney Personal. Por favor, actualice la aplicación para canjear.',
+				fr: 'Cette promotion est exclusive à la version 1.0.12 ou supérieure de dbMoney Personal. Veuillez mettre à jour l\'application pour en profiter.',
+				de: 'Aktion nur gültig ab Version 1.0.12 von dbMoney Personal. Bitte aktualisieren Sie die App, um das Angebot zu nutzen.'
+			};
+
+			// Identifica o idioma (usa a variável global currentLang ou tenta pelo navegador)
+			const lang = (typeof currentLang !== 'undefined' ? currentLang : navigator.language || 'en').substring(0, 2).toLowerCase();
+			
+			// Exibe o alerta no idioma correspondente ou cai de volta para o inglês ('en')
+			const alertMessage = messages[lang] || messages['en'];
+			alert(alertMessage);
+			
+			return;
+		}
+
+		Tally.openPopup('2EdvOe', {
+			layout: 'modal',
+			width: 520,
+			hideTitle: true,
+			overlay: true,
+			hiddenFields: {
+				version: currentAppVersion
+			},
+			onSubmit: (payload) => {
+				// 1. Avisa o EdgeBrowser/Delphi
+				if (window.chrome && window.chrome.webview) {
+					window.chrome.webview.postMessage('VOUCHER_CLAIMED');
+				}
+
+				// 2. Transforma o banner visualmente na hora
+				document.body.classList.add('voucher-already-claimed');
+			},
+			onClose: () => {
+				// 3. Callback disparado quando o usuário clica no "X" ou fora do modal
+				if (window.chrome && window.chrome.webview) {
+					window.chrome.webview.postMessage('TALLY_POPUP_CLOSED');
+				}
+			}
+		});
+	}
+</script>
+	
+</body>
+</html>

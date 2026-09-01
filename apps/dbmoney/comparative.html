@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevBrazil | Software Engineering</title>
+	<link rel="icon" type="image/png" href="../../images/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --verde-dev: #1b845b;
+            --azul-dbmoney: #004a99;			
+			--vermelho-dbpdf: #A75052;
+			--roxo-dbradio: #7A5B91;
+            --bg-light: #f4f7f6;
+            --text-dark: #333;
+            --white: #ffffff;
+            --font-body: "Inter", "Segoe UI", sans-serif;
+            --font-mono: "JetBrains Mono", "Consolas", monospace;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-body); background-color: var(#fff); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
+
+        /* --- HEADER --- */
+        header {
+            background: #fff;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between; /* Mantém Logo na esquerda e Nav na direita */
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* --- HERO --- */
+        .hero { padding: 60px 5%; text-align: center; background: linear-gradient(135deg, #fff 0%, #e6f2ed 100%); }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 15px; color: var(--verde-dev); line-height: 1.1; }
+        .hero p { font-size: 1.1rem; color: #666; max-width: 800px; margin: 0 auto; }
+       
+        /* --- CONTAINER PRODUTO --- */
+		.product-card {
+            background: #fff;
+            max-width: 1400px;
+            margin: -30px auto 50px;
+            padding: 20px 5%;
+            border-radius: 15px;
+            /* box-shadow: 0 10px 30px rgba(0,0,0,0.05); */
+            /* border-left: 8px solid var(--azul-dbmoney); */
+        }
+
+        /* --- CONTEÚDO --- */
+        .about-content { margin-bottom: 20px; }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .feature-item { padding: 20px; background: #f9f9f9; border-radius: 10px; border-bottom: 3px solid #eee; }
+        .feature-item strong { color: var(--azul-dbmoney); display: block; margin-bottom: 5px; }
+
+        /* --- TABELA COMPARATIVA --- */
+        .pricing-table-container { margin-top: 10px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; min-width: 500px; }
+        th, td { padding: 12px 10px; text-align: left; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+        th { background-color: white; color: var(--azul-dbmoney); }
+        .check-yes { color: #28a745; }
+        .check-no { color: #dc3545; }
+        .limit-text { font-size: 0.75rem; color: #856404; background: #fff3cd; padding: 2px 6px; border-radius: 4px; display: inline-block; }
+		.limit-text-blue { font-weight: bold; color: var(--azul-dbmoney); }
+
+        .btn-store-dbmoney {
+            display: block;
+            width: 100%;
+            max-width: 350px;
+            margin: 40px auto 0;
+            background: var(--azul-dbmoney);
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            text-align: center;
+            transition: background 0.3s;
+        }
+        .btn-store-dbmoney:hover { background: #003366; }
+       
+        /* --- MEDIA QUERIES --- */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; padding: 15px; }
+
+			.nav {
+                display: flex;
+                flex-direction: row; /* Mantém na mesma linha */
+                flex-wrap: wrap;     /* Permite quebrar linha se o celular for muito pequeno */
+                justify-content: center;
+                align-items: center;
+                gap: 12px;           /* Espaçamento entre os itens */
+            }
+        
+            .nav a {
+                margin-left: 0;      /* Remove margens fixas para não desalinhar */
+                font-size: 0.85rem;
+            }
+            
+            .hero { padding: 40px 5%; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero p { font-size: 1rem; }
+
+            .card-dbmoney { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid var(--azul-dbmoney); }
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="product-card card-dbmoney" id="dbmoney">
+
+	<div class="pricing-table-container">
+		<table>
+			<thead>
+				<tr>
+					<th><a data-pt="Funcionalidade" data-en="Feature" data-es="Funcionalidad" data-fr="Fonctionnalité" data-de="Funktion"></a></th>
+					<th><a data-pt="Versão Basic" data-en="Basic Version" data-es="Versión Basic" data-fr="Version Basic" data-de="Basic-Version"></a></th>
+					<th><a data-pt="Versão Premium" data-en="Premium Version" data-es="Versión Premium" data-fr="Version Premium" data-de="Premium-Version"></a></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><i class="fas fa-wallet"></i><a data-pt=" Contas / Carteiras" data-en=" Accounts / Wallets" data-es=" Cuentas / Carteras" data-fr=" Comptes / Portefeuilles" data-de=" Konten / Wallets"></a></td>
+					<td><span class="limit-text"><a data-pt="2 contas" data-en="2 accounts" data-es="2 cuentas" data-fr="2 comptes" data-de="2 Konten"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fa-solid fa-tag"></i><a data-pt=" Categorias, contatos e marcadores" data-en=" Categories, contacts, and tags" data-es=" Categorías, contactos y marcadores" data-fr=" Catégories, contacts et étiquettes" data-de=" Kategorien, Kontakte und Tags"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-pie-chart"></i><a data-pt=" Dashboards de alta resolução" data-en=" High-resolution Dashboards" data-es=" Dashboards de alta resolución" data-fr=" Tableaux de bord haute résolution" data-de=" Hochauflösende Dashboards"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>               
+				<tr>
+					<td><i class="fas fa-users"></i><a data-pt=" Gestão Multicarteiras / Multiperfil" data-en=" Multi-Wallet / Multi-Profile Management" data-es=" Gestión multicarteras / multiperfiles" data-fr=" Gestion multi-portefeuilles / multi-profils" data-de=" Multi-Wallet- / Multi-Profil-Verwaltung"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-columns"></i><a data-pt=" Campos customizáveis" data-en=" Custom Fields" data-es=" Campos personalizables" data-fr=" Champs personnalisables" data-de=" Benutzerdefinierte Felder"></a></td>
+					<td><span class="limit-text"><a data-pt="3 campos" data-en="3 fields" data-es="3 campos" data-fr="3 champs" data-de="3 Felder"></a></span></td>
+					<td><span class="limit-text"><a data-pt="3 campos" data-en="3 fields" data-es="3 campos" data-fr="3 champs" data-de="3 Felder"></a></span></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-edit"></i><a data-pt=" Lançamentos Manuais" data-en=" Manual Transactions" data-es=" Transacciones manuales" data-fr=" Transactions manuelles" data-de=" Manuelle Buchungen"></a></td>
+					<td><span class="limit-text"><a data-pt="20 por mês" data-en="20 per month" data-es="20 al mes" data-fr="20 par mois" data-de="20 pro Monat"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-list-alt"></i><a data-pt=" Alteração em lote" data-en=" Batch Editing" data-es=" Edición por lotes" data-fr=" Modification em masse" data-de=" Stapelverarbeitung (Massenbearbeitung)"></a></td>
+					<td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-plus-square"></i><a data-pt=" Múltiplos lançamentos" data-en=" Multiple Transactions" data-es=" Múltiples transacciones" data-fr=" Transactions multiples" data-de=" Mehrfache Buchungen"></a></td>
+					<td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-clone"></i><a data-pt=" Replicar/copiar lançamentos" data-en=" Replicate/Copy Transactions" data-es=" Replicar/copiar transacciones" data-fr=" Dupliquer/copier des transactions" data-de=" Buchungen duplizieren/kopieren"></a></td>
+					<td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-compress"></i><a data-pt=" Unificar/conciliar lançamentos" data-en=" Merge/Reconcile Transactions" data-es=" Fusionar/conciliar transacciones" data-fr=" Fusionner/réconcilier des transactions" data-de=" Buchungen zusammenführen/abgleichen"></a></td>
+					<td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-arrows"></i><a data-pt=" Desmembrar lançamentos" data-en=" Split transactions" data-es=" Dividir transacciones" data-fr=" Diviser des transactions" data-de=" Buchungen aufteilen"></a></td>
+					<td><span class="limit-text"><a data-pt="3 execuções" data-en="3 executions" data-es="3 ejecuciones" data-fr="3 exécutions" data-de="3 Ausführungen"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-file-import"></i><a data-pt=" Importação de extratos (OFX)" data-en=" Statement Import (OFX)" data-es=" Importación de extractos (OFX)" data-fr=" Importation de relevés (OFX)" data-de=" Kontoauszugsimport (OFX)"></a></td>
+					<td><span class="limit-text"><a data-pt="3 importações" data-en="3 imports" data-es="3 importaciones" data-fr="3 importations" data-de="3 Importe"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>               
+				<tr>
+					<td><i class="fas fa-file-excel"></i><a data-pt=" Exportar para Excel e HTML" data-en=" Export to Excel and HTML" data-es=" Exportar a Excel y HTML" data-fr=" Exporter vers Excel et HTML" data-de=" Nach Excel und HTML exportieren"></a></td>
+					<td><span class="limit-text"><a data-pt="5 exportações" data-en="5 exports" data-es="5 exportaciones" data-fr="5 exportations" data-de="5 Exporte"></a></span></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-file-pdf"></i><a data-pt=" Exportar para PDF" data-en=" Export to PDF" data-es=" Exportar a PDF" data-fr=" Exporter vers PDF" data-de=" Nach PDF exportieren"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Ilimitado" data-en=" Unlimited" data-es=" Ilimitado" data-fr=" Illimité" data-de=" Unbegrenzt"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-history"></i><a data-pt=" Backup automático (configurável)" data-en=" Automatic Backup (Configurable)" data-es=" Respaldo automático (configurable)" data-fr=" Sauvegarde automatique (configurable)" data-de=" Automatische Sicherung (konfigurierbar)"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
+				</tr>
+				<tr>
+					<td><i class="fas fa-envelope"></i><a data-pt=" Suporte por e-mail" data-en=" Email Support" data-es=" Soporte por correo electrónico" data-fr=" Support par e-mail" data-de=" E-Mail-Support"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
+					<td><i class="fas fa-check-circle check-yes"></i><a data-pt=" Sim" data-en=" Yes" data-es=" Sí" data-fr=" Oui" data-de=" Ja"></a></td>
+				</tr>
+				<tr>
+					<td><strong><i class="fa-solid fa-dollar-sign"></i><a data-pt=" Preço" data-en=" Price" data-es=" Precio" data-fr=" Prix" data-de=" Preis"></a></strong></td>
+					<td><span class="limit-text-blue"><a data-pt=" Gratuito" data-en=" Free" data-es=" Gratis" data-fr=" Gratuit" data-de=" Kostenlos"></a></span></td>
+					<td><span class="limit-text-blue"><a data-pt=" $ 29.99 (vitalício)" data-en=" $ 29.99 (lifetime)" data-es=" $ 29.99 (de por vida)" data-fr=" $ 29.99 (à vie)" data-de=" $ 29.99 (lebenslang)"></a></span>
+						<br>
+						<small style="font-size: 0.75rem; color: #777; display: block; margin-top: 4px;" 
+							data-pt="* Oferta por tempo limitado"   
+							data-en="* Limited time offer"
+							data-es="* Oferta por tiempo limitado"
+							data-fr="* Offre à durée limitée"
+							data-de="* Befristetes Angebot">
+						</small>
+						<small style="font-size: 0.75rem; color: #777; display: block; margin-top: 4px;" 
+							data-pt="* Preço pode variar por região/país" 
+							data-en="* Price may vary by region/country"
+							data-es="* El precio puede variar según la región o el país"
+							data-fr="* Le prix peut varier selon la région/le pays"
+							data-de="* Der Preis kann je nach Region/Land variieren">
+						</small>                      
+					</td>
+				</tr>       
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<script>
+	let currentImageIndex = 0;
+	let currentGalleryImages = [];
+	// let currentLang = 'pt';
+	
+	function updateContent() {
+		document.querySelectorAll('[data-pt]').forEach(el => {
+			const texto = el.getAttribute('data-' + currentLang);
+			if (texto) {
+				// USAR innerHTML para que o navegador processe as tags HTML como <strong>
+				el.innerHTML = texto;
+			}
+		});
+		
+		// Atualiza placeholders
+		document.querySelectorAll('[data-placeholder-pt]').forEach(el => {
+			const texto = el.getAttribute('data-placeholder-' + currentLang);
+			if (texto) {
+				el.placeholder = texto;
+			}
+		});		
+		
+		// Atualiza as imagens/prints da galeria com base no novo escopo de idiomas
+		if (typeof updateImagesByLanguage === 'function') {
+			updateImagesByLanguage(currentLang);
+		}
+	}
+
+	function toggleLangMenu(event) {
+		event.stopPropagation();
+		document.getElementById('langSelector').classList.toggle('active');
+	}
+
+	function changeLanguage(lang) {	
+		currentLang = lang;
+		updateContent();
+		
+		// Atualiza o ícone da bandeira principal no topo do site
+		const flagImg = document.getElementById('currentFlag');
+		if (flagImg) {
+			if (lang === 'pt') {
+				flagImg.src = 'images/flag_brazil_16.png'; // Garante que volta para a padrão
+			} else if (lang === 'en') {
+				flagImg.src = 'images/flag_usa_16.png';
+			} else if (lang === 'es') {
+				flagImg.src = 'images/flag_spain_16.png';
+			} else if (lang === 'fr') {
+				flagImg.src = 'images/flag_france_16.png';
+			} else if (lang === 'de') {
+				flagImg.src = 'images/flag_germany_16.png';
+			}
+		}
+	}
+
+	/*
+	function updateImagesByLanguage(lang) {
+		const sufixos = { 'pt': '_pt', 'es': '_en', 'en': '_en' };
+		const sufixo = sufixos[lang] || '_en';
+
+		document.querySelectorAll('.screenshot-grid img').forEach(img => {		
+			img.src = img.src
+				.replace('_pt', sufixo )
+				.replace('_en', sufixo );
+		});
+	}
+	*/
+	
+	function updateImagesByLanguage(lang) {
+		// Estratégia de Fallback: Se você tiver prints específicos para 'es', usa 'es'.
+		// Para francês ('fr') e alemão ('de'), caso não queira inflar o pacote com novos prints,
+		// o sistema utiliza a interface internacional em inglês ('en') por padrão.
+		let targetSuffix = 'en';
+		
+		if (lang === 'pt') {
+			targetSuffix = 'pt';
+		} else if (lang === 'es') {
+			targetSuffix = 'es';
+		}
+
+		document.querySelectorAll('.screenshot-grid img').forEach(img => {
+			// A expressão regular captura os sufixos antigos e substitui com precisão cirúrgica
+			img.src = img.src.replace(/_(pt|en|es|fr|de)(\.(png|jpg|jpeg|webp))/i, `_${targetSuffix}$2`);
+		});
+	}
+
+	window.addEventListener('click', function(event) {
+	
+		// Fecha menu de idioma ao clicar fora
+		const langSelector = document.getElementById('langSelector');
+	
+		if (!langSelector.contains(event.target)) {
+			langSelector.classList.remove('active');
+		}
+	
+		// Fecha modal da galeria
+		let galleryModal = document.getElementById("myModal");
+	
+		if (event.target == galleryModal) {
+			closeModal();
+		}
+	
+		// Fecha modal de contato
+		let contactModal = document.getElementById("contactModal");
+	
+		if (event.target == contactModal) {
+			closeContactModal();
+		}
+	});
+
+	window.onload = function() {	
+		// Idioma padrão
+		currentLang = 'pt';
+		
+		// Detecta idioma do navegador
+		const browserLang = navigator.language || navigator.userLanguage;
+		
+		if (browserLang.startsWith('en')) {
+			currentLang = 'en';
+		}
+		
+		// Verifica URL (?lang=en ou #en)
+		checkURLForLanguage();
+		
+		// Atualiza conteúdo
+		changeLanguage(currentLang);		
+	}
+
+	// Função para abrir o modal baseada na galeria específica
+	function openModal(index, galleryId) {
+		// Captura apenas as imagens do card onde o usuário clicou
+		currentGalleryImages = Array.from(document.querySelectorAll(`#${galleryId} img`));
+		currentImageIndex = index;
+    
+		const modal = document.getElementById("myModal");
+		const modalImg = document.getElementById("img01");
+    
+		modal.style.display = "flex";
+		modalImg.src = currentGalleryImages[currentImageIndex].src;
+	}
+
+	function closeModal() { 
+		document.getElementById("myModal").style.display = "none"; 
+	}
+
+	function changeImage(step) {
+		if (currentGalleryImages.length === 0) return;
+    
+		currentImageIndex += step;
+		if (currentImageIndex >= currentGalleryImages.length) currentImageIndex = 0;
+		if (currentImageIndex < 0) currentImageIndex = currentGalleryImages.length - 1;
+    
+		document.getElementById("img01").src = currentGalleryImages[currentImageIndex].src;
+	}
+
+	// Fechamento e navegação via teclado
+	document.addEventListener('keydown', function(e) {
+		if (document.getElementById("myModal").style.display === "flex") {
+			if (e.key === "ArrowLeft") changeImage(-1);
+			if (e.key === "ArrowRight") changeImage(1);
+			if (e.key === "Escape") closeModal();
+		}
+	});
+	
+	// Executa assim que o site carregar
+    document.addEventListener("DOMContentLoaded", checkURLForLanguage);
+
+	function openContactModal() {
+	    document.getElementById("contactModal").style.display = "flex";
+	}
+	
+	function closeContactModal() {
+	    document.getElementById("contactModal").style.display = "none";
+	}
+
+	function scrollToSection(id) {
+
+		const element = document.getElementById(id);
+
+		if (element) {
+			element.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start'
+			});
+		}
+	}
+	
+	// Função que lê o idioma da URL
+    function checkURLForLanguage() {	
+		const hash = window.location.hash.replace('#', '');		
+		const urlParams = new URLSearchParams(window.location.search);		
+		const langParam = urlParams.get('lang');
+		
+		// Lista com todos os 5 idiomas suportados oficialmente pelo ecossistema
+		const validLangs = ['en', 'pt', 'es', 'fr', 'de'];
+		
+		if (validLangs.includes(hash)) {		
+			currentLang = hash;		
+		} else if (validLangs.includes(langParam)) {		
+			currentLang = langParam;
+		}
+    }
+	
+</script>
+
+</body>
+</html>
