@@ -36,6 +36,13 @@ background: rgba(255,255,255,0.85);
 
 hr {border: 0; height: 1px; background-color: #eee;}
 
+.hr2 {
+    border: 0;
+    height: 2px;
+    background-color: #eee;
+    margin: 30px 0; /* Opcional: dá um respiro em cima e embaixo */
+}
+
 .logo-img {width: 34px; height: 34px;}
 
 .brand-name {font-weight: 700; font-size: 1.05rem; color: var(--ink); letter-spacing: 0.2px;}
