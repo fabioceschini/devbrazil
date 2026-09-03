@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#1b845b" name="theme-color"/>
+<title data-pt="Contato | DevBrazil" data-en="Contact | DevBrazil" data-es="Contacto | DevBrazil" data-fr="Contact | DevBrazil" data-de="Kontakt | DevBrazil">Contato | DevBrazil</title>
+
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+    :root {
+        --verde-dev: #1b845b;
+        --verde-dev-dark: #146a48;
+        --bg-light: #f7f6f1;
+        --ink: #1c2321;
+        --muted: #70766f;
+        --line: #e7e4da;
+        --font-body: "Inter", "Segoe UI", sans-serif;
+        --font-mono: "JetBrains Mono", "Consolas", monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+        font-family: var(--font-body);
+        background-color: var(--bg-light);
+        color: var(--ink);
+        line-height: 1.6;
+    }
+
+    .contact-page {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 20px;
+    }
+
+    .contact-card {
+        position: relative;
+        width: 100%;
+        max-width: 480px;
+        padding: 32px;
+        border-radius: 16px;
+        background: #ffffff;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+    }
+
+    .lang-selector {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2px;
+        margin-bottom: 20px;
+    }
+
+    .lang-pill {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        color: var(--muted);
+        text-decoration: none;
+        padding: 6px 10px;
+        border-radius: 6px;
+        transition: all 0.15s ease;
+        cursor: pointer;
+        background: none;
+        border: none;
+    }
+
+    .lang-pill:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
+
+    .lang-pill.active {
+        background: var(--bg-light);
+        border: 1px solid var(--line);
+        color: var(--ink);
+    }
+
+    .about-content { margin-bottom: 20px; }
+
+    .gallery-title-green {
+        color: var(--verde-dev);
+        margin: 0 0 20px;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    .product-eyebrow {
+        display: inline-block;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        padding: 9px 12px;
+        border-radius: 10px;
+        line-height: 1;
+        text-decoration: none;
+        margin-top: 7px;
+    }
+
+    .eyebrow-gray { color: #686868; background: #F2F2F2; }
+
+    form { width: 100%; margin-top: 20px; }
+
+    input, textarea {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 15px;
+        padding: 13px 14px;
+        border: 1px solid #d0d0d0;
+        border-radius: 8px;
+        background: #ffffff;
+        color: #222222;
+        font-family: inherit;
+        font-size: 15px;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    textarea { resize: vertical; min-height: 130px; }
+
+    input:focus, textarea:focus {
+        outline: none;
+        border-color: #2b78c5;
+        box-shadow: 0 0 0 3px rgba(43, 120, 197, 0.15);
+    }
+
+    .contact-send {
+        width: 100%;
+        padding: 13px 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        background: #2b78c5;
+        color: #ffffff;
+        font-family: inherit;
+        font-size: 16px;
+        font-weight: 600;
+        transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .contact-send:hover { background: #1f66ad; transform: translateY(-1px); }
+
+    .contact-send:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
+
+    .contact-status {
+        min-height: 20px;
+        margin-top: 15px;
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .contact-status.success { color: #16803c; }
+    .contact-status.error { color: #c62828; }
+
+    @media (max-width: 768px) {
+        .contact-card { padding: 25px 20px; }
+        .gallery-title-green { font-size: 1.4rem; }
+    }
+</style>
+</head>
+<body>
+
+<div class="contact-page">
+    <div class="contact-card">
+
+        <div class="lang-selector" id="langSelector">
+            <a class="lang-pill" data-lang="en" onclick="changeLanguage('en')">EN</a>
+            <a class="lang-pill" data-lang="pt" onclick="changeLanguage('pt')">PT</a>
+            <a class="lang-pill" data-lang="es" onclick="changeLanguage('es')">ES</a>
+            <a class="lang-pill" data-lang="fr" onclick="changeLanguage('fr')">FR</a>
+            <a class="lang-pill" data-lang="de" onclick="changeLanguage('de')">DE</a>
+        </div>
+
+        <div class="about-content">
+            <h3 class="gallery-title-green"
+                data-pt="Formulário de contato"
+                data-en="Contact form"
+                data-es="Formulario de contacto"
+                data-fr="Formulaire de contact"
+                data-de="Kontaktformular">Formulário de contato</h3>
+
+            <div class="about-content">
+                <p data-pt="Preencha seus dados ou entre em contato através do e-mail:"
+                   data-en="Fill in your details or get in touch via email:"
+                   data-es="Complete sus datos o póngase en contacto a través del correo electrónico:"
+                   data-fr="Remplissez vos coordonnées ou contactez-nous par e-mail :"
+                   data-de="Füllen Sie Ihre Daten aus oder kontaktieren Sie uns per E-Mail:">Preencha seus dados ou entre em contato através do e-mail:</p>
+
+                <a href="mailto:support@devbrazil.com"
+                   class="product-eyebrow eyebrow-gray"
+                   title="support@devbrazil.com">support@devbrazil.com</a>
+            </div>
+        </div>
+
+        <form id="contactForm">
+            <input
+                type="text"
+                id="contactName"
+                name="name"
+                required
+                maxlength="100"
+                placeholder="Seu nome"
+                data-placeholder-pt="Seu nome"
+                data-placeholder-en="Your name"
+                data-placeholder-es="Su nombre"
+                data-placeholder-fr="Votre nom"
+                data-placeholder-de="Ihr Name">
+
+            <input
+                type="email"
+                id="contactEmail"
+                name="email"
+                required
+                maxlength="150"
+                placeholder="Seu e-mail"
+                data-placeholder-pt="Seu e-mail"
+                data-placeholder-en="Your email"
+                data-placeholder-es="Su correo electrónico"
+                data-placeholder-fr="Votre e-mail"
+                data-placeholder-de="Ihre E-Mail-Adresse">
+
+            <textarea
+                id="contactMessage"
+                name="message"
+                rows="6"
+                required
+                maxlength="5000"
+                placeholder="Sua mensagem"
+                data-placeholder-pt="Sua mensagem"
+                data-placeholder-en="Your message"
+                data-placeholder-es="Su mensaje"
+                data-placeholder-fr="Votre message"
+                data-placeholder-de="Ihre Nachricht"></textarea>
+
+            <button type="submit" id="contactSend" class="contact-send"
+                data-pt="Enviar mensagem"
+                data-en="Send Message"
+                data-es="Enviar mensaje"
+                data-fr="Envoyer le message"
+                data-de="Nachricht senden">Enviar mensagem</button>
+
+            <div id="contactStatus" class="contact-status" aria-live="polite"></div>
+        </form>
+
+    </div>
+</div>
+
+<script>
+    /* URL DO CLOUDFLARE WORKER — mesmo endpoint usado no site principal */
+    const CONTACT_WORKER_URL = 'https://devbrazil-contact.fabioceschini.workers.dev/';
+
+    const VALID_LANGS = ['en', 'pt', 'es', 'fr', 'de'];
+
+    /* Mensagens dinâmicas de status (não fazem parte do DOM estático,
+       então não dá pra usar data-xx nelas — ficam num dicionário aqui). */
+    const STATUS_MESSAGES = {
+        pt: {
+            missingFields: 'Preencha todos os campos.',
+            sending: 'Enviando...',
+            success: 'Mensagem enviada com sucesso!',
+            error: 'Não foi possível enviar a mensagem. Tente novamente mais tarde.'
+        },
+        en: {
+            missingFields: 'Please complete all fields.',
+            sending: 'Sending...',
+            success: 'Message sent successfully!',
+            error: 'Unable to send the message. Please try again later.'
+        },
+        es: {
+            missingFields: 'Complete todos los campos.',
+            sending: 'Enviando...',
+            success: '¡Mensaje enviado con éxito!',
+            error: 'No se pudo enviar el mensaje. Inténtelo de nuevo más tarde.'
+        },
+        fr: {
+            missingFields: 'Veuillez remplir tous les champs.',
+            sending: 'Envoi en cours...',
+            success: 'Message envoyé avec succès !',
+            error: "Impossible d'envoyer le message. Veuillez réessayer plus tard."
+        },
+        de: {
+            missingFields: 'Bitte füllen Sie alle Felder aus.',
+            sending: 'Wird gesendet...',
+            success: 'Nachricht erfolgreich gesendet!',
+            error: 'Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es später erneut.'
+        }
+    };
+
+    let currentLang = 'pt';
+
+    /* --- Mesmo esquema de tradução do site principal --- */
+    function updateContent() {
+        document.querySelectorAll('[data-pt]').forEach(el => {
+            const text = el.getAttribute(`data-${currentLang}`);
+            if (text) el.innerHTML = text;
+        });
+
+        document.querySelectorAll('[data-placeholder-pt]').forEach(el => {
+            const text = el.getAttribute(`data-placeholder-${currentLang}`);
+            if (text) el.placeholder = text;
+        });
+    }
+
+    function changeLanguage(lang) {
+        currentLang = lang;
+        updateContent();
+
+        document.querySelectorAll('.lang-pill').forEach(pill => {
+            pill.classList.toggle('active', pill.getAttribute('data-lang') === lang);
+        });
+
+        document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
+    }
+
+    function checkURLForLanguage() {
+        const hash = window.location.hash.replace('#', '');
+        const langParam = new URLSearchParams(window.location.search).get('lang');
+
+        if (VALID_LANGS.includes(hash)) return hash;
+        if (VALID_LANGS.includes(langParam)) return langParam;
+        return null;
+    }
+
+    /* --- Formulário --- */
+    const contactForm = document.getElementById('contactForm');
+    const contactName = document.getElementById('contactName');
+    const contactEmail = document.getElementById('contactEmail');
+    const contactMessage = document.getElementById('contactMessage');
+    const contactSend = document.getElementById('contactSend');
+    const contactStatus = document.getElementById('contactStatus');
+
+    contactForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const messages = STATUS_MESSAGES[currentLang] || STATUS_MESSAGES.en;
+
+        const name = contactName.value.trim();
+        const email = contactEmail.value.trim();
+        const message = contactMessage.value.trim();
+        const origin = 'dbMoney';
+
+        if (!name || !email || !message) {
+            contactStatus.textContent = messages.missingFields;
+            contactStatus.className = 'contact-status error';
+            return;
+        }
+
+        contactSend.disabled = true;
+        contactStatus.textContent = messages.sending;
+        contactStatus.className = 'contact-status';
+
+        try {
+            const response = await fetch(CONTACT_WORKER_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, message, origin })
+            });
+
+            let data;
+            try { data = await response.json(); } catch { data = {}; }
+
+            if (!response.ok) {
+                throw new Error(data.error || messages.error);
+            }
+
+            contactStatus.textContent = messages.success;
+            contactStatus.className = 'contact-status success';
+            contactForm.reset();
+
+        } catch (error) {
+            console.error('CONTACT_ERROR:', error);
+            contactStatus.textContent = error.message || messages.error;
+            contactStatus.className = 'contact-status error';
+        } finally {
+            contactSend.disabled = false;
+        }
+    });
+
+    /* --- Inicialização: URL (#hash / ?lang=) > idioma do navegador > 'pt' --- */
+    window.addEventListener('load', () => {
+        let initialLang = checkURLForLanguage();
+
+        if (!initialLang) {
+            const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+            initialLang = VALID_LANGS.find(l => browserLang.startsWith(l)) || 'pt';
+        }
+
+        changeLanguage(initialLang);
+    });
+</script>
+
+</body>
+</html>
