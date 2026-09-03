@@ -264,6 +264,7 @@ if (contactForm) {
             const name = contactName .value .trim();
             const email = contactEmail .value .trim();
             const message = contactMessage .value .trim();
+            const origin = 'Site';
 
             /* Validação adicional */
             if ( !name || !email || !message ) {
@@ -284,7 +285,7 @@ if (contactForm) {
                         {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify( { name: name, email: email, message: message } )
+                            body: JSON.stringify( { name: name, email: email, message: message, origin: origin } )
                         }
                     );
 
