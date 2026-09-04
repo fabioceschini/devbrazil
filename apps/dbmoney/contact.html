@@ -15,28 +15,30 @@
         --verde-dev: #1b845b;
         --verde-dev-dark: #146a48;
         --bg-light: #f7f6f1;
+        --bg-white: white;
         --ink: #1c2321;
         --muted: #70766f;
         --line: #e7e4da;
         --font-body: "Inter", "Segoe UI", sans-serif;
-        --font-mono: "JetBrains Mono", "Consolas", monospace;
+        --font-mono: "JetBrains Mono", "Consolas", monospace;        
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
         font-family: var(--font-body);
-        background-color: var(--bg-light);
+        background-color: #F7F7F7;
+        font-size: 13px;
         color: var(--ink);
         line-height: 1.6;
     }
 
     .contact-page {
         min-height: 100vh;
-        display: flex;
+        /* display: flex; */
         align-items: center;
         justify-content: center;
-        padding: 40px 20px;
+        padding: 0px 5px 0px 5px;
     }
 
     .contact-card {
@@ -45,8 +47,8 @@
         max-width: 480px;
         padding: 32px;
         border-radius: 16px;
-        background: #ffffff;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+        background: #F7F7F7;
+        /* box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);*/
     }
 
     .lang-selector {
@@ -80,7 +82,7 @@
         color: var(--ink);
     }
 
-    .about-content { margin-bottom: 20px; }
+    .about-content { margin-bottom: 0px; }
 
     .gallery-title-green {
         color: var(--verde-dev);
@@ -113,17 +115,17 @@
         width: 100%;
         box-sizing: border-box;
         margin-bottom: 15px;
-        padding: 13px 14px;
+        padding: 10px 11px;
         border: 1px solid #d0d0d0;
         border-radius: 8px;
         background: #ffffff;
         color: #222222;
         font-family: inherit;
-        font-size: 15px;
+        font-size: 13px;
         transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
-    textarea { resize: vertical; min-height: 130px; }
+    textarea { resize: vertical; min-height: 120px; }
 
     input:focus, textarea:focus {
         outline: none;
@@ -171,6 +173,7 @@
 <div class="contact-page">
     <div class="contact-card">
 
+        <!--
         <div class="lang-selector" id="langSelector">
             <a class="lang-pill" data-lang="en" onclick="changeLanguage('en')">EN</a>
             <a class="lang-pill" data-lang="pt" onclick="changeLanguage('pt')">PT</a>
@@ -178,25 +181,31 @@
             <a class="lang-pill" data-lang="fr" onclick="changeLanguage('fr')">FR</a>
             <a class="lang-pill" data-lang="de" onclick="changeLanguage('de')">DE</a>
         </div>
+        -->
 
         <div class="about-content">
+            <!--
             <h3 class="gallery-title-green"
                 data-pt="Formulário de contato"
                 data-en="Contact form"
                 data-es="Formulario de contacto"
                 data-fr="Formulaire de contact"
                 data-de="Kontaktformular">Formulário de contato</h3>
+            -->
 
             <div class="about-content">
-                <p data-pt="Preencha seus dados ou entre em contato através do e-mail:"
-                   data-en="Fill in your details or get in touch via email:"
-                   data-es="Complete sus datos o póngase en contacto a través del correo electrónico:"
-                   data-fr="Remplissez vos coordonnées ou contactez-nous par e-mail :"
-                   data-de="Füllen Sie Ihre Daten aus oder kontaktieren Sie uns per E-Mail:">Preencha seus dados ou entre em contato através do e-mail:</p>
-
-                <a href="mailto:support@devbrazil.com"
-                   class="product-eyebrow eyebrow-gray"
-                   title="support@devbrazil.com">support@devbrazil.com</a>
+                <p data-pt="<strong>Como podemos ajudar?</strong>"
+                   data-en="<strong>How can we help?</strong>"
+                   data-es="<strong>¿Cómo podemos ayudarte?</strong>"
+                   data-fr="<strong>Comment pouvons-nous vous aider ?</strong>"
+                   data-de="<strong>Wie können wir Ihnen helfen?</strong>">
+                </p>
+                <p data-pt="Envie sua dúvida, sugestão ou feedback. Responderemos em breve no seu e-mail."
+                   data-en="Send us your question, suggestion, or feedback. We will respond to your email shortly."
+                   data-es="Envíanos tu duda, sugerencia o comentario. Te responderemos pronto a tu correo electrónico."
+                   data-fr="Envoyez-nous votre question, suggestion ou commentaire. Nous vous répondrons sous peu par e-mail."
+                   data-de="Senden Sie uns Ihre Frage, Ihren Vorschlag oder Ihr Feedback. Wir werden Ihnen Kürze per E-Mail antworten.">
+                </p>
             </div>
         </div>
 
@@ -230,7 +239,7 @@
             <textarea
                 id="contactMessage"
                 name="message"
-                rows="6"
+                rows="5"
                 required
                 maxlength="5000"
                 placeholder="Sua mensagem"

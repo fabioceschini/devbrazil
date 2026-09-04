@@ -46,6 +46,8 @@
 			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 		}
 
+		hr {border: 0; height: 1px; background-color: #eee; margin: 7px 0;}
+
 		h1 {
 			font-size: 2.0rem;
 			margin-bottom: 0.5rem;
@@ -72,15 +74,15 @@
 		.screenshot-grid img:hover { transform: scale(1.05); }
 
 		.secao {
-			margin-bottom: 2rem;
+			margin-bottom: 2.5rem;
 		}
 
 		.secao-titulo {
 			color: var(--azul-escuro);
 			font-size: 1.3rem;
-			margin-bottom: 1.5rem;
+			margin-bottom: 1.0rem;
 			padding-bottom: 0.5rem;
-			border-bottom: 2px solid var(--azul-claro);
+			border-bottom: 2px solid #EEEEEE;
 		}
 
 		/* Estilos para seção de versões */
@@ -164,7 +166,7 @@
 
 		.alteracao-item-sub {
 			margin-bottom: 0.8rem;
-			font-size: 0.8rem;
+			font-size: 0.9rem;
 			padding-left: 2.7rem;
 			position: relative;
 		}
@@ -225,7 +227,7 @@
 		/* Estilos para seção de vídeos */
 		.videos-grid {
 			display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+			grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
 			gap: 1.5rem;
 		}
 
@@ -249,24 +251,24 @@
 
 		.video-thumbnail {
 			position: relative;
-			height: 180px;
+			height: 120px;
 			background-color: var(--azul-claro);
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			color: var(--branco);
-			font-size: 3rem;
+			font-size: 2rem;
 			overflow: hidden;
 		}
 
 		.video-thumbnail::after {
 			content: '▶';
 			position: absolute;
-			font-size: 2.2rem;
+			font-size: 2.0rem;
 			z-index: 2;
 			background: rgba(0, 0, 0, 0.6);
-			width: 60px;
-			height: 60px;
+			width: 50px;
+			height: 50px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -275,24 +277,26 @@
 		}
 
 		.video-info {
-			padding: 1rem;
+			padding: 0.5rem;
 		}
 
 		.video-titulo {
-			font-size: 1.1rem;
+			font-size: 1.0rem;
 			font-weight: 600;
-			margin-bottom: 0.5rem;
+			margin-bottom: 0rem;
+			margin-left: 0.2rem;
 			color: var(--azul-escuro);
 		}
 
 		.video-data {
 			font-size: 0.8rem;
 			color: #666;
-			margin-bottom: 0.5rem;
+			margin-bottom: 0rem;
+			margin-left: 0.2rem;
 		}
 
 		.video-descricao {
-			font-size: 0.9rem;
+			font-size: 0.8rem;
 			color: #444;
 		}       
 
@@ -301,106 +305,38 @@
 			color: var(--branco);
 			text-align: center;
 			padding: 1.5rem;
-			margin-top: 3rem;
+			margin-top: 3rem;		
 		}
+
+		.product-eyebrow {
+			display: inline-block;
+			align-items: center;
+			gap: 8px;
+			/*font-family: var(--font-mono);*/
+			font-size: 0.8rem;
+			font-weight: 600;
+			letter-spacing: 0.08em;
+					
+			padding: 5px 8px;
+			border-radius: 8px;            
+			margin-left: 5px;
+			line-height: 1;
+			text-decoration: none;
+			cursor: pointer; 
+		}
+
+		.product-eyebrow:hover {
+			opacity: 0.8; /* Dá um leve efeito de piscar ao passar o mouse */
+			/* Ou você pode mudar o background-color aqui */
+		}		
+
+		.eyebrow-blue {margin-left: 5px; margin-right: 5px;  margin-top: 0px; margin-bottom: 0px; color: var(--azul-dbmoney); background: rgba(0,74,153,0.08);}
+		.eyebrow-red {margin-left: 0px; margin-right: 10px; margin-top: 7px; margin-bottom: 7px; color: var(--vermelho-dbpdf); background: rgba(167,80,82,0.1);}
+		.eyebrow-yellow {margin-left: 0px; margin-right: 10px; margin-top: 7px; margin-bottom: 7px; color: #8a6800; background: rgba(188,141,0,0.12);}
+		.eyebrow-purple {margin-left: 0px; margin-right: 10px; margin-top: 7px; margin-bottom: 7px; color: var(--roxo-dbradio); background: rgba(106,27,154,0.08);}
+		.eyebrow-green {margin-left: 0px; margin-right: 5px;  margin-top: 7px; margin-bottom: 7px; color: var(--verde-dev-dark); background: rgba(27,132,91,0.1);}
+		.eyebrow-gray {margin-left: 5px; margin-right: 5px;  margin-top: 0px; margin-bottom: 0px; color: #686868; background: #F2F2F2; border: 1px solid #dfdede;}
 		
-		
-		/* --- Banner de Promoção Premium --- */
-		.promo-banner {
-			background: linear-gradient(135deg, #EAF0F9 0%, #A6BAD7 100%);
-			color: #ffffff;
-			border-radius: 8px;
-			padding: 1.25rem 1.5rem;
-			margin-bottom: 2rem;
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			gap: 1.5rem;
-			box-shadow: 0 4px 12px rgba(43, 87, 154, 0.2);
-			border-left: 5px solid #2B579A;
-		}
-
-		.promo-content {
-			display: flex;
-			flex-direction: column;
-			gap: 0.5rem;
-		}
-
-		.promo-badge {
-			align-self: flex-start;
-			background-color: #2B579A;
-			color: #ffffff;
-			padding: 0.3rem 0.75rem;
-			border-radius: 20px;
-			font-size: 0.78rem;
-			font-weight: bold;
-			display: flex;
-			align-items: center;
-			gap: 0.4rem;
-			letter-spacing: 0.3px;
-		}
-
-		.promo-text h3 {
-			font-size: 1.2rem;
-			font-weight: 700;
-			color: var(--azul-escuro);
-			margin: 0;
-			line-height: 1.3;
-		}
-
-		.promo-text p {
-			font-size: 0.88rem;
-			color: var(--cinza-escuro);
-			line-height: 1.4;
-			margin: 0;
-		}
-
-		.promo-btn {
-			background-color: #2B579A;
-			color: #ffffff;
-			border: none;
-			padding: 0.8rem 1.4rem;
-			border-radius: 6px;
-			font-weight: bold;
-			font-size: 0.92rem;
-			cursor: pointer;
-			display: flex;
-			align-items: center;
-			gap: 0.6rem;
-			white-space: nowrap;
-			transition: all 0.2s ease;
-			box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-		}
-
-		.promo-btn:hover {
-			background-color: #1F3F70;
-			transform: translateY(-2px);
-			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-		}
-
-		/* --- REGRAS DO VOUCHER JÁ RESGATADO --- */
-		.promo-claimed-msg {
-			display: none;
-			color: #2B579A;
-			font-weight: bold;
-			font-size: 0.95rem;
-			align-items: center;
-			gap: 0.5rem;
-			background-color: rgba(255, 255, 255, 0.6);
-			padding: 0.6rem 1rem;
-			border-radius: 6px;
-		}
-
-		/* Se o <body> tiver a classe 'voucher-already-claimed', ajusta os elementos */
-		body.voucher-already-claimed .promo-btn {
-			display: none !important;
-		}
-
-		body.voucher-already-claimed .promo-claimed-msg {
-			display: flex !important;
-		}
-		
-
 		@media (max-width: 768px) {
 			.container {
 				padding: 0 1rem;
@@ -416,14 +352,6 @@
 				grid-template-columns: 1fr;
 			}
 			
-			.promo-banner {
-				flex-direction: column;
-				align-items: flex-start;
-			}
-			.promo-btn {
-				width: 100%;
-				justify-content: center;
-			}
 		}
     </style>
 
@@ -431,71 +359,42 @@
 <body>
     
     <div class="container">
-	
-		<!--
-		<div class="promo-banner">
-			<div class="promo-content">
-				<div class="promo-badge">
-					<i class="fa-solid fa-gift"></i>
-					<a data-pt="Oferta de Lançamento" 
-					   data-en="Launch Offer" 
-					   data-es="Oferta de Lanzamiento" 
-					   data-fr="Offre de Lancement" 
-					   data-de="Einführungsangebot"></a>
-				</div>
-				<div class="promo-text">
-					<h3>
-						<a data-pt="Ganhe uma licença Premium vitalícia do dbMoney!" 
-						   data-en="Get a free lifetime Premium license for dbMoney!" 
-						   data-es="¡Obtén una licencia Premium de por vida para dbMoney!" 
-						   data-fr="Obtenez une licence Premium à vie pour dbMoney !" 
-						   data-de="Holen Sie sich eine lebenslange Premium-Lizenz für dbMoney!"></a>
-					</h3>
-					<p>
-						<a data-pt="Para celebrar nosso lançamento, estamos disponibilizando um lote restrito de licenças gratuitas por tempo determinado. Resgate sua chave, experimente todos os recursos e nos ajude a evoluir compartilhando sua opinião." 
-						   data-en="To celebrate our launch, we are offering a limited batch of free licenses for a short time. Claim your key, explore all features, and help us evolve by sharing your feedback." 
-						   data-es="Para celebrar nuestro lanzamiento, ofrecemos un lote limitado de licencias gratuitas por tiempo determinado. Canjea tu clave, prueba todas las funciones y ayúdanos a mejorar compartiendo tu opinión." 
-						   data-fr="Pour célébrer notre lancement, nous offrons un lot limité de licences gratuites pour une durée limitée. Réclamez votre clé, essayez toutes les fonctionnalités et aidez-nous à évoluer en partageant votre avis." 
-						   data-de="Zur Feier unseres Starts stellen wir für kurze Zeit ein begrenztes Kontingent an kostenlosen Lizenzen bereit. Holen Sie sich Ihren Schlüssel, testen Sie alle Funktionen und helfen Sie uns mit Ihrem Feedback weiter."></a>
-					</p>
-				</div>
-			</div>			
-			
-			<button class="promo-btn" onclick="openFormModal()">
-				<i class="fa-solid fa-key"></i>
-				<a data-pt="Resgatar Licença Grátis" 
-				   data-en="Claim Free License" 
-				   data-es="Canjear Licencia Gratis" 
-				   data-fr="Obtenir la licence gratuite" 
-				   data-de="Kostenlose Lizenz anfordern"></a>
-			</button>
-			
-			<div class="promo-claimed-msg">
-				<i class="fa-solid fa-circle-check" style="color: #2e7d32; font-size: 1.2rem;"></i>
-				<a data-pt="Sua licença Premium já foi resgatada!" 
-				   data-en="Your Premium license has already been claimed!" 
-				   data-es="¡Tu licencia Premium ya ha sido canjeada!" 
-				   data-fr="Votre licence Premium a déjà été réclamée !" 
-				   data-de="Ihre Premium-Lizenz wurde bereits angefordert!"></a>
+		
+		<div class="review-box" style="color: var(--azul-escuro); font-size: 1.1em; background: #f7f8fc; border: 1px solid #e2e6fc; padding: 16px; border-radius: 6px; margin: 30px 0 30px 0; text-align: left; display: flex; align-items: center; gap: 15px;">
+			<img src="images/dbMoney-rate-40.png" alt="dbMoney" style="width: 40px; height: 40px; flex-shrink: 0; object-fit: contain;">
+			<div>
+				<p data-pt="<strong>Sua avaliação impulsiona a evolução do dbMoney!</strong>"
+				   data-en="<strong>Your review drives the evolution of dbMoney!</strong>"
+				   data-es="<strong>¡Tu evaluación impulsa la evolución de dbMoney!</strong>"
+				   data-fr="<strong>Votre évaluation stimule l'évolution de dbMoney !</strong>"
+				   data-de="<strong>Ihre Bewertung treibt die Entwicklung von dbMoney voran!</strong>">
+				</p>
+
+				<a style="font-size: 0.8em; color: #555; margin: 5px 0 0 0;"
+				   data-pt="Quanto mais o dbMoney cresce na Microsoft Store, mais recursos e melhorias conseguimos desenvolver para o seu controle financeiro. Leva apenas 10 segundos. Clique no botão <span class='product-eyebrow eyebrow-gray' id='btn-eyebrow' id-function='Rate'><i class='fa-solid fa-star' style='color: #FFCA28'></i>&nbsp;Avaliar</span> para contribuir."
+				   data-en="The more dbMoney grows on the Microsoft Store, the more features and improvements we can develop for your financial management. It takes just 10 seconds. Click the <span class='product-eyebrow eyebrow-gray' id='btn-eyebrow' id-function='Rate'><i class='fa-solid fa-star' style='color: #FFCA28'></i>&nbsp;Rate</span> button to contribute."
+				   data-es="Cuanto más crece dbMoney en Microsoft Store, más funciones y mejoras podemos desarrollar para tu control financiero. Solo toma 10 segundos. Haz clic en el botón <span class='product-eyebrow eyebrow-gray' id='btn-eyebrow' id-function='Rate'><i class='fa-solid fa-star' style='color: #FFCA28'></i>&nbsp;Calificar</span> para contribuir."
+				   data-fr="Plus dbMoney grandit sur le Microsoft Store, plus nous pouvons développer de fonctionnalités et d'améliorations pour votre gestion financière. Cela ne prend que 10 secondes. Cliquez sur le bouton <span class='product-eyebrow eyebrow-gray' id='btn-eyebrow' id-function='Rate'><i class='fa-solid fa-star' style='color: #FFCA28'></i>&nbsp;Évaluer</span> pour contribuer."
+				   data-de="Je mehr dbMoney im Microsoft Store wächst, desto mehr Funktionen und Verbesserungen können wir für Ihre Finanzkontrolle entwickeln. Es dauert nur 10 Sekunden. Klicken Sie auf die Schaltfläche <span class='product-eyebrow eyebrow-gray' id='btn-eyebrow' id-function='Rate'><i class='fa-solid fa-star' style='color: #FFCA28'></i>&nbsp;Bewerten</span>, um beizutragen.">
+				</a>
 			</div>
 		</div>
-		-->		
-	
+		
         <section class="secao">
-            <h2 class="secao-titulo"><a data-pt="Bem-vindo à sua central financeira"
-			                            data-en="Welcome to your financial hub"
-										data-es="Bienvenido a tu centro financiero"
-										data-fr="Bienvenue dans votre centre financier"
-										data-de="Willkommen in Ihrer Finanzzentrale"></a></h2>
+            <h2 class="secao-titulo"><a data-pt='Versão mais recente'
+			                            data-en="Latest Version"
+										data-es="Versión más reciente"
+										data-fr="Version la plus récente"
+										data-de="Neueste Version"></a></h2>
             
 			<div class="versao">
 				<div class="versao-header">
-					<h3 class="versao-numero">v1.0.13</h3>
-					<span class="versao-data"><a data-pt="14 de Agosto de 2026"
-												 data-en="August 14, 2026"
-												 data-es="14 de Agosto de 2026"
-												 data-fr="14 Août 2026"
-												 data-de="14. August 2026"></a></span>
+					<h3 class="versao-numero">v1.0.14</h3>
+					<span class="versao-data"><a data-pt="3 de Setembro de 2026"
+												 data-en="September 3, 2026"
+												 data-es="3 de septiembre de 2026"
+												 data-fr="3 septembre 2026"
+												 data-de="3. September 2026"></a></span>
 				</div>
 				<h4 class="versao-titulo"><a data-pt="Nova versão disponível"
 											 data-en="New version available"
@@ -504,39 +403,106 @@
 											 data-de="Neue Version verfügbar"></a></h4>			
 
 				<ul class="alteracoes">
-					<li class="alteracao-item"><span class="tag tag-melhoria"><a data-pt="<pre>Melhoria</pre>" 
-																				 data-en="<pre> Tweak </pre>" 
-																				 data-es="<pre>   Mejora   </pre>" 
-																				 data-fr="<pre>Amélior.</pre>" 
-																				 data-de="<pre>Optimier.</pre>"></a></span>
-											   <a data-pt="Implementada opção de avaliação do app para nos ajudar a melhorar a sua experiência."
-												  data-en="Implemented app rating option to help us improve your experience."
-												  data-es="Implementada la opción de calificación de la aplicación para ayudarnos a mejorar su experiencia."
-												  data-fr="Implémentation de l'option d'évaluation de l'application pour nous aider à améliorer votre expérience."
-												  data-de="Option zur App-Bewertung hinzugefügt, um uns bei der Verbesserung Ihrer Erfahrung zu helfen."></a></li>
+					<li class="alteracao-item">
+						<span class="tag tag-novo">
+							<a data-pt="<pre>    Novo    </pre>" 
+					           data-en="<pre>   New   </pre>" 
+							   data-es="<pre>    Nuevo   </pre>" 
+							   data-fr="<pre>Nouveau</pre>" 
+							   data-de="<pre>    Neu    </pre>">
+							</a>
+						</span>
+						<a data-pt="Gerado novo layout mais simplificado para navegação da tela inicial do dbMoney."
+						   data-en="New simplified layout generated for navigating the dbMoney home screen."
+						   data-es="Generado nuevo diseño más simplificado para la navegación de la pantalla principal de dbMoney."
+						   data-fr="Nouvelle disposition plus simplifiée générée pour la navigation sur l'écran d'accueil de dbMoney."
+						   data-de="Neuer, vereinfachter Entwurf für die Navigation auf dem dbMoney-Startbildschirm erstellt.">
+						</a>
+					</li>
+
+					<li class="alteracao-item">
+						<span class="tag tag-novo">
+							<a data-pt="<pre>    Novo    </pre>" 
+					           data-en="<pre>   New   </pre>" 
+							   data-es="<pre>    Nuevo   </pre>" 
+							   data-fr="<pre>Nouveau</pre>" 
+							   data-de="<pre>    Neu    </pre>">
+							</a>
+						</span>
+						<a data-pt="Adicionado nova tela para contato rápido com o suporte da DevBrazil."
+						   data-en="Added a new screen for quick contact with DevBrazil support."
+						   data-es="Añadida una nueva pantalla para contacto rápido con el soporte de DevBrazil."
+						   data-fr="Ajout d'un nouvel écran pour contacter rapidement le support de DevBrazil."
+						   data-de="Neuer Bildschirm für den schnellen Kontakt mit dem DevBrazil-Support hinzugefügt.">
+						</a>
+					</li>
+				</ul>
+		
+				<ul class="alteracoes">
+					<li class="alteracao-item">
+						<span class="tag tag-melhoria">
+							<a data-pt="<pre>Melhoria</pre>"
+							   data-en="<pre> Tweak </pre>" 
+							   data-es="<pre>   Mejora   </pre>" 
+							   data-fr="<pre>Amélior.</pre>" 
+							   data-de="<pre>Optimier.</pre>">
+							</a>
+						</span>
+						<a data-pt="Melhoria/refatoração de rotinas de manipulação de arquivos."
+						   data-en="File handling routines improved/refactored."
+						   data-es="Mejora/refactorización de las rutinas de manipulación de archivos."
+						   data-fr="Amélioration/refactorisation des routines de manipulation de fichiers."
+						   data-de="Verbesserung/Refactoring von Dateiverarbeitungsroutinen.">
+						</a>
+					</li>
 				</ul>
 
 				<ul class="alteracoes">				
-					<li class="alteracao-item"><span class="tag tag-correcao"><a data-pt="<pre>Correção</pre>" 
-																					 data-en="<pre>    Fix     </pre>" 
-																					 data-es="<pre>Corrección</pre>" 
-																					 data-fr="<pre>Correct. </pre>" 
-																					 data-de="<pre>Behoben </pre>"></a></span>
-											   <a data-pt="Solucionada uma falha de inicialização em sistemas sem determinadas bibliotecas da Microsoft pré-instaladas." 
-												  data-en="Fixed a startup issue on systems without certain Microsoft libraries pre-installed."
-												  data-es="Se solucionó un fallo de inicio en sistemas sin ciertas bibliotecas de Microsoft preinstaladas."
-												  data-fr="Résolution d'un problème de démarrage sur les systèmes n'ayant pas certaines bibliothèques Microsoft préinstallées."
-												  data-de="Startproblem auf Systemen ohne vorinstallierte Microsoft-Bibliotheken behoben."></a></li>
+					<li class="alteracao-item">
+						<span class="tag tag-correcao">
+							<a data-pt="<pre>Correção</pre>" 
+							   data-en="<pre>    Fix     </pre>" 
+							   data-es="<pre>Corrección</pre>" 
+							   data-fr="<pre>Correct. </pre>" 
+							   data-de="<pre>Behoben </pre>">
+							</a>
+						</span>
+						<a data-pt="Correção de falha na rotina de backup para arquivos criptografados." 
+						   data-en="Fixed issue in the backup routine for encrypted files."
+						   data-es="Corrección de un fallo en la rutina de copia de seguridad para archivos encriptados."
+						   data-fr="Correction d'un problème dans la routine de sauvegarde pour les fichiers cryptés."
+						   data-de="Behebung eines Fehlers in der Backup-Routine für verschlüsselte Dateien.">
+						</a>
+					</li>
+				</ul>
+
+				<ul class="alteracoes">				
+					<li class="alteracao-item">
+						<span class="tag tag-correcao">
+							<a data-pt="<pre>Correção</pre>" 
+							   data-en="<pre>    Fix     </pre>" 
+							   data-es="<pre>Corrección</pre>" 
+							   data-fr="<pre>Correct. </pre>" 
+							   data-de="<pre>Behoben </pre>">
+							</a>
+						</span>
+						<a data-pt="Correção de pequenos bugs." 
+						   data-en="Minor bug fixes."
+						   data-es="Corrección de errores menores."
+						   data-fr="Correction de bugs mineurs."
+						   data-de="Kleinere Fehlerbehebungen.">
+						</a>
+					</li>
 				</ul>
 			</div>
         </section>
-        
+
         <section class="secao">
-            <h2 class="secao-titulo"><a data-pt="Novos Vídeos"
-			                            data-en="New Videos"
-										data-es="Nuevos videos"
-										data-fr="Nouvelles vidéos"
-										data-de="Neue Videos"></a></h2>
+            <h2 class="secao-titulo"><a data-pt='Vídeos e tutoriais'
+			                            data-en="Videos and Tutorials"
+										data-es="Videos y tutoriales"
+										data-fr="Vidéos et tutoriels"
+										data-de="Videos und Tutorials"></a></h2>
             
             <div class="videos-grid">
                 <div class="video-card">
@@ -552,20 +518,22 @@
 													data-fr="Aperçu général"
 													data-de="Übersicht"></a></h3>
 													
-                        <p class="video-data"><a data-pt="Publicado em 25 de Junho de 2026" 
-						                         data-en="Published on Jun 25, 2026"
-												 data-es="Publicado el 25 de junio de 2026"
-												 data-fr="Publié le 25er juin 2026"
-												 data-de="Veröffentlicht am 25. Juni 2026"></a></p>
-                        <p class="video-descricao"><a data-pt="Um tour com uma visão rápida e exibição dos principais recursos do dbMoney."
+						<p class="video-data"><a data-pt="25 de Junho de 2026" 
+						                         data-en="Jun 25, 2026"
+												 data-es="25 de junio de 2026"
+												 data-fr="25er juin 2026"
+												 data-de="25. Juni 2026"></a></p>
+                        <!--
+						<p class="video-descricao"><a data-pt="Um tour com uma visão rápida e exibição dos principais recursos do dbMoney."
 						                              data-en="A tour providing a quick overview and showcasing the main features of dbMoney."
 													  data-es="Un recorrido visual rápido que muestra las funciones principales de dbMoney."
 													  data-fr="Un aperçu rapide et visuel des principales fonctionnalités de dbMoney."
 													  data-de="Ein schneller visueller Rundgang mit Vorstellung der Hauptfunktionen von dbMoney."></a></p>
+						-->
                     </div>
                 </div>
                 
-                <div class="video-card">
+				<div class="video-card">
                     <div class="video-thumbnail"></div>
                     <div class="video-info">
                         <h3 class="video-titulo"><a data-pt="Recursos avançados"
@@ -573,16 +541,18 @@
 													data-es="Funciones avanzadas"
 													data-fr="Fonctionnalités avancées"
 													data-de="Erweiterte Funktionen"></a></h3>
-                        <p class="video-data"><a data-pt="Em breve" 
+						<p class="video-data"><a data-pt="Em breve" 
 						                         data-en="Coming soon"
 												 data-es="Próximamente"
 												 data-fr="Bientôt disponibles"
 												 data-de="Demnächst verfügbar"></a></p>
+						<!--
                         <p class="video-descricao"><a data-pt="Aprenda de maneira detalhada a utilizar os principais recursos do dbMoney."
 						                              data-en="Learn in detail how to use the main features of dbMoney."
 													  data-es="Aprenda en detalle cómo utilizar las funciones principales de dbMoney."
 													  data-fr="Apprenez en détail à utiliser les principales fonctionnalités de dbMoney."
 													  data-de="Lernen Sie im Detail, wie Sie die wichtigsten Funktionen von dbMoney nutzen."></a></p>
+						-->
                     </div>
                 </div>
             </div>
@@ -733,58 +703,6 @@
 		return 0;
 	}
 	
-	/* --- ABERTURA DO MODAL DO TALLY & ENVIO AO DELPHI --- */
-	function openFormModal() {
-		const urlParams = new URLSearchParams(window.location.search);
-		const currentAppVersion = urlParams.get('v') || '1.0.0';
-
-		// Impede o resgate se a versão for menor que 1.0.12
-		if (compareVersions(currentAppVersion, '1.0.12') < 0) {
-			
-			// Mensagens multilíngues
-			const messages = {
-				pt: 'Esta promoção é exclusiva para a versão 1.0.12 ou superior do dbMoney Personal. Por favor, atualize o aplicativo para resgatar.',
-				en: 'This promotion is exclusive to version 1.0.12 or higher of dbMoney Personal. Please update the app to claim.',
-				es: 'Esta promoción es exclusiva para la versión 1.0.12 o superior de dbMoney Personal. Por favor, actualice la aplicación para canjear.',
-				fr: 'Cette promotion est exclusive à la version 1.0.12 ou supérieure de dbMoney Personal. Veuillez mettre à jour l\'application pour en profiter.',
-				de: 'Aktion nur gültig ab Version 1.0.12 von dbMoney Personal. Bitte aktualisieren Sie die App, um das Angebot zu nutzen.'
-			};
-
-			// Identifica o idioma (usa a variável global currentLang ou tenta pelo navegador)
-			const lang = (typeof currentLang !== 'undefined' ? currentLang : navigator.language || 'en').substring(0, 2).toLowerCase();
-			
-			// Exibe o alerta no idioma correspondente ou cai de volta para o inglês ('en')
-			const alertMessage = messages[lang] || messages['en'];
-			alert(alertMessage);
-			
-			return;
-		}
-
-		Tally.openPopup('2EdvOe', {
-			layout: 'modal',
-			width: 520,
-			hideTitle: true,
-			overlay: true,
-			hiddenFields: {
-				version: currentAppVersion
-			},
-			onSubmit: (payload) => {
-				// 1. Avisa o EdgeBrowser/Delphi
-				if (window.chrome && window.chrome.webview) {
-					window.chrome.webview.postMessage('VOUCHER_CLAIMED');
-				}
-
-				// 2. Transforma o banner visualmente na hora
-				document.body.classList.add('voucher-already-claimed');
-			},
-			onClose: () => {
-				// 3. Callback disparado quando o usuário clica no "X" ou fora do modal
-				if (window.chrome && window.chrome.webview) {
-					window.chrome.webview.postMessage('TALLY_POPUP_CLOSED');
-				}
-			}
-		});
-	}
 </script>
 	
 </body>

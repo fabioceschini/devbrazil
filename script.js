@@ -24,7 +24,7 @@
 
 let currentImageIndex = 0;
 let currentGalleryImages = [];
-/* let currentLang = 'pt'; */
+let currentLang = 'en';
 
 function updateContent() {
     document.querySelectorAll('[data-pt]').forEach(el => {
@@ -106,16 +106,6 @@ function updateCaption() {
     '';
 }
 
-function openContactModal() {
-    const modal = document.getElementById('contactModal');
-    if (modal) modal.style.display = 'flex';
-}
-
-function closeContactModal() {
-    const modal = document.getElementById('contactModal');
-    if (modal) modal.style.display = 'none';
-}
-
 function scrollToSection(id) {
     const element = document.getElementById(id);
     if (element) {
@@ -173,9 +163,6 @@ function updateActiveMenu() {
 window.addEventListener('click' , event => {
     const galleryModal = document.getElementById('myModal');
     if (event.target === galleryModal) closeModal();
-
-    const contactModal = document.getElementById('contactModal');
-    if (event.target === contactModal) closeContactModal();
 });
 
 document.addEventListener('keydown', event => {
@@ -207,7 +194,6 @@ window.addEventListener('load', () => {
    CONTACT MODAL
 ========================================= */
 
-const contactButton = document.getElementById('contactButton');
 const contactModal = document.getElementById('contactModal');
 const contactClose = document.getElementById('contactClose');
 const contactForm = document.getElementById('contactForm');
@@ -236,10 +222,6 @@ function closeContactModal() {
 
     contactModal.classList.remove('show');
     document.body.style.overflow = '';
-}
-
-if (contactButton) {
-    contactButton.addEventListener( 'click', openContactModal );
 }
 
 if (contactClose) {

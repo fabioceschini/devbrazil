@@ -576,17 +576,29 @@
 <button aria-label="Close" class="contact-close" id="contactClose" type="button"> × </button>
 <div class="about-content">
 <h3 class="gallery-title-green">
-<a>Formulaire de contact</a>
+<a>Comment pouvons-nous vous aider ?</a>
 </h3>
 <div class="about-content">
-<a>Remplissez vos coordonnées ou contactez-nous par e-mail :</a>
-<a class="product-eyebrow eyebrow-gray" href="mailto:support@devbrazil.com" title="support@devbrazil.com">support@devbrazil.com</a>
+<p>Envoyez-nous votre question, suggestion ou commentaire. Nous vous répondrons sous peu par e-mail.</p>
+<br/>
+<p style="font-size: 13px;"><i>Si vous préférez, contactez-nous par e-mail : <a href="mailto:support@devbrazil.com" title="support@devbrazil.com">support@devbrazil.com</a></i></p>
+<!--
+				<a data-pt='support@devbrazil.com'
+				   data-en='support@devbrazil.com'
+				   data-es='support@devbrazil.com'
+				   data-fr='support@devbrazil.com'
+				   data-de='support@devbrazil.com'
+				   href="mailto:support@devbrazil.com" 
+				   class="product-eyebrow eyebrow-gray" 
+				   title="support@devbrazil.com">
+				</a>
+				-->
 </div>
 </div>
 <form id="contactForm">
 <input id="contactName" maxlength="100" name="name" placeholder="Votre nom" required="" type="text"/>
 <input id="contactEmail" maxlength="150" name="email" placeholder="Votre e-mail" required="" type="email"/>
-<textarea id="contactMessage" maxlength="5000" name="message" placeholder="Votre message" required="" rows="6"></textarea>
+<textarea id="contactMessage" maxlength="5000" name="message" placeholder="Votre message" required="" rows="5"></textarea>
 <button class="contact-send" id="contactSend" type="submit">Envoyer le message</button>
 <div aria-live="polite" class="contact-status" id="contactStatus">
 </div>
