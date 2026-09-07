@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8"/>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+	<meta content="#1b845b" name="theme-color"/>
+
+    <title>DevBrazil | Software Engineering</title>
+	<link rel="icon" type="image/png" href="../../images/favicon.png">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+	<link href="https://fonts.googleapis.com" rel="preconnect"/>
+	<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+
+	<script src="https://tally.so/widgets/embed.js"></script>
+
+    <style>
+		:root {
+			--verde-dev-dark: #146a48;
+			--azul-dbmoney: #004a99;			
+			--vermelho-dbpdf: #A75052;
+			--roxo-dbradio: #6a1b9a;
+			--amarelo-dbnotes: #AF8300;			
+			--azul-escuro: #2B579A;
+			--azul-medio: #2B579A;
+			--azul-claro: #3949ab;
+			--cinza-claro: #F0F0F0;
+			--cinza-medio: #d6d6d6;
+			--cinza-escuro: #595959;
+			--verde-claro: #e8f5e9;
+			--verde-escuro: #2e7d32;
+			--laranja-claro: #fff3e0;
+			--laranja-escuro: #ef6c00;
+			--vermelho-dbpdf: #A95153;
+			--branco: #ffffff;
+			--font-body: "Inter", "Segoe UI", sans-serif;
+			--font-mono: "JetBrains Mono", "Consolas", monospace;	
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'Calibri', Tahoma, Geneva, Verdana, sans-serif;
+		}
+
+		body {
+			font-family: var(--font-body);
+			background-color: var(--branco);
+			color: #333;
+			line-height: 1.6;
+			overflow-x: hidden;}
+
+		header {
+			background-color: var(--vermelho-dbpdf);
+			color: var(--branco);
+			padding: 2rem;
+			text-align: center;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		}
+
+		hr {border: 0; height: 1px; background-color: #eee; margin: 7px 0;}
+
+		h1 {
+			font-size: 2.0rem;
+			margin-bottom: 0.5rem;
+		}
+
+		.about-content {margin-bottom: 20px;}
+
+		.subtitulo {
+			font-size: 1.2rem;
+			font-weight: 300;
+			opacity: 0.9;
+		}
+
+		.container {
+			max-width: 1400px;
+			margin: 1rem;
+			padding: 0 1rem;
+		}
+
+		.gallery-title { color: var(--vermelho-dbpdf); margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem; }
+		.screenshot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 12px; }
+		.screenshot-grid img { 
+			width: 100%; border-radius: 8px; cursor: pointer; 
+			box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.2s;
+		}
+		.screenshot-grid img:hover { transform: scale(1.05); }
+
+		.secao {
+			margin-bottom: 2.5rem;
+		}
+
+		.secao-titulo {
+			color: var(--vermelho-dbpdf);
+			font-size: 1.3rem;
+			margin-bottom: 1.0rem;
+			padding-bottom: 0.5rem;
+			border-bottom: 2px solid #EEEEEE;
+		}
+
+		/* Estilos para seção de versões */
+		.versao {
+			margin-bottom: 2rem;
+			border-left: 2px solid var(--cinza-medio);
+			padding-left: 1.5rem;
+			position: relative;
+		}
+
+		.versao::before {
+			margin-top: 0rem;
+			content: '';
+			position: absolute;
+			width: 3px;
+			height: 2px;
+			background-color: var(--cinza-medio);
+			border-radius: 10%;
+			left: 0px;
+			top: 10;
+		}
+
+		.versao::after {
+			margin-top: -0.9rem;
+			content: '';
+			position: absolute;
+			width: 5px;
+			height: 2px;
+			background-color: var(--cinza-medio);
+			border-radius: 10%;
+			left: -2px;
+			top: 1;
+		}  
+
+		.versao-header {
+			display: flex;
+			align-items: center;
+			margin-bottom: 1rem;
+		}
+
+		.versao-numero {
+			font-size: 1.2rem;
+			color: var(--vermelho-dbpdf);
+			font-weight: bold;
+			margin-right: 1rem;
+		}
+
+		.versao-data {
+			background-color: var(--cinza-claro);
+			color: var(--cinza-escuro);
+			padding: 0.3rem 0.8rem;
+			border-radius: 20px;
+			font-size: 0.8rem;
+		}
+
+		.versao-titulo {
+			font-size: 1.0rem;
+			color: var(--cinza-escuro);
+			margin-bottom: 1rem;
+		}
+
+		.alteracoes {
+			list-style-type: none;
+		}
+
+		.alteracao-item {
+			margin-bottom: 0.8rem;
+			font-size: 0.9rem;
+			color: var(--cinza-escuro);
+			padding-left: 1.2rem;
+			position: relative;
+		}
+
+		.alteracao-item::before {
+			content: '■';
+			position: absolute;
+			left: 0;
+			color: var(--cinza-escuro);
+			font-weight: bold;
+		}
+
+		.alteracao-item-sub {
+			margin-bottom: 0.8rem;
+			font-size: 0.9rem;
+			padding-left: 2.7rem;
+			position: relative;
+		}
+
+		.alteracao-item-sub::before {
+			content: '•';
+			position: absolute;
+			left: 1.5rem;
+			color: var(--cinza-escuro);
+			font-weight: bold;
+		}
+
+		.alteracao-item-sub-imagem {
+			margin-bottom: 0.8rem;
+			font-size: 0.8rem;
+			padding-left: 2.7rem;
+			position: relative;
+		}
+
+		.alteracao-item-sub-imagem::before {
+			content: '•';
+			position: absolute;			
+			left: 1.5rem;
+			top: 30%;
+			color: var(--cinza-escuro);
+			font-weight: bold;
+		}
+
+		.tag {
+			display: inline-block;
+			padding: 0.2rem 0.6rem;
+			border-radius: 4px;
+			font-size: 0.8rem;
+			font-weight: bold;
+			margin-right: 0.5rem;
+		}
+
+		.tag-novo {
+			background-color: var(--verde-claro);
+			color: var(--verde-escuro);
+		}
+
+		.tag-correcao {
+			background-color: var(--laranja-claro);
+			color: var(--laranja-escuro);
+		}
+
+		.tag-melhoria {
+			background-color: #e3f2fd;
+			color: #1565c0;
+		}
+
+		.tag-imagens {
+			background-color: #F9E0E9;
+			color: #721C38;
+		}
+
+		/* Estilos para seção de vídeos */
+		.videos-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+			gap: 1.5rem;
+		}
+
+		.video-card {
+			background-color: var(--cinza-claro);
+			border-radius: 8px;
+			overflow: hidden;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+			transition: transform 0.3s ease;
+		}
+
+		.video-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+		}
+
+		.video-card:hover .video-thumbnail::after {
+			background: rgba(229, 9, 20, 0.9);
+			transform: scale(1.1);
+		}		
+
+		.video-thumbnail {
+			position: relative;
+			height: 120px;
+			background-color: var(--azul-claro);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: var(--branco);
+			font-size: 2rem;
+			overflow: hidden;
+		}
+
+		.video-thumbnail::after {
+			content: '▶';
+			position: absolute;
+			font-size: 2.0rem;
+			z-index: 2;
+			background: rgba(0, 0, 0, 0.6);
+			width: 50px;
+			height: 50px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50%;
+			transition: background 0.2s, transform 0.2s;
+		}
+
+		.video-info {
+			padding: 0.5rem;
+		}
+
+		.video-titulo {
+			font-size: 1.0rem;
+			font-weight: 600;
+			margin-bottom: 0rem;
+			margin-left: 0.2rem;
+			color: var(--azul-escuro);
+		}
+
+		.video-data {
+			font-size: 0.8rem;
+			color: #666;
+			margin-bottom: 0rem;
+			margin-left: 0.2rem;
+		}
+
+		.video-descricao {
+			font-size: 0.8rem;
+			color: #444;
+		}       
+
+		footer {
+			background-color: var(--vermelho-dbpdf);
+			color: var(--branco);
+			text-align: center;
+			padding: 1.5rem;
+			margin-top: 3rem;		
+		}
+
+		.product-eyebrow {
+			display: inline-block;
+			align-items: center;
+			vertical-align: middle !important;
+			gap: 8px;
+			font-family: var(--font-mono);
+			font-size: 0.6rem;
+			font-weight: 600;
+			letter-spacing: 0.08em;
+					
+			padding: 6px 8px;
+			border-radius: 8px;            
+			margin-left: 5px;
+			line-height: 1;
+			text-decoration: none;
+			cursor: pointer;   
+		}
+
+		.product-eyebrow:hover {
+			opacity: 0.8; /* Dá um leve efeito de piscar ao passar o mouse */
+		}		
+
+		.eyebrow-blue	{margin-left: 5px; margin-right: 5px;  margin-top: 0px; margin-bottom: 0px; color: var(--azul-dbmoney); background: rgba(0,74,153,0.08); border: 1px solid #b2bfd3;}
+		.eyebrow-red 	{margin-left: 0px; margin-right: 10px; margin-top: 7px; margin-bottom: 7px; color: var(--vermelho-dbpdf); background: rgba(167,80,82,0.1);}
+		.eyebrow-yellow {margin-left: 0px; margin-right: 10px; margin-top: 7px; margin-bottom: 7px; color: #8a6800; background: rgba(188,141,0,0.12); border: 1px solid #e0d7bf;}
+		.eyebrow-purple {margin-left: 0px; margin-right: 10px; margin-top: 7px; margin-bottom: 7px; color: var(--roxo-dbradio); background: rgba(106,27,154,0.08);}
+		.eyebrow-green 	{margin-left: 0px; margin-right: 5px;  margin-top: 7px; margin-bottom: 7px; color: var(--verde-dev-dark); background: rgba(27,132,91,0.1);}
+		.eyebrow-gray 	{margin-left: 5px; margin-right: 0px;  margin-top: 0px; margin-bottom: 0px; color: #686868; background: #F2F2F2; border: 1px solid #dfdede;}
+
+		/* Força a tag strong a respeitar o alinhamento dos seus filhos */
+		/*
+		.review-box p strong {
+			display: inline-flex;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 10px;
+		}
+		*/
+
+		.review-box {
+			color: var(--azul-escuro);
+			font-size: 1.1em;
+			background: #f7f8fc;
+			border: 1px solid #dce1fc;
+			padding: 10px 2%;
+			border-radius: 6px;
+			margin: 25px 0;
+			text-align: left;
+		}
+
+		.review-box-content {
+			width: 100%;
+		}
+
+		/* Somente ícone + texto */
+		.review-box-main {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+		}
+
+		.review-box-icon {
+			width: 40px;
+			height: 40px;
+			flex-shrink: 0;
+			object-fit: contain;
+		}
+
+		.review-box-text {
+			flex: 1;
+			min-width: 0;			
+		}
+
+		.review-box-text a {			
+			margin: 0 0 6px 0;
+		}
+
+		.review-box-text p {
+			margin: 0 0 6px 0;
+			
+		}
+
+		.review-box-description {
+			display: block;
+			font-size: 0.8em;
+			color: #555;
+			line-height: 1.7;			
+			margin-top: 5px;
+		}
+
+		/* Linha divisória */
+		.review-box-divider {
+			border: 0;
+			border-top: 1px solid #dce1fc;
+			margin: 6px 10px 12px 53px;
+		}
+
+		/* Miniaturas */
+		.review-screenshots {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			margin-left: 53px;
+		}
+
+		.review-screenshots img {
+			width: 65px;
+			height: 42px;
+			object-fit: contain;
+			display: block;
+			border-radius: 6px;
+			box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+			cursor: pointer;
+			transition: transform 0.2s ease;
+		}
+
+		.review-screenshots img:hover {
+			transform: scale(1.08);
+		}
+
+		.gallery-more {
+			position: relative;
+			cursor: pointer;
+			overflow: hidden;
+			width: 65x; 
+			border-radius: 6px; 
+			box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+			transition: transform 0.2s;
+			margin-right: 0px;
+		}
+
+		.gallery-more img {
+			display: block;
+			width: 65px;
+			height: 42px;
+			object-fit: cover;
+		}
+
+		.gallery-more-overlay {
+			position: absolute;
+			inset: 0;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			background: rgba(0, 10, 0, 0.60); /* rgba(0, 10, 0, 0.219); */
+			color: var(--cinza-claro);
+			transition: background 0.2s ease;
+		}
+
+		.gallery-more-overlay span {			
+			font-size: 22px;
+			font-weight: 600;
+		}
+
+		.gallery-more-overlay small {
+			margin-top: 5px;
+			font-size: 14px;
+		}
+
+		.gallery-more:hover .gallery-more-overlay {
+			background: rgba(0, 0, 0, 0.75);
+		}
+
+		.gallery-hidden {
+			display: none !important;
+		}		
+		
+		@media (max-width: 768px) {
+			.container {
+				padding: 0 1rem;
+			}
+			
+			h1 {
+				font-size: 2rem;
+			}
+			
+			.screenshot-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+			
+			.videos-grid {
+				grid-template-columns: 1fr;
+			}
+			
+		}
+    </style>
+
+</head>
+<body>
+    
+    <div class="container">
+		<!--
+		<div class="review-box" style="color: #917426; background: #FFFCF4; border: 1px solid #e0d7bf; padding: 10px 2%; border-radius: 6px; margin: 25px 0; text-align: left; display: flex; align-items: center; gap: 10px;">
+			<img src="images/dbpdf-rate-40.png" alt="dbPDF" class="review-box-icon" style="width: 40px; height: 40px; flex-shrink: 0; object-fit: contain;">
+			<div>
+		-->
+
+		<div class="review-box" style="color: #917426; background: #FFFCF4; border: 1px solid #e0d7bf;">
+			<div class="review-box-content">
+				<!-- Ícone + texto -->
+				<div class="review-box-main">
+					<img src="images/dbpdf-rate-40.png" alt="dbPDF" class="review-box-icon">
+					<div class="review-box-text">
+
+						<a style="font-size: 19px;"
+						   data-pt="<strong>Está gostando do dbPDF?</strong>"
+						   data-en="<strong>Are you enjoying dbPDF?</strong>"
+						   data-es="<strong>¿Te está gustando dbPDF?</strong>"
+						   data-fr="<strong>Vous aimez dbPDF ?</strong>"
+						   data-de="<strong>Gefällt Ihnen dbPDF?</strong>">
+						</a>
+						<span class='product-eyebrow eyebrow-gray' id='btn-eyebrow' id-function='rate'
+							data-pt="<i class='fa-solid fa-star' style='color: #d4ae43;'></i>&nbsp;Avaliar"
+							data-en="<i class='fa-solid fa-star' style='color: #d4ae43;'></i>&nbsp;Rate"
+							data-es="<i class='fa-solid fa-star' style='color: #d4ae43;'></i>&nbsp;Evaluar"
+							data-fr="<i class='fa-solid fa-star' style='color: #d4ae43;'></i>&nbsp;Évaluer"
+							data-de="<i class='fa-solid fa-star' style='color: #d4ae43;'></i>&nbsp;Bewerten">
+						</span>
+
+						<div class="review-box-description">
+							<a data-pt="O <strong>dbPDF</strong> é 100% gratuito. Sua avaliação na <strong>Microsoft Store</strong> leva apenas 10 segundos e é fundamental para manter o projeto vivo e nos ajudar a melhorar o produto para você."
+							   data-en="<strong>dbPDF</strong> is 100% free. Your review on the <strong>Microsoft Store</strong> takes only 10 seconds and is essential to keep the project alive and help us improve the product for you."
+							   data-es="<strong>dbPDF</strong> es 100% gratuito. Tu evaluación en la <strong>Microsoft Store</strong> solo lleva 10 segundos y es fundamental para mantener el proyecto vivo y ayudarnos a mejorar el producto para ti."
+							   data-fr="<strong>dbPDF</strong> est 100 % gratuit. Votre évaluation sur le <strong>Microsoft Store</strong> ne prend que 10 secondes et est essentielle pour maintenir le projet en vie et nous aider à améliorer le produit pour vous."
+							   data-de="<strong>dbPDF</strong> ist zu 100 % kostenlos. Ihre Bewertung im <strong>Microsoft Store</strong> dauert nur 10 Sekunden und ist entscheidend, um das Projekt am Leben zu erhalten und das Produkt für Sie zu verbessern.">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="review-box">
+			<div class="review-box-content">
+				<div class="review-box-main">
+					<img src="images/dbmoney-40.png" alt="dbMoney" class="review-box-icon">
+					<div class="review-box-text">
+						<a style="font-size: 19px;"
+						   data-pt="<strong>Você já conhece o dbMoney?</strong>"
+						   data-en="<strong>Do you already know dbMoney?</strong>"
+						   data-es="<strong>¿Ya conoces dbMoney?</strong>"
+						   data-fr="<strong>Vous connaissez déjà dbMoney ?</strong>"
+						   data-de="<strong>Kennen Sie dbMoney bereits?</strong>">
+						</a>
+						<span class='product-eyebrow eyebrow-gray' id='btn-eyebrow' id-function='dbmoney-download'
+							data-pt="<i class='fa-brands fa-windows' style='color: #004a99;'></i>&nbsp;Baixar"
+							data-en="<i class='fa-brands fa-windows' style='color: #004a99;'></i>&nbsp;Get"
+							data-es="<i class='fa-brands fa-windows' style='color: #004a99;'></i>&nbsp;Obtener"
+							data-fr="<i class='fa-brands fa-windows' style='color: #004a99;'></i>&nbsp;Obtenir"
+							data-de="<i class='fa-brands fa-windows' style='color: #004a99;'></i>&nbsp;Herunterladen">
+						</span>
+
+						<span class='product-eyebrow eyebrow-gray' id='btn-eyebrow' id-function='dbmoney-site'
+							data-pt="<i class='fa-solid fa-arrow-up-right-from-square' style='color: #004a99;'></i>&nbsp;Mais informações"
+							data-en="<i class='fa-solid fa-arrow-up-right-from-square' style='color: #004a99;'></i>&nbsp;More information"
+							data-es="<i class='fa-solid fa-arrow-up-right-from-square' style='color: #004a99;'></i>&nbsp;Más información"
+							data-fr="<i class='fa-solid fa-arrow-up-right-from-square' style='color: #004a99;'></i>&nbsp;Plus d'informations"
+							data-de="<i class='fa-solid fa-arrow-up-right-from-square' style='color: #004a99;'></i>&nbsp;Mehr Informationen">
+						</span>
+
+						<div class="review-box-description">
+							<a 
+							data-pt="O <strong>dbMoney Personal</strong> é um poderoso software de finanças pessoais feito para quem deseja controle total da sua vida financeira sem abrir mão da privacidade. <strong>Baixe gratuitamente.</strong>"
+							data-en="<strong>dbMoney Personal</strong> is a powerful personal finance software built for those who want full control of their financial life without compromising privacy. <strong>Download for free.</strong>"
+							data-es="<strong>dbMoney Personal</strong> es un potente software de finanzas personales diseñado para quienes desean un control total de su vida financiera sin renunciar a la privacidad. <strong>Descárgalo gratis.</strong>"
+							data-fr="<strong>dbMoney Personal</strong> est un puissant logiciel de finances personnelles conçu pour ceux qui souhaitent un contrôle total de leur vie financière sans compromettre leur vie privée. <strong>Téléchargez gratuitement.</strong>"
+							data-de="<strong>dbMoney Personal</strong> ist eine leistungsstarke Software für persönliche Finanzen für alle, die die volle Kontrolle über ihr Finanzleben suchen, ohne auf Privatsphäre zu verzichten. <strong>Kostenlos herunterladen.</strong>">
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<hr class="review-box-divider"">
+
+				<div class="review-screenshots" id="gallery-dbmoney">
+					<img src="../../images/dbmoney_screen_01.webp"
+							alt="Screen 01" 
+							data-caption-pt="Tela de abertura (acesso aos seus arquivos e informações gerais)"
+							data-caption-en="Welcome screen (access to your files and general overview)"
+							data-caption-es="Pantalla de inicio (acceso a tus archivos e información general)"
+							data-caption-fr="Écran d'accueil (accès à vos fichiers et informations générales)"
+							data-caption-de="Startbildschirm (Zugriff auf Ihre Dateien und allgemeine Informationen)"
+							onclick="openModal(0, 'gallery-dbmoney')">
+					
+					<img src="../../images/dbmoney_screen_02.webp"
+							alt="Screen 02" 
+							data-caption-pt="Visualização de dashboards e gráficos para tomada de decisões"
+							data-caption-en="Dashboards and charts view for decision-making"
+							data-caption-es="Visualización de dashboards y gráficos para la toma de decisiones"
+							data-caption-fr="Visualisation de tableaux de bord et graphiques pour la prise de décision"
+							data-caption-de="Anzeige von Dashboards und Diagrammen zur Entscheidungsfindung"
+							onclick="openModal(1, 'gallery-dbmoney')">
+					
+					<img src="../../images/dbmoney_screen_03.webp"
+							alt="Screen 03"
+							data-caption-pt="Tela principal dos lançamentos (receitas e despesas)"
+							data-caption-en="Main transactions screen (income and expenses)"
+							data-caption-es="Pantalla principal de movimientos (ingresos y gastos)"
+							data-caption-fr="Écran principal des transactions (revenus et dépenses)"
+							data-caption-de="Hauptbildschirm für Buchungen (Einnahmen und Ausgaben)"
+							onclick="openModal(2, 'gallery-dbmoney')">
+					
+					<div class="gallery-more" onclick="openModal(3, 'gallery-dbmoney')">
+						<img src="../../images/dbmoney_screen_04.webp"
+							alt="More screenshots"
+							data-caption-pt="Tela de edição de lançamento e escolha de ícones para contas e categorias"
+							data-caption-en="Transaction editing screen with icon selection for accounts and categories"
+							data-caption-es="Pantalla de edición de movimientos y selección de iconos para cuentas y categorías"
+							data-caption-fr="Écran de modification des transactions et choix des icônes para comptes et catégories"
+							data-caption-de="Buchungsbearbeitung und Auswahl von Symbolen für Konten und Kategorien">
+						<div class="gallery-more-overlay">
+							<span class="gallery-more-count">+14</span>
+						</div>
+					</div>
+
+					<div class="gallery-hidden">			
+						<img src="../../images/dbmoney_screen_05.webp"
+								alt="Screen 05"
+								data-caption-pt="Tela de edição de lançamento com campos personalizados pelo usuário"
+								data-caption-en="Transaction editing screen with user-customized fields"
+								data-caption-es="Pantalla de edición de movimientos con campos personalizados por el usuario"
+								data-caption-fr="Écran de modification des transactions avec champs personnalisés par l'utilisateur"
+								data-caption-de="Buchungsbearbeitung mit benutzerdefinierten Feldern"
+								onclick="openModal(4, 'gallery-dbmoney')">
+
+						<img src="../../images/dbmoney_screen_06.webp"
+								alt="Screen 06"
+								data-caption-pt="Alto poder de manipulação de dados (customização de filtros)"
+								data-caption-en="Powerful data management (customizable filters)"
+								data-caption-es="Gran capacidad de gestión de datos (personalización de filtros)"
+								data-caption-fr="Puissante gestion des données (personnalisation des filtres)"
+								data-caption-de="Leistungsstarke Datenverwaltung (anpassbare Filter)"
+								onclick="openModal(5, 'gallery-dbmoney')">
+
+						<img src="../../images/dbmoney_screen_07.webp"
+								alt="Screen 07"
+								data-caption-pt="Inclusão de multiplos lançamentos / Geraçao de parcelas"
+								data-caption-en="Batch transaction entry / Installment generator"
+								data-caption-es="Entrada de múltiples movimientos / Generación de cuotas"
+								data-caption-fr="Saisie de transactions multiples / Génération d'échéances"
+								data-caption-de="Erfassung mehrerer Buchungen / Ratenzahlungsgenerator"
+								onclick="openModal(6, 'gallery-dbmoney')">
+
+						<img src="../../images/dbmoney_screen_08.webp"
+								alt="Screen 08"
+								data-caption-pt="Alteração de lançamentos em lote"
+								data-caption-en="Bulk editing of transactions"
+								data-caption-es="Edición masiva de movimientos"
+								data-caption-fr="Modification en masse des transactions"
+								data-caption-de="Massenbearbeitung von Buchungen"
+								onclick="openModal(7, 'gallery-dbmoney')">
+
+						<img src="../../images/dbmoney_screen_09.webp"
+								alt="Screen 09"
+								data-caption-pt="Replicação de lançamentos para outro período"
+								data-caption-en="Duplicate transactions to another period"
+								data-caption-es="Replicación de movimientos a otro período"
+								data-caption-fr="Duplication de transactions sur une autre période"
+								data-caption-de="Kopieren von Buchungen in einen anderen Zeitraum"
+								onclick="openModal(8, 'gallery-dbmoney')">
+
+						<img src="../../images/dbmoney_screen_10.webp"
+								alt="Screen 10"
+								data-caption-pt="Unificação/conciliação de lançamentos (eliminação de duplicados)"
+								data-caption-en="Transaction merging/reconciliation (duplicate elimination)"
+								data-caption-es="Unificación/conciliación de movimientos (eliminación de duplicados)"
+								data-caption-fr="Fusion/rapprochement des transactions (élimination dos doublons)"
+								data-caption-de="Zusammenführung/Abgleich von Buchungen (Bereinigung von Duplikaten)"
+								onclick="openModal(9, 'gallery-dbmoney')">
+
+						<img src="../../images/dbmoney_screen_11.webp"
+								alt="Screen 11"
+								data-caption-pt="Desmembrar lançamento em 2 ou mais parcelas"
+								data-caption-en="Split transaction into 2 or more installments"
+								data-caption-es="Dividir movimiento en 2 o más cuotas"
+								data-caption-fr="Fractionner la transaction en 2 échéances ou plus"
+								data-caption-de="Buchung in 2 oder mehr Raten aufteilen"
+								onclick="openModal(10, 'gallery-dbmoney')">
+
+						<img src="../../images/dbmoney_screen_12.webp"
+								alt="Screen 12"
+								data-caption-pt="Importação de extratos bancários OFX"
+								data-caption-en="OFX bank statement import"
+								data-caption-es="Importación de extractos bancarios OFX"
+								data-caption-fr="Importation de relevés bancaires OFX"
+								data-caption-de="Kontoauszugsimport (OFX)"
+								onclick="openModal(11, 'gallery-dbmoney')">	
+
+						<img src="../../images/dbmoney_screen_13.webp"
+								alt="Screen 13"
+								data-caption-pt="Configurações da barra lateral (exibição, cálculo de saldos e aparência)"
+								data-caption-en="Sidebar settings (display, balance calculations, and appearance)"
+								data-caption-es="Configuración de la barra lateral (visualización, cálculo de saldos y apariencia)"
+								data-caption-fr="Paramètres de la barre latérale (affichage, calcul dos soldes et apparence)"
+								data-caption-de="Seitenleisten-Einstellungen (Anzeige, Saldenberechnung und Erscheinungsbild)"
+								onclick="openModal(12, 'gallery-dbmoney')">	
+
+						<img src="../../images/dbmoney_screen_14.webp"
+								alt="Screen 14"
+								data-caption-pt="Preferências (exibição, totalizadores, moeda padrão e campos personalizados)"
+								data-caption-en="Preferences (display, summary totals, default currency, and custom fields)"
+								data-caption-es="Preferencias (visualización, totalizadores, moneda predeterminada y campos personalizados)"
+								data-caption-fr="Préférences (affichage, totaliseurs, devise par défaut et champs personnalisés)"
+								data-caption-de="Einstellungen (Anzeige, Gesamtsummen, Standardwährung und benutzerdefinierte Felder)"
+								onclick="openModal(13, 'gallery-dbmoney')">	
+
+						<img src="../../images/dbmoney_screen_15.webp"
+								alt="Screen 15"
+								data-caption-pt="Configurações de aparência da tela de lançamentos e extrato bancário"
+								data-caption-en="Appearance settings for transactions and bank statement screens"
+								data-caption-es="Configuración de apariencia de la pantalla de movimientos y extracto bancario"
+								data-caption-fr="Paramètres d'apparence des écrans de transactions et relevés bancaires"
+								data-caption-de="Design-Einstellungen für Buchungen und Kontoauszüge"
+								onclick="openModal(14, 'gallery-dbmoney')">
+
+						<img src="../../images/dbmoney_screen_16.webp"
+								alt="Screen 16"
+								data-caption-pt="Tela de manutenção de contas (ajuste de saldos e formato de moeda personalizado)"
+								data-caption-en="Account management screen (balance adjustments and custom currency format)"
+								data-caption-es="Pantalla de gestión de cuentas (ajuste de saldos y formato de moneda personalizado)"
+								data-caption-fr="Écran de gestion dos comptes (ajustement dos soldes et format de devise personnalisé)"
+								data-caption-de="Konto-Verwaltungsbildschirm (Saldo-Anpassungen und benutzerdefiniertes Währungsformat)"
+								onclick="openModal(15, 'gallery-dbmoney')">
+
+						<img src="../../images/dbmoney_screen_17.webp"
+								alt="Screen 17"
+								data-caption-pt="Exemplo de relatório da tela de lançamentos"
+								data-caption-en="Sample transactions report"
+								data-caption-es="Ejemplo de informe de la pantalla de movimientos"
+								data-caption-fr="Exemple de rapport sur l'écran des transactions"
+								data-caption-de="Beispielbericht der Buchungsansicht"
+								onclick="openModal(16, 'gallery-dbmoney')">
+					</div>
+				</div>
+			</div>
+		</div>
+
+        <section class="secao">
+            <h2 class="secao-titulo"><a data-pt='Versão mais recente'
+			                            data-en="Latest Version"
+										data-es="Versión más reciente"
+										data-fr="Version la plus récente"
+										data-de="Neueste Version"></a></h2>
+            
+			<div class="versao">
+				<div class="versao-header">
+					<h3 class="versao-numero">v1.0.5</h3>
+					<span class="versao-data"><a data-pt="7 de Setembro de 2026"
+												 data-en="September 7, 2026"
+												 data-es="7 de septiembre de 2026"
+												 data-fr="7 septembre 2026"
+												 data-de="7. September 2026"></a></span>
+				</div>
+				<h4 class="versao-titulo"><a data-pt="Nova versão disponível"
+											 data-en="New version available"
+											 data-es="Nueva versión disponible"
+											 data-fr="Nouvelle version disponible"
+											 data-de="Neue Version verfügbar"></a></h4>			
+
+				<ul class="alteracoes">
+					<li class="alteracao-item">
+						<span class="tag tag-novo">
+							<a data-pt="<pre>    Novo    </pre>" 
+					           data-en="<pre>   New   </pre>" 
+							   data-es="<pre>    Nuevo   </pre>" 
+							   data-fr="<pre>Nouveau</pre>" 
+							   data-de="<pre>    Neu    </pre>">
+							</a>
+						</span>
+						<a data-pt="Novo layout mais simplificado para navegação da tela inicial."
+						   data-en="New simplified layout for home screen navigation."
+						   data-es="Nuevo diseño más simplificado para la navegación de la pantalla de inicio."
+						   data-fr="Nouvelle disposition simplifiée pour la navigation sur l'écran d'accueil."
+						   data-de="Neues vereinfachtes Layout für die Navigation auf dem Startbildschirm.">
+						</a>
+					</li>
+
+					<li class="alteracao-item">
+						<span class="tag tag-novo">
+							<a data-pt="<pre>    Novo    </pre>" 
+					           data-en="<pre>   New   </pre>" 
+							   data-es="<pre>    Nuevo   </pre>" 
+							   data-fr="<pre>Nouveau</pre>" 
+							   data-de="<pre>    Neu    </pre>">
+							</a>
+						</span>
+						<a data-pt="Adicionada nova tela para contato rápido com o suporte da DevBrazil."
+						   data-en="Added a new screen for quick contact with DevBrazil support."
+						   data-es="Añadida una nueva pantalla para contacto rápido con el soporte de DevBrazil."
+						   data-fr="Ajout d'un nouvel écran pour contacter rapidement le support de DevBrazil."
+						   data-de="Neuer Bildschirm für den schnellen Kontakt mit dem DevBrazil-Support hinzugefügt.">
+						</a>
+					</li>
+				</ul>
+		
+				<ul class="alteracoes">
+					<li class="alteracao-item">
+						<span class="tag tag-melhoria">
+							<a data-pt="<pre>Melhoria</pre>"
+							   data-en="<pre> Tweak </pre>" 
+							   data-es="<pre>   Mejora   </pre>" 
+							   data-fr="<pre>Amélior.</pre>" 
+							   data-de="<pre>Optimier.</pre>">
+							</a>
+						</span>
+						<a data-pt="Melhoria/refatoração de rotinas de manipulação de arquivos."
+						   data-en="File handling routines improved/refactored."
+						   data-es="Mejora/refactorización de las rutinas de manipulación de archivos."
+						   data-fr="Amélioration/refactorisation des routines de manipulation de fichiers."
+						   data-de="Verbesserung/Refactoring von Dateiverarbeitungsroutinen.">
+						</a>
+					</li>
+				</ul>
+
+				<ul class="alteracoes">				
+					<li class="alteracao-item">
+						<span class="tag tag-correcao">
+							<a data-pt="<pre>Correção</pre>" 
+							   data-en="<pre>    Fix     </pre>" 
+							   data-es="<pre>Corrección</pre>" 
+							   data-fr="<pre>Correct. </pre>" 
+							   data-de="<pre>Behoben </pre>">
+							</a>
+						</span>
+						<a data-pt="Correção de pequenos bugs." 
+						   data-en="Minor bug fixes."
+						   data-es="Corrección de errores menores."
+						   data-fr="Correction de bugs mineurs."
+						   data-de="Kleinere Fehlerbehebungen.">
+						</a>
+					</li>
+				</ul>
+			</div>
+        </section>
+    </div>
+
+	<div id="myModal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); align-items: center; justify-content: center; flex-direction: column;">
+		<span style="position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; user-select: none; z-index: 10000;" onclick="closeModal()">&times;</span>
+		<span style="position: absolute; left: 20px; color: #f1f1f1; font-size: 50px; font-weight: bold; cursor: pointer; user-select: none; padding: 10px; z-index: 10000;" onclick="changeImage(-1); event.stopPropagation();">&#10094;</span>
+		<img id="img01" style="margin: 0 auto; display: block; max-width: 85%; max-height: 80%; border-radius: 4px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+		<div id="caption" style="margin: 15px auto 0; text-align: center; color: #ccc; font-size: 1.1rem; max-width: 80%; font-weight: 300; min-height: 25px;"></div>
+		<span style="position: absolute; right: 20px; color: #f1f1f1; font-size: 50px; font-weight: bold; cursor: pointer; user-select: none; padding: 10px; z-index: 10000;" onclick="changeImage(1); event.stopPropagation();">&#10095;</span>
+	</div>	
+
+<script>
+	let currentImageIndex = 0;
+	let currentGalleryImages = [];	
+	let currentLang = 'en';
+
+	function updateContent() {
+		document.querySelectorAll('[data-pt]').forEach(el => {
+			const texto = el.getAttribute('data-' + currentLang);
+			if (texto) {
+				el.innerHTML = texto;
+			}
+		});
+		
+		document.querySelectorAll('[data-placeholder-pt]').forEach(el => {
+			const texto = el.getAttribute('data-placeholder-' + currentLang);
+			if (texto) {
+				el.placeholder = texto;
+			}
+		});		
+		
+		document.querySelectorAll('.lang-text').forEach(span => {
+			if (currentLang === 'pt') span.innerText = 'en';
+			else if (currentLang === 'en') span.innerText = 'es';
+			else if (currentLang === 'es') span.innerText = 'fr';
+			else if (currentLang === 'fr') span.innerText = 'de';
+			else span.innerText = 'pt';
+		});
+	}
+
+	function changeLanguage(lang) {
+		currentLang = lang;
+		updateContent();
+	}
+	
+	window.addEventListener('click', function(event) {
+		let galleryModal = document.getElementById("myModal");
+		if (event.target == galleryModal) {
+			closeModal();
+		}
+	});
+	
+	window.onload = function() {
+		currentLang = 'en';
+		
+		const browserLang = navigator.language || navigator.userLanguage;
+		if (browserLang.startsWith('en')) currentLang = 'en';
+		else if (browserLang.startsWith('es')) currentLang = 'es';
+		else if (browserLang.startsWith('fr')) currentLang = 'fr';
+		else if (browserLang.startsWith('de')) currentLang = 'de';
+		else if (browserLang.startsWith('pt')) currentLang = 'pt';
+		
+		checkURLForLanguage();
+		changeLanguage(currentLang);
+	}
+
+	document.addEventListener('keydown', function(e) {
+		if (document.getElementById("myModal").style.display === "flex") {
+			if (e.key === "ArrowLeft") changeImage(-1);
+			if (e.key === "ArrowRight") changeImage(1);
+			if (e.key === "Escape") closeModal();
+		}
+	});
+
+    document.addEventListener("DOMContentLoaded", checkURLForLanguage);
+
+	function checkURLForLanguage() {	
+		const hash = window.location.hash.replace('#', '');		
+		const urlParams = new URLSearchParams(window.location.search);		
+		const langParam = urlParams.get('lang');
+		
+		const validLangs = ['en', 'pt', 'es', 'fr', 'de'];
+		
+		if (validLangs.includes(hash)) {		
+			currentLang = hash;		
+		} else if (validLangs.includes(langParam)) {		
+			currentLang = langParam;
+		}		
+	}
+	
+	function openModal(index, galleryId) {
+		currentGalleryImages = [];
+		var images = document.querySelectorAll("#" + galleryId + " img");
+		for (var i = 0; i < images.length; i++) {
+			currentGalleryImages.push(images[i]);
+		}
+    
+		currentImageIndex = index;
+
+		var modal = document.getElementById("myModal");
+		var modalImg = document.getElementById("img01");
+		
+		if (modal && modalImg) {
+			modal.style.display = "flex";
+			modalImg.src = currentGalleryImages[currentImageIndex].src;
+			updateCaption();
+		}		
+	}
+
+	function closeModal() { 
+		document.getElementById("myModal").style.display = "none"; 
+	}
+	
+	function changeImage(step) {
+		if (currentGalleryImages.length === 0) return;
+    
+		currentImageIndex += step;
+		if (currentImageIndex >= currentGalleryImages.length) currentImageIndex = 0;
+		if (currentImageIndex < 0) currentImageIndex = currentGalleryImages.length - 1;
+    
+		document.getElementById("img01").src = currentGalleryImages[currentImageIndex].src;
+		updateCaption();
+	}
+	
+	function updateCaption() {
+		var captionText = document.getElementById("caption");
+		if (captionText && currentGalleryImages[currentImageIndex]) {
+			var currentImg = currentGalleryImages[currentImageIndex];
+			if (typeof currentLang !== 'undefined') {
+				captionText.innerText = currentImg.getAttribute('data-caption-' + currentLang) || currentImg.alt || "";
+			}
+		}
+	}
+	
+	// Função auxiliar para comparar versões no formato "X.Y.Z"
+	function compareVersions(v1, v2) {
+		const parts1 = v1.split('.').map(Number);
+		const parts2 = v2.split('.').map(Number);
+		for (let i = 0; i < Math.max(parts1.length, parts2.length); i++) {
+			const val1 = parts1[i] || 0;
+			const val2 = parts2[i] || 0;
+			if (val1 > val2) return 1;
+			if (val1 < val2) return -1;
+		}
+		return 0;
+	}
+	
+</script>
+	
+</body>
+</html>

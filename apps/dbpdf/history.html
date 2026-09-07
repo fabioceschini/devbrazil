@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevBrazil | Software Engineering</title>
+	<link rel="icon" type="image/png" href="../../images/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">	
+    <style>
+        :root {
+            --azul-escuro: #2B579A;
+            --azul-medio: #2B579A;
+            --azul-claro: #3949ab;
+            --cinza-claro: #F0F0F0;
+            --cinza-medio: #d6d6d6;
+            --cinza-escuro: #595959;
+            --verde-claro: #e8f5e9;
+            --verde-escuro: #2e7d32;
+            --laranja-claro: #fff3e0;
+            --laranja-escuro: #ef6c00;
+			--vermelho-dbpdf: #A95153;
+            --branco: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* font-family: 'Calibri', Tahoma, Geneva, Verdana, sans-serif; */
+            font-family: 'Calibri', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--branco);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.0rem;
+            margin-bottom: 0.5rem;
+        }
+        
+		hr {border: 0; height: 1px; background-color: #eee;}
+
+        .subtitulo {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 1rem;
+            padding: 0 1rem;
+        }
+
+		.gallery-title { color: var(--azul-dbmoney); margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem; }
+        .screenshot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 12px; }
+        .screenshot-grid img { 
+            width: 100%; border-radius: 8px; cursor: pointer; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.2s;
+        }
+        .screenshot-grid img:hover { transform: scale(1.05); }
+        
+        .secao {
+            margin-bottom: 3rem;
+        }
+        
+        .secao-titulo {
+            color: var(--vermelho-dbpdf);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--vermelho-dbpdf);
+        }
+        
+        /* Estilos para seção de versões */
+        .versao {			
+            margin-bottom: 2rem;
+			margin-top: 2rem;
+            border-left: 2px solid var(--cinza-medio);
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .versao::before {
+            margin-top: 0rem;
+            content: '';
+            position: absolute;
+            width: 3px;
+            height: 2px;
+            background-color: var(--cinza-medio);
+            border-radius: 10%;
+            left: 0px;
+            top: 10;
+        }
+
+        .versao::after {
+            margin-top: -0.9rem;
+            content: '';
+            position: absolute;
+            width: 5px;
+            height: 2px;
+            background-color: var(--cinza-medio);
+            border-radius: 10%;
+            left: -2px;
+            top: 1;
+        }  
+        
+        .versao-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .versao-numero {
+            font-size: 1.2rem;
+            color: var(--vermelho-dbpdf);
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        
+        .versao-data {
+            background-color: var(--cinza-claro);
+            color: var(--cinza-escuro);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .versao-titulo {
+            font-size: 1.0rem;
+            color: var(--cinza-escuro);
+            margin-bottom: 1rem;
+        }
+        
+        .alteracoes {
+            list-style-type: none;
+        }
+        
+        .alteracao-item {
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+			color: var(--cinza-escuro);
+            padding-left: 1.2rem;
+            position: relative;
+        }
+        
+        .alteracao-item::before {
+            content: '■';
+            position: absolute;
+            left: 0;
+            color: var(--cinza-escuro);
+            font-weight: bold;
+        }
+		
+        .alteracao-item-sub {
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            padding-left: 2.7rem;
+            position: relative;
+        }
+
+        .alteracao-item-sub::before {
+            content: '•';
+            position: absolute;
+			left: 1.5rem;
+            color: var(--cinza-escuro);
+			font-weight: bold;
+		}
+		
+        .alteracao-item-sub-imagem {
+            margin-bottom: 0.8rem;
+            font-size: 0.8rem;
+            padding-left: 2.7rem;
+            position: relative;
+        }
+		
+        .alteracao-item-sub-imagem::before {
+            content: '•';	/* ★ */
+			/* content: url("images/image-16.png"); */
+			position: absolute;			
+			left: 1.5rem;
+			top: 30%;
+            color: var(--cinza-escuro);
+			font-weight: bold;
+		}
+        
+        .tag {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        .tag-novo {
+            background-color: var(--verde-claro);
+            color: var(--verde-escuro);
+        }
+        
+        .tag-correcao {
+            background-color: var(--laranja-claro);
+            color: var(--laranja-escuro);
+        }
+        
+        .tag-melhoria {
+            background-color: #e3f2fd;
+            color: #1565c0;
+        }
+		
+        .tag-imagens {
+            background-color: #F9E0E9;
+            color: #721C38;
+        }
+       
+        footer {
+            background-color: var(--vermelho-dbpdf);
+            color: var(--branco);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+			
+			.screenshot-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }          
+        }
+    </style>
+</head>
+<body>
+    <!--
+    <header>
+        <h1>Novidades do App</h1>
+        <p class="subtitulo">MeuApp - Fique por dentro das últimas atualizações e conteúdos</p>
+    </header>
+    -->
+    
+    <div class="container">
+        <section class="secao">          
+			<div class="versao">
+				<div class="versao-header">
+					<h3 class="versao-numero">v1.0.5</h3>
+					<span class="versao-data"><a data-pt="7 de Setembro de 2026"
+												 data-en="September 7, 2026"
+												 data-es="7 de septiembre de 2026"
+												 data-fr="7 septembre 2026"
+												 data-de="7. September 2026"></a></span>
+				</div>
+				<h4 class="versao-titulo"><a data-pt="Nova versão disponível"
+											 data-en="New version available"
+											 data-es="Nueva versión disponible"
+											 data-fr="Nouvelle version disponible"
+											 data-de="Neue Version verfügbar"></a></h4>			
+
+				<ul class="alteracoes">
+					<li class="alteracao-item">
+						<span class="tag tag-novo">
+							<a data-pt="<pre>    Novo    </pre>" 
+					           data-en="<pre>   New   </pre>" 
+							   data-es="<pre>    Nuevo   </pre>" 
+							   data-fr="<pre>Nouveau</pre>" 
+							   data-de="<pre>    Neu    </pre>">
+							</a>
+						</span>
+						<a data-pt="Novo layout mais simplificado para navegação da tela inicial."
+						   data-en="New simplified layout for home screen navigation."
+						   data-es="Nuevo diseño más simplificado para la navegación de la pantalla de inicio."
+						   data-fr="Nouvelle disposition simplifiée pour la navigation sur l'écran d'accueil."
+						   data-de="Neues vereinfachtes Layout für die Navigation auf dem Startbildschirm.">
+						</a>
+					</li>
+
+					<li class="alteracao-item">
+						<span class="tag tag-novo">
+							<a data-pt="<pre>    Novo    </pre>" 
+					           data-en="<pre>   New   </pre>" 
+							   data-es="<pre>    Nuevo   </pre>" 
+							   data-fr="<pre>Nouveau</pre>" 
+							   data-de="<pre>    Neu    </pre>">
+							</a>
+						</span>
+						<a data-pt="Adicionada nova tela para contato rápido com o suporte da DevBrazil."
+						   data-en="Added a new screen for quick contact with DevBrazil support."
+						   data-es="Añadida una nueva pantalla para contacto rápido con el soporte de DevBrazil."
+						   data-fr="Ajout d'un nouvel écran pour contacter rapidement le support de DevBrazil."
+						   data-de="Neuer Bildschirm für den schnellen Kontakt mit dem DevBrazil-Support hinzugefügt.">
+						</a>
+					</li>
+				</ul>
+		
+				<ul class="alteracoes">
+					<li class="alteracao-item">
+						<span class="tag tag-melhoria">
+							<a data-pt="<pre>Melhoria</pre>"
+							   data-en="<pre> Tweak </pre>" 
+							   data-es="<pre>   Mejora   </pre>" 
+							   data-fr="<pre>Amélior.</pre>" 
+							   data-de="<pre>Optimier.</pre>">
+							</a>
+						</span>
+						<a data-pt="Melhoria/refatoração de rotinas de manipulação de arquivos."
+						   data-en="File handling routines improved/refactored."
+						   data-es="Mejora/refactorización de las rutinas de manipulación de archivos."
+						   data-fr="Amélioration/refactorisation des routines de manipulation de fichiers."
+						   data-de="Verbesserung/Refactoring von Dateiverarbeitungsroutinen.">
+						</a>
+					</li>
+				</ul>
+
+				<ul class="alteracoes">				
+					<li class="alteracao-item">
+						<span class="tag tag-correcao">
+							<a data-pt="<pre>Correção</pre>" 
+							   data-en="<pre>    Fix     </pre>" 
+							   data-es="<pre>Corrección</pre>" 
+							   data-fr="<pre>Correct. </pre>" 
+							   data-de="<pre>Behoben </pre>">
+							</a>
+						</span>
+						<a data-pt="Correção de pequenos bugs." 
+						   data-en="Minor bug fixes."
+						   data-es="Corrección de errores menores."
+						   data-fr="Correction de bugs mineurs."
+						   data-de="Kleinere Fehlerbehebungen.">
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<hr>
+
+			<div class="versao">
+				<div class="versao-header">
+					<h3 class="versao-numero">v1.0.1</h3>
+					<span class="versao-data"><a data-pt="8 de Maio de 2026"
+												 data-en="May 8, 2026"
+												 data-es="8 de mayo de 2026"
+												 data-fr="8 mai 2026"
+												 data-de="8. Mai 2026"></a>
+					</span>
+				</div>
+				<h4 class="versao-titulo"><a data-pt="Lançamento oficial na Microsoft Store"
+											 data-en="Official launch on the Microsoft Store"
+											 data-es="Lanzamiento oficial en Microsoft Store"
+											 data-fr="Lancement officiel sur le Microsoft Store"
+											 data-de="Offizieller Start im Microsoft Store"></a>
+				</h4>
+				<ul class="alteracoes">
+					<li class="alteracao-item"><a data-pt="É com muito orgulho que anunciamos a primeira versão do dbPDF."
+												  data-en="We are very proud to announce the first version of dbPDF."
+												  data-es="Nos enorgullece presentar la primera versión de dbPDF."
+												  data-fr="Nous sommes très fiers d'annoncer la toute première version de dbPDF."
+												  data-de="Wir stolz darauf, die erste Version von dbPDF anzukündigen."></a>
+					</li>
+				  	<li class="alteracao-item"><a data-pt="Criamos o dbPDF para ser uma alternativa leve aos leitores de PDF tradicionais. Desenvolvido para quebrar o ciclo de softwares pesados e lentos, ele entrega uma experiência de leitura fluida, elegante e instantânea."
+												  data-en="We created dbPDF to be a lightweight alternative to traditional PDF readers. Designed to break the cycle of heavy and slow software, it delivers a smooth, elegant, and instant reading experience."
+												  data-es="Creamos dbPDF para ser una alternativa ligera a los lectores de PDF tradicionales. Diseñado para romper el ciclo del software pesado y lento, ofrece una experiencia de lectura fluida, elegante e instantánea."
+												  data-fr="Nous avons créé dbPDF pour offrir une alternative légère aux lecteurs PDF traditionnels. Conçu pour briser le cycle des logiciels lourds et lents, il offre une expérience de lecture fluide, élégante et instantanée."
+												  data-de="Wir haben dbPDF als leichte Alternative zu herkömmlichen PDF-Readern entwickelt. Entwickelt, um den Kreislauf schwerfälliger und langsamer Software zu durchbrechen, bietet es ein flüssiges, elegantes und schnelles Leseerlebnis."></a>
+					</li>
+				</ul>
+			</div>
+        </section>
+    </div>
+    
+    <!--
+    <footer>
+        <p>&copy; 2025 DevBrazil. Todos os direitos reservados.</p>
+    </footer>
+    -->
+
+	<div id="myModal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); align-items: center; justify-content: center; flex-direction: column;">
+		<span style="position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; user-select: none; z-index: 10000;" onclick="closeModal()">&times;</span>
+		<span style="position: absolute; left: 20px; color: #f1f1f1; font-size: 50px; font-weight: bold; cursor: pointer; user-select: none; padding: 10px; z-index: 10000;" onclick="changeImage(-1); event.stopPropagation();">&#10094;</span>
+		<img id="img01" style="margin: 0 auto; display: block; max-width: 85%; max-height: 80%; border-radius: 4px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+		<div id="caption" style="margin: 15px auto 0; text-align: center; color: #ccc; font-size: 1.1rem; max-width: 80%; font-weight: 300; min-height: 25px;"></div>
+		<span style="position: absolute; right: 20px; color: #f1f1f1; font-size: 50px; font-weight: bold; cursor: pointer; user-select: none; padding: 10px; z-index: 10000;" onclick="changeImage(1); event.stopPropagation();">&#10095;</span>
+	</div>	
+	
+<script>
+	let currentImageIndex = 0;
+	let currentGalleryImages = [];	
+	
+	function updateContent() {
+		document.querySelectorAll('[data-pt]').forEach(el => {
+			const texto = el.getAttribute('data-' + currentLang);
+			if (texto) {
+				// USAR innerHTML para que o navegador processe o <strong>
+				el.innerHTML = texto;
+			}
+		});
+		
+		// Atualiza placeholders
+		document.querySelectorAll('[data-placeholder-pt]').forEach(el => {
+			const texto = el.getAttribute('data-placeholder-' + currentLang);
+			if (texto) {
+				el.placeholder = texto;
+			}
+		});		
+		
+		// Atualiza o texto do botão de troca (Se você usar um botão cíclico, pode adaptar aqui)
+		document.querySelectorAll('.lang-text').forEach(span => {
+			if (currentLang === 'pt') span.innerText = 'en';
+			else if (currentLang === 'en') span.innerText = 'es';
+			else if (currentLang === 'es') span.innerText = 'fr';
+			else if (currentLang === 'fr') span.innerText = 'de';
+			else span.innerText = 'pt';
+		});
+	}
+
+	function changeLanguage(lang) {
+		currentLang = lang;
+		// Atualiza textos
+		updateContent();
+	}
+	
+	window.addEventListener('click', function(event) {
+	
+		// Fecha modal da galeria
+		let galleryModal = document.getElementById("myModal");
+	
+		if (event.target == galleryModal) {
+			closeModal();
+		}
+	});
+	
+	window.onload = function() {
+		// Idioma padrão
+		currentLang = 'en';
+		
+		// Detecta idioma do navegador
+		const browserLang = navigator.language || navigator.userLanguage;
+		
+		if (browserLang.startsWith('en')) {
+			currentLang = 'en';
+		} else if (browserLang.startsWith('es')) {
+			currentLang = 'es';
+		} else if (browserLang.startsWith('fr')) {
+			currentLang = 'fr';
+		} else if (browserLang.startsWith('de')) {
+			currentLang = 'de';
+		} else if (browserLang.startsWith('pt')) {
+			currentLang = 'pt';
+		}
+		
+		// Verifica URL (?lang= ou #)
+		checkURLForLanguage();
+		
+		// Atualiza conteúdo
+		changeLanguage(currentLang);		
+	}
+
+	document.addEventListener('keydown', function(e) {
+		if (document.getElementById("myModal").style.display === "flex") {
+			if (e.key === "ArrowLeft") changeImage(-1);
+			if (e.key === "ArrowRight") changeImage(1);
+			if (e.key === "Escape") closeModal();
+		}
+	});
+
+	// Executa assim que o site carregar
+    document.addEventListener("DOMContentLoaded", checkURLForLanguage);
+
+	function scrollToSection(id) {
+
+		const element = document.getElementById(id);
+
+		if (element) {
+			element.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start'
+			});
+		}
+	}
+	
+	// Função que lê o idioma da URL
+	function checkURLForLanguage() {	
+		const hash = window.location.hash.replace('#', '');		
+		const urlParams = new URLSearchParams(window.location.search);		
+		const langParam = urlParams.get('lang');
+		
+		// Lista de idiomas válidos atualizada
+		const validLangs = ['en', 'pt', 'es', 'fr', 'de'];
+		
+		if (validLangs.includes(hash)) {		
+			currentLang = hash;		
+		} else if (validLangs.includes(langParam)) {		
+			currentLang = langParam;
+		}		
+	}
+	
+	// Função para abrir o modal atualizada com suporte a legenda bilíngue
+	//
+	function openModal(index, galleryId) {
+		currentGalleryImages = [];
+		var images = document.querySelectorAll("#" + galleryId + " img");
+		for (var i = 0; i < images.length; i++) {
+			currentGalleryImages.push(images[i]);
+		}
+    
+		currentImageIndex = index;
+
+		var modal = document.getElementById("myModal");
+		var modalImg = document.getElementById("img01");
+		
+		if (modal && modalImg) {
+			modal.style.display = "flex";
+			modalImg.src = currentGalleryImages[currentImageIndex].src;
+			
+			// Atualiza a legenda com base no idioma atual
+			updateCaption();
+		}		
+	}
+
+	function closeModal() { 
+		document.getElementById("myModal").style.display = "none"; 
+	}
+	
+	// Função de navegar imagens pelas setas ou teclado
+	function changeImage(step) {
+		if (currentGalleryImages.length === 0) return;
+    
+		currentImageIndex += step;
+		if (currentImageIndex >= currentGalleryImages.length) currentImageIndex = 0;
+		if (currentImageIndex < 0) currentImageIndex = currentGalleryImages.length - 1;
+    
+		document.getElementById("img01").src = currentGalleryImages[currentImageIndex].src;
+		
+		// Atualiza a legenda ao mudar de imagem
+		updateCaption();
+	}
+	
+	// Função auxiliar para definir a legenda correta no Modal
+	function updateCaption() {
+		var captionText = document.getElementById("caption");
+		if (captionText && currentGalleryImages[currentImageIndex]) {
+			var currentImg = currentGalleryImages[currentImageIndex];
+			
+			if (typeof currentLang !== 'undefined') {
+				captionText.innerText = currentImg.getAttribute('data-caption-' + currentLang) || currentImg.alt || "";
+			}
+		}
+	}
+
+</script>
+	
+</body>
+</html>

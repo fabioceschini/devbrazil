@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8"/>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+	<meta content="#1b845b" name="theme-color"/>
+    <title>DevBrazil | Software Engineering</title>
+	<link rel="icon" type="image/png" href="../../images/favicon.png">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+	<link href="https://fonts.googleapis.com" rel="preconnect"/>
+	<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;600;700&amp;display=swap" rel="stylesheet"/>	
+
+    <style>
+		:root {
+		--verde-dev: #1b845b;
+					--verde-dev-dark: #146a48;
+					--azul-dbmoney: #004a99;			
+					--vermelho-dbpdf: #A75052;
+					--roxo-dbradio: #6a1b9a;
+					--amarelo-dbnotes: #AF8300;
+					--bg-light: #f7f6f1;
+					--ink: #1c2321;
+					--text-dark: #333;
+					--muted: #70766f;
+					--line: #e7e4da;
+					--white: #ffffff;
+					--font-body: "Inter", "Segoe UI", sans-serif;
+					--font-mono: "JetBrains Mono", "Consolas", monospace;
+		}
+
+		* {box-sizing: border-box; margin: 0; padding: 0;}
+
+		body {font-family: var(--font-body); background-color: white; color: var(--ink); line-height: 1.6; overflow-x: hidden; font-size: 0.95rem;}
+
+		header {
+		background: rgba(255,255,255,0.85);
+					padding: 16px 5%;
+					display: flex;
+					justify-content: space-between; 
+					align-items: center;
+					border-bottom: 1px solid var(--line);
+					position: sticky;
+					top: 0;
+					z-index: 1000;
+					backdrop-filter: blur(10px);
+					-webkit-backdrop-filter: blur(10px);
+					gap: 20px;
+		}
+
+		hr {border: 0; height: 1px; background-color: #eee;}
+
+		.logo-img {width: 34px; height: 34px;}
+
+		nav { display: flex; align-items: center; gap: 28px; }
+
+		.nav-divider {
+		width: 1px; height: 20px; background: var(--line); flex-shrink: 0;
+		}
+
+		.nav-divider-media-hide {
+		width: 1px; height: 20px; background: var(--line); flex-shrink: 0;
+		}
+
+		.header-contact {
+		color: var(--muted);
+					font-size: 0.95rem;
+					text-decoration: none;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 34px; height: 34px;
+					border-radius: 50%;
+					transition: all 0.2s ease;
+					flex-shrink: 0;
+		}
+
+		.header-contact:hover {
+		background: rgba(27,132,91,0.08); color: var(--verde-dev);
+		}
+
+		.product-eyebrow {
+		display: inline-block;
+					align-items: center;
+					gap: 8px;
+					font-family: var(--font-mono);
+					font-size: 0.7rem;
+					font-weight: 600;
+					letter-spacing: 0.08em;
+					
+					padding: 9px 12px;
+					border-radius: 10px;            
+					margin-left: 5px;
+					line-height: 1;
+					text-decoration: none;
+		}
+
+		.eyebrow-blue {margin-left: 0px; margin-right: 5px;  margin-top: 7px; margin-bottom: 7px; color: var(--azul-dbmoney); background: rgba(0,74,153,0.08);}
+		.eyebrow-red {margin-left: 0px; margin-right: 10px; margin-top: 7px; margin-bottom: 7px; color: var(--vermelho-dbpdf); background: rgba(167,80,82,0.1);}
+		.eyebrow-yellow {margin-left: 0px; margin-right: 10px; margin-top: 7px; margin-bottom: 7px; color: #8a6800; background: rgba(188,141,0,0.12);}
+		.eyebrow-purple {margin-left: 0px; margin-right: 10px; margin-top: 7px; margin-bottom: 7px; color: var(--roxo-dbradio); background: rgba(106,27,154,0.08);}
+		.eyebrow-green {margin-left: 0px; margin-right: 5px;  margin-top: 7px; margin-bottom: 7px; color: var(--verde-dev-dark); background: rgba(27,132,91,0.1);}
+		.eyebrow-gray {margin-left: 0px; margin-right: 5px;  margin-top: 7px; margin-bottom: 7px; color: #686868; background: #F2F2F2;}
+
+		.lang-selector {position: relative; display: inline-flex; align-items: center; gap: 2px; flex-shrink: 0;}
+
+		.lang-pill {
+		font-family: var(--font-mono);
+					font-size: 0.78rem;
+					font-weight: 600;
+					letter-spacing: 0.03em;
+					color: var(--muted);
+					text-decoration: none;
+					padding: 6px 10px;
+					border-radius: 6px;
+					transition: all 0.15s ease;
+		}
+
+		.lang-pill:hover {
+		color: var(--ink); background: rgba(0,0,0,0.04);
+		}
+
+		.lang-pill.active {
+		background: var(--bg-light);
+					border: 1px solid var(--line);
+					color: var(--ink);
+		}
+
+		.product-card {
+			background: #fff;
+			max-width: 1400px;
+			margin: -30px auto 0px;
+			padding: 40px 3%;
+			border-radius: 15px;
+			/*box-shadow: 0 10px 30px rgba(0,0,0,0.05);*/
+					/* border-left: 8px solid var(--azul-dbmoney);*/
+		}
+
+		.card-dbpdf {border-left-color: #A75052 !important;}
+		.card-dbpdf h2 {color: #d32f2f !important;}
+
+		.card-dbnotes {border-left-color: #BC8D00 !important;}
+		.card-dbnotes h2 {color: #AF8300 !important;}
+
+		.card-dbradio {border-left-color: #7A5B91 !important;}
+		.card-dbradio h2 {color: #6a1b9a !important;}
+
+		.card-devbrazil {border-left-color: #1B845B !important;}
+		.card-devbrazil h2 {color: #1B845B !important;}
+
+		.dbmoney-intro {display: flex; align-items: center; gap: 30px; margin-bottom: 10px;}
+		.dbmoney-intro img {width: 96px; height: auto;}
+		.dbmoney-text h2 {color: var(--azul-dbmoney); font-size: 1.8rem; margin-bottom: 15px;}
+
+		.about-content {margin-bottom: 20px;}
+
+		strong {color: #515151}
+
+		strong_black {color: var(--ink);}
+
+		strong_dbmoney { color: var(--azul-dbmoney); font-size: 1.0rem; font-weight: bold; }
+		strong_devbrazil { color: var(--verde-dev-dark); font-size: 1.2rem; font-weight: bold; display: inline-block; margin-bottom: 10px; }
+
+		.gallery-title {color: var(--azul-dbmoney); margin: 40px 0 20px; border-bottom: 2px solid #E0E0E0; padding-bottom: 10px; font-size: 1.4rem;}
+		.gallery-title-faq {color: var(--azul-dbmoney); margin: 40px 0 10px; border-bottom: 2px solid #E0E0E0; padding-bottom: 10px; font-size: 1.4rem;}
+		.gallery-title-red {color: #A75052; margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem;}
+		.gallery-title-yellow {color: #BC8D00; margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem;}
+		.gallery-title-purple {color: var(--roxo-dbradio); margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem;}
+		.gallery-title-green {color: var(--verde-dev); margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.6rem;}
+
+		.screenshot-grid {display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px;}
+		.screenshot-grid img {width: 100%; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.2s;}
+		.screenshot-grid img:hover {transform: scale(1.05);}
+
+		#gallery-dbmoney {
+		display: grid;
+					grid-template-columns: repeat(4, minmax(0, 1fr)) 300px;
+					gap: 20px;
+					align-items: center;
+		}
+
+		#gallery-dbmoney-youtube {
+		grid-column: 5;
+					grid-row: 1;
+
+					width: 185px;
+					padding-left: 25px;
+					margin-left: 5px;
+
+					border-left: 1px solid rgba(128, 128, 128, 0.25);
+					box-sizing: border-box;
+		}
+
+		#gallery-dbmoney-youtube a {
+		display: block;
+		}
+
+		#gallery-dbmoney-youtube img {
+		display: block;
+					width: 100%;
+					height: auto;
+		}
+
+		.gallery-more {
+		position: relative;
+					cursor: pointer;
+					overflow: hidden;
+					width: 100%; 
+					border-radius: 8px; 
+					box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+					transition: transform 0.2s;
+		}
+
+		.gallery-more img {
+		display: block;
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+		}
+
+		.gallery-more-overlay {
+		position: absolute;
+					inset: 0;
+
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+
+					background: rgba(0, 10, 0, 0.60);
+					color: white;
+
+					transition: background 0.2s ease;
+		}
+
+		.gallery-more-overlay span {
+		font-size: 32px;
+					font-weight: 700;
+		}
+
+		.gallery-more-overlay small {
+		margin-top: 5px;
+					font-size: 14px;
+		}
+
+		.gallery-more:hover .gallery-more-overlay {
+		background: rgba(0, 0, 0, 0.75);
+		}
+
+		.gallery-hidden {
+		display: none !important;
+		}
+
+		.pricing-table-container {
+		margin-top: 10px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+		}
+
+		table {
+		width: 100%; border-collapse: collapse; margin-top: 0px; min-width: 500px;
+		}
+
+		th,
+		td {
+		padding: 12px 10px; text-align: left; border-bottom: 1px solid #eee; font-size: 0.9rem;
+		}
+
+		th {
+		background-color: #f8f9fa; color: var(--azul-dbmoney);
+		}
+
+		.check-yes {
+		color: #28a745;
+		}
+
+		.limit-text {
+		font-size: 0.75rem; color: #856404; background: #fff3cd; padding: 2px 6px; border-radius: 4px; display: inline-block;
+		}
+
+		.limit-text-blue {
+		font-weight: bold; color: var(--azul-dbmoney);
+		}
+
+		.btn-store-dbmoney {
+		display: block;
+					width: 100%;
+					max-width: 350px;
+					margin: 40px auto 0;
+					background: var(--azul-dbmoney);
+					color: #fff;
+					padding: 12px 20px;
+					border-radius: 8px;
+					text-decoration: none;
+					font-family: var(--font-mono);
+					font-size: 0.9rem;
+					font-weight: bold;
+					text-align: center;
+					transition: background 0.3s;
+		}
+
+		.btn-store-dbmoney:hover {
+		background: #003366;
+		}
+
+		.btn-store-dbmoney-mini {
+		display: inline-flex;       
+					flex-direction: column;     
+					align-items: center;        
+					justify-content: center;    
+					width: auto;                
+					max-width: 350px;
+					background: var(--azul-dbmoney);
+					color: #fff;
+					padding: 10px 16px;         
+					border-radius: 10px;
+					text-decoration: none;
+					font-family: var(--font-mono);
+					font-size: 0.8rem;
+					font-weight: bold;
+					text-align: center;
+					transition: background 0.3s;
+					gap: 6px;
+		}
+
+		.btn-store-dbmoney-mini i {
+		display: block;
+		}
+
+		.btn-store-dbmoney-mini:hover {
+		background: #003366;
+		}
+
+		.btn-store-dbpdf {
+		display: block;
+					width: 100%;
+					max-width: 350px;
+					margin: 40px auto 0;
+					background: var(--vermelho-dbpdf);
+					color: #fff;
+					padding: 12px 20px;
+					border-radius: 8px;
+					text-decoration: none;
+					font-family: var(--font-mono);
+					font-size: 0.9rem;
+					font-weight: bold;
+					text-align: center;
+					transition: background 0.3s;
+		}
+
+		.btn-store-dbpdf:hover {
+		background: #823E40;
+		}
+
+		.btn-store-gray {
+		display: block;
+					width: 100%;
+					max-width: 350px;
+					margin: 40px auto 0;
+					background: #E0E0E0;
+					color: #898989;
+					padding: 12px 20px;
+					border-radius: 8px;
+					text-decoration: none;
+					font-family: var(--font-mono);
+					font-size: 0.8rem;
+					font-weight: bold;
+					text-align: center;
+					transition: background 0.3s;
+		}
+
+		.btn-store-gray:hover {
+		background: #CECECE;
+		}
+
+		.btn-store-dbradio {
+		display: block;
+					width: 100%;
+					max-width: 350px;
+					margin: 40px auto 0;
+					background: var(--roxo-dbradio);
+					color: #fff;
+					padding: 12px 20px;
+					border-radius: 8px;
+					text-decoration: none;
+					font-family: var(--font-mono);
+					font-size: 0.9rem;
+					font-weight: bold;
+					text-align: center;
+					transition: background 0.3s;
+		}
+
+		.btn-store-dbradio:hover {
+		background: #59436B;
+		}
+
+		.modal {
+		display: none; position: fixed; z-index: 2000;
+					left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9);;
+					justify-content: center; align-items: center;
+		}
+
+		.modal-content {
+		max-width: 85%; max-height: 85vh; border-radius: 5px; object-fit: contain;
+		}
+
+		.close {
+		position: absolute; top: 15px; right: 25px; color: #fff; font-size: 35px; font-weight: bold; cursor: pointer; z-index: 2001;
+		}
+
+		.modal-caption {
+		position: absolute;
+					bottom: 15px;
+					left: 50%;
+					transform: translateX(-50%);
+
+					width: 70%;
+					max-width: 900px;
+
+					color: white;
+					text-align: center;
+					font-size: 16px;
+					line-height: 1.5;
+
+					padding: 10px 20px;
+					border-radius: 8px;
+		}
+
+		.nav-btn {
+		position: absolute; top: 50%; transform: translateY(-50%);
+					color: white; font-size: 30px; cursor: pointer; padding: 15px;
+					user-select: none; transition: 0.3s; z-index: 2001;
+		}
+
+		.nav-btn:hover {
+		color: var(--verde-dev);
+		}
+
+		.prev-btn {
+		left: 5px;
+		}
+
+		.next-btn {
+		right: 5px;
+		}
+
+		footer {
+		background: #333; color: #fff; text-align: center; padding: 15px 5%; margin-top: 50px; font-size: 0.9rem;
+		}
+
+		.lang-grid-status {
+		display: flex;
+					gap: 10px;
+					flex-wrap: wrap;
+					margin-top: 15px;
+					margin-bottom: 25px;
+		}
+
+		.lang-status-item {
+		display: flex;
+					align-items: center;
+					gap: 8px;								
+					font-family: var(--font-mono);
+					font-size: 0.7rem;
+					font-weight: 600;
+					letter-spacing: 0.08em;
+					color: var(--text-dark);
+					background: #F2F2F2;
+					padding: 5px 12px;
+					border-radius: 10px;
+					border: 1px solid #eee;
+		}
+
+		.lang-status-item img {
+			width: 16px;
+			height: 16px;
+			object-fit: contain;
+		}
+
+		.lang-status-item.coming-soon {
+			color: #888;
+		}
+
+		.product-title-flex {
+			display: flex;
+			align-items: center;       
+			justify-content: left;
+		}
+
+		.faq{border-top:1px solid #ffffff}
+		.faq details{border-bottom:1px solid #eee}
+		.faq summary{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px;padding:16px 8px;color:#585755;font-size: 1rem; font-weight: normal; cursor:pointer;list-style:none;transition:color 140ms cubic-bezier(.2,.7,.2,1),background-color 140ms cubic-bezier(.2,.7,.2,1),padding 180ms cubic-bezier(.2,.7,.2,1)}
+		.faq summary:hover{color:var(--azul-dbmoney);background:rgba(245, 245, 245, 0.68);padding-inline:12px}
+		.faq summary::-webkit-details-marker{display:none}
+		.faq summary::after{content:"";width:10px;height:10px;flex:0 0 auto;color:var(--azul-dbmoney);background:linear-gradient(currentColor 0 0) center/100% 2px no-repeat,linear-gradient(currentColor 0 0) center/2px 100% no-repeat;transition:background-size 140ms cubic-bezier(.2,.7,.2,1),transform 180ms cubic-bezier(.2,.7,.2,1)}
+		.faq details[open] summary::after{content:"";background-size:100% 2px,2px 0;transform:rotate(180deg)}
+		.faq details[open] summary{color:var(--azul-dbmoney); font-weight: bold;}
+		.faq details p{margin:0 8px 24px;color:#4b473f;font-size:.96rem;text-wrap:pretty}   /*max-width:66ch;*/
+		.faq details[open] p{animation:disclosure-in 180ms cubic-bezier(.2,.7,.2,1) both}
+
+		.custom-tooltip {
+		position: relative !important;
+				/* display: inline-flex !important; */
+				align-items: center;
+				cursor: help;
+		}
+
+		.custom-tooltip .tooltip-text {
+		visibility: hidden;
+				opacity: 0;
+				width: 230px;
+				background-color: #1e293b; 
+				color: #ffffff;
+				text-align: center;
+				font-weight: normal;
+				font-size: 11px;
+				line-height: 1.4;
+				border-radius: 6px;
+				padding: 8px 12px;
+				
+				
+				position: absolute;
+				z-index: 99;
+				bottom: 125%;
+				left: 50%;
+				transform: translateX(-50%);
+				
+				
+				transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+				box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+				pointer-events: none;
+		}
+
+		.custom-tooltip .tooltip-text::after {
+		content: "";
+				position: absolute;
+				top: 100%;
+				left: 50%;
+				margin-left: -5px;
+				border-width: 5px;
+				border-style: solid;
+				border-color: #1e293b transparent transparent transparent;
+		}
+
+		.custom-tooltip:hover .tooltip-text {
+		visibility: visible;
+				opacity: 1;
+		}
+
+		.inline-style-1 {
+		--prod-color:var(--verde-dev)
+		}
+
+		.inline-style-2 {
+		--prod-color:var(--azul-dbmoney)
+		}
+
+		.inline-style-3 {
+		--prod-color:var(--vermelho-dbpdf)
+		}
+
+		.inline-style-4 {
+		--prod-color:var(--roxo-dbradio)
+		}
+
+		.inline-style-5 {
+		--prod-color:var(--amarelo-dbnotes)
+		}
+
+		.inline-style-6 {
+		display: flex; flex-direction: column; align-items: center; gap: 0px;
+		}
+
+		.inline-style-7 {
+		display: block; margin: 0 0 -5px 0; padding: 0;
+		}
+
+		.inline-style-8 {
+		font-size: 0.75rem; color: #777; display: block; margin-top: 4px;
+		}
+
+		.inline-style-9 {
+		color: var(--roxo-dbradio)
+		}
+
+		.inline-style-10 {
+		color: var(--verde-dev)
+		}
+
+		.inline-style-11 {
+		display:none
+		}
+
+		@media (max-width: 768px) {
+			
+			header { flex-direction: column; gap: 12px; padding: 14px 15px; }
+
+			nav {
+				display: flex;
+				flex-direction: row; 
+				flex-wrap: wrap;     
+				justify-content: center;
+				align-items: center;
+				gap: 14px;           
+				width: 90%;
+			}
+
+			.product-nav-links { gap: 14px; flex-wrap: wrap; justify-content: center; }
+			.product-nav-links a { font-size: 0.85rem; }
+
+			.nav-divider-media-hide { display: none; }
+
+			#gallery-dbmoney { grid-template-columns: repeat(2, 1fr); }
+
+			#gallery-dbmoney-youtube {
+				grid-column: 1 / -1;
+				grid-row: auto;
+				width: 200px;
+				margin: 10px auto 0;
+				padding-left: 0;
+				padding-top: 20px;
+				border-left: none;
+				border-top: 1px solid rgba(128, 128, 128, 0.25);
+			}
+
+			.card-dbmoney { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px; /* solid var(--azul-dbmoney); */ }
+			.card-dbpdf { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid #A75052; }
+			.card-dbradio { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid #7A5B91; }
+			.card-dbnotes { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid #BC8D00; }
+			.card-devbrazil { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid #1B845B; }
+
+			.gallery-title { flex-direction: column; text-align: center; gap: 20px; }
+			.gallery-title-faq { flex-direction: column; text-align: center; gap: 20px; }
+			.gallery-title-red { flex-direction: column; text-align: center; gap: 20px; }
+			.gallery-title-yellow { flex-direction: column; text-align: center; gap: 20px; }
+			.gallery-title-purple { flex-direction: column; text-align: center; gap: 20px; }
+
+			.dbmoney-intro {flex-direction: column; text-align: center; gap: 20px;}
+			.dbmoney-intro img {width: 100px;}
+			.dbmoney-text h2 {font-size: 1.5rem;}
+			.about-content {flex-direction: column; text-align: center; gap: 20px;}
+
+			.screenshot-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
+
+			.nav-btn { font-size: 24px; padding: 10px; }
+
+			.lang-grid-status { justify-content: center; gap: 10px; }
+			.lang-status-item { padding: 5px 10px; }
+
+			.product-title-flex { flex-direction: column; gap: 5px; }
+
+			.btn-store-dbmoney-mini { flex-direction: row; justify-content: flex-start; text-align: left; }
+			.btn-store-dbmoney-mini i { display: inline-block; }
+		}
+    </style>
+
+</head>
+<body>
+
+<br>
+
+<!-- Produto: dbPDF -->
+<div class="product-card card-dbpdf" id="dbpdf">
+    <div class="dbmoney-intro">
+        <img src="../../images/dbpdf_logo_96.png" alt="dbPDF" class="dbmoney-intro">
+        <div class="dbmoney-text">
+            <h2 class="product-title product-title-flex">
+                dbPDF&nbsp;&nbsp;
+                <span class="product-eyebrow eyebrow-red"><i class="fa-brands fa-windows"></i>&nbsp;Windows</span>
+				<span class="product-eyebrow eyebrow-red" data-pt='<i class="fa fa-gift"></i>&nbsp;100% Gratuito' data-en='<i class="fa fa-gift"></i>&nbsp;100% Free' data-es='<i class="fa fa-gift"></i>&nbsp;100% Gratis' data-fr='<i class="fa fa-gift"></i>&nbsp;100% Gratuit' data-de='<i class="fa fa-gift"></i>&nbsp;100% Kostenlos'><i class="fa fa-gift"></i>&nbsp;100% Gratuito</span>				
+            </h2>
+            
+            <p data-pt="O <strong>dbPDF</strong> é o leitor nativo definitivo para quem não tem tempo a perder. Desenvolvido para quebrar o ciclo de softwares pesados e lentos, ele entrega uma experiência de leitura fluida, elegante e instantânea, abrindo seus arquivos no exato segundo em que você clica neles."
+               data-en="<strong>dbPDF</strong> is the ultimate native reader for those who value every second. Built to break the cycle of heavy, bloated software, it delivers a fluid, elegant, and instant reading experience—opening your files the exact millisecond you click them."
+               data-es="<strong>dbPDF</strong> es el lector nativo definitivo para quienes no tienen tiempo que perder. Desarrollado para romper el ciclo de software pesado y lento, ofrece una experiencia de lectura fluida, elegante e instantánea, abriendo sus archivos en el segundo exacto en que hace clic en ellos."
+               data-fr="<strong>dbPDF</strong> est le lecteur natif ultime pour ceux qui n'ont pas de temps à perdre. Développé pour briser le cycle des logiciels lourds et lents, il offre une expérience de lecture fluide, élégante et instantanée, ouvrant vos fichiers à la seconde exacte où vous cliquez dessus."
+               data-de="<strong>dbPDF</strong> ist der ultimative native Reader für alle, die keine Zeit zu verlieren haben. Entwickelt, um den Teufelskreis schwerfälliger und langsamer Software zu durchbrechen, bietet er ein flüssiges, elegantes und sofortiges Leseerlebnis – und öffnet Ihre Dateien in genau der Sekunde, in der Sie darauf klicken.">
+            </p>
+        </div>
+    </div>
+    
+    <br>
+    <div class="about-content">
+        <p data-pt="Sem ferramentas desnecessárias que poluem a tela, o dbPDF foca no que realmente importa: a sua produtividade e a privacidade absoluta dos seus documentos. Sinta a diferença de um software feito sob medida para quem busca eficiência máxima no Windows."
+           data-en="By stripping away unnecessary features that clutter the screen, dbPDF focuses entirely on what matters most: your productivity and the absolute privacy of your documents. Experience the true power of software tailored for those who demand maximum efficiency on Windows."
+           data-es="Sin herramientas innecesarias que saturen la pantalla, dbPDF se enfoca en lo que realmente importa: su productividad y la privacidad absoluta de sus documentos. Sienta la diferencia de un software hecho a la medida para quienes buscan la máxima eficiencia en Windows."
+           data-fr="Sans outils superflus qui encombrent l'écran, dbPDF se concentre sur ce qui compte vraiment : votre productivité et la confidentialité absolue de vos documents. Ressentez la différence d'un logiciel conçu sur mesure pour ceux qui recherchent une efficacité maximale sur Windows."
+           data-de="Ohne unnötige Tools, die den Bildschirm überladen, konzentriert sich dbPDF auf das, was wirklich zählt: Ihre Produktivität und die absolute Privatsphäre Ihrer Dokumente. Spüren Sie den Unterschied einer Software, die maßgeschneidert für alle ist, die maximale Effizienz unter Windows suchen.">
+        </p>
+		<br>		
+		<div class="about-content" style="color: var(--vermelho-dbpdf); font-size: 15px">
+			<p data-pt='<i class="fa-solid fa-star"></i>&nbsp;<I>Mais de 2.000 instalações nos primeiros 4 meses de lançamento na Microsoft Store.</I>'
+			   data-en='<i class="fa-solid fa-star"></i>&nbsp;<I>Over 2,000 installs in the first 4 months of launch on the Microsoft Store.</I>'
+			   data-es='<i class="fa-solid fa-star"></i>&nbsp;<I>Más de 2.000 instalaciones en los primeros 4 meses desde su lanzamiento en Microsoft Store.</I>'
+			   data-fr='<i class="fa-solid fa-star"></i>&nbsp;<I>Plus de 2 000 installations au cours des 4 premiers mois de lancement sur le Microsoft Store.</I>'
+			   data-de='<i class="fa-solid fa-star"></i>&nbsp;<I>Über 2.000 Installationen in den ersten 4 Monaten seit dem Start im Microsoft Store.</I>'>
+			</p>
+		</div>
+    </div>
+    
+    <h3 class="gallery-title-red"><a data-pt="Capturas de tela" data-en="Screenshots" data-es="Capturas de pantalla" data-fr="Captures d'écran" data-de="Screenshots"></a></h3>
+    
+    <div class="screenshot-grid" id="gallery-dbpdf">
+        <img src="../../images/dbpdf_screen_01.webp" 
+		     alt="Screen 01" 
+			 data-caption-pt="Tela de abertura (acesso aos documentos recentes e informações gerais)"
+			 data-caption-en="Home screen (access to recent documents and general information)"
+			 data-caption-es="Pantalla de inicio (acceso a documentos recientes e información general)"
+			 data-caption-fr="Écran d'accueil (accès aux documents récents et informations générales)"
+			 data-caption-de="Startbildschirm (Zugriff auf zuletzt geöffnete Dokumente und allgemeine Informationen)"
+			 onclick="openModal(0, 'gallery-dbpdf')">
+        
+		<img src="../../images/dbpdf_screen_02.webp" 
+			 alt="Screen 02"
+			 data-caption-pt="Exemplo de documento (Pesquisa e configurações de idioma)"
+			 data-caption-en="Document example (Search and language settings)"
+			 data-caption-es="Ejemplo de documento (Búsqueda y configuración de idioma)"
+			 data-caption-fr="Exemple de document (Recherche et paramètres de langue)"
+			 data-caption-de="Dokumentbeispiel (Suche und Spracheinstellungen)"
+			 onclick="openModal(1, 'gallery-dbpdf')">
+        
+		<img src="../../images/dbpdf_screen_03.webp" 
+		     alt="Screen 03"
+			 data-caption-pt="Exemplo de documento (Documentos recentemente abertos)"
+			 data-caption-en="Document example (Recently opened documents)"
+			 data-caption-es="Ejemplo de documento (Documentos abiertos recientemente)"
+			 data-caption-fr="Exemple de document (Documents récemment ouverts)"
+			 data-caption-de="Dokumentbeispiel (Zuletzt geöffnete Dokumente)"			 
+			 onclick="openModal(2, 'gallery-dbpdf')">
+			
+		<div class="gallery-more" onclick="openModal(3, 'gallery-dbpdf')">
+			<img src="../../images/dbpdf_screen_04.webp"
+				alt="More screenshots"
+				data-caption-pt="Exemplo de documento (Propriedade e menu de contexto)"
+				data-caption-en="Document example (Properties and context menu)"
+				data-caption-es="Ejemplo de documento (Propiedades y menú contextual)"
+				data-caption-fr="Exemple de document (Propriétés et menu contextuel)"
+				data-caption-de="Dokumentbeispiel (Eigenschaften und Kontextmenü)">
+			<div class="gallery-more-overlay">
+				<span class="gallery-more-count">+2</span>
+				<!--
+				<small data-pt="Mais capturas"
+						data-en="More screenshots"
+						data-es="Más capturas"
+						data-fr="Plus de captures"
+						data-de="Weitere Screenshots">
+				</small>
+				-->
+			</div>
+		</div>
+
+		<div class="gallery-hidden">			
+			<img src="../../images/dbpdf_screen_05.webp"
+				alt="Screen 05"
+				data-caption-pt="Exemplo de documento (Visualização da impressão)"
+				data-caption-en="Document example (Print preview)"
+				data-caption-es="Ejemplo de documento (Vista previa de impresión)"
+				data-caption-fr="Exemple de document (Aperçu avant impression)"
+				data-caption-de="Dokumentbeispiel (Druckvorschau)"			 
+				onclick="openModal(4, 'gallery-dbpdf')">
+		</div>
+    </div>
+    
+    <h3 class="gallery-title-red" data-pt="Idiomas disponíveis" data-en="Available languages" data-es="Idiomas disponibles" data-fr="Langues disponibles" data-de="Verfügbare Sprachen"></h3>
+
+	<div class="lang-grid-status">
+		<div class="lang-status-item">
+			<img src="../../images/flag_usa_16.png" alt="English">
+			<span data-pt="Inglês" data-en="English" data-es="Inglés" data-fr="Anglais" data-de="Englisch">Inglês</span>
+		</div>
+		<div class="lang-status-item">
+			<img src="../../images/flag_brazil_16.png" alt="Português">
+			<span data-pt="Português" data-en="Portuguese" data-es="Portugués" data-fr="Portugais" data-de="Portugiesisch">Português</span>		
+		</div>
+		<div class="lang-status-item">
+			<img src="../../images/flag_spain_16.png" alt="Español">
+			<span data-pt="Espanhol" data-en="Spanish" data-es="Español" data-fr="Espagnol" data-de="Spanisch">Espanhol</span>			
+		</div>
+		<div class="lang-status-item">
+			<img src="../../images/flag_france_16.png" alt="Français">
+			<span data-pt="Francês" data-en="French" data-es="Francés" data-fr="Français" data-de="Französisch">Francês</span>			
+		</div>
+		<div class="lang-status-item">
+			<img src="../../images/flag_germany_16.png" alt="Deutsch">
+			<span data-pt="Alemão" data-en="German" data-es="Alemán" data-fr="Allemand" data-de="Deutsch">Alemão</span>			
+		</div>
+    </div>	
+</div>
+
+<div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <span class="nav-btn prev-btn" onclick="changeImage(-1)">&#10094;</span>
+    <img class="modal-content" id="img01">
+    <span class="nav-btn next-btn" onclick="changeImage(1)">&#10095;</span>
+	<div id="caption" class="modal-caption"></div>
+</div>
+
+<script src="../../script.js" defer></script>
+
+</body>
+</html>

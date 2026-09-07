@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8"/>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+	<meta content="#1b845b" name="theme-color"/>
+    <title>DevBrazil | Software Engineering</title>
+	<link rel="icon" type="image/png" href="../../images/favicon.png">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+	<link href="https://fonts.googleapis.com" rel="preconnect"/>
+	<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;600;700&amp;display=swap" rel="stylesheet"/>	
+
+    <style>
+		:root {
+			--verde-dev: #1b845b;
+			--verde-dev-dark: #146a48;
+			--azul-dbmoney: #004a99;			
+			--vermelho-dbpdf: #A75052;
+			--roxo-dbradio: #6a1b9a;
+			--amarelo-dbnotes: #AF8300;
+			--bg-light: #f7f6f1;
+			--ink: #1c2321;
+			--text-dark: #333;
+			--muted: #70766f;
+			--line: #e7e4da;
+			--white: #ffffff;
+			--font-body: "Inter", "Segoe UI", sans-serif;
+			--font-mono: "JetBrains Mono", "Consolas", monospace;
+		}
+
+		* {box-sizing: border-box; margin: 0; padding: 0;}
+
+		body {font-family: var(--font-body); background-color: white; color: var(--ink); line-height: 1.6; overflow-x: hidden; font-size: 0.95rem;}
+
+		header {
+			background: rgba(255,255,255,0.85);
+			padding: 16px 5%;
+			display: flex;
+			justify-content: space-between; 
+			align-items: center;
+			border-bottom: 1px solid var(--line);
+			position: sticky;
+			top: 0;
+			z-index: 1000;
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+			gap: 20px;
+		}
+
+		hr {border: 0; height: 1px; background-color: #eee;}
+
+		.hr2 {
+			border: 0;
+			height: 2px;
+			background-color: #eee;
+			margin: 30px 0; /* Opcional: dá um respiro em cima e embaixo */
+		}		
+
+		.logo-img {width: 34px; height: 34px;}
+
+		nav { display: flex; align-items: center; gap: 28px; }
+
+		.nav-divider {
+		width: 1px; height: 20px; background: var(--line); flex-shrink: 0;
+		}
+
+		.nav-divider-media-hide {
+		width: 1px; height: 20px; background: var(--line); flex-shrink: 0;
+		}
+
+		.header-contact {
+		color: var(--muted);
+					font-size: 0.95rem;
+					text-decoration: none;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 34px; height: 34px;
+					border-radius: 50%;
+					transition: all 0.2s ease;
+					flex-shrink: 0;
+		}
+
+		.header-contact:hover {
+		background: rgba(27,132,91,0.08); color: var(--verde-dev);
+		}
+
+		.product-eyebrow {
+		display: inline-block;
+					align-items: center;
+					gap: 8px;
+					font-family: var(--font-mono);
+					font-size: 0.7rem;
+					font-weight: 600;
+					letter-spacing: 0.08em;
+					
+					padding: 9px 12px;
+					border-radius: 10px;            
+					margin-left: 5px;
+					line-height: 1;
+					text-decoration: none;
+		}
+
+		.eyebrow-blue {margin-left: 0px; margin-right: 5px;  margin-top: 7px; margin-bottom: 7px; color: var(--azul-dbmoney); background: rgba(0,74,153,0.08);}
+		.eyebrow-red {margin-left: 0px; margin-right: 10px; margin-top: 7px; margin-bottom: 7px; color: var(--vermelho-dbpdf); background: rgba(167,80,82,0.1);}
+		.eyebrow-yellow {margin-left: 0px; margin-right: 10px; margin-top: 7px; margin-bottom: 7px; color: #8a6800; background: rgba(188,141,0,0.12);}
+		.eyebrow-purple {margin-left: 0px; margin-right: 10px; margin-top: 7px; margin-bottom: 7px; color: var(--roxo-dbradio); background: rgba(106,27,154,0.08);}
+		.eyebrow-green {margin-left: 0px; margin-right: 5px;  margin-top: 7px; margin-bottom: 7px; color: var(--verde-dev-dark); background: rgba(27,132,91,0.1);}
+		.eyebrow-gray {margin-left: 0px; margin-right: 5px;  margin-top: 7px; margin-bottom: 7px; color: #686868; background: #F2F2F2;}
+
+		.lang-selector {position: relative; display: inline-flex; align-items: center; gap: 2px; flex-shrink: 0;}
+
+		.lang-pill {
+		font-family: var(--font-mono);
+					font-size: 0.78rem;
+					font-weight: 600;
+					letter-spacing: 0.03em;
+					color: var(--muted);
+					text-decoration: none;
+					padding: 6px 10px;
+					border-radius: 6px;
+					transition: all 0.15s ease;
+		}
+
+		.lang-pill:hover {
+		color: var(--ink); background: rgba(0,0,0,0.04);
+		}
+
+		.lang-pill.active {
+		background: var(--bg-light);
+					border: 1px solid var(--line);
+					color: var(--ink);
+		}
+
+		.product-card {
+			background: #FCFCFC;
+			max-width: 1400px;
+			margin: -30px auto 0px;
+			padding: 40px 3%;
+			border-radius: 15px;
+			/*box-shadow: 0 10px 30px rgba(0,0,0,0.05);*/
+					/* border-left: 8px solid var(--azul-dbmoney);*/
+		}
+
+		.card-dbpdf {border-left-color: #A75052 !important;}
+		.card-dbpdf h2 {color: #d32f2f !important;}
+
+		.card-dbnotes {border-left-color: #BC8D00 !important;}
+		.card-dbnotes h2 {color: #AF8300 !important;}
+
+		.card-dbradio {border-left-color: #7A5B91 !important;}
+		.card-dbradio h2 {color: #6a1b9a !important;}
+
+		.card-devbrazil {border-left-color: #1B845B !important;}
+		.card-devbrazil h2 {color: #1B845B !important;}
+
+		.dbmoney-intro {display: flex; align-items: center; gap: 30px; margin-bottom: 10px;}
+		.dbmoney-intro img {width: 96px; height: auto;}
+		.dbmoney-text h2 {color: var(--azul-dbmoney); font-size: 1.8rem; margin-bottom: 15px;}
+
+		.about-content {margin-bottom: 20px;}
+
+		strong {color: #515151}
+
+		strong_black {color: var(--ink);}
+
+		strong_dbmoney { color: var(--azul-dbmoney); font-size: 1.0rem; font-weight: bold; }
+		strong_devbrazil { color: var(--verde-dev-dark); font-size: 1.2rem; font-weight: bold; display: inline-block; margin-bottom: 10px; }
+
+		.gallery-title {color: var(--azul-dbmoney); margin: 40px 0 20px; border-bottom: 2px solid #E0E0E0; padding-bottom: 10px; font-size: 1.4rem;}
+		.gallery-title-faq {color: var(--azul-dbmoney); margin: 40px 0 10px; border-bottom: 2px solid #E0E0E0; padding-bottom: 10px; font-size: 1.4rem;}
+		.gallery-title-red {color: #A75052; margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem;}
+		.gallery-title-yellow {color: #BC8D00; margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem;}
+		.gallery-title-purple {color: var(--roxo-dbradio); margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.4rem;}
+		.gallery-title-green {color: var(--verde-dev); margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.6rem;}
+
+		.screenshot-grid {display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px;}
+		.screenshot-grid img {width: 100%; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.2s;}
+		.screenshot-grid img:hover {transform: scale(1.05);}
+
+		#gallery-dbmoney {
+		display: grid;
+					grid-template-columns: repeat(4, minmax(0, 1fr)) 300px;
+					gap: 20px;
+					align-items: center;
+		}
+
+		#gallery-dbmoney-youtube {
+		grid-column: 5;
+					grid-row: 1;
+
+					width: 185px;
+					padding-left: 25px;
+					margin-left: 5px;
+
+					border-left: 1px solid rgba(128, 128, 128, 0.25);
+					box-sizing: border-box;
+		}
+
+		#gallery-dbmoney-youtube a {
+		display: block;
+		}
+
+		#gallery-dbmoney-youtube img {
+		display: block;
+					width: 100%;
+					height: auto;
+		}
+
+		.gallery-more {
+		position: relative;
+					cursor: pointer;
+					overflow: hidden;
+					width: 100%; 
+					border-radius: 8px; 
+					box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+					transition: transform 0.2s;
+		}
+
+		.gallery-more img {
+		display: block;
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+		}
+
+		.gallery-more-overlay {
+		position: absolute;
+					inset: 0;
+
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+
+					background: rgba(0, 10, 0, 0.60);
+					color: white;
+
+					transition: background 0.2s ease;
+		}
+
+		.gallery-more-overlay span {
+		font-size: 32px;
+					font-weight: 700;
+		}
+
+		.gallery-more-overlay small {
+		margin-top: 5px;
+					font-size: 14px;
+		}
+
+		.gallery-more:hover .gallery-more-overlay {
+		background: rgba(0, 0, 0, 0.75);
+		}
+
+		.gallery-hidden {
+		display: none !important;
+		}
+
+		.pricing-table-container {
+		margin-top: 10px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+		}
+
+		table {
+		width: 100%; border-collapse: collapse; margin-top: 0px; min-width: 500px;
+		}
+
+		th,
+		td {
+		padding: 12px 10px; text-align: left; border-bottom: 1px solid #eee; font-size: 0.9rem;
+		}
+
+		th {
+		background-color: #f8f9fa; color: var(--azul-dbmoney);
+		}
+
+		.check-yes {
+		color: #28a745;
+		}
+
+		.limit-text {
+		font-size: 0.75rem; color: #856404; background: #fff3cd; padding: 2px 6px; border-radius: 4px; display: inline-block;
+		}
+
+		.limit-text-blue {
+		font-weight: bold; color: var(--azul-dbmoney);
+		}
+
+		.btn-store-dbmoney {
+		display: block;
+					width: 100%;
+					max-width: 350px;
+					margin: 40px auto 0;
+					background: var(--azul-dbmoney);
+					color: #fff;
+					padding: 12px 20px;
+					border-radius: 8px;
+					text-decoration: none;
+					font-family: var(--font-mono);
+					font-size: 0.9rem;
+					font-weight: bold;
+					text-align: center;
+					transition: background 0.3s;
+		}
+
+		.btn-store-dbmoney:hover {
+		background: #003366;
+		}
+
+		.btn-store-dbmoney-mini {
+		display: inline-flex;       
+					flex-direction: column;     
+					align-items: center;        
+					justify-content: center;    
+					width: auto;                
+					max-width: 350px;
+					background: var(--azul-dbmoney);
+					color: #fff;
+					padding: 10px 16px;         
+					border-radius: 10px;
+					text-decoration: none;
+					font-family: var(--font-mono);
+					font-size: 0.8rem;
+					font-weight: bold;
+					text-align: center;
+					transition: background 0.3s;
+					gap: 6px;
+		}
+
+		.btn-store-dbmoney-mini i {
+		display: block;
+		}
+
+		.btn-store-dbmoney-mini:hover {
+		background: #003366;
+		}
+
+		.btn-store-dbpdf {
+		display: block;
+					width: 100%;
+					max-width: 350px;
+					margin: 40px auto 0;
+					background: var(--vermelho-dbpdf);
+					color: #fff;
+					padding: 12px 20px;
+					border-radius: 8px;
+					text-decoration: none;
+					font-family: var(--font-mono);
+					font-size: 0.9rem;
+					font-weight: bold;
+					text-align: center;
+					transition: background 0.3s;
+		}
+
+		.btn-store-dbpdf:hover {
+		background: #823E40;
+		}
+
+		.btn-store-gray {
+		display: block;
+					width: 100%;
+					max-width: 350px;
+					margin: 40px auto 0;
+					background: #E0E0E0;
+					color: #898989;
+					padding: 12px 20px;
+					border-radius: 8px;
+					text-decoration: none;
+					font-family: var(--font-mono);
+					font-size: 0.8rem;
+					font-weight: bold;
+					text-align: center;
+					transition: background 0.3s;
+		}
+
+		.btn-store-gray:hover {
+		background: #CECECE;
+		}
+
+		.btn-store-dbradio {
+		display: block;
+					width: 100%;
+					max-width: 350px;
+					margin: 40px auto 0;
+					background: var(--roxo-dbradio);
+					color: #fff;
+					padding: 12px 20px;
+					border-radius: 8px;
+					text-decoration: none;
+					font-family: var(--font-mono);
+					font-size: 0.9rem;
+					font-weight: bold;
+					text-align: center;
+					transition: background 0.3s;
+		}
+
+		.btn-store-dbradio:hover {
+		background: #59436B;
+		}
+
+		.modal {
+		display: none; position: fixed; z-index: 2000;
+					left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9);;
+					justify-content: center; align-items: center;
+		}
+
+		.modal-content {
+		max-width: 85%; max-height: 85vh; border-radius: 5px; object-fit: contain;
+		}
+
+		.close {
+		position: absolute; top: 15px; right: 25px; color: #fff; font-size: 35px; font-weight: bold; cursor: pointer; z-index: 2001;
+		}
+
+		.modal-caption {
+		position: absolute;
+					bottom: 15px;
+					left: 50%;
+					transform: translateX(-50%);
+
+					width: 70%;
+					max-width: 900px;
+
+					color: white;
+					text-align: center;
+					font-size: 16px;
+					line-height: 1.5;
+
+					padding: 10px 20px;
+					border-radius: 8px;
+		}
+
+		.nav-btn {
+		position: absolute; top: 50%; transform: translateY(-50%);
+					color: white; font-size: 30px; cursor: pointer; padding: 15px;
+					user-select: none; transition: 0.3s; z-index: 2001;
+		}
+
+		.nav-btn:hover {
+		color: var(--verde-dev);
+		}
+
+		.prev-btn {
+		left: 5px;
+		}
+
+		.next-btn {
+		right: 5px;
+		}
+
+		footer {
+		background: #333; color: #fff; text-align: center; padding: 15px 5%; margin-top: 50px; font-size: 0.9rem;
+		}
+
+		.lang-grid-status {
+		display: flex;
+					gap: 10px;
+					flex-wrap: wrap;
+					margin-top: 15px;
+					margin-bottom: 25px;
+		}
+
+		.lang-status-item {
+		display: flex;
+					align-items: center;
+					gap: 8px;								
+					font-family: var(--font-mono);
+					font-size: 0.7rem;
+					font-weight: 600;
+					letter-spacing: 0.08em;
+					color: var(--text-dark);
+					background: #F2F2F2;
+					padding: 5px 12px;
+					border-radius: 10px;
+					border: 1px solid #eee;
+		}
+
+		.lang-status-item img {
+			width: 16px;
+			height: 16px;
+			object-fit: contain;
+		}
+
+		.lang-status-item.coming-soon {
+			color: #888;
+		}
+
+		.product-title-flex {
+			display: flex;
+			align-items: center;       
+			justify-content: left;
+		}
+
+		.faq{border-top:1px solid #ffffff}
+		.faq details{border-bottom:1px solid #eee}
+		.faq summary{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px;padding:16px 8px;color:#585755;font-size: 1rem; font-weight: normal; cursor:pointer;list-style:none;transition:color 140ms cubic-bezier(.2,.7,.2,1),background-color 140ms cubic-bezier(.2,.7,.2,1),padding 180ms cubic-bezier(.2,.7,.2,1)}
+		.faq summary:hover{color:var(--azul-dbmoney);background:rgba(245, 245, 245, 0.68);padding-inline:12px}
+		.faq summary::-webkit-details-marker{display:none}
+		.faq summary::after{content:"";width:10px;height:10px;flex:0 0 auto;color:var(--azul-dbmoney);background:linear-gradient(currentColor 0 0) center/100% 2px no-repeat,linear-gradient(currentColor 0 0) center/2px 100% no-repeat;transition:background-size 140ms cubic-bezier(.2,.7,.2,1),transform 180ms cubic-bezier(.2,.7,.2,1)}
+		.faq details[open] summary::after{content:"";background-size:100% 2px,2px 0;transform:rotate(180deg)}
+		.faq details[open] summary{color:var(--azul-dbmoney); font-weight: bold;}
+		.faq details p{margin:0 8px 24px;color:#4b473f;font-size:.96rem;text-wrap:pretty}   /*max-width:66ch;*/
+		.faq details[open] p{animation:disclosure-in 180ms cubic-bezier(.2,.7,.2,1) both}
+
+		.custom-tooltip {
+		position: relative !important;
+				/* display: inline-flex !important; */
+				align-items: center;
+				cursor: help;
+		}
+
+		.custom-tooltip .tooltip-text {
+		visibility: hidden;
+				opacity: 0;
+				width: 230px;
+				background-color: #1e293b; 
+				color: #ffffff;
+				text-align: center;
+				font-weight: normal;
+				font-size: 11px;
+				line-height: 1.4;
+				border-radius: 6px;
+				padding: 8px 12px;
+				
+				
+				position: absolute;
+				z-index: 99;
+				bottom: 125%;
+				left: 50%;
+				transform: translateX(-50%);
+				
+				
+				transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+				box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+				pointer-events: none;
+		}
+
+		.custom-tooltip .tooltip-text::after {
+		content: "";
+				position: absolute;
+				top: 100%;
+				left: 50%;
+				margin-left: -5px;
+				border-width: 5px;
+				border-style: solid;
+				border-color: #1e293b transparent transparent transparent;
+		}
+
+		.custom-tooltip:hover .tooltip-text {
+		visibility: visible;
+				opacity: 1;
+		}
+
+		.inline-style-1 {
+		--prod-color:var(--verde-dev)
+		}
+
+		.inline-style-2 {
+		--prod-color:var(--azul-dbmoney)
+		}
+
+		.inline-style-3 {
+		--prod-color:var(--vermelho-dbpdf)
+		}
+
+		.inline-style-4 {
+		--prod-color:var(--roxo-dbradio)
+		}
+
+		.inline-style-5 {
+		--prod-color:var(--amarelo-dbnotes)
+		}
+
+		.inline-style-6 {
+		display: flex; flex-direction: column; align-items: center; gap: 0px;
+		}
+
+		.inline-style-7 {
+		display: block; margin: 0 0 -5px 0; padding: 0;
+		}
+
+		.inline-style-8 {
+		font-size: 0.75rem; color: #777; display: block; margin-top: 4px;
+		}
+
+		.inline-style-9 {
+		color: var(--roxo-dbradio)
+		}
+
+		.inline-style-10 {
+		color: var(--verde-dev)
+		}
+
+		.inline-style-11 {
+		display:none
+		}
+		
+		@media (max-width: 768px) {
+			
+			header { flex-direction: column; gap: 12px; padding: 14px 15px; }
+
+			nav {
+				display: flex;
+				flex-direction: row; 
+				flex-wrap: wrap;     
+				justify-content: center;
+				align-items: center;
+				gap: 14px;           
+				width: 90%;
+			}
+
+			.product-nav-links { gap: 14px; flex-wrap: wrap; justify-content: center; }
+			.product-nav-links a { font-size: 0.85rem; }
+
+			.nav-divider-media-hide { display: none; }
+
+			#gallery-dbmoney { grid-template-columns: repeat(2, 1fr); }
+
+			#gallery-dbmoney-youtube {
+				grid-column: 1 / -1;
+				grid-row: auto;
+				width: 200px;
+				margin: 10px auto 0;
+				padding-left: 0;
+				padding-top: 20px;
+				border-left: none;
+				border-top: 1px solid rgba(128, 128, 128, 0.25);
+			}
+
+			.card-dbmoney { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px; /* solid var(--azul-dbmoney); */ }
+			.card-dbpdf { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid #A75052; }
+			.card-dbradio { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid #7A5B91; }
+			.card-dbnotes { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px solid #BC8D00; }
+			.card-devbrazil { margin: -20px 15px 30px; padding: 25px 20px; border-left: none; border-top: 6px; /* solid #1B845B; */ }
+
+			.gallery-title { flex-direction: column; text-align: center; gap: 20px; }
+			.gallery-title-faq { flex-direction: column; text-align: center; gap: 20px; }
+			.gallery-title-red { flex-direction: column; text-align: center; gap: 20px; }
+			.gallery-title-yellow { flex-direction: column; text-align: center; gap: 20px; }
+			.gallery-title-purple { flex-direction: column; text-align: center; gap: 20px; }
+
+			.dbmoney-intro {flex-direction: column; text-align: center; gap: 20px;}
+			.dbmoney-intro img {width: 100px;}
+			.dbmoney-text h2 {font-size: 1.5rem;}
+			.about-content {flex-direction: column; text-align: center; gap: 20px;}
+
+			.screenshot-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
+
+			.nav-btn { font-size: 24px; padding: 10px; }
+
+			.lang-grid-status { justify-content: center; gap: 10px; }
+			.lang-status-item { padding: 5px 10px; }
+
+			.product-title-flex { flex-direction: column; gap: 5px; }
+
+			.btn-store-dbmoney-mini { flex-direction: row; justify-content: flex-start; text-align: left; }
+			.btn-store-dbmoney-mini i { display: inline-block; }
+		}
+    </style>
+
+</head>
+<body>
+
+<br>
+
+<!-- About: DevBrazil -->
+<div class="product-card card-devbrazil" id="devbrazil">
+    <div class="dbmoney-intro">
+        <img src="../images/devbrazil_logo_96.png" alt="DevBrazil" class="dbmoney-intro">		
+        <div class="dbmoney-text">
+            <h2>
+				<strong_black>Dev</strong_black>Brazil
+            </h2>
+			<p data-pt="<strong>Tecnologia independente, criada por quem acredita que software pode ser simples.</strong>"
+			   data-en="<strong>Independent technology, created by those who believe software can be simple.</strong>"
+			   data-es="<strong>Tecnología independiente, creada por quienes creen que el software puede ser simple.</strong>"
+			   data-fr="<strong>Une technologie indépendante, créée par ceux qui croient que les logiciels peuvent être simples.</strong>"
+			   data-de="<strong>Unabhängige Technologie, entwickelt von Menschen, die daran glauben, dass Software einfach sein kann.</strong>">
+			</p>
+			<br>
+			<p data-pt="A DevBrazil é uma empresa brasileira de desenvolvimento de software dedicada à criação de aplicativos nativos para Windows, com foco em desempenho, simplicidade e privacidade."
+			   data-en="DevBrazil is a Brazilian software development company dedicated to creating native Windows applications with a focus on performance, simplicity, and privacy."
+			   data-es="DevBrazil es una empresa brasileña de desarrollo de software dedicada a la creación de aplicaciones nativas para Windows, centradas en el rendimiento, la simplicidad y la privacidad."
+			   data-fr="DevBrazil est une entreprise brésilienne de développement de logiciels dédiée à la création d'applications natives pour Windows, axées sur la performance, la simplicité et la confidentialité."
+			   data-de="DevBrazil ist ein brasilianisches Softwareentwicklungsunternehmen, das sich auf die Erstellung nativer Windows-Anwendungen mit dem Schwerpunkt auf Leistung, Einfachheit und Datenschutz spezialisiert hat.">
+			</p>
+        </div>
+    </div>
+	<br>    
+    <div class="about-content">		
+		<p data-pt="Acreditamos que bons aplicativos não precisam ser pesados, invasivos ou depender de assinaturas intermináveis. Por isso, buscamos criar soluções que ofereçam mais controle ao usuário e respeitem seu tempo e seus dados."
+			data-en="We believe that great applications don't need to be bloated, invasive, or dependent on endless subscriptions. That's why we build solutions that give users more control while respecting their time and data."
+			data-es="Creemos que las buenas aplicaciones no necesitan ser pesadas, invasivas ni depender de suscripciones interminables. Por eso, buscamos crear soluciones que ofrezcan más control al usuario y respeten su tiempo y sus datos."
+			data-fr="Nous pensons que les bonnes applications n'ont pas besoin d'être lourdes, intrusives ou dépendantes d'abonnements sans fin. C'est pourquoi nous créons des solutions qui offrent plus de contrôle à l'utilisateur tout en respectant son temps et ses données."
+			data-de="Wir glauben, dass gute Anwendungen weder überladen noch übergriffig sein oder von endlosen Abonnements abhängen müssen. Deshalb entwickeln wir Lösungen, die dem Nutzer mehr Kontrolle geben und seine Zeit sowie seine Daten respektieren.">
+		</p>
+		<br>
+		<p data-pt="<strong>Do Brasil para o mundo!</strong> Nossos aplicativos estão presentes em mais de 120 mercados e territórios."
+		   data-en="<strong>From Brazil to the world!</strong> Our applications are available in over 120 markets and territories."
+		   data-es="<strong>¡De Brasil para el mundo!</strong> Nuestras aplicaciones están presentes en más de 120 mercados y territorios."
+		   data-fr="<strong>Du Brésil vers le monde entier !</strong> Nos applications sont présentes dans plus de 120 marchés et territoires."
+		   data-de="<strong>Aus Brasilien in die ganze Welt!</strong> Unsere Anwendungen sind in über 120 Märkten und Territorien vertreten.">
+		</p>
+		<br>
+		<a id="contactLink2"
+		   data-pt='<i class="fas fa-envelope"></i> Contato'
+		   data-en='<i class="fas fa-envelope"></i> Contact'
+		   data-es='<i class="fas fa-envelope"></i> Contacto'
+		   data-fr='<i class="fas fa-envelope"></i> Contact'
+		   data-de='<i class="fas fa-envelope"></i> Kontakt'
+		   href="#" 
+		   class="product-eyebrow eyebrow-green" 
+		   title="support@devbrazil.com">		   
+		</a>			
+		<span class="product-eyebrow eyebrow-gray" 
+			data-pt='<i class="fa fa-map-marker"></i> Lençóis Paulista, SP - Brasil' 
+			data-en='<i class="fa fa-map-marker"></i> Lençóis Paulista, SP - Brazil'
+			data-es='<i class="fa fa-map-marker"></i> Lençóis Paulista, SP - Brasil'
+			data-fr='<i class="fa fa-map-marker"></i> Lençóis Paulista, SP - Brésil'
+			data-de='<i class="fa fa-map-marker"></i> Lençóis Paulista, SP - Brasilien'>
+		</span>
+		<span class="product-eyebrow eyebrow-red" 
+			data-pt='<i class="fa-solid fa-heart"></i> Made in Brazil'
+			data-en='<i class="fa-solid fa-heart"></i> Made in Brazil'
+			data-es='<i class="fa-solid fa-heart"></i> Made in Brazil'
+			data-fr='<i class="fa-solid fa-heart"></i> Made in Brazil'
+			data-de='<i class="fa-solid fa-heart"></i> Made in Brazil'>
+		</span>
+    </div>
+
+	<hr class="hr2">	
+	
+    <div class="dbmoney-intro">
+        <img src="../images/dbmoney_history_96.png" alt="DevBrazil" class="dbmoney-intro">		
+        <div class="dbmoney-text">
+            <h2 class="product-title product-title-flex">
+				<a data-pt="A história do dbMoney"
+				   data-en="The Story Behind dbMoney"
+				   data-es="La historia de dbMoney"
+				   data-fr="L'histoire de dbMoney"
+				   data-de="Die Geschichte von dbMoney">
+				</a>
+            </h2>
+			<p data-pt="<strong>De uma necessidade pessoal a um produto compartilhado com o mundo.</strong>"
+				data-en="<strong>From a personal need to a product shared with the world.</strong>"
+				data-es="<strong>De una necesidad personal a un producto compartido con el mundo.</strong>"
+				data-fr="<strong>D'un besoin personnel à un produit partagé avec le monde.</strong>"
+				data-de="<strong>Von einem persönlichen Bedürfnis zu einem Produkt für die ganze Welt.</strong>">
+			</p>
+			<br>
+			<p data-pt="O dbMoney Personal começou há mais de 15 anos como uma ferramenta criada para organizar informações financeiras de forma prática, flexível e segura."
+				data-en="dbMoney Personal started over 15 years ago as a tool created to organize personal finances in a practical, flexible, and secure way."
+				data-es="dbMoney Personal comenzó hace más de 15 años como una herramienta creada para organizar la información financiera de forma práctica, flexible y segura."
+				data-fr="dbMoney Personal a débuté il y a plus de 15 ans comme un outil créé pour organiser les informations financières de manière pratique, flexible et sécurisée."
+				data-de="dbMoney Personal begann vor mehr als 15 Jahren als Werkzeug, um persönliche Finanzinformationen auf praktische, flexible und sichere Weise zu organisieren.">
+			</p>			
+		</div>
+	</div>
+	<br>
+    <div class="about-content">		
+		<p data-pt="Com o passar dos anos, o projeto evoluiu continuamente. Novos recursos, automações, dashboards, importação de OFX e opções de personalização foram incorporados naturalmente à ferramenta."
+			data-en="Over the years, the project evolved continuously. New features, automation, dashboards, OFX import, and customization options were naturally integrated into the tool."
+			data-es="Con el paso de los años, el proyecto evolucionó continuamente. Se incorporaron de manera natural nuevos recursos, automatizaciones, paneles de control (dashboards), importación de archivos OFX y opciones de personalización."
+			data-fr="Au fil des ans, le projet a évolué continuellement. De nouvelles fonctionnalités, automatisations, tableaux de bord, l'importation de fichiers OFX et des options de personnalisation ont été intégrés naturellement à l'outil."
+			data-de="Im Laufe der Jahre hat sich das Projekt kontinuierlich weiterentwickelt. Neue Funktionen, Automatisierungen, Dashboards, OFX-Import und Personalisierungsoptionen wurden auf natürliche Weise in die Anwendung integriert.">
+		</p>
+		<br>
+		<p data-pt="O que durante muito tempo foi uma solução de uso pessoal amadureceu e evoluiu até se transformar no <strong>dbMoney Personal</strong> disponível hoje."
+			data-en="What spent a long time as a private, personal solution matured and evolved into the <strong>dbMoney Personal</strong> available today."
+			data-es="Lo que durante mucho tiempo fue una solución de uso personal maduró y evolucionó hasta convertirse en el <strong>dbMoney Personal</strong> disponible hoy en día."
+			data-fr="Ce qui a longtemps été une solution à usage personnel a mûri et évolué pour devenir le <strong>dbMoney Personal</strong> disponible aujourd'hui."
+			data-de="Was lange Zeit eine reine Lösung für den persönlichen Gebrauch war, ist gereift und hat sich zu dem heutigen <strong>dbMoney Personal</strong> entwickelt.">
+		</p>	
+	</div>
+
+	<hr class="hr2">
+
+    <div class="dbmoney-intro">
+        <img src="../images/founder.png" alt="DevBrazil" class="dbmoney-intro">		
+        <div class="dbmoney-text">
+            <h2 class="product-title product-title-flex">				
+				<a data-pt="Sobre o fundador"
+				   data-en="About the Founder"
+				   data-es="Sobre el fundador"
+				   data-fr="À propos du fondateur"
+				   data-de="Über den Gründer">
+				</a>
+            </h2>
+			<p data-pt="Olá! Sou <strong>Fabio Ceschini</strong>, brasileiro, 43 anos, pai de dois filhos, fundador e arquiteto de software da DevBrazil. Minha trajetória com tecnologia começou aos 16 anos."
+			   data-en="Hello! I'm <strong>Fabio Ceschini</strong>, Brazilian, 43 years old, father of two, founder, and software architect at DevBrazil. My journey with technology began when I was 16."
+			   data-es="¡Hola! Soy <strong>Fabio Ceschini</strong>, brasileño, de 43 años, padre de dos hijos, fundador y arquitecto de software de DevBrazil. Mi trayectoria con la tecnología comenzó a los 16 años."
+			   data-fr="Bonjour ! Je suis <strong>Fabio Ceschini</strong>, Brésilien, 43 ans, père de deux enfants, fondateur et architecte logiciel chez DevBrazil. Mon parcours dans la technologie a commencé à l'âge de 16 ans."
+			   data-de="Hallo! Ich bin <strong>Fabio Ceschini</strong>, Brasilianer, 43 Jahre alt, Vater von zwei Kindern, Gründer und Softwarearchitekt von DevBrazil. Meine Reise in die Welt der Technologie begann im Alter von 16 Jahren.">
+			</p>
+		</div>
+	</div>
+	<br>
+    <div class="about-content">		
+		<p data-pt="Sou formado em Sistemas de Informação e Gestão Comercial. Acumulo mais de 25 anos de experiência em projetos para os setores de indústria, comércio, mercado financeiro e e-commerce."
+		   data-en="I hold degrees in Information Systems and Commercial Management, with over 25 years of experience in projects across industrial, retail, financial market, and e-commerce sectors."
+		   data-es="Soy graduado en Sistemas de Información y Gestión Comercial. Acumulo más de 25 años de experiencia en proyectos para los sectores industrial, comercial, mercado financiero y comercio electrónico."
+		   data-fr="Je suis diplômé en Systèmes d'Information et en Gestion Commerciale. J'accumule plus de 25 ans d'expérience dans des projets pour les secteurs de l'industrie, du commerce, des marchés financiers et du e-commerce."
+		   data-de="Ich habe Abschlüsse in Wirtschaftsinformatik und Vertriebsmanagement und verfüge über mehr als 25 Jahre Erfahrung in Projekten für Industrie, Handel, Finanzmarkt und E-Commerce.">
+		</p>
+		<br>
+		<p data-pt="Depois de muitos anos trabalhando em diferentes projetos e setores, decidi transformar parte dessa experiência — e também projetos que desenvolvi ao longo da vida — em produtos próprios. Foi assim que nasceu a <strong>DevBrazil</strong>."
+		   data-en="After years of working across different industries and projects, I decided to channel that experience—along with projects I built throughout my life—into my own products. That is how <strong>DevBrazil</strong> was born."
+		   data-es="Después de muchos años trabajando en diferentes proyectos y sectores, decidí transformar parte de esa experiencia —y también proyectos que desarrollé a lo largo de mi vida— en productos propios. Así fue como nació <strong>DevBrazil</strong>."
+		   data-fr="Après de nombreuses années à travailler sur différents projets et secteurs, j'ai décidé de transformer une partie de cette expérience — ainsi que des projets développés tout au long de ma vie — en mes propres produits. C'est ainsi qu'est née <strong>DevBrazil</strong>."
+		   data-de="Nach vielen Jahren der Arbeit in verschiedenen Projekten und Branchen habe ich mich entschlossen, einen Teil dieser Erfahrung — und auch Projekte, die ich im Laufe meines Lebens entwickelt habe — in eigene Produkte zu verwandeln. So wurde <strong>DevBrazil</strong> geboren.">
+		</p>	
+	</div>	
+
+	<hr>
+	<br>
+	
+	<div class="about-content">
+		<p data-pt="<strong>Meus hobbies:</strong>" 
+		   data-en="<strong>My hobbies:</strong>" 
+		   data-es="<strong>Mis pasatiempos:</strong>" 
+		   data-fr="<strong>Mes centres d'intérêt :</strong>" 
+		   data-de="<strong>Meine Hobbies:</strong>">
+		</p>
+		<span class="product-eyebrow eyebrow-gray" 
+			data-pt='<i class="fa-solid fa-futbol"></i> Futebol'
+			data-en='<i class="fa-solid fa-futbol"></i> Soccer'
+			data-es='<i class="fa-solid fa-futbol"></i> Fútbol'
+			data-fr='<i class="fa-solid fa-futbol"></i> Football'
+			data-de='<i class="fa-solid fa-futbol"></i> Fußball'>
+		</span>
+		<span class="product-eyebrow eyebrow-gray"
+			data-pt='<i class="fa-solid fa-bicycle"></i> Ciclismo'
+			data-en='<i class="fa-solid fa-bicycle"></i> Cycling'
+			data-es='<i class="fa-solid fa-bicycle"></i> Ciclismo'
+			data-fr='<i class="fa-solid fa-bicycle"></i> Cyclisme'
+			data-de='<i class="fa-solid fa-bicycle"></i> Radfahren'>
+		</span>
+		<span class="product-eyebrow eyebrow-gray"
+			data-pt='<i class="fa-solid fa-person-running"></i> Corrida'
+			data-en='<i class="fa-solid fa-person-running"></i> Running'
+			data-es='<i class="fa-solid fa-person-running"></i> Carrera'
+			data-fr='<i class="fa-solid fa-person-running"></i> Course à pied'
+			data-de='<i class="fa-solid fa-person-running"></i> Laufen'>
+		</span>
+		<span class="product-eyebrow eyebrow-gray"
+			data-pt='<i class="fa-solid fa-utensils"></i> Culinária'
+			data-en='<i class="fa-solid fa-utensils"></i> Cooking'
+			data-es='<i class="fa-solid fa-utensils"></i> Cocina'
+			data-fr='<i class="fa-solid fa-utensils"></i> Cuisine'
+			data-de='<i class="fa-solid fa-utensils"></i> Kochen'>
+		</span>
+		<span class="product-eyebrow eyebrow-gray"
+			data-pt='<i class="fa-solid fa-hammer"></i> Carpintaria'
+			data-en='<i class="fa-solid fa-hammer"></i> Woodworking'
+			data-es='<i class="fa-solid fa-hammer"></i> Carpintería'
+			data-fr='<i class="fa-solid fa-hammer"></i> Menuiserie'
+			data-de='<i class="fa-solid fa-hammer"></i> Tischlern'>
+		</span>
+		<span class="product-eyebrow eyebrow-gray"
+			data-pt='<i class="fa-solid fa-landmark"></i> Arquitetura'
+			data-en='<i class="fa-solid fa-landmark"></i> Architecture'
+			data-es='<i class="fa-solid fa-landmark"></i> Arquitectura'
+			data-fr='<i class="fa-solid fa-landmark"></i> Architecture'
+			data-de='<i class="fa-solid fa-landmark"></i> Architektur'>
+		</span>
+		<span class="product-eyebrow eyebrow-gray"
+			data-pt='<i class="fa-solid fa-robot"></i> Automação'
+			data-en='<i class="fa-solid fa-robot"></i> Automation'
+			data-es='<i class="fa-solid fa-robot"></i> Automatización'
+			data-fr='<i class="fa-solid fa-robot"></i> Automatisation'
+			data-de='<i class="fa-solid fa-robot"></i> Automation'>
+		</span>
+	</div>
+	<hr>
+	<br>
+	<div class="about-content">
+		<p data-pt="<strong>Contatos pessoais:</strong>" 
+		   data-en="<strong>Personal contacts:</strong>" 
+		   data-es="<strong>Contactos personales:</strong>"
+		   data-fr="<strong>Contacts personnels :</strong>" 
+		   data-de="<strong>Persönliche Kontakte:</strong>">
+		</p>
+
+		<a href="https://www.linkedin.com/in/fabioceschini/" 
+		target="_blank" 
+		class="product-eyebrow eyebrow-blue" 
+		data-pt='<i class="fa-brands fa-linkedin"></i> LinkedIn' 
+		data-en='<i class="fa-brands fa-linkedin"></i> LinkedIn' 
+		data-es='<i class="fa-brands fa-linkedin"></i> LinkedIn' 
+		data-fr='<i class="fa-brands fa-linkedin"></i> LinkedIn' 
+		data-de='<i class="fa-brands fa-linkedin"></i> LinkedIn'>
+		</a>
+		
+		<a data-pt='<i class="fas fa-envelope"></i> Contato'
+		   data-en='<i class="fas fa-envelope"></i> Contact'
+		   data-es='<i class="fas fa-envelope"></i> Contacto'
+		   data-fr='<i class="fas fa-envelope"></i> Contact'
+		   data-de='<i class="fas fa-envelope"></i> Kontakt'
+		   href="mailto:fabio@devbrazil.com" 
+		   class="product-eyebrow eyebrow-green" 
+		   title="fabio@devbrazil.com">
+		</a>			
+	</div>
+</div>
+
+<div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <span class="nav-btn prev-btn" onclick="changeImage(-1)">&#10094;</span>
+    <img class="modal-content" id="img01">
+    <span class="nav-btn next-btn" onclick="changeImage(1)">&#10095;</span>
+	<div id="caption" class="modal-caption"></div>
+</div>
+
+<script src="../script.js" defer></script>
+
+</body>
+</html>

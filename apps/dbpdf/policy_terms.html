@@ -6,7 +6,8 @@
     <link rel="icon" type="image/png" href="../../images/favicon.png">
     <style>
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Calibri', Tahoma, Geneva, Verdana, sans-serif;
+			/* font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; */
             line-height: 1.6;
             color: #333;
             max-width: 1400px;
@@ -18,10 +19,14 @@
             background-color: #ffffff;
             padding: 10px;
             border-radius: 8px;
+            /*
+			box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-top: 8px solid #004a99;
+			*/
         }
         header {
             text-align: left;
-            border-bottom: 2px solid #A75052;
+            border-bottom: 2px solid #2B579A; /* #eee; */
             margin-bottom: 15px;
             padding-bottom: 10px;
         }
@@ -29,17 +34,23 @@
             color: #A75052;
             margin: 0;
             font-size: 22px;
-            letter-spacing: 1px;
+            /* text-transform: uppercase; */
+            letter-spacing: 1px;			
         }
         header p {
             color: #666;
             font-size: 14px;
             margin-top: 5px;
         }
+        h1 {
+            color: #A75052;
+            font-size: 20px;
+            margin-top: 20px;
+        }
         h2 {
             background-color: #fff5f5;
 			color: #A75052;
-            border-left: 5px solid #A75052;
+            border-left: 5px solid #A75052; 
             padding: 6px;
 			padding-left: 15px;
             margin-top: 35px;
@@ -76,178 +87,276 @@
             border-top: 1px solid #eee;
             padding-top: 20px;
         }
+        .btn-print {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background-color: #A75052;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <header>
-            <h1>dbPDF</h1>			
-        </header>
 		
-		<p data-pt="<strong>Política de Privacidade e Termos de Uso - Documento Oficial</strong>"
-		   data-en="<strong>Privacy Policy and Terms of Use - Official Document</strong>">
-		</p>
+		<h1>
+            <a data-pt="<strong>Política de Privacidade e Termos de Uso - Documento Oficial</strong>"
+		       data-en="<strong>Privacy Policy and Terms of Use - Official Document</strong>"
+		       data-es="<strong>Política de Privacidad y Términos de Uso - Documento Oficial</strong>"
+		       data-fr="<strong>Politique de Confidentialité et Conditions d'Utilisation - Document Officiel</strong>"
+		       data-de="<strong>Datenschutzerklärung und Nutzungsbedingungen - Offizielles Dokument</strong>">
+		    </a>
+        </h1>
 
         <section>
             <h2 data-pt="1. Política de Privacidade"
-			    data-en="1. Privacy Policy">
+			    data-en="1. Privacy Policy"
+			    data-es="1. Política de Privacidad"
+			    data-fr="1. Politique de Confidentialité"
+			    data-de="1. Datenschutzerklärung">
 			</h2>
             <p data-pt="A <strong>DevBrazil</strong> prioriza a transparência e a segurança. O <strong>dbPDF</strong> foi desenvolvido para ser um utilitário de leitura de documentos de alta performance que respeita integralmente a privacidade dos arquivos do usuário."
-			   data-en="<strong>DevBrazil</strong> prioritizes transparency and security. <strong>dbPDF</strong> was developed to be a high-performance document reading utility that fully respects the privacy of user files.">
+			   data-en="<strong>DevBrazil</strong> prioritizes transparency and security. <strong>dbPDF</strong> was developed to be a high-performance document reading utility that fully respects the privacy of user files."
+			   data-es="<strong>DevBrazil</strong> prioriza la transparencia y la seguridad. <strong>dbPDF</strong> fue desarrollado para ser una utilidad de lectura de documentos de alto rendimiento que respeta íntegramente la privacidad de los archivos del usuario."
+			   data-fr="<strong>DevBrazil</strong> privilégie la transparence et la sécurité. <strong>dbPDF</strong> a été développé pour être un utilitaire de lecture de documents haute performance qui respecte pleinement la confidentialité des fichiers de l'utilisateur."
+			   data-de="<strong>DevBrazil</strong> legt höchsten Wert auf Transparenz und Sicherheit. <strong>dbPDF</strong> wurde als hochleistungsfähiges Dienstprogramm zum Lesen von Dokumenten entwickelt, das die Privatsphäre der Benutzerdateien vollständig respektiert.">
 			</p>
             
             <h3 data-pt="1.1. Coleta de Dados e Arquivos"
-			    data-en="1.1. Data Collection and Files">
+			    data-en="1.1. Data Collection and Files"
+			    data-es="1.1. Recopilación de Datos y Archivos"
+			    data-fr="1.1. Collecte de Données et Fichiers"
+			    data-de="1.1. Datenerfassung und Dateien">
 			</h3>
             <p data-pt="O dbPDF opera de forma totalmente offline e local. O aplicativo <strong>não coleta, não transmite e não armazena</strong> em servidores externos o conteúdo de qualquer documento PDF aberto. O processamento dos arquivos ocorre exclusivamente na memória do dispositivo do usuário."
-			   data-en="dbPDF operates entirely offline and locally. The application <strong>does not collect, transmit, or store</strong> the content of any opened PDF document on external servers. File processing occurs exclusively in the user's device memory.">
+			   data-en="dbPDF operates entirely offline and locally. The application <strong>does not collect, transmit, or store</strong> the content of any opened PDF document on external servers. File processing occurs exclusively in the user's device memory."
+			   data-es="dbPDF opera de forma totalmente offline y local. La aplicación <strong>no recopila, no transmite y no almacena</strong> en servidores externos el contenido de ningún documento PDF abierto. El procesamiento de los archivos ocurre exclusivamente en la memoria del dispositivo del usuario."
+			   data-fr="dbPDF fonctionne entièrement hors ligne et localement. L'application <strong>ne collecte, ne transmet et ne stocke pas</strong> le contenu des documents PDF ouverts sur des serveurs externes. Le traitement des fichiers s'effectue exclusivement dans la mémoire de l'appareil de l'utilisateur."
+			   data-de="dbPDF arbeitet vollständig offline und lokal. Die Anwendung <strong>erfasst, überträgt und speichert keine</strong> Inhalte von geöffneten PDF-Dokumenten auf externen Servern. Die Dateiverarbeitung erfolgt ausschließlich im Speicher des Geräts des Benutzers.">
 			</p>
 
             <h3 data-pt="1.2. Gerenciamento de Arquivos Temporários"
-			    data-en="1.2. Temporary File Management">
+			    data-en="1.2. Temporary File Management"
+			    data-es="1.2. Gestión de Archivos Temporales"
+			    data-fr="1.2. Gestion des Fichiers Temporaires"
+			    data-de="1.2. Verwaltung Temporärer Dateien">
 			</h3>
             <div class="highlight">
                 <a data-pt="<strong>Uso Técnico de Diretórios:</strong> Para otimizar a velocidade de renderização e cache de visualização, o software pode realizar a gravação de arquivos técnicos temporários exclusivamente na pasta local:"
-				   data-en="<strong>Technical Directory Usage:</strong> To optimize rendering speed and display caching, the software may save temporary technical files exclusively in the local folder."></a>
+				   data-en="<strong>Technical Directory Usage:</strong> To optimize rendering speed and display caching, the software may save temporary technical files exclusively in the local folder:"
+				   data-es="<strong>Uso Técnico de Directorios:</strong> Para optimizar la velocidad de renderizado y el almacenamiento en caché de visualización, el software puede guardar archivos técnicos temporales exclusivamente en la carpeta local:"
+				   data-fr="<strong>Utilisation Technique des Répertoires:</strong> Pour optimiser la vitesse de rendu et le cache d'affichage, le logiciel peut enregistrer des fichiers techniques temporaires exclusivement dans le dossier local:"
+				   data-de="<strong>Technische Nutzung von Verzeichnissen:</strong> Um die Rendering-Geschwindigkeit und das Caching der Anzeige zu optimieren, kann die Software temporäre technische Dateien ausschließlich im lokalen Ordner speichern:"></a>
 				<br>
                 <code>C:\Users\[user]\AppData\Roaming\DevBrazil\dbPDF</code>
 				<br>
                 <a data-pt="Esses arquivos são de uso interno do sistema e não contêm informações enviadas à DevBrazil."
-				   data-en="These files are for internal system use and do not contain information sent to DevBrazil."></a>
+				   data-en="These files are for internal system use and do not contain information sent to DevBrazil."
+				   data-es="Estos archivos son para uso interno del sistema y no contienen información enviada a DevBrazil."
+				   data-fr="Ces fichiers sont réservés à un usage interne du système et ne contiennent aucune informação envoyée à DevBrazil."
+				   data-de="Diese Dateien sind für die interne Systemnutzung bestimmt und enthalten keine an DevBrazil gesendeten Informationen."></a>
             </div>
 
             <h3 data-pt="1.3. Ausência de Conectividade"
-			    data-en="1.3. Lack of Connectivity">
+			    data-en="1.3. Lack of Connectivity"
+			    data-es="1.3. Ausencia de Conectividad"
+			    data-fr="1.3. Absence de Connectivité"
+			    data-de="1.3. Keine Konnektivität">
 			</h3>
             <p data-pt="Diferente de leitores baseados em nuvem ou IA, o dbPDF não exige conexão com a internet para suas funcionalidades principais de leitura, garantindo que seus documentos nunca saiam do seu perímetro de segurança."
-			   data-en="Unlike cloud-based or AI-driven readers, dbPDF does not require an internet connection for its core reading features, ensuring that your documents never leave your security perimeter.">
+			   data-en="Unlike cloud-based or AI-driven readers, dbPDF does not require an internet connection for its core reading features, ensuring that your documents never leave your security perimeter."
+			   data-es="A diferencia de los lectores basados en la nube o en IA, dbPDF no requiere conexión a internet para sus funciones principales de lectura, garantizando que sus documentos nunca salgan de su perímetro de seguridad."
+			   data-fr="Contrairement aux lecteurs basés sur le cloud ou l'IA, dbPDF ne nécessite aucune connexion Internet pour ses fonctionnalités de lecture principales, garantissant que vos documents ne quittent jamais votre périmètre de sécurité."
+			   data-de="Im Gegensatz zu cloudbasierten oder KI-gestützten Readern benötigt dbPDF keine Internetverbindung für seine grundlegenden Lese-Funktionen. Dadurch wird sichergestellt, dass Ihre Dokumente Ihren Sicherheitsbereich niemals verlassen.">
 			</p>
 			
             <h3 data-pt="1.4. Conformidade com a LGPD"
-			    data-en="1.4. LGPD Compliance">
+			    data-en="1.4. LGPD Compliance"
+			    data-es="1.4. Cumplimiento de la LGPD"
+			    data-fr="1.4. Conformité à la LGPD"
+			    data-de="1.4. LGPD-Konformität">
 			</h3>
             <p data-pt="Em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/18), o dbPDF adota o princípio de <em>Data Minimization</em>. Não solicitamos criação de conta, e-mail ou qualquer dado pessoal para o funcionamento da ferramenta básica de leitura."
-			   data-en="In compliance with the General Data Protection Law (Law No. 13,709/18), dbPDF adopts the Data Minimization principle. We do not require account creation, emails, or any personal data to operate the basic reading tool.">
+			   data-en="In compliance with the General Data Protection Law (Law No. 13,709/18), dbPDF adopts the Data Minimization principle. We do not require account creation, emails, or any personal data to operate the basic reading tool."
+			   data-es="En cumplimiento con la Ley General de Protección de Datos (Ley nº 13.709/18), dbPDF adopta el principio de <em>Data Minimization</em>. No solicitamos la creación de cuentas, correo electrónico ni ningún dato personal para el funcionamiento de la herramienta básica de lectura."
+			   data-fr="Conformément à la Loi Générale sur la Protection des Données (Loi n° 13.709/18), dbPDF adopte le principe de <em>Data Minimization</em>. Nous ne demandons aucune création de compte, e-mail ou donnée personnelle pour le fonctionnement de l'outil de lecture de base."
+			   data-de="In Übereinstimmung mit dem allgemeinen Datenschutzgesetz (Gesetz Nr. 13.709/18) wendet dbPDF das Prinzip der <em>Data Minimization</em> an. Wir verlangen keine Kontoverknüpfung, E-Mail-Adresse oder sonstige persönliche Daten für die Nutzung des grundlegenden Lese-Tools.">
 			</p>
 			
 			<h3 data-pt="1.5. Suporte"
-			    data-en="1.5. Support">
+			    data-en="1.5. Support"
+			    data-es="1.5. Soporte"
+			    data-fr="1.5. Support"
+			    data-de="1.5. Support">
 			</h3>
             <p data-pt="Dúvidas sobre o funcionamento técnico ou privacidade podem ser encaminhadas para: <strong>support@devbrazil.com</strong>"
-			   data-en="Technical or privacy questions can be sent to: support@devbrazil.com">
+			   data-en="Technical or privacy questions can be sent to: support@devbrazil.com"
+			   data-es="Las dudas sobre el funcionamiento técnico o la privacidad se pueden enviar a: <strong>support@devbrazil.com</strong>"
+			   data-fr="Les questions concernant le fonctionnement technique ou la confidentialité peuvent être envoyées à : <strong>support@devbrazil.com</strong>"
+			   data-de="Fragen zum technischen Betrieb oder zum Datenschutz können an <strong>support@devbrazil.com</strong> gerichtet werden.">
 			</p>
         </section>
 
         <section>
             <h2 data-pt="2. Termos de Uso"
-			    data-en="2. Terms of Use">
+			    data-en="2. Terms of Use"
+			    data-es="2. Términos de Uso"
+			    data-fr="2. Conditions d'Utilisation"
+			    data-de="2. Nutzungsbedingungen">
 			</h2>
             <p data-pt="Ao utilizar o dbPDF você concorda com as seguintes condições:"
-			   data-en="By using dbPDF, you agree to the following conditions:">
+			   data-en="By using dbPDF, you agree to the following conditions:"
+			   data-es="Al utilizar dbPDF, usted acepta las siguientes condiciones:"
+			   data-fr="En utilisant dbPDF, vous acceptez les conditions suivantes :"
+			   data-de="Durch die Nutzung von dbPDF stimmen Sie den folgenden Bedingungen zu:">
 			</p>
 
             <h3 data-pt="2.1. Licenciamento e Distribuição"
-			    data-en="2.1. Licensing and Distribution">
+			    data-en="2.1. Licensing and Distribution"
+			    data-es="2.1. Licencia y Distribución"
+			    data-fr="2.1. Licence et Distribution"
+			    data-de="2.1. Lizenzierung und Vertrieb">
 			</h3>
             <p data-pt="A DevBrazil concede uma licença de uso gratuito para fins pessoais ou profissionais. O software é distribuído oficialmente através da Microsoft Store."
-			   data-en="DevBrazil grants a free-use license for personal or professional purposes. The software is officially distributed through the Microsoft Store.">
+			   data-en="DevBrazil grants a free-use license for personal or professional purposes. The software is officially distributed through the Microsoft Store."
+			   data-es="DevBrazil otorga una licencia de uso gratuito para fines personales o profesionales. El software se distribuye oficialmente a través de la Microsoft Store."
+			   data-fr="DevBrazil me à disposition une licence d'utilisation gratuite à des fins personnelles ou professionnelles. Le logiciel est officiellement distribué via le Microsoft Store."
+			   data-de="DevBrazil gewährt eine kostenlose Nutzungslizenz für persönliche oder berufliche Zwecke. Die Software wird offiziell über den Microsoft Store vertrieben.">
 			</p>
 
 			<h3 data-pt="2.2. Modelo de Apoio (Donationware)"
-			    data-en="2.2. Support Model (Donationware)">
+			    data-en="2.2. Support Model (Donationware)"
+			    data-es="2.2. Modelo de Apoyo (Donationware)"
+			    data-fr="2.2. Modèle de Soutien (Donationware)"
+			    data-de="2.2. Unterstützungsmodell (Donationware)">
 			</h3>
 			<p data-pt="O <strong>dbPDF</strong> é um software gratuito e livre de anúncios. O desenvolvimento e manutenção do projeto são mantidos através de doações voluntárias dos usuários, sem qualquer obrigatoriedade de pagamento para acesso às funções de leitura."
-			   data-en="<strong>dbPDF</strong> is free software and completely ad-free. The development and maintenance of the project are sustained through voluntary user donations, with absolutely no mandatory payment required to access the reading features.">
+			   data-en="<strong>dbPDF</strong> is free software and completely ad-free. The development and maintenance of the project are sustained through voluntary user donations, with absolutely no mandatory payment required to access the reading features."
+			   data-es="El <strong>dbPDF</strong> es un software gratuito y libre de anuncios. El desarrollo y mantenimiento del proyecto se sostienen mediante donaciones voluntarias de los usuarios, sin ninguna obligatoriedad de pago para acceder a las funciones de lectura."
+			   data-fr="Le <strong>dbPDF</strong> est un logiciel gratuit et sans publicité. Le développement et la maintenance du projet sont assurés grâce aux dons volontaires des utilisateurs, sans aucune obligation de paiement pour accéder aux fonctions de lecture."
+			   data-de="<strong>dbPDF</strong> ist eine kostenlose und werbefreie Software. Die Entwicklung und Pflege des Projekts werden durch freiwillige Spenden der Benutzer finanziert, ohne jegliche Zahlungsverpflichtung für den Zugriff auf die Lese-Funktionen.">
 			</p>
 			
             <h3 data-pt="2.3. Isenção de Responsabilidade"
-			    data-en="2.3. Disclaimer of Liability">
+			    data-en="2.3. Disclaimer of Liability"
+			    data-es="2.3. Exención de Responsabilidad"
+			    data-fr="2.3. Clause de Non-Responsabilité"
+			    data-de="2.3. Haftungsausschluss">
 			</h3>
             <ul>
                 <li data-pt="<strong>Uso dos Documentos:</strong> A responsabilidade pela integridade e backup dos arquivos PDF originais é exclusiva do usuário. O software é um visualizador e não deve ser a única ferramenta de custódia de documentos críticos."
-				    data-en="<strong>Document Usage:</strong> Responsibility for the integrity and backup of original PDF files lies exclusively with the user. The software is a viewer and should not be used as the sole means of custody for critical documents.">
+				    data-en="<strong>Document Usage:</strong> Responsibility for the integrity and backup of original PDF files lies exclusively with the user. The software is a viewer and should not be used as the sole means of custody for critical documents."
+				    data-es="<strong>Uso de Documentos:</strong> La responsabilidad por la integridad y copia de seguridad de los archivos PDF originales es exclusiva del usuario. El software es un visualizador y no debe ser la única herramienta de custodia de documentos críticos."
+				    data-fr="<strong>Utilisation des Documents :</strong> La responsabilité de l'intégrité et de la sauvegarde des fichiers PDF originaux incombe exclusivement à l'utilisateur. Le logiciel est un visionneur et ne doit pas être le seul outil de conservation de documents critiques."
+				    data-de="<strong>Nutzung der Dokumente:</strong> Die Verantwortung für die Unversehrtheit und Sicherung der ursprünglichen PDF-Dateien liegt ausschließlich beim Benutzer. Die Software ist ein Viewer und sollte nicht das einzige Werkzeug zur Verwahrung kritischer Dokumente sein.">
 				</li>
                 <li data-pt="<strong>Desempenho:</strong> Embora otimizado para alta performance, a velocidade de abertura pode variar conforme o hardware e a complexidade do arquivo PDF."
-				    data-en="<strong>Performance:</strong> Although optimized for high performance, file loading speeds may vary based on user hardware and the complexity of the PDF file.">
+				    data-en="<strong>Performance:</strong> Although optimized for high performance, file loading speeds may vary based on user hardware and the complexity of the PDF file."
+				    data-es="<strong>Rendimiento:</strong> Aunque está optimizado para un alto rendimiento, la velocidad de apertura puede variar según el hardware y la complejidad del archivo PDF."
+				    data-fr="<strong>Performance :</strong> Bien qu'optimisée pour des performances élevées, la vitesse d'ouverture peut varier en fonction du matériel et de la complexité du fichier PDF."
+				    data-de="<strong>Leistung:</strong> Obwohl für hohe Leistung optimiert, kann die Ladegeschwindigkeit je nach Hardware und Komplexität der PDF-Datei variieren.">
 				</li>
             </ul>
 
             <h3 data-pt="2.4. Propriedade Intelectual"
-			    data-en="2.4. Intellectual Property">
+			    data-en="2.4. Intellectual Property"
+			    data-es="2.4. Propiedad Intelectual"
+			    data-fr="2.4. Propriété Intellectuelle"
+			    data-de="2.4. Geistiges Eigentum">
 			</h3>
             <p data-pt="O nome dbPDF e a marca DevBrazil são propriedades protegidas. É proibida a redistribuição comercial não autorizada ou modificação do código compilado."
-			   data-en="The dbPDF name and the DevBrazil brand are protected properties. Unauthorized commercial redistribution or modification of the compiled code is strictly prohibited.">
+			   data-en="The dbPDF name and the DevBrazil brand are protected properties. Unauthorized commercial redistribution or modification of the compiled code is strictly prohibited."
+			   data-es="El nombre dbPDF y la marca DevBrazil son propiedades protegidas. Queda prohibida la redistribución comercial no autorizada o la modificación del código compilado."
+			   data-fr="Le nom dbPDF et la marque DevBrazil sont des propriétés protégées. La redistribution commerciale non autorisée ou la modification du code compilé est strictement interdite."
+			   data-de="Der Name dbPDF und die Marke DevBrazil sind geschütztes Eigentum. Die unbefugte kommerzielle Weiterverbreitung oder Änderung des kompilierten Codes ist strengstens untersagt.">
 			</p>
-        </section>
 
-        <footer>
-            &copy; 2026 DevBrazil<br>
-            Engenharia de Software Nativa para Windows
-        </footer>
+			<h3 data-pt="2.5. Modificações nos Termos"
+				data-en="2.5. Modifications to the Terms"
+				data-es="2.5. Modificaciones de los términos"
+				data-fr="2.5. Modifications des conditions"
+				data-de="2.5. Änderungen der Bedingungen"></h3>
+			<p data-pt="Os termos podem ser atualizados e a continuidade do uso implica na aceitação das novas regras."
+			   data-en="The terms may be updated, and continued use implies acceptance of the new rules."
+			   data-es="Los términos pueden ser actualizados y la continuidad en el uso implica la aceptación de las nuevas reglas."
+			   data-fr="Les conditions peuvent être mises à jour, et la poursuite de l'utilisation implique l'acceptation des nouvelles règles."
+			   data-de="Die Bedingungen können aktualisiert werden, und die fortgesetzte Nutzung impliziert die Annahme der neuen Regeln."></p>            
+        </section>
     </div>
 
 </body>
 
 <script>
-	
-	function updateContent() {
+	let currentLang = 'en'; // Variável global de controle
 
+	function updateContent() {
 		document.querySelectorAll('[data-pt]').forEach(el => {
 			const texto = el.getAttribute('data-' + currentLang);
 			if (texto) {
-				// USAR innerHTML para que o navegador processe o <strong>
+				// USAR innerHTML para que o navegador processe as tags HTML como <strong>
 				el.innerHTML = texto;
 			}
 		});
 		
-		// Atualiza placeholders
+		// Atualiza placeholders (caso existam)
 		document.querySelectorAll('[data-placeholder-pt]').forEach(el => {
 			const texto = el.getAttribute('data-placeholder-' + currentLang);
-
 			if (texto) {
 				el.placeholder = texto;
 			}
 		});		
 		
-		// Atualiza o texto do botão de troca
+		// Atualiza o texto do botão de troca ciclicamente
 		document.querySelectorAll('.lang-text').forEach(span => {
-			span.innerText = (currentLang === 'pt') ? 'EN' : 'PT';
+			if (currentLang === 'pt') span.innerText = 'EN';
+			else if (currentLang === 'en') span.innerText = 'ES';
+			else if (currentLang === 'es') span.innerText = 'FR';
+			else if (currentLang === 'fr') span.innerText = 'DE';
+			else span.innerText = 'PT';
 		});
 	}
 
 	function changeLanguage(lang) {	
 		currentLang = lang;
-
-		// Atualiza textos
+		// Atualiza textos na tela
 		updateContent();
-		}
+	}
 	
 	window.onload = function() {
-		// Idioma padrão
+		// Idioma padrão de segurança
 		currentLang = 'en';
 		
-		// Detecta idioma do navegador
+		// Detecta idioma nativo do navegador do usuário
 		const browserLang = navigator.language || navigator.userLanguage;
 		
 		if (browserLang.startsWith('en')) {
 			currentLang = 'en';
+		} else if (browserLang.startsWith('es')) {
+			currentLang = 'es';
+		} else if (browserLang.startsWith('fr')) {
+			currentLang = 'fr';
+		} else if (browserLang.startsWith('de')) {
+			currentLang = 'de';
+		} else if (browserLang.startsWith('pt')) {
+			currentLang = 'pt';
 		}
 		
-		// Verifica URL (?lang=en ou #en)
+		// Verifica parâmetros adicionais na URL (?lang= ou #)
 		checkURLForLanguage();
 		
-		// Atualiza conteúdo
+		// Aplica as strings do idioma selecionado
 		changeLanguage(currentLang);		
 	}
 
-	// Executa assim que o site carregar
+	// Executa a leitura da URL assim que a árvore DOM estiver pronta
     document.addEventListener("DOMContentLoaded", checkURLForLanguage);
 
 	function scrollToSection(id) {
-
 		const element = document.getElementById(id);
-
 		if (element) {
 			element.scrollIntoView({
 				behavior: 'smooth',
@@ -256,19 +365,20 @@
 		}
 	}
 	
-	// Função que lê o idioma da URL
+	// Função interna de leitura de parâmetros da URL estendida
     function checkURLForLanguage() {	
 		const hash = window.location.hash.replace('#', '');		
 		const urlParams = new URLSearchParams(window.location.search);		
 		const langParam = urlParams.get('lang');
 		
-		if (hash === 'en' || hash === 'pt') {		
+		const validLangs = ['en', 'pt', 'es', 'fr', 'de'];
+		
+		if (validLangs.includes(hash)) {		
 			currentLang = hash;		
-		} else if (langParam === 'en' || langParam === 'pt') {		
+		} else if (validLangs.includes(langParam)) {		
 			currentLang = langParam;
 		}		
     }
-	
 </script>
 
 </html>
