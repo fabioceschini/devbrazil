@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>DevBrazil - Page not found</title>
+    <meta name="description" content="The requested page does not exist. Return to DevBrazil or choose a language.">
+    
+    <meta property="og:title" content="Page not found — DevBrazil">
+    <meta property="og:description" content="The requested page does not exist. Return to DevBrazil or choose a language.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://devbrazil.com/404.html">
+    <meta property="og:image" content="https://devbrazil.com/assets/img/devbrazil_logo_256.webp">
+    
+    <link rel="icon" href="images/favicon.png">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Garante que o corpo da página ocupe a altura total da tela */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Transforma o elemento main na estrutura principal da tela */
+        #main[data-page="404"] {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;     /* Centraliza verticalmente */
+            justify-content: center; /* Centraliza horizontalmente */
+        }
+
+        /* Garante o alinhamento dos textos e elementos internos */
+        .not-found {
+            display: flex;
+            flex-direction: column;
+            align-items: center;     /* Centraliza a logo, botão e nav no meio */
+            text-align: center;      /* Centraliza o texto (h1, p, etc.) */
+        }
+
+        /* Espaçamento entre as opções de idiomas */
+        .not-found-langs {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }        
+    </style>
+
+</head>
+<body>
+    <main id="main" data-page="404">
+        <div class="hero">
+            <div class="wrap">
+                <div class="not-found">
+                    <img class="hero-brand" src="images/devbrazil_logo_96.png" alt="DevBrazil">
+                    <p class="eyebrow">Error 404</p>
+                    <h1>Page not found.</h1>
+                    <p class="lede">The page you requested does not exist.</p>
+                    <a class="btn" href="/en/">Return to DevBrazil</a>
+                    <nav class="not-found-langs" aria-label="Languages">
+                        <a href="/pt/">Português</a><a href="/en/">English</a><a href="/es/">Español</a>
+                        <a href="/fr/">Français</a><a href="/de/">Deutsch</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
